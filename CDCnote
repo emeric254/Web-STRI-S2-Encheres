@@ -15,6 +15,7 @@ CDC projet web l2 stri
 -systéme de backup dans l'interface admin
 -historique des action sur une enchére
 -historique des vente
+
 -AJAX/Web socket ( utilisation de Jquery, controle de saisie )
 --notification
 ---enchere supérieurs effectuer
