@@ -1,0 +1,18 @@
+CDC projet web l2 stri
+
+-aficchage des enchére, avec prix vendeur
+-pagee acceuille avec nouveauter
+--vente par région 
+--vente par catégorie
+--
+-systeme de connection et d'inscription
+-gestion de compte
+-diférent type de compte ( acheteur, vendeur, admin )
+-gestion des vente
+-gestion du site
+-gestion user
+-rajout de 15m si moins de 15m restante
+-systéme de backup dans l'interface admin
+-historique des action sur une enchére
+-historique des vente
+
