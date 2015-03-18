@@ -4,7 +4,7 @@ CDC projet web l2 stri
 -pagee acceuille avec nouveauter
 --vente par région 
 --vente par catégorie
---
+-connection pas adresse mail
 -systeme de connection et d'inscription
 -gestion de compte
 -diférent type de compte ( acheteur, vendeur, admin )
@@ -15,10 +15,44 @@ CDC projet web l2 stri
 -systéme de backup dans l'interface admin
 -historique des action sur une enchére
 -historique des vente
--AJAX/Web socket
+-AJAX/Web socket ( utilisation de Jquery, controle de saisie )
 -resposive ( bootstrap)
 -(diaspora) ez?
--
+
+
+INFORMATION D'un compte
+nom
+prenom
+adresse
+mail 
+telephone
+photo de profil facultatif
+commentaire sur un profile
+
+INFORMATION d'une enchere
+titre
+quantité
+description
+catégorie
+prix de départ
+une ou plusieurs photos
+historique de l'enchere
+prix actuel
+temps restant
+état objet
+commentaire sur l'enchére
+
+
+CATEGOrie :
+titre
+description
+
+possibilité de sous catégorie
+
+
+
+
+
 
 spec technique imposé par le sujet :
 -PHP avec objet ( PDO )
