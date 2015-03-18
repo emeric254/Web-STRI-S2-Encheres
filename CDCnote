@@ -18,6 +18,7 @@ CDC projet web l2 stri
 -AJAX/Web socket ( utilisation de Jquery, controle de saisie )
 -resposive ( bootstrap)
 -(diaspora) ez?
+-systeme d'enchere avec un pas. l'orsqu'une enchere est faite le prix afficher est de l'ancien prix + le pas, l'enchere max de l'utilisateurs est retenu.
 
 
 INFORMATION D'un compte
