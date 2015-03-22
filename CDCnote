@@ -1,34 +1,34 @@
 CDC projet web l2 stri
 
--affichage des enchérse, avec prix vendeur
--pagee acceuille avec nouveauter
+-affichage des enchéres, avec prix vendeur
+-page d'accueil avec nouveautés
 --vente par région 
 --vente par catégorie
 -connection pas adresse mail
 -systeme de connection et d'inscription
 -gestion de compte
--diférent type de compte ( acheteur, vendeur, admin )
--gestion des vente
+-différents types de compte ( acheteur, vendeur, admin )
+-gestion des ventes
 -gestion du site
 -gestion user
--rajout de 15m si moins de 15m restante
+-rajout de 15min si moins de 15min restante
 -systéme de backup dans l'interface admin
--historique des action sur une enchére
--historique des vente
-- affichage des enchereenchères en liste et/ou vignettes au choix
+-historique des actions sur une enchére
+-historique des ventes
+- affichage des enchères en liste et/ou vignettes au choix
 -recherche par nom, vendeur, type
 
 
 -AJAX/Web socket ( utilisation de Jquery, controle de saisie )
 --notification
----enchere supérieurs effectuer
----fin d'enchére, où l'on a participer ou si l'on ai vendeur
----nouveau commentaire sur sont profile, ou sur commentaire d'une enchaire ou l'on a commenté
+---enchère supérieurs effectuer
+---fin d'enchére, où l'on a participé ou si l'on est vendeur
+---nouveau commentaire sur sont profil, ou sur commentaire d'une enchère où l'on a commenté
 -responsive ( bootstrap)
 -(diaspora) ez?
--systeme d'enchere avec un pas. l'orsqu'une enchere est faite le prix afficher est de l'ancien prix + le pas, l'enchere max de l'utilisateurs est retenu.
+-systeme d'enchère avec un pas : l'orsqu'une enchère est faite, le prix affiché est de l'ancien prix + le pas, l'enchere max de l'utilisateurs est retenu.
 -suivre un vendeur
--note sur le profile acheteur ou vendeur
+-note sur le profil acheteur ou vendeur
 
 vendeur rentre RIB
 gestion des payment par affichage du rib, et validation du payment par l'acheteur.
@@ -42,7 +42,7 @@ adresse
 mail 
 telephone
 photo de profil facultatif
-commentaire sur un profile
+commentaire sur un profil
 
 INFORMATION d'une enchere
 titre
@@ -60,7 +60,7 @@ lieu
 méthode de livraison
 
 
-CATEGOrie :
+CATEGORIES :
 titre
 description
 
