@@ -9,48 +9,48 @@
 ##Fonctionnalités
 
 ###Modules/sous-parties du site (et leurs fonctionnalités)
--page d'accueil avec nouveautés
--inscription
--connexion
--gestion de compte
--gestion des ventes
--gestion du site
--gestion utilisateurs
--système de backup dans l'interface administrateur
--commentaires
--note sur profil utilisateur
--suivre un vendeur
--historique des actions sur une enchère
--historique des ventes
--affichage des enchères en liste et/ou vignettes au choix
--recherche par nom, vendeur, type, ...
--affichage des enchères, avec prix, vendeur
+- page d'accueil avec nouveautés
+- inscription
+- connexion
+- gestion de compte
+- gestion des ventes
+- gestion du site
+- gestion utilisateurs
+- système de backup dans l'interface administrateur
+- commentaires
+- note sur profil utilisateur
+- suivre un vendeur
+- historique des actions sur une enchère
+- historique des ventes
+- affichage des enchères en liste et/ou vignettes au choix
+- recherche par nom, vendeur, type, ...
+- affichage des enchères, avec prix, vendeur
 
 ###Croquis illustrant certaines pages
 
 ###Droits relatifs à ces fonctionnalités et accès des profils/rôles d’utilisateur à ces droits
-inconnus
--inscription
+- inconnus
+    - inscription
 
-utilisateurs
--connexion
--gestion de compte
--commentaires
--note sur profil utilisateur
--suivre un vendeur
--historique des actions sur une enchère
--historique des ventes
--affichage des enchères en liste et/ou vignettes au choix
--recherche par nom, vendeur, type, ...
--affichage des enchères, avec prix, vendeur
+- utilisateurs
+    - connexion
+    - gestion de compte
+    - commentaires
+    - note sur profil utilisateur
+    - suivre un vendeur
+    - historique des actions sur une enchère
+    - historique des ventes
+    - affichage des enchères en liste et/ou vignettes au choix
+    - recherche par nom, vendeur, type, ...
+    - affichage des enchères, avec prix, vendeur
 
-vendeur
--gestion des ventes
+- vendeur
+    - gestion des ventes
 
-administrateur
--gestion du site
--gestion utilisateurs
--système de backup dans l'interface administrateur
+- administrateur
+    - gestion du site
+    - gestion utilisateurs
+    - système de backup dans l'interface administrateur
 
 ##Contraintes
 
