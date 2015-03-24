@@ -45,9 +45,11 @@
     - affichage des enchères, avec prix, vendeur
 
 - vendeur
+    - tout les droits utilisateur
     - gestion des ventes
 
 - administrateur
+    - tout les droits d'un vendeur
     - gestion du site
     - gestion utilisateurs
     - système de backup dans l'interface administrateur
