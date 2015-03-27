@@ -5,6 +5,17 @@
 ##Exemple de systèmes comparables
 
 ##Profils/rôles d’utilisateurs
+###inconnu
+C'est un visiteur non authentifié sur le site, il peut s'inscrire, ou s'il a déjà un compte, se connecter pour devenir un *utilisateur*.
+
+###utilisateur
+C'est un utilisateur lambda, connecté et donc authentifié grâce a un compte valide.
+
+###vendeur
+C'est un *utilisateur* qui peut vendre. Il gagne ce droit après validation de son compte par un *administrateur*.
+
+###administrateur
+C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les pouvoirs sur le site.
 
 ##Fonctionnalités
 
@@ -45,14 +56,18 @@
     - affichage des enchères, avec prix, vendeur
 
 - vendeur
-    - tout les droits utilisateur
-    - gestion des ventes
+    - tout les droits d'utilisateur
+    - gestion de ses ventes
 
 - administrateur
     - tout les droits d'un vendeur
-    - gestion du site
     - gestion utilisateurs
+    - gestion vendeurs
+    - gestion ventes
+    - gestion commentaires
+    - gestion historiques
     - système de backup dans l'interface administrateur
+    - gestion totale du site
 
 ##Contraintes
 
