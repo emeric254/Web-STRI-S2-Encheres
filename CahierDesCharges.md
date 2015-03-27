@@ -3,18 +3,37 @@
 ##Introduction/présentation
 
 ##Exemple de systèmes comparables
+###Sites existants
+- Ebay
+
+###CMS e-commerce
+- Open-Sources
+    - https://www.prestashop.com/
+    - http://www.seotoaster.com/
+    - http://www.oscmax.com/
+    - http://alegrocart.com/
+    - http://www.zen-cart.com/
+    - http://www.opencart.com/
+    - https://onxshop.com/
+    - http://www.oscommerce.com/
+    - http://magento.com/
+
+- Autres
+    - https://www.phpprobid.com/
+    - https://www.bigcommerce.com/
+
 
 ##Profils/rôles d’utilisateurs
-###inconnu
+###Inconnu
 C'est un visiteur non authentifié sur le site, il peut s'inscrire, ou s'il a déjà un compte, se connecter pour devenir un *utilisateur*.
 
-###utilisateur
+###Utilisateur
 C'est un utilisateur lambda, connecté et donc authentifié grâce a un compte valide.
 
-###vendeur
+###Vendeur
 C'est un *utilisateur* qui peut vendre. Il gagne ce droit après validation de son compte par un *administrateur*.
 
-###administrateur
+###Administrateur
 C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les pouvoirs sur le site.
 
 ##Fonctionnalités
