@@ -89,6 +89,14 @@ C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les p
     - gestion totale du site
 
 ##Contraintes
+###Techniques
+- PHP
+- PostgreSQL
+- JavaScript
+- HTML
+- CSS
+
+###Autres
 
 ##Scénario d’utilisation
 
@@ -156,12 +164,6 @@ possibilité de sous catégorie
 
 
 
-spec technique imposé par le sujet :
--PHP avec objet ( PDO )
--postgreSQL
--js
--html
--css
 
 
 
