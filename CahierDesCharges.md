@@ -1,5 +1,4 @@
-#Cahier des charges
-#Plateforme d'enchère distribuées
+#Cahier des charges<br/>Plateforme d'enchère distribuées
 
 Groupe :
 * Guillaume Boulic
