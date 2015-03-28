@@ -1,6 +1,12 @@
 #Cahier des charges
 #Plateforme d'enchère distribuées
 
+Groupe :
+* Guillaume Boulic
+* Robin Degironde
+* Thomas Maury
+* Emeric Tosi
+* Rémi Barbaste
 
 ##Introduction
 Nous souhaitons réaliser une plateforme d'enchère distribuée dans laquelle il sera possible à des particuliers de mettre en vente des produits au enchères. Ce document est réalisé afin de renseigner l'ensemble des fonctionnalités et contraintes qui devront être prise en compte lors de la réalisation de ce projet.
@@ -117,7 +123,7 @@ Afin de mettre en vente un objet, il faut être identifié et être reconnu comm
 
 ###Enchérir sur un objet
 
-
+Une fois l'enchère sélectionnée, pour enchérir, il faut être identifié. Il suffit ensuite de saisir le prix que l'on souhaite mettre sur le produit et de valider pour que l'enchère soit prise en compte.
 
 
 
