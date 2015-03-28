@@ -105,16 +105,12 @@ Echéancier :
 
 ##Scénario d’utilisation
 
-
-
-
-
--affichage des enchères, avec prix, vendeur
---vente par région
---vente par catégorie
--connexion pas adresse mail
--différents types de compte ( acheteur, vendeur, admin )
--rajout de 15min si moins de 15min restante
+- affichage des enchères, avec description, prix, vendeur
+-- vente par région
+-- vente par catégorie
+- connexion pas adresse mail
+- différents types de compte ( acheteur, vendeur, admin )
+- rajout de 15min si moins de 15min restante
 
 
 -AJAX/Web socket ( utilisation de Jquery, contrôle de saisie )
