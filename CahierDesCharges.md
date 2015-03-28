@@ -105,12 +105,16 @@ Echéancier :
 
 ##Scénario d’utilisation
 
-- affichage des enchères, avec description, prix, vendeur
--- vente par région
--- vente par catégorie
-- connexion pas adresse mail
-- différents types de compte ( acheteur, vendeur, admin )
-- rajout de 15min si moins de 15min restante
+
+
+
+
+-affichage des enchères, avec description, prix, vendeur
+--vente par région
+--vente par catégorie
+-connexion pas adresse mail
+-différents types de compte ( acheteur, vendeur, admin )
+-rajout de 15min si moins de 15min restante
 
 
 -AJAX/Web socket ( utilisation de Jquery, contrôle de saisie )
@@ -130,13 +134,13 @@ gestion des paiement par affichage du rib, et validation du paiement par l'achet
 
 
 
-INFORMATION D'un compte
+INFORMATION d'un compte
 nom
 prenom
 adresse
 mail
-telephone
-photo de profil facultatif
+téléphone
+photo de profil (facultative)
 commentaire sur un profil
 
 
@@ -147,11 +151,11 @@ description
 catégorie
 prix de départ
 une ou plusieurs photos
-historique de l'enchere
+historique de l'enchère
 prix actuel
 temps restant
 état objet
-commentaire sur l'enchére
+commentaire sur l'enchère
 lieu
 méthode de livraison
 
@@ -160,7 +164,7 @@ CATEGORIES :
 titre
 description
 
-possibilité de sous catégorie
+possibilité de sous-catégorie
 
 
 
