@@ -99,9 +99,9 @@ C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tous les p
 
 ###Autres
 Echéancier :
-	- Cahier des charges : dimanche 29 mars 2015
-	- Dossier de conception : jeudi 30 avril 2015
-	- Developpement : jusqu'au mois de mai
+- Cahier des charges : dimanche 29 mars 2015
+- Dossier de conception : jeudi 30 avril 2015
+- Developpement : jusqu'au mois de mai
 
 ##Scénario d’utilisation
 
