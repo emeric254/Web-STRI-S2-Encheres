@@ -1,7 +1,9 @@
 #Cahier des charges
+#Plateforme d'enchère distribuées
+
 
 ##Introduction
-
+Nous souhaitons réaliser une plateforme d'enchère distribuée dans laquelle il sera possible à des particuliers de mettre en vente des produits au enchères. Ce document est réalisé afin de renseigner l'ensemble des fonctionnalités et contraintes qui devront être prise en compte lors de la réalisation de ce projet.
 
 ##Exemple de systèmes comparables
 ###Sites existants
