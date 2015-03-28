@@ -6,7 +6,7 @@
 Nous souhaitons réaliser une plateforme d'enchère distribuée dans laquelle il sera possible à des particuliers de mettre en vente des produits au enchères. Ce document est réalisé afin de renseigner l'ensemble des fonctionnalités et contraintes qui devront être prise en compte lors de la réalisation de ce projet.
 
 ##Exemple de systèmes comparables
-###Sites existants
+###Site(s) existant(s)
 - Ebay
 
 ###CMS e-commerce
@@ -106,6 +106,16 @@ Echéancier :
 - Developpement : jusqu'au mois de mai
 
 ##Scénario d’utilisation
+
+###Création d'un nouveau compte
+
+L'utilisateur commence par saisir les informations utiles afin de créer son compte, comme par exemple son adresse mail, son nom, son prenom, son mot de passe... puis une fois les informations vérifiée (comme le fait que l'adresse mail n'est pas déjà utilisée), l'utilisateur peut déposer une enchère sur une des ventes existante.
+
+###Mise en vente d'un objet
+
+Afin de mettre en vente un objet, il faut être identifié et être reconnu comme vendeur. Ensuite il y a un formulaire à remplir dans lequel on renseigne par exemple un nom, une description, des photographies, le prix de départ, le pas de l'enchère, la durée... 
+
+###Enchérir sur un objet
 
 
 
