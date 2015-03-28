@@ -33,7 +33,7 @@ Nous souhaitons réaliser une plateforme d'enchère distribuée dans laquelle il
 
 ##Profils/rôles d’utilisateurs
 ###Inconnu
-C'est un visiteur non authentifié sur le site, il peut s'inscrire, ou s'il a déjà un compte, se connecter pour devenir un *utilisateur*.
+C'est un visiteur non authentifié sur le site, il peut s'inscrire, ou s'il a déjà un compte, se connecter pour devenir un *utilisateur*. Il a également la possibilité de consulter le profil d'un utilisateur ou rechercher une vente.
 
 ###Utilisateur
 C'est un utilisateur lambda, connecté et donc authentifié grâce a un compte valide.
@@ -123,6 +123,11 @@ Afin de mettre en vente un objet, il faut être identifié et être reconnu comm
 ###Enchérir sur un objet
 
 Une fois l'enchère sélectionnée, pour enchérir, il faut être identifié. Il suffit ensuite de saisir le prix que l'on souhaite mettre sur le produit et de valider pour que l'enchère soit prise en compte.
+
+
+
+
+
 
 
 
