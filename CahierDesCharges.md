@@ -1,6 +1,7 @@
 #Cahier des charges
 
-##Introduction/présentation
+##Introduction
+
 
 ##Exemple de systèmes comparables
 ###Sites existants
@@ -34,27 +35,27 @@ C'est un utilisateur lambda, connecté et donc authentifié grâce a un compte v
 C'est un *utilisateur* qui peut vendre. Il gagne ce droit après validation de son compte par un *administrateur*.
 
 ###Administrateur
-C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les pouvoirs sur le site.
+C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tous les pouvoirs sur le site. Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
 
 ##Fonctionnalités
 
-###Modules/sous-parties du site (et leurs fonctionnalités)
-- page d'accueil avec nouveautés
-- inscription
-- connexion
-- gestion de compte
-- gestion des ventes
-- gestion du site
-- gestion utilisateurs
-- système de backup dans l'interface administrateur
-- commentaires
-- note sur profil utilisateur
-- suivre un vendeur
-- historique des actions sur une enchère
-- historique des ventes
-- affichage des enchères en liste et/ou vignettes au choix
-- recherche par nom, vendeur, type, ...
-- affichage des enchères, avec prix, vendeur
+###Modules/Sous-parties du site (et leurs fonctionnalités)
+- Page d'accueil avec affichage des nouveautés
+- Inscription
+- Connexion
+- Gestion du compte
+- Gestion des ventes
+- Gestion du site
+- Gestion d'utilisateurs
+- Système de backup dans l'interface administrateur
+- Commentaires
+- Note associée au profil utilisateur
+- Suivre un vendeur
+- Historique des actions sur une enchère
+- Historique des ventes
+- Affichage des enchères en liste et/ou vignettes au choix
+- Recherche par nom, vendeur, type, ...
+- Affichage des enchères, avec description, prix, vendeur
 
 ###Croquis illustrant certaines pages
 
@@ -64,7 +65,7 @@ C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les p
 
 - utilisateurs
     - connexion
-    - gestion de compte
+    - gestion du compte
     - commentaires
     - note sur profil utilisateur
     - suivre un vendeur
@@ -72,14 +73,14 @@ C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les p
     - historique des ventes
     - affichage des enchères en liste et/ou vignettes au choix
     - recherche par nom, vendeur, type, ...
-    - affichage des enchères, avec prix, vendeur
+    - affichage des enchères, avec description, prix, vendeur
 
 - vendeur
-    - tout les droits d'utilisateur
+    - tous les droits d'utilisateur
     - gestion de ses ventes
 
 - administrateur
-    - tout les droits d'un vendeur
+    - tous les droits d'un vendeur
     - gestion utilisateurs
     - gestion vendeurs
     - gestion ventes
@@ -97,6 +98,10 @@ C'est un *utilisateur* qui en plus de tous les droits de *vendeur*, a tout les p
 - CSS
 
 ###Autres
+Echéancier :
+	- Cahier des charges : dimanche 29 mars 2015
+	- Dossier de conception : jeudi 30 avril 2015
+	- Developpement : jusqu'au mois de mai
 
 ##Scénario d’utilisation
 
