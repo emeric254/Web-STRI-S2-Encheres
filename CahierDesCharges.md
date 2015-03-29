@@ -85,7 +85,7 @@ Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
     - connexion
     - gestion de son compte
     - voir et poster des commentaires
-    - voir et poster des enchères
+    - voir et poster des enchères sur dus ventes
     - voir et poster des notes sur les profils utilisateurs
     - suivre des vendeurs
     - consulter l'historique des actions sur une enchère
