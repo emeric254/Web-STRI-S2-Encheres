@@ -80,6 +80,7 @@ Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
 ###Droits relatifs à ces fonctionnalités et accès des profils/rôles d’utilisateur à ces droits
 - inconnus
     - inscription
+	- voir des enchères
 
 - utilisateurs
     - connexion
