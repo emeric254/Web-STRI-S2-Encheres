@@ -80,23 +80,28 @@ Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
 ###Droits relatifs à ces fonctionnalités et accès des profils/rôles d’utilisateur à ces droits
 - inconnus
     - inscription
+    - recherche par nom, vendeur, type, ...
+    - affichage des enchères en liste et/ou vignettes au choix
+    - affichage des enchères, avec description, prix, vendeur
+    - voir les commentaires
+    - voir les enchères sur des ventes
+    - consulter l'historique des enchères sur les ventes
+    - voir les notes sur les profils utilisateurs
 
 - utilisateurs
+    - tous les droits d'un *inconnu*
     - connexion
     - gestion de son compte
-    - voir et poster des commentaires
-    - voir et poster des enchères sur des ventes
-    - voir et poster des notes sur les profils utilisateurs
+    - poster des commentaires
+    - poster des enchères sur des ventes
+    - poster des notes sur les profils utilisateurs
     - suivre des vendeurs
-    - consulter l'historique des enchères sur les ventes
-    - consulter l'historique des ventes qu'il a effectué
-    - affichage des enchères en liste et/ou vignettes au choix
-    - recherche par nom, vendeur, type, ...
-    - affichage des enchères, avec description, prix, vendeur
+    - consulter l'historique des achats qu'il a effectué
 
 - vendeur
     - tous les droits d'un *utilisateur*
-    - gestion de ses ventes
+    - consulter l'historique des ventes qu'il a effectué
+    - gestion totale de ses ventes
 
 - administrateur
     - tous les droits d'un *vendeur*
