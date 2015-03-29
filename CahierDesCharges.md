@@ -1,12 +1,12 @@
 #Plate-forme d'enchère E-commerce
 #Cahier des charges
-
 Groupe :
-* Rémi Barbaste
-* Guillaume Boulic
-* Robin Degironde
-* Thomas Maury
-* Émeric Tosi
+
+- Rémi Barbaste
+- Guillaume Boulic
+- Robin Degironde
+- Thomas Maury
+- Émeric Tosi
 
 
 ##Introduction
