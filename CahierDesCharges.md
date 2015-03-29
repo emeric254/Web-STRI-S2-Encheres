@@ -89,7 +89,7 @@ Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
     - voir les notes sur les profils utilisateurs
 
 - utilisateurs
-    - tous les droits d'un *inconnu*
+    - tous les droits d'un *inconnu* (sauf *incription*)
     - connexion
     - gestion de son compte
     - poster des commentaires
