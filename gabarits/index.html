@@ -9,7 +9,7 @@
         <title>STRI DEAL</title>
         <link rel="icon" href="../PHP/favicon.ico">
         <link href="../PHP/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../PHP/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </head>
 
     <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px;">
@@ -18,37 +18,56 @@
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">
-                  <i class="fa fa-home fa-fw"></i>
-                  &nbsp; STRIDEAL
-              </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-shopping-cart"></i>
+                    &nbsp; STRIDEAL
+                </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="#"> <i class="fa fa-comments "></i>&nbsp; Contact</a></li>
-                <li>
-                </li>
-              </ul>
-
-                <form class="nav navbar-form navbar-right" action="#" role="search">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="email-icon">@</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-describedby="email-icon">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="password-icon">#</span>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" aria-describedby="password-icon">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-default">Connexion</button>
-                </form>
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info-circle"></i>
+                            &nbsp; Contact
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+                <ul class="nav navbar-form navbar-right nav-pills">
+<li role="presentation" class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+Se connecter  <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+...
+</ul>
+</li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Se connecter <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <form class="" action="#" role="search">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="email-icon">@</span>
+                                    <input type="text" class="form-control" placeholder="Username" aria-describedby="email-icon">
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="password-icon">#</span>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" aria-describedby="password-icon">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default">Connexion</button>
+                        </form>
+                    </ul>
+                </ul>
             </div>
           </div>
         </nav>
