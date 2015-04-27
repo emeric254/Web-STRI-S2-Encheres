@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="connecte.html">
+                        <a href="connexion.html">
                             <i class="fa fa-sign-in"></i>
                             Connexion
                         </a>
@@ -79,24 +79,45 @@
 			
 			<!-- Formulaire -->
 			<form class="form-signin" action="connecte.html">
-				<h2 class="form-signin-heading">
-					Veuillez saisir vos identifiants
-				</h2>
-				
-				<!-- Email -->
-				<label for="inputEmail" class="sr-only">
-					Adresse Email
-				</label>
-				<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-				
-				<!-- Password -->
-				<label for="inputPassword" class="sr-only">
-					Mot de passe
-				</label>
-				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-				
-				<!-- Submit -->
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+				<div class="jumbotron">
+					<h2 class="form-signin-heading">
+						Veuillez saisir vos identifiants
+					</h2>
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+						
+						<!-- Email -->
+						<div class="col-lg-6">
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">
+									@
+								</span>
+								<label for="inputEmail" class="sr-only">
+									Adresse Email
+								</label>
+								<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+							</div>
+						</div>
+					
+						<!-- Password -->
+						<div class="col-lg-6">
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">
+									#
+								</span>
+								<label for="inputPassword" class="sr-only">
+									Mot de passe
+								</label>
+								<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+							</div>
+						</div>
+						
+					</div>
+					
+					<!-- Submit -->
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+					
+				</div>
 			</form>
             
         </div>
