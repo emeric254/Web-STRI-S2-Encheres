@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Émeric Tosi">
+        <meta name="description" content="yolo">
+        <title>STRIDEAL</title>
+        <link rel="icon" href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/favicon.ico">
+        <!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+
+    <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px; min-width: 240px;">
+
+        <!-- barre de menu -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <i class="fa fa-shopping-cart"></i>
+                    &nbsp; STRIDEAL
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            Recherche
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-newspaper-o"></i>
+                            Tendance
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-form navbar-right nav-pills">
+                    <li>
+                        <a href="inscription.html">
+                            <i class="fa fa-smile-o"></i>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="connecte.html">
+                            <i class="fa fa-sign-in"></i>
+                            Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <!-- Titre -->
+        <div class="jumbotron">
+            <div class="container theme-showcase" role="main" >
+                <p class="text-center">
+                    <img class="img-thumbnail" src="./banniere.jpg" alt="banniere">
+                </p>
+            </div>
+        </div>
+        
+        <!-- Contenu -->
+        <div class="container">
+			
+			<!-- Formulaire -->
+			<form class="form-signin" action="connecte.html">
+				<h2 class="form-signin-heading">
+					Veuillez saisir vos identifiants
+				</h2>
+				
+				<!-- Email -->
+				<label for="inputEmail" class="sr-only">
+					Adresse Email
+				</label>
+				<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				
+				<!-- Password -->
+				<label for="inputPassword" class="sr-only">
+					Mot de passe
+				</label>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				
+				<!-- Submit -->
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+			</form>
+            
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer" style="position: absolute; bottom: 0; width: 100%; height: 30px; background-color: #d0d0d0;">
+            <div class="container">
+                <p class="pull-left">
+                    <span class="label">
+                        <a href="/apropos.html">
+                            <i class="fa fa-info-circle"></i>
+							&nbsp;
+                            À propos de <em>STRIDEAL</em>, publié sous license <em>GNU General Public License v2</em>
+                        </a>
+                    </span>
+                </p>
+                <p class="pull-right">
+                    <span class="label label-info">
+                        <a href="#">
+                            <i class="fa fa-chevron-circle-up"></i>
+                            Retour en haut
+                        </a>
+                    </span>
+                </p>
+            </div>
+        </footer>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
