@@ -139,7 +139,20 @@
 								<input type="password" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
 							</div>
 						</div>
-					
+						
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-sm-5">
+									<label class="form-label">Complexité</label>
+								</div>
+								<div class="col-sm-7">
+									<div id="progress-bar-container">
+											
+									</div>
+								</div>
+							</div>
+						</div>
+							
 					</div>
 					
 				</div>
@@ -190,7 +203,7 @@
 							<label for="inputPhoto" class="sr-only">
 								Photo
 							</label>
-							<input type="file" id="inputPhoto" placeholder="Photo" required autofocus>
+							<input type="file" id="inputPhoto" required autofocus>
 						</div>
 					
 					</div>
@@ -283,9 +296,30 @@
             </div>
         </footer>
 
+
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!-- Include the plugin's CSS and JS: -->
+		<script type="text/javascript" src="dist/js/password-score.js"></script>
+		<script type="text/javascript" src="dist/js/password-score-options.js"></script>
+		<script type="text/javascript" src="dist/js/bootstrap-strength-meter.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#inputPassword').strengthMeter('progressBar', {
+					container: $('#progress-bar-container')/*,
+					hierarchy: {
+						'0': ['text-danger', ''],
+						'1': ['text-danger', 'mot de passe très faible'],
+						'20': ['text-warning', 'mot de passe faible'],
+						'40': ['text-warning', 'mot de passe moyen'],
+						'60': ['text-success', 'mot de passe bon'],
+						'80': ['text-success', 'mot de passe très bon'],
+						'100': ['text-success', 'mot de passe excellent']
+					}*/
+				});
+			});
+		</script>
     </body>
 </html>

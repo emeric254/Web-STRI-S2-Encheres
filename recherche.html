@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr" style="position: relative; min-height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Émeric Tosi">
+        <meta name="description" content="yolo">
+        <title>STRIDEAL</title>
+        <link rel="icon" href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/favicon.ico">
+        <!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <!-- Font-Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<!-- Include the plugin's CSS : -->
+		<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css">
+    </head>
+
+    <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px; min-width: 240px;">
+
+        <!-- barre de menu -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-shopping-cart"></i>
+                    &nbsp; STRIDEAL
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav nav-pills">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-search"></i>
+                            Recherche
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tendances.html">
+                            <i class="fa fa-fire"></i>
+                            Tendance
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-clock-o"></i>
+                            Instants
+                        </a>
+                    </li>
+                    <li>
+                        <a href="nouveautes.html">
+                            <i class="fa fa-newspaper-o"></i>
+                            Nouveautes
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-form navbar-right nav-pills">
+                    <li>
+                        <a href="inscription.html">
+                            <i class="fa fa-smile-o"></i>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="connexion.html">
+                            <i class="fa fa-sign-in"></i>
+                            Connexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <!-- Titre -->
+        <div class="jumbotron">
+            <div class="container theme-showcase" role="main" >
+                <p class="text-center">
+                    <img class="img-thumbnail" src="./banniere.png" alt="banniere">
+                </p>
+            </div>
+        </div>
+        
+        <!-- Contenu -->
+        <div class="container">
+			
+			<!-- Formulaire -->
+			<form class="form" action="resultat.html">
+				
+				<div class="jumbotron">
+					
+					<h2 class="form-heading">
+						Recherche
+					</h2>
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+						
+						<!-- Mot Clef -->
+						<div class="col-md-6 col-lg-5">
+							<div class="input-group input-group-md">
+								<span class="input-group-addon">
+									fa-search
+								</span>
+								<label for="inputMotClef" class="sr-only">
+									Mot clef
+								</label>
+								<input type="search" id="inputMotClef" class="form-control" placeholder="Mot clef" required autofocus>
+							</div>
+						</div>
+					
+						<!-- Categorie -->
+						<div class="col-md-6 col-lg-4">
+							<div class="input-group input-group-lg">
+								<label for="inputCategorie" class="sr-only">
+									Categorie
+								</label>
+								<select multiple="multiple" id="inputCategorie">
+										<option value="animal">animal</option>
+										<option value="avion">avion</option>
+										<option value="bateau">bateau</option>
+										<option value="meuble">meuble</option>
+										<option value="ordinateur">ordinateur</option>
+										<option value="voiture">voiture</option>
+								</select> 
+							</div>
+						</div>
+						
+					<!-- Submit -->
+					<div class="col-md-12 col-lg-3">
+						<button class="btn btn-md btn-primary btn-block" type="submit">Rechercher</button>
+					</div>
+					
+					</div>
+					
+					
+				</div>
+				
+			</form>
+            
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer" style="position: absolute; bottom: 0; width: 100%; height: 30px; background-color: #d0d0d0;">
+            <div class="container">
+                <p class="pull-left">
+                    <span class="label">
+                        <a href="/apropos.html">
+                            <i class="fa fa-html5"></i>
+							&nbsp;
+                            À propos de <em>STRIDEAL</em>, publié sous license <em>GNU General Public License v2</em>
+                        </a>
+                    </span>
+                </p>
+                <p class="pull-right">
+                    <span class="label label-info">
+                        <a href="#">
+                            <i class="fa fa-chevron-circle-up"></i>
+                            Retour en haut
+                        </a>
+                    </span>
+                </p>
+            </div>
+        </footer>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <!-- Bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!-- Include the plugin's JS: -->
+		<script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
+		<!-- Initialize the plugin: -->
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$('#inputCategorie').multiselect();
+			});
+		</script>
+    </body>
+</html>
