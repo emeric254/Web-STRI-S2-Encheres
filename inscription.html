@@ -88,14 +88,13 @@
 				
 				<div class="jumbotron">
 					
-					<h2 class="form-signin-heading">
-						Veuillez saisir vos identifiants
-					</h2>
-					
 					<div class="row" style="margin-top:10px; margin-bottom:20px;">
 						
-						<!-- Email -->
-						<div class="col-lg-6">
+						<h3>
+							Vos identifiants
+						</h3>
+						
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
 									@
@@ -105,7 +104,9 @@
 								</label>
 								<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 							</div>
+						</div>
 							
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
 									*
@@ -115,68 +116,112 @@
 								</label>
 								<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 							</div>
-							
+						</div>
+					
+					</div>
+					
+				</div>
+				<div class="jumbotron">
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+						
+						<h3>
+							Votre nom
+						</h3>
+						
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
+									<i class="fa fa-users"></i>
 								</span>
 								<label for="inputNom" class="sr-only">
 									Nom
 								</label>
 								<input type="texte" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
 							</div>
+						</div>
 							
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
+									<i class="fa fa-male"></i>
 								</span>
 								<label for="inputPrenom" class="sr-only">
 									Prenom
 								</label>
 								<input type="texte" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
 							</div>
-							
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
-								</span>
-								<label for="inputPhoto" class="sr-only">
-									Photo
-								</label>
-								<input type="texte" id="inputPhoto" class="form-control" placeholder="Photo" required autofocus>
-							</div>
+						</div>
+						
+					</div>
+				
+				</div>
+				<div class="jumbotron">
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+						
+						<h3>
+							Votre photo
+						</h3>
+						
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon">
+								<i class="fa fa-picture-o"></i>
+							</span>
+							<label for="inputPhoto" class="sr-only">
+								Photo
+							</label>
+							<input type="texte" id="inputPhoto" class="form-control" placeholder="Photo" required autofocus>
 						</div>
 					
-						<!-- Password -->
-						<div class="col-lg-6">
+					</div>
+					
+				</div>
+				<div class="jumbotron">
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+						
+						<h3>
+							Votre téléphone
+						</h3>
 							
+						<div class="input-group input-group-lg">
+							<span class="input-group-addon">
+								<i class="fa fa-phone"></i>
+							</span>
+							<label for="inputPhone" class="sr-only">
+								Telephone
+							</label>
+							<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
+						</div>
+					
+					</div>
+					
+				</div>
+				<div class="jumbotron">
+					
+					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+							
+						<h3>
+							Votre adresse
+						</h3>
+						
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
-									#
-								</span>
-								<label for="inputPhone" class="sr-only">
-									Telephone
-								</label>
-								<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
-							</div>
-							
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
+									<i class="fa fa-envelope-o"></i>
 								</span>
 								<label for="inputAdresse" class="sr-only">
 									Adresse Postale
 								</label>
 								<input type="texte" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
 							</div>
+						</div>
 							
+						<div class="col-md-6">
 							<div class="input-group input-group-lg">
 								<span class="input-group-addon">
-								</span>
-								<label for="inputCodePostal" class="sr-only">
-									Code Postal
-								</label>
-								<input type="number" id="inputCodePostal" class="form-control" placeholder="Code Postal" min="0" required autofocus>
-							</div>
-							
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
+									<i class="fa fa-map-marker"></i>
 								</span>
 								<label for="inputVille" class="sr-only">
 									Ville
@@ -186,11 +231,11 @@
 						</div>
 						
 					</div>
+				</div>
 					
 					<!-- Submit -->
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
 					
-				</div>
 				
 			</form>
             
