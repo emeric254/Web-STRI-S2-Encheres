@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Font-Awesome -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<!-- Include the plugin's CSS : -->
+		<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css">
     </head>
 
     <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px; min-width: 240px;">
@@ -55,15 +57,15 @@
                 </ul>
                 <ul class="nav navbar-form navbar-right nav-pills">
                     <li>
-                        <a href="inscription.html">
-                            <i class="fa fa-smile-o"></i>
-                            Inscription
+                        <a href="compte.html">
+                            <i class="fa fa-user"></i>
+                            Compte
                         </a>
                     </li>
                     <li>
-                        <a href="connexion.html">
-                            <i class="fa fa-sign-in"></i>
-                            Connexion
+                        <a href="index.html">
+                            <i class="fa fa-sign-out"></i>
+                            Deconnexion
                         </a>
                     </li>
                 </ul>
@@ -84,51 +86,38 @@
         <div class="container">
 			
 			<!-- Formulaire -->
-			<form class="form-signin" action="connecte.html">
+			<form class="form" action="resultat.html">
 				
 				<div class="jumbotron">
 					
-					<h2 class="form-signin-heading">
-						Veuillez saisir vos identifiants
+					<h2 style="text-align:center;">
+						Rechercher 
 					</h2>
 					
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<ul class="nav nav-pills nav-justified">
+						<li class="active">							
+							<a href="recherche-user.html">
+								<i class="fa fa-search"></i>
+								&nbsp;
+								Utilisateur
+							</a>
+						</li>
 						
-						<!-- Email -->
-						<div class="col-lg-6">
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
-									@
-								</span>
-								<label for="inputEmail" class="sr-only">
-									Adresse Email
-								</label>
-								<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-							</div>
-						</div>
-					
-						<!-- Password -->
-						<div class="col-lg-6">
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
-									*
-								</span>
-								<label for="inputPassword" class="sr-only">
-									Mot de passe
-								</label>
-								<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-							</div>
-						</div>
+						<li>
+						</li>
 						
-					</div>
-					
-					<!-- Submit -->
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
-					
+						<li class="active">											
+							<a href="recherche-vente.html">
+								<i class="fa fa-search"></i>
+								&nbsp;
+								Vente
+							</a>
+						</li>
+					</ul>
 				</div>
-				
+					
+					
 			</form>
-            
         </div>
 
         <!-- Footer -->
@@ -158,5 +147,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!-- Include the plugin's JS: -->
+		<script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
+		<!-- Initialize the plugin: -->
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$('#inputCategorie').multiselect();
+			});
+		</script>
     </body>
 </html>

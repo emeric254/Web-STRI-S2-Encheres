@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Font-Awesome -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<!-- Include the plugin's CSS : -->
+		<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css">
     </head>
 
     <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px; min-width: 240px;">
@@ -84,51 +86,57 @@
         <div class="container">
 			
 			<!-- Formulaire -->
-			<form class="form-signin" action="connecte.html">
+			<form class="form" action="resultat.html">
 				
 				<div class="jumbotron">
 					
-					<h2 class="form-signin-heading">
-						Veuillez saisir vos identifiants
+					<h2 class="form-heading">
+						Recherche d'un produit
 					</h2>
 					
 					<div class="row" style="margin-top:10px; margin-bottom:20px;">
 						
-						<!-- Email -->
-						<div class="col-lg-6">
-							<div class="input-group input-group-lg">
+						<!-- Mot Clef -->
+						<div class="col-sm-7">
+							<div class="input-group input-group-md">
 								<span class="input-group-addon">
-									@
+									<i class="fa fa-search"></i>
 								</span>
-								<label for="inputEmail" class="sr-only">
-									Adresse Email
+								<label for="inputMotClef" class="sr-only">
+									Mot clef
 								</label>
-								<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+								<input type="search" id="inputMotClef" class="form-control" placeholder="Mot clef" required autofocus>
 							</div>
 						</div>
 					
-						<!-- Password -->
-						<div class="col-lg-6">
-							<div class="input-group input-group-lg">
-								<span class="input-group-addon">
-									*
-								</span>
-								<label for="inputPassword" class="sr-only">
-									Mot de passe
+						<!-- Categorie -->
+						<div class="col-sm-3">
+							<div class="input-group input-group-md">
+								<label for="inputCategorie" class="sr-only">
+									Categorie
 								</label>
-								<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+								<!-- <select multiple="multiple" id="inputCategorie"> -->
+								<select id="inputCategorie">
+										<option value="animal">animal</option>
+										<option value="avion">avion</option>
+										<option value="ordinateur">ordinateur</option>
+										<option value="voiture">voiture</option>
+								</select> 
 							</div>
 						</div>
 						
+					<!-- Submit -->
+					<div class="col-sm-2">
+						<button class="btn btn-md btn-primary btn-block" type="submit">Rechercher</button>
 					</div>
 					
-					<!-- Submit -->
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+					</div>
+					
 					
 				</div>
 				
 			</form>
-            
+			
         </div>
 
         <!-- Footer -->
@@ -158,5 +166,14 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<!-- Include the plugin's JS: -->
+		<script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
+		<!-- Initialize the plugin: -->
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$('#inputCategorie').multiselect();
+			});
+		</script>
     </body>
 </html>
