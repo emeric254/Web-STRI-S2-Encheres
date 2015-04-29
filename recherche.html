@@ -13,8 +13,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Font-Awesome -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<!-- Include the plugin's CSS : -->
-		<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css">
     </head>
 
     <body role="document" style="padding-top: 20px; padding-bottom: 20px; margin-bottom: 30px; min-width: 240px;">
@@ -77,8 +75,8 @@
         <div class="jumbotron">
             <div class="container theme-showcase" role="main" >
                 <h1>
-					<i class="fa fa-search"></i>
-					Recherche
+					<i class="fa fa-sign-in"></i>
+					Connexion
                 </h1>
             </div>
         </div>
@@ -87,37 +85,41 @@
         <div class="container">
 			
 			<!-- Formulaire -->
-			<form class="form" action="resultat.html">
+			<form class="form-signin" action="connecte.html">
 				
-				<div class="jumbotron">
-					
-					<ul class="nav nav-pills nav-justified">
-						
-						<li class="active">											
-							<a href="recherche-vente.html">
-								<i class="fa fa-search"></i>
-								&nbsp;
-								Vente
-							</a>
-						</li>
-					</ul>
-				</div>
-						
 						
 				<div class="jumbotron">
-					<ul class="nav nav-pills nav-justified">
-						<li class="active">						
-							<a href="recherche-user.html">
-								<i class="fa fa-search"></i>
-								&nbsp;
-								Utilisateur
-							</a>	
-						</li>
-					</ul>
+						<!-- Email -->
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">
+									@
+								</span>
+								<label for="inputEmail" class="sr-only">
+									Adresse Email
+								</label>
+								<input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+							</div>
 				</div>
 					
+				<div class="jumbotron">
+						<!-- Password -->
+							<div class="input-group input-group-lg">
+								<span class="input-group-addon">
+									*
+								</span>
+								<label for="inputPassword" class="sr-only">
+									Mot de passe
+								</label>
+								<input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+							</div>
+				</div>
+						
 					
+					<!-- Submit -->
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+				
 			</form>
+            
         </div>
 
         <!-- Footer -->
@@ -147,14 +149,5 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-		<!-- Include the plugin's JS: -->
-		<script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
-		<!-- Initialize the plugin: -->
-		<script type="text/javascript">
-			$(document).ready(function()
-			{
-				$('#inputCategorie').multiselect();
-			});
-		</script>
     </body>
 </html>
