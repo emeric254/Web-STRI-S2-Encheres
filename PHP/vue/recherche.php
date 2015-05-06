@@ -13,11 +13,9 @@
         
         <!-- Contenu -->
         <div class="container">
-
 <?php
 //if     
 ?>
-
 			<!-- Formulaire -->
 			<form class="form" action="resultat.html">
 				
@@ -47,11 +45,8 @@
 					</ul>
 				</div>
 			</form>
-
 <?php
-//else     
-?>
-<?php
+//else
 	//if     
 ?>
 			<!-- Formulaire -->
@@ -137,9 +132,7 @@
 				</div>
 			</form>
 <?php
-	//     
-?>
-<?php
+	//
 //     
 ?>
         </div>
