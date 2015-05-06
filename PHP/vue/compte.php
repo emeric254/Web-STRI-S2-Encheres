@@ -117,6 +117,7 @@
 			</div>
 <?php
 	//else
+		//if
 ?>   				
 			<div class="jumbotron">
 				<div class="page-header">
@@ -180,7 +181,86 @@
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="<?php print $enchereMaxVente ?>">
+										<a class="btn btn-default" href="<?php print $enchere ?>">
+											<i class="fa fa-code-fork"></i>
+											Voir
+										</a>
+									</td>
+								</tr>
+<?php
+//
+?>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+<?php
+		//else
+?>
+			<div class="jumbotron">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-sm-6 col-md-6 col-lg-7">
+							<h1>
+								Vos Ventes
+							</h1>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="well">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<td colspan="3">
+										<b>
+											Nom
+										</b>
+									</td>
+									<td>
+										<b>
+											Date
+										</b>
+									</td>
+									<td>
+										<b>
+											Acquerisseur
+										</b>
+									</td>
+									<td>
+										<b>
+											Prix
+										</b>
+									</td>
+									<td>
+										<b>
+											Lien
+										</b>
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+<?php
+//while()
+?>
+								<tr>
+									<td colspan="3">
+										<?php print $nomVente ?>
+									</td>
+									<td>
+										<?php print $dateVente ?>
+									</td>
+									<td>
+										<?php print $encherisseurVente ?>
+									</td>
+									<td>
+										<?php print $enchereMaxVente ?>€
+									</td>
+									<td>
+										<a class="btn btn-default" href="http://google.fr">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
@@ -195,6 +275,7 @@
 				</div>
 			</div>
 <?php
+		//
 	//
 //
 ?>   
