@@ -3,11 +3,9 @@
 ?>        
         <!-- Contenu -->
         <div class="container">
-
 <?php
 //if
-?>        
-						
+?>        			
 			<div class="jumbotron">
 				
 				<h2 style="text-align:center;">
@@ -50,14 +48,9 @@
 					</li>
 				</ul>
 				
-			</div>
-				
-				
+			</div>	
 <?php
 //else
-?>   
-				
-<?php
 	//if
 ?>   				
 			<div class="jumbotron">
@@ -203,10 +196,6 @@
 			</div>
 <?php
 	//
-?>   
-
-<?php
 //
 ?>   
-
         </div>
