@@ -10,82 +10,42 @@
  * >>	historique des ventes
  * 
  * vars
- * //@TODO
+ * $choix (defaut=menu, 1=profil, 2=achats, 3=ventes)
+ * 
+ * profil
+ * > $nomUser
+ * > $prenomUser
+ * > $photoUser
+ * > $mailUser
+ * > $numeroUser
+ * > $adresseUser
+ * 
+ * //@TODO achats
+ * //@TODO ventes
  * 
  */
 ?>        
         <!-- Contenu -->
         <div class="container">
-<?php
-//if
-?>        			
 			<div class="jumbotron">
-				
-				<h2 style="text-align:center;">
-					Mon compte 
-				</h2>
-				
-				<p></p>
-				
-				<ul class="nav nav-pills nav-justified">
-					<li class="active">							
-						<a href="user.html">
-							<i class="fa fa-search"></i>
-							&nbsp;
-							Mon profil
-						</a>
-					</li>
-				</ul>	
-				
-				<p></p>
-				
-				<ul class="nav nav-pills nav-justified">
-					<li class="active">											
-						<a href="user-vente.html">
-							<i class="fa fa-search"></i>
-							&nbsp;
-							Mes Ventes
-						</a>
-					</li>
-				</ul>	
-				
-				<p></p>
-				
-				<ul class="nav nav-pills nav-justified">
-					<li class="active">											
-						<a href="user-historique.html">
-							<i class="fa fa-search"></i>
-							&nbsp;
-							Mes Achats
-						</a>
-					</li>
-				</ul>
-				
-			</div>	
 <?php
-//else
-	//if
-?>   				
-			<div class="jumbotron">
+switch($choix)
+{
+	case 1:	// profil
+?>      		
 				<div class="page-header">
 					<div class="row">
-						
 						<div class="col-sm-6 col-md-6 col-lg-7">
 							<h1>
 								<?php print $nomUser." ".$prenomUser ?>
 							</h1>
 						</div>
-						
-						<div class="col-sm-1 col-md-2 col-lg-2">
-						</div>
-						
+						<div class="col-sm-1 col-md-2 col-lg-2"> </div>
 						<div class="col-sm-5 col-md-4 col-lg-3">
-							<img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $idUser ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+							<img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $photoUser ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
 						</div>
-						
 					</div>
 				</div>
-				
 				<div class="row">
 					<div class="well">
 						<table class="table table-bordered">
@@ -127,12 +87,10 @@
 						</table>
 					</div>
 				</div>
-			</div>
 <?php
-	//else
-		//if
+		break;
+	case 2:	// achats
 ?>   				
-			<div class="jumbotron">
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-6 col-md-6 col-lg-7">
@@ -142,7 +100,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<div class="row">
 					<div class="well">
 						<table class="table table-bordered">
@@ -178,6 +135,7 @@
 							<tbody>
 <?php
 //while()
+/*
 ?>
 								<tr>
 									<td colspan="3">
@@ -201,18 +159,18 @@
 									</td>
 								</tr>
 <?php
+*/
 //
 ?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-			</div>
 			
 <?php
-		//else
+		break;
+	case 3: // ventes
 ?>
-			<div class="jumbotron">
 				<div class="page-header">
 					<div class="row">
 						<div class="col-sm-6 col-md-6 col-lg-7">
@@ -258,6 +216,7 @@
 							<tbody>
 <?php
 //while()
+/*
 ?>
 								<tr>
 									<td colspan="3">
@@ -280,16 +239,52 @@
 									</td>
 								</tr>
 <?php
+*/
 //
 ?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-			</div>
 <?php
-		//
-	//
-//
-?>   
+		break;
+	default	:	// menu
+?>
+				<h2 style="text-align:center;">
+					Mon compte 
+				</h2>
+				<p></p>
+				<ul class="nav nav-pills nav-justified">
+					<li class="active">							
+						<a href="user.html">
+							<i class="fa fa-search"></i>
+							&nbsp;
+							Mon profil
+						</a>
+					</li>
+				</ul>	
+				<p></p>
+				<ul class="nav nav-pills nav-justified">
+					<li class="active">											
+						<a href="user-vente.html">
+							<i class="fa fa-search"></i>
+							&nbsp;
+							Mes Ventes
+						</a>
+					</li>
+				</ul>	
+				<p></p>
+				<ul class="nav nav-pills nav-justified">
+					<li class="active">											
+						<a href="user-historique.html">
+							<i class="fa fa-search"></i>
+							&nbsp;
+							Mes Achats
+						</a>
+					</li>
+				</ul>
+<?php
+} // fin switch
+?>
+			</div>	
         </div>
