@@ -1,7 +1,12 @@
 <?php
-
+/* «navbar.php»
+ * barre de menu sur toutes les pages du site
+ * 
+ * vars
+ * $connecte << represente l'etat de connexion de la personne sur le site, connectee ou non
+ * 
+ */
 ?>
-
         <!-- barre de menu -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
@@ -38,14 +43,11 @@
                         </a>
                     </li>
                 </ul>
-                
                 <ul class="nav navbar-form navbar-right nav-pills">
-                
 <?php
 if($connecte)
 {
 ?>
-
                     <li>
                         <a href="inscription.html">
                             <i class="fa fa-smile-o"></i>
@@ -58,11 +60,9 @@ if($connecte)
                             Connexion
                         </a>
                     </li>
-                    
 <?php
 } else {
 ?>
-
                     <li>
                         <a href="compte.html">
                             <i class="fa fa-user"></i>
@@ -75,13 +75,10 @@ if($connecte)
                             Deconnexion
                         </a>
                     </li>
-
 <?php
 }
 ?>
-                    
                 </ul>
-                
             </div>
           </div>
         </nav>

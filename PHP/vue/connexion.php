@@ -1,5 +1,11 @@
 <?php
-
+/* «connexion.php»
+ * simple formulaire de connexion
+ * 
+ * vars
+ * //@TODO
+ * 
+ */
 ?>
         <!-- Titre -->
         <div class="jumbotron">

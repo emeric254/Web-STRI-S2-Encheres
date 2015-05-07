@@ -1,5 +1,18 @@
 <?php
-
+/* «compte.php»
+ * page qui est le "mon compte" de l'utilisateur
+ * 
+ * se décompose en plusieurs parties
+ * 
+ * >	choix de la page a afficher
+ * >> 	profil de l'utilisateur
+ * >> 	historique des encheres/achats
+ * >>	historique des ventes
+ * 
+ * vars
+ * //@TODO
+ * 
+ */
 ?>        
         <!-- Contenu -->
         <div class="container">

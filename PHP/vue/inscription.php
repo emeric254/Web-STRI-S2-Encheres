@@ -1,5 +1,11 @@
 <?php
-
+/* «inscription.php»
+ * formulaire d'inrcription d'un utilisateur
+ * 
+ * vars
+ * //@TODO
+ * 
+ */
 ?>
         <!-- Titre -->
         <div class="jumbotron">

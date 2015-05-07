@@ -1,5 +1,8 @@
 <?php
-
+/* «entete.php»
+ * debut de toutes les pages du site
+ * 
+ */
 ?>
 <!DOCTYPE html>
 <html lang="fr" style="position: relative; min-height: 100%;">

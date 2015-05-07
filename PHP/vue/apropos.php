@@ -1,4 +1,8 @@
 <?php
+/* «apropos.php»
+ * page infos sur le site
+ * 
+ */
 
 ?>
         <!-- Titre -->
@@ -13,6 +17,9 @@
         <!-- Contenu -->
         <div class="container">
 			<p>
-				On est trop bon !
+				On est trop bon !?
+			</p>
+			<p>
+				Cf. «GNU GPL V2» pour plus d'infos sur la license.
 			</p>
         </div>

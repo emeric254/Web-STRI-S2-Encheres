@@ -1,5 +1,11 @@
 <?php
-
+/* «vente.php»
+ * page affichant les details d'une vente
+ * 
+ * vars
+ * //@TODO
+ * 
+ */
 ?>
 			<div class="jumbotron">
 				<div class="page-header">
