@@ -1,3 +1,4 @@
+<?php
 try {
   $db = new PDO("pgsql:host=localhost;dbname=nom_db", "nom_utilisateur", "mot_de_passe");
   echo 'Connexion OK';
@@ -6,3 +7,4 @@ catch(PDOException $e) {
   $db = null;
   echo 'ERREUR DB: ' . $e->getMessage();
 }
+?>

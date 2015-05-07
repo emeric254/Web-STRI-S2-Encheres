@@ -15,6 +15,8 @@
  * //@TODO commentaires ?
  * 
  */
+session_start();
+include('core/vente.php');
 ?>
 			<div class="jumbotron">
 				<div class="page-header">
