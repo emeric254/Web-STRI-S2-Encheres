@@ -3,7 +3,7 @@
  * barre de menu sur toutes les pages du site
  * 
  * vars
- * $connecte << represente l'etat de connexion de la personne sur le site, connectee ou non
+ * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
  * 
  */
 ?>

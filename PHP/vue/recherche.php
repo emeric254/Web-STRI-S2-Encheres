@@ -11,7 +11,10 @@
  * vars
  * $choix (defaut=menu, 1=utilisateur, 2=vente)
  * 
+ * 
  * //@TODO var predefinie dans champs recherche input ?
+ * 
+ * //@TODO action form a changer
  * 
  */
 ?>   

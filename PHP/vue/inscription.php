@@ -2,8 +2,8 @@
 /* «inscription.php»
  * formulaire d'inrcription d'un utilisateur
  * 
- * vars
- * //@TODO
+ * //@TODO vars si iscription foireuse ?
+ * //@TODO action form a changer
  * 
  */
 ?>

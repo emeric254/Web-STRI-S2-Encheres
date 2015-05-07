@@ -12,13 +12,14 @@
                 </p>
             </div>
         </div>
-        
         <!-- Contenu -->
         <div class="container">
 			<p>
 				On est trop bon !?
 			</p>
 			<p>
-				Cf. «GNU GPL V2» pour plus d'infos sur la license.
+				<a href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/LICENSE">
+					GNU GENERAL PUBLIC LICENSE Version 2
+				</a>
 			</p>
         </div>

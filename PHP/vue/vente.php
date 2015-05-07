@@ -10,7 +10,9 @@
  * $photoVente
  * $descriptionVente
  * 
- * $encherisseursVente
+ * $encherisseursVente (tab des encherisseurs)
+ * 
+ * //@TODO commentaires ?
  * 
  */
 ?>
