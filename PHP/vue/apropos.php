@@ -3,7 +3,6 @@
  * page infos sur le site
  * 
  */
-
 ?>
         <!-- Titre -->
         <div class="jumbotron">

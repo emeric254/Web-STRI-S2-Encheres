@@ -9,7 +9,9 @@
  * >>	rechercher une vente
  * 
  * vars
- * //@TODO
+ * $choix (defaut=menu, 1=utilisateur, 2=vente)
+ * 
+ * //@TODO var predefinie dans champs recherche input ?
  * 
  */
 ?>   
@@ -25,33 +27,9 @@
         <!-- Contenu -->
         <div class="container">
 <?php
-//if     
-?>
-			<!-- Formulaire choix-->
-			<form class="form" action="resultat.html">
-				<div class="jumbotron">
-					<ul class="nav nav-pills nav-justified">
-						<li class="active">											
-							<a href="recherche-vente.html">
-								<i class="fa fa-search"></i>
-								&nbsp;
-								Vente
-							</a>
-						</li>
-						<li><!-- espace entre les deux --></li>
-						<li class="active">						
-							<a href="recherche-user.html">
-								<i class="fa fa-search"></i>
-								&nbsp;
-								Utilisateur
-							</a>	
-						</li>
-					</ul>
-				</div>
-			</form>
-<?php
-//else
-	//if     
+switch($choix)
+{
+	case 1:	// utilisteur
 ?>
 			<!-- Formulaire utilisateur-->
 			<form class="form" action="resultatRechercheProfil.html">
@@ -77,7 +55,8 @@
 				</div>
 			</form>
 <?php
-	//else     
+		break;
+	case 2:	// vente
 ?>
 			<!-- Formulaire vente-->
 			<form class="form" action="resultat.html">
@@ -132,7 +111,33 @@
 				</div>
 			</form>
 <?php
-	//
-//     
+		break;
+	default:	// menu
 ?>
+			<!-- Formulaire choix-->
+			<form class="form" action="resultat.html">
+				<div class="jumbotron">
+					<ul class="nav nav-pills nav-justified">
+						<li class="active">											
+							<a href="recherche-vente.html">
+								<i class="fa fa-search"></i>
+								&nbsp;
+								Vente
+							</a>
+						</li>
+						<li><!-- espace entre les deux --></li>
+						<li class="active">						
+							<a href="recherche-user.html">
+								<i class="fa fa-search"></i>
+								&nbsp;
+								Utilisateur
+							</a>	
+						</li>
+					</ul>
+				</div>
+			</form>
+<?php
+} // fin switch
+
+?>			
         </div>
