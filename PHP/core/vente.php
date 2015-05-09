@@ -12,11 +12,11 @@
  * 
  * $encherisseursVente (tab des encherisseurs)
  * 
- * Generation des requete dans un autre fichier ?
+ * 
  * TODO :
  * Gestion du manque d'id
  */
-include('core/bdd.php');
+include('core/controleur.php')
 if( isset($_GET['id']) and !empty($_GET['id'])) {
 	$id = htmlspecialchars($_GET['id']);
 

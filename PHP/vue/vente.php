@@ -17,7 +17,6 @@
  * Remarque rémi
  * - Erreur dans include('core/vente.php') ?? sur la page web : warning chemin inconnu (car recherche du dossier core à l'intérieur du vue, mettre : '../core/vente.php')
  */
-session_start();
 include('core/vente.php');
 ?>
 			<div class="jumbotron">
