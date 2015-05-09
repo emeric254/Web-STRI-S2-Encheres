@@ -14,8 +14,8 @@
  */
  
  include_once('core/model.php');
- if (isset($_get['mail']) and !empty($_get['mail'])) {
-	$mail=$_get['mail'];
+ if (isset($_GET['mail']) and !empty($_GET['mail'])) {
+	$mail=htmlspecialchars($_GET['mail']);
 	$info=Profil_Info_Compte($mail);
 	$prenomClient = $info['prenomClient'];
 	$nomClient = $info['nomClient'];
