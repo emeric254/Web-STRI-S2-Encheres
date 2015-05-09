@@ -34,4 +34,15 @@ function Vente_Info_General($id) {
 	}
 	return $ret;
 }
+
+function Vente_nb_enchere($id) {
+	$req = "SELECT * FROM encherir WHERE idannonce =?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	$i = 0;
+	while ($donnees_reqExec = $reqExec->fetch()){
+		$i = $i +1;
+	}
+	return $i;
+}
 ?>
