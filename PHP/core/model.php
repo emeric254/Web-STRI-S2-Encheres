@@ -66,10 +66,9 @@ function NavbarCheckInfo($id,$user,$pass) {
  */
 function Profil_Info_Compte($mail) {
 	include('core/bdd.php');
-	$req = "SELECT * FROM utilisateur WHERE emailutilisateur='?';";
+	$req = 'SELECT * FROM utilisateur WHERE emailutilisateur=?';
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($mail));
-	
 	while ($donnees_reqExec = $reqExec->fetch()){
 		$ret['prenomClient'] = $donnees_reqExec['nomutilisateur'];
 		$ret['nomClient'] = $donnees_reqExec['prenomutilisateur'];
