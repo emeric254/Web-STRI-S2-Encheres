@@ -45,4 +45,18 @@ function Vente_nb_enchere($id) {
 	}
 	return $i;
 }
+
+# ----------- Fonction pour la navbar
+
+function NavbarCheckInfo($id,$user,$pass) {
+	$ret = false;
+	$req = "SELECT * FROM utilisateur WHERE idutilisateur='?' AND emailutilisateur='?' AND mdputilisateur='?' ";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id, $user, $pass));
+	while ($donnees_reqExec = $reqExec->fetch()){
+		$ret = true;
+	}
+	return $ret;
+}
+
 ?>
