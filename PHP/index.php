@@ -9,7 +9,7 @@
 		$page="nouveautes"; //page par default
 	}
 	if(file_exists("vue/$page.php")){
-		include_once("vue/$page.php")
+		include_once("vue/$page.php");
 	} else {
 		include_once("vue/404.php"); //page d'erreur'
 	}
