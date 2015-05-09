@@ -7,7 +7,7 @@
  * 
  * 
  */
-include('core/model.php');
+include_once('core/model.php');
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) and isset($_SESSION['user']) and !empty($_SESSION['user']) and isset($_SESSION['pass']) and !empty($_SESSION['pass'])) {
 	$id = htmlspecialchars($_SESSION['id']);
 	$user = htmlspecialchars($_SESSION['user']);

@@ -7,7 +7,7 @@
  * 
  * (Remi) voir si on met une constante pour indiquer le repertoire où sont les pages (style pour pas ecrire href="/vue/recherche.php')
  */
-include('core/navbar.php');
+include_once('core/navbar.php');
 ?>
         <!-- barre de menu -->
         <nav class="navbar navbar-default navbar-fixed-top">

@@ -17,7 +17,7 @@
  * Gestion du manque d'id
  */
 session_start();
-include('core/bdd.php');
+include_once('core/bdd.php');
 
 # -------------- Fonction controleur pour vente.php
 
