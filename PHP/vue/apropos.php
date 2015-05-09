@@ -15,8 +15,17 @@
         <!-- Contenu -->
         <div class="container">
 			<p>
-				On est trop bon !?
+				A faire :
 			</p>
+			<ul>
+				<li> Ajout banniere</li>
+				<li> affichage des infos, style :</li>
+				<ul>
+					<li>conditions generales d'utilisation</li>
+					<li>FAC</li>
+					<li>Contact</li>
+				</ul>
+			</ul>
 			<p>
 				<a href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/LICENSE">
 					GNU GENERAL PUBLIC LICENSE Version 2

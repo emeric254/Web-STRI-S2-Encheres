@@ -36,7 +36,7 @@ if( isset($_GET['id']) and !empty($_GET['id'])) {
 	$req = " "; //Soit l'écrire ici soit récupérer depuis un autre fichier'
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
-	$i = 0:
+	$i = 0;
 	while ($donnees_reqExec = $reqExec->fetch()){
 		$i = $i +1; // possibilité de faire une requete COUNT plutot que de compter le nombre de résulta
 	}

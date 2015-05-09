@@ -5,6 +5,7 @@
  * vars
  * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
  * 
+ * (Remi) voir si on met une constante pour indiquer le repertoire où sont les pages (style pour pas ecrire href="/vue/recherche.php')
  */
 ?>
         <!-- barre de menu -->
@@ -25,19 +26,19 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-pills">
                     <li>
-                        <a href="recherche.html">
+                        <a href="/vue/recherche.php">
                             <i class="fa fa-search"></i>
                             Recherche
                         </a>
                     </li>
                     <li>
-                        <a href="tendances.html">
+                        <a href="/vue/tendance.php">
                             <i class="fa fa-fire"></i>
                             Tendance
                         </a>
                     </li>
                     <li>
-                        <a href="nouveautes.html">
+                        <a href="/vue/nouveautes.php">
                             <i class="fa fa-newspaper-o"></i>
                             Nouveautes
                         </a>
@@ -49,13 +50,13 @@ if($connecte)
 {
 ?>
                     <li>
-                        <a href="inscription.html">
+                        <a href="/vue/inscription.php">
                             <i class="fa fa-smile-o"></i>
                             Inscription
                         </a>
                     </li>
                     <li>
-                        <a href="connexion.html">
+                        <a href="/vue/connexion.php">
                             <i class="fa fa-sign-in"></i>
                             Connexion
                         </a>
@@ -64,13 +65,13 @@ if($connecte)
 } else {
 ?>
                     <li>
-                        <a href="compte.html">
+                        <a href="/vue/compte.php">
                             <i class="fa fa-user"></i>
                             Compte
                         </a>
                     </li>
                     <li>
-                        <a href="index.html">
+                        <a href="index.php">
                             <i class="fa fa-sign-out"></i>
                             Deconnexion
                         </a>
