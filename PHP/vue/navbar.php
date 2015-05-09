@@ -7,6 +7,7 @@
  * 
  * (Remi) voir si on met une constante pour indiquer le repertoire où sont les pages (style pour pas ecrire href="/vue/recherche.php')
  */
+include('core/navbar.php');
 ?>
         <!-- barre de menu -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -50,21 +51,6 @@ if($connecte)
 {
 ?>
                     <li>
-                        <a href="/vue/inscription.php">
-                            <i class="fa fa-smile-o"></i>
-                            Inscription
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/vue/connexion.php">
-                            <i class="fa fa-sign-in"></i>
-                            Connexion
-                        </a>
-                    </li>
-<?php
-} else {
-?>
-                    <li>
                         <a href="/vue/compte.php">
                             <i class="fa fa-user"></i>
                             Compte
@@ -74,6 +60,21 @@ if($connecte)
                         <a href="index.php">
                             <i class="fa fa-sign-out"></i>
                             Deconnexion
+                        </a>
+                    </li>
+<?php
+} else {
+?>
+                    <li>
+                        <a href="/vue/inscription.php">
+                            <i class="fa fa-smile-o"></i>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/vue/connexion.php">
+                            <i class="fa fa-sign-in"></i>
+                            Connexion
                         </a>
                     </li>
 <?php
