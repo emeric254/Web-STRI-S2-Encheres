@@ -47,24 +47,8 @@ include('core/navbar.php');
                 </ul>
                 <ul class="nav navbar-form navbar-right nav-pills">
 <?php
-var_dump($connecte);
-if($connecte==TRUE)
+if($connecte)
 {
-?>
-                    <li>
-                        <a href="/vue/inscription.php">
-                            <i class="fa fa-smile-o"></i>
-                            Inscription
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/vue/connexion.php">
-                            <i class="fa fa-sign-in"></i>
-                            Connexion
-                        </a>
-                    </li>
-<?php
-} else {
 ?>
                     <li>
                         <a href="/vue/compte.php">
@@ -76,6 +60,21 @@ if($connecte==TRUE)
                         <a href="index.php">
                             <i class="fa fa-sign-out"></i>
                             Deconnexion
+                        </a>
+                    </li>
+<?php
+} else {
+?>
+                    <li>
+                        <a href="/vue/inscription.php">
+                            <i class="fa fa-smile-o"></i>
+                            Inscription
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/vue/connexion.php">
+                            <i class="fa fa-sign-in"></i>
+                            Connexion
                         </a>
                     </li>
 <?php

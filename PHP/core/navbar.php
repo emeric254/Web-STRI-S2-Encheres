@@ -38,6 +38,5 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) and isset($_SESSION['user'
 } else {
 	$connecte = FALSE;
 }
-echo "blbl result $connecte blbl";
-var_dump($connecte);
+
 ?>
