@@ -16,7 +16,7 @@
  * TODO :
  * Gestion du manque d'id
  */
-include('core/controleur.php')
+include('core/model.php')
 if( isset($_GET['id']) and !empty($_GET['id'])) {
 	$id = htmlspecialchars($_GET['id']);
 	$info = Vente_Info_General($id);
