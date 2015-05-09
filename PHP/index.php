@@ -1,5 +1,5 @@
-
 <?php
+	include("core/model.php");
 	include("vue/entete.php");
 	
 	include("vue/navbar.php");

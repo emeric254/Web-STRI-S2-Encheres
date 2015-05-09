@@ -17,11 +17,12 @@
  * Gestion du manque d'id
  */
 session_start();
-include_once('core/bdd.php');
+include('core/bdd.php');
 
 # -------------- Fonction controleur pour vente.php
 
 function Vente_Info_General($id) {
+	include('core/bdd.php');
 	$req = "SELECT * FROM annonce WHERE idannonce=?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
@@ -36,6 +37,7 @@ function Vente_Info_General($id) {
 }
 
 function Vente_nb_enchere($id) {
+	include('core/bdd.php');
 	$req = "SELECT * FROM encherir WHERE idannonce =?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
@@ -49,6 +51,7 @@ function Vente_nb_enchere($id) {
 # ----------- Fonction pour la navbar
 
 function NavbarCheckInfo($id,$user,$pass) {
+	include('core/bdd.php');
 	$ret = false;
 	$req = "SELECT * FROM utilisateur WHERE idutilisateur='?' AND emailutilisateur='?' AND mdputilisateur='?' ";
 	$reqExec = $db->prepare($req);
