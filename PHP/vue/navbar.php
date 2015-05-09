@@ -47,7 +47,8 @@ include('core/navbar.php');
                 </ul>
                 <ul class="nav navbar-form navbar-right nav-pills">
 <?php
-if($connecte)
+var_dump($connecte);
+if($connecte==TRUE)
 {
 ?>
                     <li>

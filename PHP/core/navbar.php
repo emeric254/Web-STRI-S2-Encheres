@@ -13,9 +13,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) and isset($_SESSION['user'
 	$user = htmlspecialchars($_SESSION['user']);
 	$pass = htmlspecialchars($_SESSION['pass']);
 	if(NavbarCheckInfo($id,$user,$pass)){
-		$connecte = true;
+		$connecte = TRUE;
 	} else {
-		$connecte = false;
+		$connecte = FALSE;
 		unset($_SESSION['id']);
 		unset($_SESSION['user']);
 		unset($_SESSION['pass']);
@@ -25,17 +25,19 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) and isset($_SESSION['user'
 	$user = htmlspecialchars($_COOKIE['user']);
 	$pass = htmlspecialchars($_COOKIE['pass']);
 	if(NavbarCheckInfo($id,$user,$pass)){
-		$connecte = true;
+		$connecte = TRUE;
 		$_SESSION['id'];
 		$_SESSION['user'];
 		$_SESSION['pass'];
 	} else {
-		$connecte = false;
+		$connecte = FALSE;
 		unset($_COOKIE['id']);
 		unset($_COOKIE['user']);
 		unset($_COOKIE['pass']);
 	}
 } else {
-	$connecte = false;
+	$connecte = FALSE;
 }
+echo "blbl result $connecte blbl";
+var_dump($connecte);
 ?>
