@@ -16,8 +16,11 @@
  * TODO :
  * Gestion du manque d'id
  */
+ 
 include_once('core/model.php');
-if( isset($_GET['id']) and !empty($_GET['id'])) {
+
+if( isset($_GET['id']) and !empty($_GET['id']))
+{
 	$id = htmlspecialchars($_GET['id']);
 	$info = Vente_Info_General($id);
 	$titreVente = $info['titreVente'];
@@ -26,7 +29,20 @@ if( isset($_GET['id']) and !empty($_GET['id'])) {
 	$photoVente = $info['photoVente'];
 	$descriptionVente = $info['descriptionVente'];
 	$nbEnchereVente=Vente_nb_enchere($id);
-} else {
+	
+	// test si valide
+	//if(venteexiste) {
+		include_once('vue/vente.php');
+	//}
+	//else
+	//{
+	//	messageErreur="vente introuvable ou non valide..."
+	//	include_once('vue/erreur.php');
+	//}
+}
+else
+{
  //TODO Si le code arrive ici c'est que l'id de l"enchere n'est pas renseigné probablement avec un header location
+ // include_once('vue/erreur.php');
 }
 ?>
