@@ -24,7 +24,7 @@
 		if (isset($_GET['errMsg']) and !empty($_GET['errMsg'])) {
 			$errMsg = htmlspecialchars($_GET['errMsg']);
 		}	
-		include_once("core/erreur.php"); //page d'erreur'
+		include_once("vue/erreur.php"); //page d'erreur'
 	}
 	
 	include("vue/footer.php");
