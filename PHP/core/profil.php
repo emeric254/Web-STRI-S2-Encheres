@@ -11,7 +11,7 @@
  *
  * TODO :
  * Manque peut etre des infos a afficher
- * 
+ * GESTION ERREUR
  */
  
  include_once('core/model.php');
