@@ -74,4 +74,24 @@ function NavbarCheckInfo($id,$user,$pass)
 	return $ret;
 }
 
+# ----------- Fonction pour l'affichage d'un profil utilisateur
+/* remi :
+ * est-ce correct d'utiliser le while vu qu'on recupere qu'un seul profil ?
+ * dans le execute, est-ce qu'il faut mettre array($info) ?
+ */
+function Profil_Info_Compte($mail) {
+	include('core/bdd.php');
+	$req = 'SELECT * FROM utilisateur WHERE emailutilisateur=?';
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($mail));
+	while ($donnees_reqExec = $reqExec->fetch()){
+		$ret['prenomClient'] = $donnees_reqExec['nomutilisateur'];
+		$ret['nomClient'] = $donnees_reqExec['prenomutilisateur'];
+		$ret['mail'] = $donnees_reqExec['emailutilisateur'];
+		$ret['numeroTelephone'] = $donnees_reqExec['telephoneutilisateur'];
+		$ret['adresse'] = $donnees_reqExec['adresseutilisateur'];
+	}
+	
+	return $ret;
+}
 ?>
