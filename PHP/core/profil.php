@@ -27,4 +27,5 @@
  //TODO  l'utilisateur recherche n'existe pas
  
  }
+include('vue/profil.php')
  ?>
