@@ -21,7 +21,7 @@
         <!-- Contenu -->
         <div class="container">
 			<!-- Formulaire -->
-			<form class="form-signin" action="core/traitementInscription.php">
+			<form method="POST" class="form-signin" action="core/traitementInscription.php">
 				<div class="jumbotron">
 					<div class="row" style="margin-top:10px; margin-bottom:20px;">
 						<h3>
@@ -34,7 +34,7 @@
 							<label for="inputEmail" class="sr-only">
 								Adresse Email
 							</label>
-							<input type="email" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+							<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" required autofocus>
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 								<label for="inputPassword" class="sr-only">
 									Mot de passe
 								</label>
-								<input type="password" id="inputPassword" class="form-control" placeholder="mot de passe" required>
+								<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="mot de passe" required>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -92,7 +92,7 @@
 								<label for="inputNom" class="sr-only">
 									Nom
 								</label>
-								<input type="text" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
+								<input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -103,7 +103,7 @@
 								<label for="inputPrenom" class="sr-only">
 									Prenom
 								</label>
-								<input type="text" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+								<input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
 							</div>
 						</div>
 					</div>
@@ -117,7 +117,7 @@
 							<label for="inputPhoto" class="sr-only">
 								Photo
 							</label>
-							<input type="file" id="inputPhoto" required autofocus>
+							<input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
 						</div>
 					</div>
 				</div>
@@ -133,7 +133,7 @@
 							<label for="inputPhone" class="sr-only">
 								Telephone
 							</label>
-							<input type="tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
+							<input type="tel" name="inputPhone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
 						</div>
 					</div>
 				</div>
@@ -150,7 +150,7 @@
 								<label for="inputAdresse" class="sr-only">
 									Adresse Postale
 								</label>
-								<input type="text" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
+								<input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -161,7 +161,7 @@
 								<label for="inputVille" class="sr-only">
 									Ville
 								</label>
-								<input type="text" id="inputVille" class="form-control" placeholder="Ville" required autofocus>
+								<input type="text" name="inputVille" id="inputVille" class="form-control" placeholder="Ville" required autofocus>
 							</div>
 						</div>
 					</div>
