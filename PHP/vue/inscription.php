@@ -4,7 +4,9 @@
  * 
  * //@TODO vars si iscription foireuse ?
  * //@TODO action form a changer
- * 
+ * //@TODO rajout drag and drop pour image
+ * //@TODO faire un test sur les mots de passe pour voir si ils sont identiques
+ * //@TODO Preciser l'adresse car on sait pas forcément quoi y écrire
  */
 ?>
         <!-- Titre -->
@@ -19,7 +21,7 @@
         <!-- Contenu -->
         <div class="container">
 			<!-- Formulaire -->
-			<form class="form-signin" action="connecte.html">
+			<form class="form-signin" action="core/traitementInscription.php">
 				<div class="jumbotron">
 					<div class="row" style="margin-top:10px; margin-bottom:20px;">
 						<h3>
