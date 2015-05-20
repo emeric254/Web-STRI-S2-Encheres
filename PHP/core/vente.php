@@ -42,7 +42,7 @@ if( isset($_GET['id']) and !empty($_GET['id']))
 }
 else
 {
- //TODO Si le code arrive ici c'est que l'id de l"enchere n'est pas renseigné probablement avec un header location
- // include_once('vue/erreur.php');
+	$errMsg = "Pas d'enchére indiqué'";
+	include_once("vue/erreur.php");
 }
 ?>
