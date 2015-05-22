@@ -24,7 +24,8 @@ if( isset($_GET['id']) and !empty($_GET['id']))
 	$id = htmlspecialchars($_GET['id']);
 	$info = Vente_Info_General($id);
 	$titreVente = $info['titreVente'];
-	$tempsVente = $info['tempsVente'];
+	$tempsVente = $info['débutVente'] + $info['tempsVente'];
+	$tempsVente = date('j/m/Y G:i', $tempsVente);
 	$prixVente = $info['prixVente'];
 	$photoVente = $info['photoVente'];
 	$descriptionVente = $info['descriptionVente'];

@@ -22,14 +22,14 @@
 session_start();
 
 // bdd
-include('core/bdd.php');
+//include('core/bdd.php'); Besoin de l'inclure dans chaque fonction sinon ça marche pas
 
 
 # -------------- Fonction controleur pour vente.php
 
 function Vente_Info_General($id)
 {
-//	include('core/bdd.php');	// deja include avant
+	include('core/bdd.php');
 	$req = "SELECT * FROM annonce WHERE idannonce=?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
@@ -37,16 +37,18 @@ function Vente_Info_General($id)
 	{
 		$ret['titreVente'] = $donnees_reqExec['nomannonce'];
 		$ret['tempsVente'] = $donnees_reqExec['dureeannonce'];
+		$ret['débutVente'] = $donnees_reqExec['dateannonce'];
 		$ret['prixVente'] = $donnees_reqExec['prixdepartannonce'];
 		$ret['photoVente'] = $donnees_reqExec['urlphotoannonce'];
 		$ret['descriptionVente'] = $donnees_reqExec['descriptionannonce'];
 	}
 	return $ret;
+	
 }
 
 function Vente_nb_enchere($id)
 {
-//	include('core/bdd.php');	// deja include avant
+	include('core/bdd.php');
 	$req = "SELECT * FROM encherir WHERE idannonce =?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
