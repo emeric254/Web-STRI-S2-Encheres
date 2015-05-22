@@ -50,21 +50,15 @@ function Vente_Info_General($id)
 function Vente_info_enchereMax($id)
 {
 	include('core/bdd.php');
-	$req = "SELECT * FROM encherir WHERE idannonce =? ORDER BY prixenchere DESC LIMIT 2";
+	$req = "SELECT * FROM encherir WHERE idannonce =? ORDER BY prixenchere DESC LIMIT 1 OFFSET 1";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($id));
-	$i = 0;
+	$max = 0;
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		if($i==0){
-			$ret['max']=$donnees_reqExec['prixenchere'];
-		} else {
-			
-			$ret['second']=$donnees_reqExec['prixenchere'];
-		}
-		$i++;
+			$max=$donnees_reqExec['prixenchere'];
 	}
-	return $ret;
+	return $max;
 }
 
 function Vente_nb_enchere($id)
