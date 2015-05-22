@@ -18,26 +18,12 @@
  */
  
 include_once('core/model.php');
+include_once('core/class.php');
 
 if( isset($_GET['id']) and !empty($_GET['id']))
 {
 	$id = htmlspecialchars($_GET['id']);
-	$info = Vente_Info_General($id);
-	$titreVente = $info['titreVente'];
-	$tempsVente = $info['débutVente'] + $info['tempsVente'];
-	$tempsVente = date('j/m/Y G:i', $tempsVente);
-	$prixVente = $info['prixVente'];
-	$photoVente = $info['photoVente'];
-	$descriptionVente = $info['descriptionVente'];
-	$nbEnchereVente=Vente_nb_enchere($id);
-	$pasVente=$info['pasannonce'];
-
-	if ($nbEnchereVente==1) {
-		$prixVente=$prixVente+$pasVente;
-	} elseif ($nbEnchereVente>1) {
-		$max=Vente_info_enchereMax($id);
-		$prixVente=$max+$pasVente;
-	}
+	$vente = new Vente($id);
 	
 	// test si valide
 	//if(venteexiste) {

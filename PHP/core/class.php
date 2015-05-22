@@ -1,5 +1,5 @@
 <?php
-include('core/model.php');
+include_once('core/model.php');
 class Vente {
 	public $id;
 	public $nom;
@@ -20,7 +20,7 @@ class Vente {
 		$this->date = $info['débutVente'];
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
-		$this->pas = $info['pasannonce']:
+		$this->pas = $info['pasannonce'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
 		$this->tempsRestant = $dateFin - time();
@@ -60,10 +60,10 @@ class Profil {
 		$this->email = $info['emailutilisateur'];
 		$this->prenom = $info['prenomutilisateur'];
 		$this->telephone = $info['telephoneutilisateur'];
-		$this->addresse = $info['adresseutilisateur']:
+		$this->addresse = $info['adresseutilisateur'];
 		$this->photo = $info['urlphotoutilisateur'];
 		$this->ville = Ville_Recup_Nom($info['idville']);
-		$this->statut = $info['idstatut']:
+		$this->statut = $info['idstatut'];
 
 		
 	}
