@@ -41,9 +41,30 @@ function Vente_Info_General($id)
 		$ret['prixVente'] = $donnees_reqExec['prixdepartannonce'];
 		$ret['photoVente'] = $donnees_reqExec['urlphotoannonce'];
 		$ret['descriptionVente'] = $donnees_reqExec['descriptionannonce'];
+		$ret['pasannonce'] = $donnees_reqExec['pasannonce'];
 	}
 	return $ret;
 	
+}
+
+function Vente_info_enchereMax($id)
+{
+	include('core/bdd.php');
+	$req = "SELECT * FROM encherir WHERE idannonce =? ORDER BY prixenchere DESC LIMIT 2";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	$i = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		if($i==0){
+			$ret['max']=$donnees_reqExec['prixenchere'];
+		} else {
+			
+			$ret['second']=$donnees_reqExec['prixenchere'];
+		}
+		$i++;
+	}
+	return $ret;
 }
 
 function Vente_nb_enchere($id)

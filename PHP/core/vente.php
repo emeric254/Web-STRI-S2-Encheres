@@ -30,6 +30,14 @@ if( isset($_GET['id']) and !empty($_GET['id']))
 	$photoVente = $info['photoVente'];
 	$descriptionVente = $info['descriptionVente'];
 	$nbEnchereVente=Vente_nb_enchere($id);
+	$pasVente=$info['pasannonce'];
+
+	if ($nbEnchereVente==1) {
+		$prixVente=$prixVente+$pasVente;
+	} elseif ($nbEnchereVente>1) {
+		$maxEtSecond=Vente_info_enchereMax($id);
+		$prixVente=$maxEtSecond['second']+$pasVente;
+	}
 	
 	// test si valide
 	//if(venteexiste) {
