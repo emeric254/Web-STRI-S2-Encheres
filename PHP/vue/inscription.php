@@ -22,7 +22,7 @@
         <div class="container">
 			<!-- Formulaire -->
 			<form method="POST" class="form-signin" action="core/traitementInscription.php">
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre Email
@@ -38,7 +38,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre Mot de passe
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre nom
@@ -108,7 +108,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre photo
@@ -121,7 +121,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre téléphone
@@ -137,7 +137,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="jumbotron">
+				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre adresse

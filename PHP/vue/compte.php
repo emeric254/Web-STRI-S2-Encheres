@@ -32,62 +32,9 @@
 switch($choix)
 {
 	case 1:	// profil
-?>      		
-				<div class="page-header">
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-7">
-							<h1>
-								<?php print $nomUser." ".$prenomUser ?>
-							</h1>
-						</div>
-						<div class="col-sm-1 col-md-2 col-lg-2"> </div>
-						<div class="col-sm-5 col-md-4 col-lg-3">
-							<img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $photoUser ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="well">
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<td colspan="2">
-										<b>
-											Informations personelles
-										</b>
-									</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										Email
-									</td>
-									<td>
-										<?php print $mailUser ?>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										Telephone
-									</td>
-									<td>
-										<?php print $numeroUser ?>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										Adresse
-									</td>
-									<td>
-										<?php print $adresseUser ?>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-<?php
+
+	// include "profil.php"
+
 		break;
 	case 2:	// achats
 ?>   				

@@ -14,21 +14,38 @@
         </div>
         <!-- Contenu -->
         <div class="container">
-			<p>
-				A faire :
-			</p>
+			<h2>
+				Conditions générales d'utilisation
+			</h2>
 			<ul>
-				<li> Ajout banniere</li>
-				<li> affichage des infos, style :</li>
-				<ul>
-					<li>conditions generales d'utilisation</li>
-					<li>FAC</li>
-					<li>Contact</li>
-				</ul>
+				<li>
+					<a href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/LICENSE">
+						License GNU GENERAL PUBLIC LICENSE Version 2
+					</a>
+				</li>
+			</ul>
+				
+			<h2>
+				Contact
+			</h2>
+			<ul>
+				<li>
+					Barbaste Remi : 123@123.fr
+				</li>
+				<li>
+					Boulic Guillaume : 123@123.fr
+				</li>
+				<li>
+					Degironde Robin : 123@123.fr
+				</li>
+				<li>
+					Maury Thomas : 123@123.fr
+				</li>
+				<li>
+					Tosi Emeric : 123@123.fr
+				</li>
 			</ul>
 			<p>
-				<a href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/LICENSE">
-					GNU GENERAL PUBLIC LICENSE Version 2
-				</a>
+				
 			</p>
         </div>
