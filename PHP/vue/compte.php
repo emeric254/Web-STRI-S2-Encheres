@@ -20,8 +20,17 @@
  * > $numeroUser
  * > $adresseUser
  * 
- * //@TODO achats
- * //@TODO ventes
+ * > $achats	(tableau de "vente")
+ * 
+ * > $ventes	(tableau de "vente")
+ * 
+ * un objet "vente" :
+ * 	> id
+ * 	> nom
+ * 	> date
+ * 	> nomAcheteur
+ * 	> nbEncherisseur
+ * 	> prix
  * 
  */
 ?>        
@@ -81,33 +90,32 @@ switch($choix)
 							</thead>
 							<tbody>
 <?php
-//while()
-/*
+foreach($achats as $achat)
+{
 ?>
 								<tr>
 									<td colspan="3">
-										<?php print $nomVente ?>
+										<?php print $achat.nom ?>
 									</td>
 									<td>
-										<?php print $dateVente ?>
+										<?php print $achat.date ?>
 									</td>
 									<td>
-										<?php print $countEncherisseur ?>
+										<?php print $achat.nbEncherisseur ?>
 									</td>
 									<td>
-										<?php print $enchereMaxVente ?>
+										<?php print $achat.prix ?>
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="<?php print $enchere ?>">
+										<a class="btn btn-default" href="<?php print $achat.id ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
 									</td>
 								</tr>
 <?php
-*/
-//
+}
 ?>
 							</tbody>
 						</table>
@@ -162,32 +170,32 @@ switch($choix)
 							</thead>
 							<tbody>
 <?php
-//while()
-/*
+foreach($ventes as $vente)
+{
 ?>
 								<tr>
 									<td colspan="3">
-										<?php print $nomVente ?>
+										<?php print $vente.nom ?>
 									</td>
 									<td>
-										<?php print $dateVente ?>
+										<?php print $vente.date ?>
 									</td>
 									<td>
-										<?php print $encherisseurVente ?>
+										<?php print $vente.nomAcheteur ?>
 									</td>
 									<td>
-										<?php print $enchereMaxVente ?>€
+										<?php print $vente.prix ?>
+										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="http://google.fr">
+										<a class="btn btn-default" href="<?php print $vente.id ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
 									</td>
 								</tr>
 <?php
-*/
-//
+}
 ?>
 							</tbody>
 						</table>
