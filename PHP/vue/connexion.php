@@ -15,11 +15,14 @@
                 </h1>
             </div>
         </div>
+        
         <!-- Contenu -->
         <div class="container">
+			
 			<!-- Formulaire -->
 			<form class="form-signin" action="connecte.html">
-				<div class="jumbotron">
+				
+				<div class="well">
 					<!-- Email -->
 					<div class="input-group input-group-lg">
 						<span class="input-group-addon">
@@ -31,7 +34,8 @@
 						<input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
 					</div>
 				</div>
-				<div class="jumbotron">
+				
+				<div class="well">
 					<!-- Password -->
 					<div class="input-group input-group-lg">
 						<span class="input-group-addon">
@@ -43,7 +47,9 @@
 						<input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
 					</div>
 				</div>
+				
 				<!-- Submit -->
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+				
 			</form>
         </div>
