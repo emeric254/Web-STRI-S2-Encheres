@@ -25,14 +25,14 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre Email
+							Votre email
 						</h3>
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon">
 								@
 							</span>
 							<label for="inputEmail" class="sr-only">
-								Adresse Email
+								Adresse email (*)
 							</label>
 							<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" required autofocus>
 						</div>
@@ -41,7 +41,7 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre Mot de passe
+							Votre mot de passe
 						</h3>
 						<div class="col-md-6">
 							<div class="input-group input-group-lg">
@@ -49,7 +49,7 @@
 									*
 								</span>
 								<label for="inputPassword" class="sr-only">
-									Mot de passe
+									Mot de passe (*)
 								</label>
 								<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="mot de passe" required>
 							</div>
@@ -60,7 +60,7 @@
 									*
 								</span>
 								<label for="inputPasswordBis" class="sr-only">
-									Confirmation
+									Confirmation (*)
 								</label>
 								<input type="password" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
 							</div>
@@ -68,7 +68,7 @@
 						<div class="col-md-6">
 							<div class="row text-center" style="padding-top:10px;">
 								<div class="col-sm-5">
-									<label class="form-label">Complexité</label>
+									<label class="form-label">Complexit&eacute;</label>
 								</div>
 								<div class="col-sm-7">
 									<div id="progress-bar-container">
@@ -82,7 +82,7 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre nom
+							Votre nom et pr&eacute;nom (*)
 						</h3>
 						<div class="col-md-6">
 							<div class="input-group input-group-lg">
@@ -101,7 +101,7 @@
 									<i class="fa fa-male"></i>
 								</span>
 								<label for="inputPrenom" class="sr-only">
-									Prenom
+									Pr&eacute;nom
 								</label>
 								<input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
 							</div>
@@ -124,14 +124,14 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre téléphone
+							Votre t&eacute;l&eacute;phone (*)
 						</h3>
 						<div class="input-group input-group-lg">
 							<span class="input-group-addon">
 								<i class="fa fa-phone"></i>
 							</span>
 							<label for="inputPhone" class="sr-only">
-								Telephone
+								T&eacute;l&eacute;phone
 							</label>
 							<input type="tel" name="inputPhone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
 						</div>
@@ -140,7 +140,7 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre adresse
+							Votre adresse (*)
 						</h3>
 						<div class="col-md-6">
 							<div class="input-group input-group-lg">
@@ -148,7 +148,7 @@
 									<i class="fa fa-envelope-o"></i>
 								</span>
 								<label for="inputAdresse" class="sr-only">
-									Adresse Postale
+									Adresse postale
 								</label>
 								<input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
 							</div>
@@ -165,6 +165,9 @@
 							</div>
 						</div>
 					</div>
+				</div>
+				<div >
+						(*) champs obligatoires  
 				</div>
 				<!-- Submit -->
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
