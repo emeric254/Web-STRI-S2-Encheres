@@ -5,6 +5,7 @@ class Vente {
 	public $nom;
 	public $date;
 	public $tempsRestant;
+	public $tempsRestantSeconde;
 	public $Vendeur;
 	public $Acheteur;
 	public $nbEncherisseur;
@@ -23,7 +24,8 @@ class Vente {
 		$this->pas = $info['pasannonce'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
-		$this->tempsRestant = $dateFin - time();
+		$this->tempsRestantSeconde = $dateFin - time();
+		$this->tempsRestant = gmdate("H:i:s", $dateFin - time());
 
 		$this->nbEncherisseur = Vente_nb_enchere($id);
 		if ($this->nbEncherisseur==0){
