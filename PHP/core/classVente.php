@@ -17,7 +17,7 @@ class Vente {
 		$info = Vente_Info_General($id);
 		$this->nom = $info['titreVente'];
 		$this->date = $info['débutVente'];
-		$this->nomVendeur = $info['idVendeur'];//need fonction
+		$this->nomVendeur = $info['idVendeur'];//need fonction soit pour récuperer le nom soit modifier le controleur, soit crée un objet profil
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce']:
