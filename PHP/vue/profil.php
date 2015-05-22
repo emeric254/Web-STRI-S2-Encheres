@@ -40,7 +40,7 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<td colspan="2">
+									<td colspan="2" class="text-center">
 										<b>
 											Informations personelles
 										</b>
@@ -49,26 +49,26 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>
+									<td class="text-center">
 										Email
 									</td>
-									<td>
+									<td class="text-center">
 										<?php print $mail; ?>
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td class="text-center">
 										Telephone
 									</td>
-									<td>
+									<td class="text-center">
 										<?php print $numeroTelephone; ?>
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td class="text-center">
 										Adresse
 									</td>
-									<td>
+									<td class="text-center">
 										<?php print $adresse; ?>
 									</td>
 								</tr>
