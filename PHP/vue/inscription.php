@@ -23,7 +23,7 @@
 			<!-- Formulaire -->
 			<form method="POST" class="form-signin" action="core/traitementInscription.php">
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre Email
 						</h3>
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre Mot de passe
 						</h3>
@@ -66,7 +66,7 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<div class="row">
+							<div class="row text-center" style="padding-top:10px;">
 								<div class="col-sm-5">
 									<label class="form-label">Complexité</label>
 								</div>
@@ -80,7 +80,7 @@
 					</div>
 				</div>
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre nom
 						</h3>
@@ -109,7 +109,7 @@
 					</div>
 				</div>
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre photo
 						</h3>
@@ -122,7 +122,7 @@
 					</div>
 				</div>
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre téléphone
 						</h3>
@@ -138,7 +138,7 @@
 					</div>
 				</div>
 				<div class="jumbotron">
-					<div class="row" style="margin-top:10px; margin-bottom:20px;">
+					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
 							Votre adresse
 						</h3>
