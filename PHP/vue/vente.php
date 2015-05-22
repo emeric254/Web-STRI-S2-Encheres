@@ -18,38 +18,37 @@
             </div>
 
             <div class="well">
+                <div class="row text-center">
+					<h3>
+						<span class="label label-danger">
+							<?php print $vente->tempsRestant; ?>
+						</span>
+						&nbsp;
+						<span class="label label-info">
+							Enchère crée par
+							<a href="profil-<?php print $vente->Vendeur->id; ?>">
+								<?php print $vente->Vendeur->nom; ?>
+							</a>
+						</span>
+						&nbsp;
+						<span class="label label-info">
+							Dernière enchère par
+							<a href="profil-<?php print $vente->Acheteur->id; ?>">
+								<?php print $vente->Acheteur->nom; ?>
+							</a>
+						</span>
+						&nbsp;
+						<span class="label label-warning">
+							<?php print $vente->prix; ?>
+							€
+							<span class="badge">
+								<?php print $vente->nbEncherisseur; ?>
+							</span>
+						</span>
+					</h3>
+                </div>
                 <div class="row">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
-                        <h3>
-                            <span class="label label-danger">
-                                <?php print $vente->tempsRestant; ?>
-                            </span>
-                        </h3>
-                        <h3>
-							<span class="label label-info">
-								Enchère crée par
-								<a href="profil-<?php print $vente->Vendeur->id; ?>">
-									<?php print $vente->Vendeur->nom; ?>
-								</a>
-							</span>
-                        </h3>
-                        <h3>
-							<span class="label label-info">
-								Dernière enchère par
-								<a href="profil-<?php print $vente->Acheteur->id; ?>">
-									<?php print $vente->Acheteur->nom; ?>
-								</a>
-							</span>
-                        </h3>
-                        <h3>
-                            <span class="label label-warning">
-                                <?php print $vente->prix; ?>
-                                €
-                                <span class="badge">
-                                    <?php print $vente->nbEncherisseur; ?>
-                                </span>
-                            </span>
-                        </h3>
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
 					<div class="col-sm-7 col-md-8 col-lg-8">
