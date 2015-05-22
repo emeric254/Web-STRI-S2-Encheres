@@ -22,8 +22,8 @@
                 </h1>
             </div>
 
-            <div class="wells">
-                <div class="page-header">
+            <div class="well">
+                <div class="row">
                     <div class="col-sm-6 col-md-4 col-lg-4">
                         <h3>
                             <span class="label label-warning">
@@ -46,7 +46,7 @@
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $photoVente; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
                 </div>
-                <div class="row">
+                <div style="padding-top: 10px;">
                     <div class="well">
                         <p>
                             <?php print $descriptionVente; ?>
