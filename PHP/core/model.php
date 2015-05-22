@@ -37,6 +37,7 @@ function Vente_Info_General($id)
 	{
 		$ret['titreVente'] = $donnees_reqExec['nomannonce'];
 		$ret['tempsVente'] = $donnees_reqExec['dureeannonce'];
+		$ret['idVendeur'] = $donnees_reqExec['idutilisateur'];
 		$ret['débutVente'] = $donnees_reqExec['dateannonce'];
 		$ret['prixVente'] = $donnees_reqExec['prixdepartannonce'];
 		$ret['photoVente'] = $donnees_reqExec['urlphotoannonce'];
