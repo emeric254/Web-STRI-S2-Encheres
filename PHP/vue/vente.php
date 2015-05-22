@@ -21,8 +21,9 @@
                 <div class="row text-center">
                     <div class="col-md-6 col-lg-6 text-center">
 						<h3>
-							<span class="label label-danger">
-								<?php print $vente->tempsRestant; ?>
+							<span class="label label-danger" id="tempsRestant">
+								<!-- temps restant -->
+								0
 							</span>
 							&nbsp;
 						</h3>
@@ -130,3 +131,38 @@ foreach($encherisseursVente as $profil)
 -->
 */
 ?>
+
+<script type="text/javascript">
+	
+	function decompte()
+	{	
+		var dateActuelle = new Date();
+		
+		var dateDebut = new Date(<?php print $vente->date; ?>);
+		
+		var duree = <?php print $vente->tempsRestant; ?>;
+		
+		var total = duree - (dateActuelle - dateDebut)/1000 ;
+		
+		var compteRebour = document.getElementById("tempsRestant");
+		
+		if (total <= 0)
+		{
+			compteRebour.innerHTML = 'Finie !';
+		}
+		else
+		{
+			var jours = Math.floor(total / (60 * 60 * 24));
+			var heures = Math.floor((total - (jours * 60 * 60 * 24)) / (60 * 60));
+			var minutes = Math.floor((total - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+			var secondes = Math.floor(total - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+			
+			compteRebour.innerHTML = jours + 'j ' + heures + 'h ' + minutes + 'm ' + secondes + 's';
+		}
+			setTimeout("decompte();", 1000);
+	}
+	
+	decompte();
+
+</script>
+
