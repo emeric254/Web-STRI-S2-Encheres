@@ -138,8 +138,10 @@ foreach($encherisseursVente as $profil)
 	{	
 		var dateActuelle = new Date();
 		
-		var dateDebut = new Date(<?php print $vente->date; ?>);
+		// @ TODO a verif que ca marche de creer la date de debut comme ca !
+		var dateDebut = new Date("<?php print $vente->date; ?>");
 		
+		// @ TODO a verif que ce soit des secondes !
 		var duree = <?php print $vente->tempsRestant; ?>;
 		
 		var total = duree - (dateActuelle - dateDebut)/1000 ;
