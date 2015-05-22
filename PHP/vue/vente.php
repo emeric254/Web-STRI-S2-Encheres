@@ -40,7 +40,7 @@
                             </span>
                         </h3>
                     </div>
-                    <div class="col-md-4 col-lg-5">
+                    <div class="col-sm-12 col-md-4 col-lg-5">
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $photoVente; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
