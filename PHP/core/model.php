@@ -26,6 +26,25 @@ session_start();
 
 
 # -------------- Fonction controleur pour vente.php
+function Profil_Info_General($id)
+{
+	include('core/bdd.php');
+	$req = "SELECT * FROM utilisateur WHERE idutilisateur=?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret['emailutilisateur'] = $donnees_reqExec['emailutilisateur'];
+		$ret['nomutilisateur'] = $donnees_reqExec['nomutilisateur'];
+		$ret['prenomutilisateur'] = $donnees_reqExec['prenomutilisateur'];
+		$ret['telephoneutilisateur'] = $donnees_reqExec['telephoneutilisateur'];
+		$ret['adresseutilisateur'] = $donnees_reqExec['adresseutilisateur'];
+		$ret['urlphotoutilisateur'] = $donnees_reqExec['urlphotoutilisateur'];
+		$ret['idville'] = $donnees_reqExec['idville'];
+		$ret['idstatut'] = $donnees_reqExec['idstatut'];
+	}
+	return $ret;
+}
 
 function Vente_Info_General($id)
 {
@@ -37,13 +56,43 @@ function Vente_Info_General($id)
 	{
 		$ret['titreVente'] = $donnees_reqExec['nomannonce'];
 		$ret['tempsVente'] = $donnees_reqExec['dureeannonce'];
+		$ret['idVendeur'] = $donnees_reqExec['idutilisateur'];
 		$ret['débutVente'] = $donnees_reqExec['dateannonce'];
 		$ret['prixVente'] = $donnees_reqExec['prixdepartannonce'];
 		$ret['photoVente'] = $donnees_reqExec['urlphotoannonce'];
 		$ret['descriptionVente'] = $donnees_reqExec['descriptionannonce'];
+		$ret['pasannonce'] = $donnees_reqExec['pasannonce'];
 	}
 	return $ret;
 	
+}
+
+function Vente_info_MaxId($id)
+{
+	include('core/bdd.php');
+	$req = "SELECT * FROM encherir WHERE idannonce =? ORDER BY prixenchere DESC LIMIT 1";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	$id = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+			$id=$donnees_reqExec['idutilisateur'];
+	}
+	return $id;
+}
+
+function Vente_info_enchereSecond($id)
+{
+	include('core/bdd.php');
+	$req = "SELECT * FROM encherir WHERE idannonce =? ORDER BY prixenchere DESC LIMIT 1 OFFSET 1";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	$max = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+			$max=$donnees_reqExec['prixenchere'];
+	}
+	return $max;
 }
 
 function Vente_nb_enchere($id)
@@ -58,6 +107,20 @@ function Vente_nb_enchere($id)
 		$i = $i +1;
 	}
 	return $i;
+}
+
+function Ville_Recup_Nom($id)
+{
+	include('core/bdd.php');
+	$req = "SELECT * FROM ville WHERE idville =?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	$nom = "";
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+			$nom=$donnees_reqExec['nomville'];
+	}
+	return $nom;
 }
 
 # ----------- Fonction pour la navbar
