@@ -1,36 +1,17 @@
 <?php
 /* «compte.php»
  * page qui est le "mon compte" de l'utilisateur
+ * se décompose en plusieurs parties :
+ * 	>	choix de la page a afficher
+ * 	>> 	profil de l'utilisateur
+ * 	>> 	historique des encheres/achats
+ * 	>>	historique des ventes
  * 
- * se décompose en plusieurs parties
  * 
- * >	choix de la page a afficher
- * >> 	profil de l'utilisateur
- * >> 	historique des encheres/achats
- * >>	historique des ventes
- * 
- * vars
- * $choix (defaut=menu, 1=profil, 2=achats, 3=ventes)
- * 
- * profil
- * > $nomUser
- * > $prenomUser
- * > $photoUser
- * > $mailUser
- * > $numeroUser
- * > $adresseUser
- * 
- * > $achats	(tableau de "vente")
- * 
- * > $ventes	(tableau de "vente")
- * 
- * un objet "vente" :
- * 	> id
- * 	> nom
- * 	> date
- * 	> nomAcheteur
- * 	> nbEncherisseur
- * 	> prix
+ * vars :
+ * 	> $choix 	(defaut=menu, 1=profil, 2=achats, 3=ventes)
+ * 	> $achats	(tableau de "vente")
+ * 	> $ventes	(tableau de "vente")
  * 
  */
 ?>        
@@ -42,7 +23,7 @@ switch($choix)
 {
 	case 1:	// profil
 
-	// include "profil.php"
+	include("profil.php");
 
 		break;
 	case 2:	// achats
@@ -73,7 +54,7 @@ switch($choix)
 									</td>
 									<td>
 										<b>
-											Encherisseurs
+											Vendeur
 										</b>
 									</td>
 									<td>
@@ -95,20 +76,20 @@ foreach($achats as $achat)
 ?>
 								<tr>
 									<td colspan="3">
-										<?php print $achat.nom ?>
+										<?php print $achat->nom; ?>
 									</td>
 									<td>
-										<?php print $achat.date ?>
+										<?php print $achat->date; ?>
 									</td>
 									<td>
-										<?php print $achat.nbEncherisseur ?>
+										<?php print $vente->Vendeur->nom; ?>
 									</td>
 									<td>
-										<?php print $achat.prix ?>
+										<?php print $achat->prix; ?>
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="<?php print $achat.id ?>">
+										<a class="btn btn-default" href="enchere-<?php print $achat->id; ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
@@ -175,20 +156,20 @@ foreach($ventes as $vente)
 ?>
 								<tr>
 									<td colspan="3">
-										<?php print $vente.nom ?>
+										<?php print $vente->nom; ?>
 									</td>
 									<td>
-										<?php print $vente.date ?>
+										<?php print $vente->date; ?>
 									</td>
 									<td>
-										<?php print $vente.nomAcheteur ?>
+										<?php print $vente->Acheteur->nom; ?>
 									</td>
 									<td>
-										<?php print $vente.prix ?>
+										<?php print $vente->prix; ?>
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="<?php print $vente.id ?>">
+										<a class="btn btn-default" href="enchere-<?php print $vente->id; ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>

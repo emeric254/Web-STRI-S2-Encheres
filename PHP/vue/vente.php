@@ -2,35 +2,18 @@
 /* «vente.php»
  * page affichant les details d'une vente
  *
- * vars
  * 
- * $vente
+ * vars :
+ * 	> $vente	(objet "vente"
  * 
- * $encherisseursVente (tableau de "profil")
- * 
- * 
- * un objet "vente" :
- * 	> id
- * 	> nom
- * 	> date
- * 	> tempsRestant
- * 	> nomAcheteur
- * 	> nbEncherisseur
- * 	> prix
- * 	> photo
- * 	> description
- * 
- * un objet "profil" :
- * 	> nom
- * 	> enchere
- * 	> date
- * 	> ... @ TODO
+ * // @ TODO pour une evolve future :
+ * 	> $encherisseursVente (tableau de "profil")
  *
  */
 ?>
             <div class="jumbotron">
                 <h1 style="text-align: center;">
-                    <?php print $vente.nom; ?>
+                    <?php print $vente->nom; ?>
                 </h1>
             </div>
 
@@ -38,26 +21,42 @@
                 <div class="row">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
                         <h3>
-                            <span class="label label-warning">
-                                <?php print $vente.tempsRestant; ?>
+                            <span class="label label-danger">
+                                <?php print $vente->tempsRestant; ?>
                             </span>
-
-                            &nbsp;
-                            <span class="label label-info">
-                                <?php print $vente.prix; ?>
+                        </h3>
+                        <h3>
+							<span class="label label-info">
+								Enchère crée par
+								<a href="profil-<?php print $vente->Vendeur->id; ?>">
+									<?php print $vente->Vendeur->nom; ?>
+								</a>
+							</span>
+                        </h3>
+                        <h3>
+							<span class="label label-info">
+								Dernière enchère par
+								<a href="profil-<?php print $vente->Acheteur->id; ?>">
+									<?php print $vente->Acheteur->nom; ?>
+								</a>
+							</span>
+                        </h3>
+                        <h3>
+                            <span class="label label-warning">
+                                <?php print $vente->prix; ?>
                                 €
                                 <span class="badge">
-                                    <?php print $vente.nbEncherisseur; ?>
+                                    <?php print $vente->nbEncherisseur; ?>
                                 </span>
                             </span>
                         </h3>
-                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente.photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
-							<div class="col-sm-7 col-md-8 col-lg-8">
+					<div class="col-sm-7 col-md-8 col-lg-8">
 						<div style="padding-top: 10px;">
 							<div class="well">
 								<p>
-									<?php print $vente.description; ?>
+									<?php print $vente->description; ?>
 								</p>
 							</div>
 						</div>
@@ -65,6 +64,11 @@
                 </div>
             </div>
 
+
+<?php
+// @ TODO pour une evolve future !
+/*
+<!--
             <div class="container">
                 <div class="col-md-5 col-lg-5">
                     <h2>
@@ -93,17 +97,17 @@ foreach($encherisseursVente as $profil)
 ?>
                             <tr>
                                 <td>
-                                    <?php print $profil.nom; ?>
+                                    <?php print $profil->nom; ?>
                                 </td>
                                 <td>
                                     <span class="label label-info">
-                                        <?php print $profil.enchere; ?>
+                                        <?php print $profil->enchere; ?>
                                         €
                                     </span>
                                 </td>
                                 <td>
                                     <span class="label label-warning">
-                                        <?php print $profil.date; ?>
+                                        <?php print $profil->date; ?>
                                     </span>
                                 </td>
                             </tr>
@@ -114,3 +118,6 @@ foreach($encherisseursVente as $profil)
                     </table>
                 </div>
             </div>
+-->
+*/
+?>
