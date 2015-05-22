@@ -17,14 +17,14 @@
  */
 ?>
             <div class="jumbotron">
-                <h1>
+                <h1 style="text-align: center;">
                     <?php print $titreVente; ?>
                 </h1>
             </div>
 
             <div class="well">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-4">
+                    <div class="col-sm-5 col-md-4 col-lg-4 text-center">
                         <h3>
                             <span class="label label-warning">
                                 <?php print $tempsVente; ?>
@@ -39,18 +39,16 @@
                                 </span>
                             </span>
                         </h3>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-lg-5">
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3">
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $photoVente; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
-                </div>
-                <div style="padding-top: 10px;">
-                    <div class="well">
-                        <p>
-                            <?php print $descriptionVente; ?>
-                        </p>
+							<div class="col-sm-7 col-md-8 col-lg-8">
+						<div style="padding-top: 10px;">
+							<div class="well">
+								<p>
+									<?php print $descriptionVente; ?>
+								</p>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
