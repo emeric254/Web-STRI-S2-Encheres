@@ -3,25 +3,23 @@
  * page affichant le profil d'un utilisateur
  * 
  * vars
- * $prenomClient
- * $nomClient
- * $mail
- * $numeroTelephone
- * $adresse
+ * $profil	(le profil de l'utilisateur)
  *
  */
+ 
  include_once('core/profil.php'); 
 ?>
 
         <div class="container">
 			
 			<div class="jumbotron">
+				
 				<div class="page-header">
 					<div class="row">
 						
 						<div class="col-sm-6 col-md-6 col-lg-7">
 							<h1>
-								<?php print "$prenomClient $nomClient"; ?>
+								<?php print "$profil->prenom $profil->nom"; ?>
 							</h1>
 						</div>
 						
@@ -29,7 +27,7 @@
 						</div>
 						
 						<div class="col-sm-5 col-md-4 col-lg-3">
-							<img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc1IiB5PSIxMDAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4yMDB4MjAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 200px; height: 200px;">
+							<img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="profil->photo" data-holder-rendered="true" style="width: 200px; height: 200px;">
 						</div>
 						
 					</div>
@@ -53,7 +51,7 @@
 										Email
 									</td>
 									<td class="text-center">
-										<?php print $mail; ?>
+										<?php print $profil->email; ?>
 									</td>
 								</tr>
 								<tr>
@@ -61,7 +59,7 @@
 										Telephone
 									</td>
 									<td class="text-center">
-										<?php print $numeroTelephone; ?>
+										<?php print $profil->telephone; ?>
 									</td>
 								</tr>
 								<tr>
@@ -69,14 +67,16 @@
 										Adresse
 									</td>
 									<td class="text-center">
-										<?php print $adresse; ?>
+										<?php print $profil->adresse; ?>,
+										<?php print $profil->ville; ?>
 									</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
+				
 			</div>
-        
+			
         </div>
 
