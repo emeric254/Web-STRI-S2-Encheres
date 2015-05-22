@@ -18,7 +18,6 @@ class Vente {
 		$info = Vente_Info_General($id);
 		$this->nom = $info['titreVente'];
 		$this->date = $info['débutVente'];
-		$this->nomVendeur = $info['idVendeur'];//need fonction soit pour récuperer le nom soit modifier le controleur, soit crée un objet profil
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce']:
@@ -32,9 +31,40 @@ class Vente {
 		} elseif ($this->nbEncherisseur==1){
 			$this->prix = $info['prixVente'] + $info['pasannonce'];
 		} else {
-			$max=Vente_info_enchereMax($id);
+			$max=Vente_info_enchereSecond($id);
 			$this->prix=$max+$info['pasannonce'];
 		}
+
+		$this->Vendeur = new Profil($info['idVendeur']);
+		$idAcheteur = Vente_info_MaxId($id);
+		$this->Acheteur = new Profil($idAcheteur);
+		
+	}
+}
+
+class Profil {
+	public $id;
+	public $nom;
+	public $email;
+	public $prenom;
+	public $telephone;
+	public $addresse;
+	public $photo;
+	public $ville;
+	public $statut;
+
+	function __construct($id) {
+		$this->id = $id;
+		$info = Profil_Info_General($id);
+		$this->nom = $info['nomutilisateur'];
+		$this->email = $info['emailutilisateur'];
+		$this->prenom = $info['prenomutilisateur'];
+		$this->telephone = $info['telephoneutilisateur'];
+		$this->addresse = $info['adresseutilisateur']:
+		$this->photo = $info['urlphotoutilisateur'];
+		$this->ville = Ville_Recup_Nom($info['idville']);
+		$this->statut = $info['idstatut']:
+
 		
 	}
 }
