@@ -2,9 +2,7 @@
 /* «entete.php»
  * debut de toutes les pages du site
  * 
- * @TODO : 
- * -c'est dans cette page le session start ?
- * -Pour le "<link rel="icon" " faudrait pas plutot mettre le lien en local vers l'image ?
+ * @*TODO : c'est dans cette page le session start ?
  */
 ?>
 <!DOCTYPE html>
@@ -13,8 +11,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Remi Barbaste, Robin Degironde, Emeric Tosi, Thomas Maury, Guillaume Boulic">
-        <meta name="description" content="strideal, enchere">
+        <meta name="author" content="les BG">
+        <meta name="description" content="strideal">
         <title>STRIDEAL</title>
         <link rel="icon" href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/favicon.ico">
         <!-- Bootstrap -->

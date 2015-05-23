@@ -1,4 +1,4 @@
-
+ <? SESS
  <?php
 /* «traitementInscription.php»
  * Page de traitement de l'inscription
@@ -23,7 +23,6 @@ include_once('bdd.php'); /** TODO : modifier chemin */
 /* Récupération des différentes variables du formulaire */
 if (isset($_POST['inputEmail'])) $mail=$_POST['inputEmail'];
 if (isset($_POST['inputPassword'])) $password=sha1($_POST['inputPassword']);
-if (isset($_POST['inputPasswordBis'])) $passwordBis=sha1($_POST['inputPasswordBis']);
 if (isset($_POST['inputNom'])) $nom=$_POST['inputNom'];
 if (isset($_POST['inputPrenom'])) $prenom=$_POST['inputPrenom'];
 if (isset($_POST['inputPhone'])) $telephone=$_POST['inputPhone'];
@@ -31,14 +30,14 @@ if (isset($_POST['inputAdresse'])) $adresse=$_POST['inputAdresse'];
 if (isset($_POST['inputVille'])) $ville=$_POST['inputVille'];
 
 
+/* Affichage des informations récupérées */
+echo "<div> <h1> Test donnees recues </h1>mail : $mail<br> password : $password<br> nom : $nom<br>prenom : $prenom";
+echo "<br> telephone : $telephone<br>addresse : $adresse <br> ville : $ville<br> </div>";
+
 /* Tester que les 2 ots de passe sont identiques */
-if ($password != $passwordBis) 
-{
-	echo("<script>alert(\"A faire - gestion password différent\");</script>");
-	header("Location: /?page=inscription");
-}
+
 /** Mode moche a verif et compléter - manque image, idville et idstatut */
-$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
+$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'./profil/default.png')";
 
 $reqExec = $db->prepare($req);
 $reqExec->execute() or die(print "echec execution requete");  /********** Virer ou changer texte du or die */
@@ -72,6 +71,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		$_SESSION['idstatut'] = $donnees['idville'];
 		$_SESSION['pwd'] = $donnees['mdputilisateur'];
 	
+	echo "photo file; ".$_FILES['inputPhoto']['name'];
 	// traitement de l'image
 	if (isset($_FILES['inputPhoto']))
 	{
@@ -79,7 +79,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		
 	}
 	
-}
+	}
 	
 	
 	

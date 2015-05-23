@@ -62,7 +62,7 @@
 								<label for="inputPasswordBis" class="sr-only">
 									Confirmation (*)
 								</label>
-								<input type="password" name="inputPasswordBis" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
+								<input type="password" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
 							</div>
 						</div>
 						<div class="col-md-6">
