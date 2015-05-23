@@ -23,7 +23,7 @@ switch($choix)
 {
 	case 1:	// profil
 
-	include("profil.php");
+	include("core/profil.php");
 
 		break;
 	case 2:	// achats
@@ -192,7 +192,7 @@ foreach($ventes as $vente)
 				<p></p>
 				<ul class="nav nav-pills nav-justified">
 					<li class="active">							
-						<a href="user.html">
+						<a href="/?page=compte&c=1&id=<?php echo $_GET['id']?>">
 							<i class="fa fa-search"></i>
 							&nbsp;
 							Mon profil
