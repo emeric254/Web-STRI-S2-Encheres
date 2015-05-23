@@ -19,7 +19,7 @@ else
  * - utile l'insertion de class.php ?
  */
  
-include_once('core/model.php'); /* utile ????*/
+include_once('core/model.php');
 include_once('core/class.php');
 include_once('vue/connexion.php');
 
