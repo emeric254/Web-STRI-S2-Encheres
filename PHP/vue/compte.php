@@ -82,14 +82,14 @@ foreach($achats as $achat)
 										<?php print $achat->date; ?>
 									</td>
 									<td>
-										<?php print $vente->Vendeur->nom; ?>
+										<?php print $achat->Vendeur->nom; ?>
 									</td>
 									<td>
 										<?php print $achat->prix; ?>
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="enchere-<?php print $achat->id; ?>">
+										<a class="btn btn-default" href="/?page=vente&id=<?php print $achat->id; ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
@@ -169,7 +169,7 @@ foreach($ventes as $vente)
 										€
 									</td>
 									<td>
-										<a class="btn btn-default" href="enchere-<?php print $vente->id; ?>">
+										<a class="btn btn-default" href="/?page=vente&id=<?php print $vente->id; ?>">
 											<i class="fa fa-code-fork"></i>
 											Voir
 										</a>
@@ -202,7 +202,7 @@ foreach($ventes as $vente)
 				<p></p>
 				<ul class="nav nav-pills nav-justified">
 					<li class="active">											
-						<a href="user-vente.html">
+						<a href="/?page=compte&c=3&id=<?php echo $_GET['id']?>">
 							<i class="fa fa-search"></i>
 							&nbsp;
 							Mes Ventes
@@ -212,7 +212,7 @@ foreach($ventes as $vente)
 				<p></p>
 				<ul class="nav nav-pills nav-justified">
 					<li class="active">											
-						<a href="user-historique.html">
+						<a href="/?page=compte&c=2&id=<?php echo $_GET['id']?>">
 							<i class="fa fa-search"></i>
 							&nbsp;
 							Mes Achats
