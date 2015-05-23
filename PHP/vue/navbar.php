@@ -55,7 +55,7 @@ if($connecte)
                         </a>
                     </li>
                     <li>
-                        <a href="/"> 
+                        <a href="/?page=deconnexion"> 
                             <i class="fa fa-sign-out"></i>
                             Deconnexion
                         </a>

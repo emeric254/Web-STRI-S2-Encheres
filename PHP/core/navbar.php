@@ -27,8 +27,14 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id'])
 		$connecte = FALSE;
 		unset($_SESSION['id']);
 		unset($_SESSION['email']);
+		unset($_SESSION['nom']);
+		unset($_SESSION['prenom']);
+		unset($_SESSION['telephone']);
+		unset($_SESSION['adresse']);
+		unset($_SESSION['photo']);
+		unset($_SESSION['idville']);
+		unset($_SESSION['idstatut']);
 		unset($_SESSION['pwd']);
-		/** mettre toutes les var */
 	}
 }
 else if (isset($_COOKIE['id']) and !empty($_COOKIE['id']) 

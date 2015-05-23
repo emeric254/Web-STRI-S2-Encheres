@@ -21,7 +21,7 @@
         <!-- Contenu -->
         <div class="container">
 			<!-- Formulaire -->
-			<form method="POST" class="form-signin" action="core/traitementInscription.php">
+			<form method="POST" class="form-signin" action="core/traitementInscription.php" enctype="multipart/form-data">
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
@@ -111,12 +111,15 @@
 				<div class="well">
 					<div class="row text-center" style="margin-bottom:10px;">
 						<h3>
-							Votre photo
+							Votre photo 
 						</h3>
+						(taille max : 2000ko)
 						<div class="input-group input-group-lg">
 							<label for="inputPhoto" class="sr-only">
-								Photo
+								Photo  
 							</label>
+							<!-- On limite le fichier à 2000ko -->
+							<input type="hidden" name="MAX_FILE_SIZE" value="2000" /> 
 							<input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
 						</div>
 					</div>
