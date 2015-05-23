@@ -183,6 +183,7 @@ function UtilisateurRecupererEnch($id){
  */
 function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 {
+var_dump($photo);
 	include('bdd.php');
 	$id = $_SESSION['id'];
 	$fichier = basename($photo['name']);
@@ -209,7 +210,8 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 		$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
 	var_dump($photo);
 	echo "=> $fichier - juste avant le if, ".$photo['tmp_name'];
-		if(move_uploaded_file($photo['tmp_name'], $dossier/*.$fichier*/)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
+	echo "<br> arg 2 de la fct dans le if :".$dossier.$fichier;
+		if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
 		{
 echo "azezrtyuiopo";
 	var_dump($photo);

@@ -17,7 +17,7 @@
  * - gérer que la requete d'insertion fonctionne
  */
  
-include_once('/core/model.php'); /* utile ????*/
+include_once('model.php'); /* utile ????*/
 include_once('bdd.php'); /** TODO : modifier chemin */
 
 /* Récupération des différentes variables du formulaire */
@@ -37,7 +37,7 @@ echo "<br> telephone : $telephone<br>addresse : $adresse <br> ville : $ville<br>
 /* Tester que les 2 ots de passe sont identiques */
 
 /** Mode moche a verif et compléter - manque image, idville et idstatut */
-$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'./profil/default')";
+$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'./profil/default.png')";
 
 $reqExec = $db->prepare($req);
 $reqExec->execute() or die(print "echec execution requete");  /********** Virer ou changer texte du or die */
@@ -75,8 +75,10 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 	// traitement de l'image
 	if (isset($_FILES['inputPhoto']))
 	{
+echo "<br>Dans traitementInscription :";
 var_dump($_FILES['inputPhoto']);
-		UploadImage('/profil/',$_FILES['inputPhoto'],2000,1);
+$a=$_FILES['inputPhoto'];
+		UploadImage('/profil/',$a,2000000,1);
 		
 	}
 	
