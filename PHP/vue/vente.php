@@ -30,7 +30,7 @@
 						<h3>
 							<span class="label label-info">
 								Enchère crée par
-								<a href="profil-<?php print $vente->Vendeur->id; ?>">
+								<a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>">
 									<?php print $vente->Vendeur->nom; ?>
 								</a>
 							</span>
@@ -50,7 +50,7 @@
 						<h3>
 							<span class="label label-info">
 								Dernière enchère par
-								<a href="profil-<?php print $vente->Acheteur->id; ?>">
+								<a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
 									<?php print $vente->Acheteur->nom; ?>
 								</a>
 							</span>

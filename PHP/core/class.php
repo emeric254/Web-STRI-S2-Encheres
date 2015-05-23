@@ -50,7 +50,7 @@ class Profil {
 	public $email;
 	public $prenom;
 	public $telephone;
-	public $addresse;
+	public $adresse;
 	public $photo;
 	public $ville;
 	public $statut;
@@ -62,7 +62,7 @@ class Profil {
 		$this->email = $info['emailutilisateur'];
 		$this->prenom = $info['prenomutilisateur'];
 		$this->telephone = $info['telephoneutilisateur'];
-		$this->addresse = $info['adresseutilisateur'];
+		$this->adresse = $info['adresseutilisateur'];
 		$this->photo = $info['urlphotoutilisateur'];
 		$this->ville = Ville_Recup_Nom($info['idville']);
 		$this->statut = $info['idstatut'];
