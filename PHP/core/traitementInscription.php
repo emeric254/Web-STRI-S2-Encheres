@@ -17,7 +17,7 @@
  * - gérer que la requete d'insertion fonctionne
  */
  
-include_once('model.php'); /* utile ????*/
+include_once('/core/model.php'); /* utile ????*/
 include_once('bdd.php'); /** TODO : modifier chemin */
 
 /* Récupération des différentes variables du formulaire */
