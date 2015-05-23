@@ -20,7 +20,7 @@
         <div class="container">
 			
 			<!-- Formulaire -->
-			<form class="form-signin" action="connecte.html">
+			<form class="form-signin" action="core/traitementConnexion.php" method="POST">
 				
 				<div class="well">
 					<!-- Email -->
@@ -31,7 +31,7 @@
 						<label for="inputEmail" class="sr-only">
 							Adresse Email
 						</label>
-						<input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+						<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
 					</div>
 				</div>
 				
@@ -44,7 +44,7 @@
 						<label for="inputPassword" class="sr-only">
 							Mot de passe
 						</label>
-						<input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+						<input type="password" id="inputPassword" name="pwd" class="form-control" placeholder="Mot de passe" required>
 					</div>
 				</div>
 				

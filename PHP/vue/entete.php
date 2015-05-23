@@ -2,6 +2,7 @@
 /* «entete.php»
  * debut de toutes les pages du site
  * 
+ * @*TODO : c'est dans cette page le session start ?
  */
 ?>
 <!DOCTYPE html>

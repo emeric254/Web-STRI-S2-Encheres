@@ -1,3 +1,4 @@
+
 <?php
 /* «core/navbar.php»
  * barre de menu sur toutes les pages du site
@@ -5,18 +6,18 @@
  * vars
  * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
  * 
- * 
+ * rémi : j'ai modifier dans $cookies et $session user en email et pass en mdp (pour que ça corresponde avec la page de connexion, voir ce qu'on met conne nom de colonne
  */
 
 include_once('core/model.php');
 
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) 
-	and isset($_SESSION['user']) and !empty($_SESSION['user']) 
-	and isset($_SESSION['pass']) and !empty($_SESSION['pass']))
+	and isset($_SESSION['email']) and !empty($_SESSION['email']) 
+	and isset($_SESSION['pwd']) and !empty($_SESSION['pwd']))
 {
 	$id = htmlspecialchars($_SESSION['id']);
-	$user = htmlspecialchars($_SESSION['user']);
-	$pass = htmlspecialchars($_SESSION['pass']);
+	$user = htmlspecialchars($_SESSION['email']);
+	$pass = htmlspecialchars($_SESSION['pwd']);
 	if(NavbarCheckInfo($id,$user,$pass))
 	{
 		$connecte = TRUE;
@@ -25,30 +26,30 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id'])
 	{
 		$connecte = FALSE;
 		unset($_SESSION['id']);
-		unset($_SESSION['user']);
-		unset($_SESSION['pass']);
+		unset($_SESSION['email']);
+		unset($_SESSION['pwd']);
 	}
 }
 else if (isset($_COOKIE['id']) and !empty($_COOKIE['id']) 
-			and isset($_COOKIE['user']) and !empty($_COOKIE['user']) 
-			and isset($_COOKIE['pass']) and !empty($_COOKIE['pass']))
+			and isset($_COOKIE['email']) and !empty($_COOKIE['email']) 
+			and isset($_COOKIE['pwd']) and !empty($_COOKIE['pwd']))
 {
 	$id = htmlspecialchars($_COOKIE['id']);
-	$user = htmlspecialchars($_COOKIE['user']);
-	$pass = htmlspecialchars($_COOKIE['pass']);
+	$user = htmlspecialchars($_COOKIE['email']);
+	$pass = htmlspecialchars($_COOKIE['pwd']);
 	if(NavbarCheckInfo($id,$user,$pass))
 	{
 		$connecte = TRUE;
 		$_SESSION['id'];
-		$_SESSION['user'];
-		$_SESSION['pass'];
+		$_SESSION['email'];
+		$_SESSION['pwd'];
 	}
 	else
 	{
 		$connecte = FALSE;
 		unset($_COOKIE['id']);
-		unset($_COOKIE['user']);
-		unset($_COOKIE['pass']);
+		unset($_COOKIE['email']);
+		unset($_COOKIE['pwd']);
 	}
 }
 else
