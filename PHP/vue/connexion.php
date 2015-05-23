@@ -20,7 +20,7 @@
         <div class="container">
 			
 			<!-- Formulaire -->
-			<form class="form-signin" action="core/traitementConnexion.php" method="POST">
+			<form class="form-signin" action="/?page=traitementConnexion" method="POST">
 				
 				<div class="well">
 					<!-- Email -->

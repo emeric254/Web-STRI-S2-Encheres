@@ -2,12 +2,13 @@
 //Si utilisateur déja connecté : redirection vers l'acceuil
 if (!empty($_SESSION['id'])) 
 {
-    header("Location: index.php");
+    header("Location: /");
 }
 else
 {
     // Si non formulaire de connexion
 ?>
+
 
 <?php
 /* «connexion.php»

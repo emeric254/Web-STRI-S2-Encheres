@@ -1,3 +1,13 @@
+<?php 
+//Si utilisateur déja connecté : redirection vers l'acceuil
+if (!empty($_SESSION['id'])) 
+{
+    header("Location: /");
+}
+else
+{
+    // Sinon on  traite les infos recu
+?>
 
  <?php
 /* «traitementInscription.php»
@@ -14,11 +24,12 @@
  * - dans requete, obn met idStatut à 1 mais gérer avec la bonne valeur => a déterminer dans la table statut
  * - gérer les valeurs a mettre pour la ville et le statut (les id)
  * - gérer le if ( !donnees)
- * - gérer que la requete d'insertion fonctionne
+ * - gérer quand la requete d'insertion fonctionne
+ * - quand on se trouver sur la parge d'un objet, rediriger vers cette meme page plutot que vers l'index
  */
  
-include_once('model.php'); /* utile ????*/
-include_once('bdd.php'); /** TODO : modifier chemin */
+include_once('core/model.php'); /* utile ????*/
+include_once('core/bdd.php'); /** TODO : modifier chemin */
 
 /* Récupération des différentes variables du formulaire */
 if (isset($_POST['inputEmail'])) $mail=$_POST['inputEmail'];
@@ -57,6 +68,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 	if (!$donnees)
 	{
 		echo "Echec ajout"; /**TODO :  A MIEUX DEFINIR */
+		echo("<script>alert(\"Echec ajout utilisateur\");</script>");
 	}
 	else
 	{
@@ -72,19 +84,20 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		$_SESSION['idstatut'] = $donnees['idville'];
 		$_SESSION['pwd'] = $donnees['mdputilisateur'];
 	
-	// traitement de l'image
-	if (isset($_FILES['inputPhoto']))
-	{
-		UploadImage('../profil/',$_FILES['inputPhoto'],2000000,1);
+		// traitement de l'image
+		if (isset($_FILES['inputPhoto']))
+		{
+			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
+			
+		}
 		
+		header("Location: /");
 	}
 	
+	
+	
+	
 }
-	
-	
-	
-	
-	
 	
 	
 	

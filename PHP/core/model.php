@@ -183,8 +183,7 @@ function UtilisateurRecupererEnch($id){
  */
 function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 {
-var_dump($photo);
-	include('bdd.php');
+	include('core/bdd.php');
 	$id = $_SESSION['id'];
 	$fichier = basename($photo['name']);
 	$taille = filesize($photo['tmp_name']);
@@ -213,7 +212,7 @@ var_dump($photo);
 		{
 			if ($typePhoto == 1) // ajout photo de profil
 			{
-				unlink($_SESSION['photo']);
+				unlink($dossier.$_SESSION['photo']);
 				rename($dossier.$fichier, $dossier.$_SESSION['id'].$fichier);
 				$newfichier = $_SESSION['id'].$fichier;
 				$resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
