@@ -23,7 +23,7 @@ switch($choix)
 {
 	case 1:	// profil
 
-	include("core/profil.php");
+	include("profil.php");
 
 		break;
 	case 2:	// achats
