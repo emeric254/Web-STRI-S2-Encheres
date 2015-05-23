@@ -15,6 +15,7 @@
  */
  
 //include_once('core/model.php'); /* utile ????*/
+session_start();
 include_once('bdd.php'); /** TODO : modifier chemin */
 if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
 {
@@ -47,14 +48,10 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
 		$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
 		$_SESSION['idville'] = $donnees['idville'];
 		$_SESSION['istatut'] = $donnees['idville'];
-		$_SESSION['pwd'] = sha1($donnees['mdputilisateur']);
+		$_SESSION['pwd'] = $donnees['mdputilisateur'];
 		
 		//redirection vers l'index 
-		?>
-		<script>
-			window.location="../";
-		</script> 
-		<?php
+		header('Location: /');
 	}
 }
 else

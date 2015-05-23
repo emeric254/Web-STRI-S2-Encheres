@@ -10,7 +10,7 @@
  * $photoVente
  * $descriptionVente
  * 
- * $encherisseursVente (tab des encherisseurs)
+ * $encherisseursVente (tab des encherisseurs) tu est là ?
  * 
  * 
  * TODO :
@@ -19,7 +19,7 @@
 
 
 // session 
-session_start();
+//session_start();
 
 // bdd
 //include('core/bdd.php'); Besoin de l'inclure dans chaque fonction sinon ça marche pas
@@ -128,13 +128,13 @@ function Ville_Recup_Nom($id)
 function NavbarCheckInfo($id,$user,$pass)
 {
 	include('core/bdd.php');
-	$ret = false;
-	$req = "SELECT * FROM utilisateur WHERE idutilisateur='?' AND emailutilisateur='?' AND mdputilisateur='?' ";
+	$ret = 0;
+	$req = "SELECT * FROM utilisateur WHERE idutilisateur='$id' AND emailutilisateur='$user' AND mdputilisateur='$pass' ";
 	$reqExec = $db->prepare($req);
-	$reqExec->execute(array($id, $user, $pass));
+	$reqExec->execute(array());
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret = true;
+		$ret = 1;
 	}
 	return $ret;
 }

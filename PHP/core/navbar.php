@@ -10,7 +10,6 @@
  */
 
 include_once('core/model.php');
-
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) 
 	and isset($_SESSION['email']) and !empty($_SESSION['email']) 
 	and isset($_SESSION['pwd']) and !empty($_SESSION['pwd']))
@@ -18,7 +17,8 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id'])
 	$id = htmlspecialchars($_SESSION['id']);
 	$user = htmlspecialchars($_SESSION['email']);
 	$pass = htmlspecialchars($_SESSION['pwd']);
-	if(NavbarCheckInfo($id,$user,$pass))
+	$test = NavbarCheckInfo($id,$user,$pass);
+	if($test)
 	{
 		$connecte = TRUE;
 	}
@@ -28,6 +28,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id'])
 		unset($_SESSION['id']);
 		unset($_SESSION['email']);
 		unset($_SESSION['pwd']);
+		/** mettre toutes les var */
 	}
 }
 else if (isset($_COOKIE['id']) and !empty($_COOKIE['id']) 
@@ -56,7 +57,6 @@ else
 {
 	$connecte = FALSE;
 }
-
 include('vue/navbar.php');	// deja include avant
 
 ?>
