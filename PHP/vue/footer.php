@@ -9,7 +9,7 @@
             <div class="container">
                 <p class="pull-left">
                     <span class="label">
-                        <a href="vue/apropos.php">
+                        <a href="/?page=apropos">
                             <i class="fa fa-html5"></i>
 							&nbsp;
                             <em>STRIDEAL</em>, sous license <em>GNU G.P.L. v2</em>
