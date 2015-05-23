@@ -212,7 +212,10 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 		{
 			if ($typePhoto == 1) // ajout photo de profil
 			{
-				unlink($dossier.$_SESSION['photo']);
+				if ($_SESSION['photo'] != "default.png")
+				{
+					unlink($dossier.$_SESSION['photo']);
+				}
 				rename($dossier.$fichier, $dossier.$_SESSION['id'].$fichier);
 				$newfichier = $_SESSION['id'].$fichier;
 				$resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
