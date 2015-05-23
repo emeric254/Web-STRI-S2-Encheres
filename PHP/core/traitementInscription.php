@@ -75,10 +75,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 	// traitement de l'image
 	if (isset($_FILES['inputPhoto']))
 	{
-echo "<br>Dans traitementInscription :";
-var_dump($_FILES['inputPhoto']);
-$a=$_FILES['inputPhoto'];
-		UploadImage('/profil/',$a,2000000,1);
+		UploadImage('../profil/',$_FILES['inputPhoto'],2000000,1);
 		
 	}
 	
