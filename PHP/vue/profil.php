@@ -6,8 +6,6 @@
  * $profil	(le profil de l'utilisateur)
  *
  */
- 
- include_once('core/profil.php'); 
 ?>
 
         <div class="container">

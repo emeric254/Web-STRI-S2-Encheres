@@ -4,6 +4,7 @@ class Vente {
 	public $id;
 	public $nom;
 	public $date;
+	public $dateSeconde;
 	public $tempsRestant;
 	public $tempsRestantSeconde;
 	public $Vendeur;
@@ -18,14 +19,18 @@ class Vente {
 		$this->id = $id;
 		$info = Vente_Info_General($id);
 		$this->nom = $info['titreVente'];
-		$this->date = $info['débutVente'];
+		$this->dateSeconde = $info['débutVente'];
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
 		$this->tempsRestantSeconde = $dateFin - time();
-		$this->tempsRestant = gmdate("H:i:s", $dateFin - time());
+		if ($this->tempsRestantSeconde>0) {
+			$this->tempsRestant = gmdate("H:i:s", $dateFin - time());
+		} else {
+			$this->tempsRestant = 'Vente terminée';
+		}
 
 		$this->nbEncherisseur = Vente_nb_enchere($id);
 		if ($this->nbEncherisseur==0){
@@ -41,6 +46,7 @@ class Vente {
 		$idAcheteur = Vente_info_MaxId($id);
 		$this->Acheteur = new Profil($idAcheteur);
 		
+		$this->date = date('d/m/o G:i', $this->dateSeconde);
 	}
 }
 

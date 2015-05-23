@@ -127,7 +127,7 @@ function Ville_Recup_Nom($id)
 
 function NavbarCheckInfo($id,$user,$pass)
 {
-//	include('core/bdd.php');	// deja include avant
+	include('core/bdd.php');
 	$ret = false;
 	$req = "SELECT * FROM utilisateur WHERE idutilisateur='?' AND emailutilisateur='?' AND mdputilisateur='?' ";
 	$reqExec = $db->prepare($req);
@@ -139,24 +139,29 @@ function NavbarCheckInfo($id,$user,$pass)
 	return $ret;
 }
 
-# ----------- Fonction pour l'affichage d'un profil utilisateur
-/* remi :
- * est-ce correct d'utiliser le while vu qu'on recupere qu'un seul profil ?
- * dans le execute, est-ce qu'il faut mettre array($info) ?
- */
-function Profil_Info_Compte($mail) {
+function UtilisateurRecupererVente($id){
 	include('core/bdd.php');
-	$req = 'SELECT * FROM utilisateur WHERE emailutilisateur=?';
+	$ret = array();
+	$req = "SELECT idannonce FROM annonce WHERE idutilisateur=?";
 	$reqExec = $db->prepare($req);
-	$reqExec->execute(array($mail));
-	while ($donnees_reqExec = $reqExec->fetch()){
-		$ret['prenomClient'] = $donnees_reqExec['nomutilisateur'];
-		$ret['nomClient'] = $donnees_reqExec['prenomutilisateur'];
-		$ret['mail'] = $donnees_reqExec['emailutilisateur'];
-		$ret['numeroTelephone'] = $donnees_reqExec['telephoneutilisateur'];
-		$ret['adresse'] = $donnees_reqExec['adresseutilisateur'];
+	$reqExec->execute(array($id));
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idannonce'];
 	}
-	
+	return $ret;
+}
+
+function UtilisateurRecupererEnch($id){
+	include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT idannonce FROM encherir WHERE idutilisateur=? GROUP BY idannonce";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($id));
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idannonce'];
+	}
 	return $ret;
 }
 ?>
