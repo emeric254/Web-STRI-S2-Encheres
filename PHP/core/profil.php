@@ -15,17 +15,14 @@
  */
  
  include_once('core/model.php');
- if (isset($_GET['mail']) and !empty($_GET['mail'])) {
-	$mail=htmlspecialchars($_GET['mail']);
-	$info=Profil_Info_Compte($mail);
-	$prenomClient = $info['prenomClient'];
-	$nomClient = $info['nomClient'];
-	$mail = $info['mail'];
-	$numeroTelephone = $info['numeroTelephone'];
-	$adresse = $info['adresse'];
+include_once('core/class.php');
+ if (isset($_GET['id']) and !empty($_GET['id'])) {
+	$id = htmlspecialchars($_GET['id']);
+	$profil = new Profil($id);
+	include('vue/profil.php');
  } else {
- //TODO  l'utilisateur recherche n'existe pas
- 
+	$errMsg = "Pas d'utilisateur indiqué'";
+	include_once("vue/erreur.php");
  }
-include('vue/profil.php')
+
  ?>
