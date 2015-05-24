@@ -6,7 +6,7 @@
 
 include_once('core/class.php');
 include_once('core/model.php');
-include_once('vue/debut-nouveautes.php');
+include_once('vue/debut-tendances.php');
 $ListNouv=RecuperationTendanceVente(10);
 foreach($ListNouv as $idVente){
 	$vente = new Vente($idVente);
