@@ -25,7 +25,7 @@
                             <?php print $vente->nom; ?>
 
                             &nbsp;
-                            <span class="label label-warning">
+                            <span class="label label-warning" id="tempsRestant<?php print $vente->id; ?>">
 <!--
                                 @ TODO temps restant
 -->
@@ -54,3 +54,39 @@
                     </div>
                 </div>
             </div>
+
+<script type="text/javascript">
+
+    function decompte<?php print $vente->id; ?>()
+    {
+        var dateActuelle = new Date();
+
+        // @ TODO a verif que ca marche de creer la date de debut comme ca !
+        var dateDebut = new Date("<?php print $vente->date; ?>");
+
+        // @ TODO a verif que ce soit des secondes !
+        var duree = <?php print $vente->tempsRestant; ?>;
+
+        var total = duree - (dateActuelle - dateDebut)/1000 ;
+
+        var compteRebour = document.getElementById("tempsRestant<?php print $vente->id; ?>");
+
+        if (total <= 0)
+        {
+            compteRebour.innerHTML = 'Finie !';
+        }
+        else
+        {
+            var jours = Math.floor(total / (60 * 60 * 24));
+            var heures = Math.floor((total - (jours * 60 * 60 * 24)) / (60 * 60));
+            var minutes = Math.floor((total - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+            var secondes = Math.floor(total - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+
+            compteRebour.innerHTML = jours + 'j ' + heures + 'h ' + minutes + 'm ' + secondes + 's';
+        }
+            setTimeout("decompte<?php print $vente->id; ?>();", 1000);
+    }
+
+    decompte<?php print $vente->id; ?>();
+
+</script>
