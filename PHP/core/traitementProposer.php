@@ -10,7 +10,14 @@
  * - ///!!\\\ => le inputUnite peut pposer probleme : emeric m'a dit de le mettre mais je le voit pas dans le formulaire
  *
  * - Faire la fonction VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
+ * ==> Cette fonction pas sûr quelle soit utile -> peut etre rajouter le test au niveau de tous les if (isser(......) ) qui vérifie que tous les champs sont indiqué
+ * 98 : traiter la valeur retournée
  *
+ * AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
+ Permet d'ajouter l'objet dans la base, ne retourne aucune valeur
+ *
+ *VerificationAjoutNouvelleAnnonce($titre) 
+ Permet de vérifier que l'objer est ajouté dans la base, on utilise en plus du titre, l'id du venteur (contenu dan $_SESSION) et d'autres infos a déterminer, retourne 0 en cas d'erreur et autre chose pour un succes
  */
  
 include_once('core/model.php'); /* utile ????*/
@@ -93,7 +100,13 @@ if ($erreur == 1)
     include_once("vue/inscription.php");
 }else{
     /* on teste que toutes les informations sont correctes */
-    $verifOk=VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
-    if (!$verifOk)
+    $verifOk=VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute); // TODO : voir si utile
+    //TODO : traiter la valeur retournée
+    //if ... else :
+    
+    //ajout de l'objet dans la base de donnée
+    AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
+    // on recherche les informations de l'objet dans la base
+    $verif=VerificationAjoutNouvelleAnnonce($titre);
+    if ($verif==0)
     {
-        $errMsg
