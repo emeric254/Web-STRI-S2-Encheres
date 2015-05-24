@@ -87,8 +87,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		// traitement de l'image
 		if (isset($_FILES['inputPhoto']))
 		{
-			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
-			
+			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1,$_SESSION['id']);
 		}
 		
 		header("Location: /");
