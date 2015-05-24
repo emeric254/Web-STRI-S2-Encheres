@@ -30,19 +30,19 @@
 			</h2>
 			<ul>
 				<li>
-					Barbaste Remi : 123@123.fr
+					Barbaste Remi : remi.barbaste@gmail.com
 				</li>
 				<li>
-					Boulic Guillaume : 123@123.fr
+					Boulic Guillaume : guillaume@boulic.fr
 				</li>
 				<li>
-					Degironde Robin : 123@123.fr
+					Degironde Robin : robin_mijeanne@hotmail.fr
 				</li>
 				<li>
-					Maury Thomas : 123@123.fr
+					Maury Thomas : thomas.maury31@gmail.com
 				</li>
 				<li>
-					Tosi Emeric : 123@123.fr
+					Tosi Emeric : emeric.tosi@univ-tlse3.fr
 				</li>
 			</ul>
 			<p>
