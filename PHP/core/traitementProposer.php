@@ -9,6 +9,7 @@
  * - Voir si il faut tester que la personne est connectée (a rajouter tout en haut de la page)
  * - ///!!\\\ => le inputUnite peut pposer probleme : emeric m'a dit de le mettre mais je le voit pas dans le formulaire
  *
+ * - Faire la fonction VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
  *
  */
  
@@ -26,7 +27,7 @@ if (isser($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
 }
 
 if (isser($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
-    $titre=htmlspecialchars($_POST['inputDescription']);
+    $description=htmlspecialchars($_POST['inputDescription']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -36,7 +37,7 @@ if (isser($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
 }
 
 if (isser($_POST['inputPrix']) and !empty($_POST['inputPrix'])) {
-    $titre=htmlspecialchars($_POST['inputPrix']);
+    $prix=htmlspecialchars($_POST['inputPrix']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -46,7 +47,7 @@ if (isser($_POST['inputPrix']) and !empty($_POST['inputPrix'])) {
 }
 
 if (isser($_POST['inputPas']) and !empty($_POST['inputPas'])) {
-    $titre=htmlspecialchars($_POST['inputPas']);
+    $pas=htmlspecialchars($_POST['inputPas']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -56,7 +57,7 @@ if (isser($_POST['inputPas']) and !empty($_POST['inputPas'])) {
 }
 
 if (isser($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
-    $titre=htmlspecialchars($_POST['inputDureeJour']);
+    $dureeJour=htmlspecialchars($_POST['inputDureeJour']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -66,7 +67,7 @@ if (isser($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
 }
 
 if (isser($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
-    $titre=htmlspecialchars($_POST['inputDureeHeure']);
+    $dureeHeure=htmlspecialchars($_POST['inputDureeHeure']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -76,7 +77,7 @@ if (isser($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
 }
 
 if (isser($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
-    $titre=htmlspecialchars($_POST['inputDureeMinute']);
+    $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
 }else{
     if($erreur){
 		$champErreur=", ";
@@ -91,3 +92,8 @@ if ($erreur == 1)
     include_once("vue/erreur.php");
     include_once("vue/inscription.php");
 }else{
+    /* on teste que toutes les informations sont correctes */
+    $verifOk=VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
+    if (!$verifOk)
+    {
+        $errMsg
