@@ -29,7 +29,7 @@ else
  */
  
 include_once('core/model.php'); /* utile ????*/
-include_once('core/bdd.php'); /** TODO : modifier chemin */
+include_once('core/bdd.php'); 
 
 /* Récupération des différentes variables du formulaire */
 if (isset($_POST['inputEmail'])) $mail=$_POST['inputEmail'];
