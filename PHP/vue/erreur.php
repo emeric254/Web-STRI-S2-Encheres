@@ -8,7 +8,7 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1 class="text-center">
                     Erreur !

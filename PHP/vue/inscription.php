@@ -12,7 +12,7 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-smile-o"></i>

@@ -11,7 +11,7 @@
  *
  */
 ?>
-            <div class="jumbotron">
+            <div class="well">
                 <h1 style="text-align: center;">
                     <?php print $vente->nom; ?>
                 </h1>
@@ -20,14 +20,14 @@
             <div class="well">
                 <div class="row text-center">
                     <div class="col-md-6 col-lg-6 text-center">
-                        <h3>
+                        <h4>
                             <span class="label label-danger" id="tempsRestant">
                                 <!-- temps restant -->
                                 0
                             </span>
                             &nbsp;
-                        </h3>
-                        <h3>
+                        </h4>
+                        <h4>
                             <span class="label label-info">
                                 Enchère crée par
                                 <a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>">
@@ -35,10 +35,10 @@
                                 </a>
                             </span>
                             &nbsp;
-                        </h3>
+                        </h4>
                     </div>
                     <div class="col-md-6 col-lg-6 text-center">
-                        <h3>
+                        <h4>
                             <span class="label label-warning">
                                 <?php print $vente->prix; ?>
                                 €
@@ -46,8 +46,8 @@
                                     <?php print $vente->nbEncherisseur; ?>
                                 </span>
                             </span>
-                        </h3>
-                        <h3>
+                        </h4>
+                        <h4>
                             <span class="label label-info">
                                 Dernière enchère par
                                 <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
@@ -55,7 +55,7 @@
                                 </a>
                             </span>
                             &nbsp;
-                        </h3>
+                        </h4>
                     </div>
                 </div>
                 <div class="row">

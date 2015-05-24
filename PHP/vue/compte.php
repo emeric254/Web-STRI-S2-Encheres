@@ -17,7 +17,7 @@
 ?>
         <!-- Contenu -->
         <div class="container">
-            <div class="jumbotron">
+            <div class="well">
 <?php
 switch($choix)
 {

@@ -11,7 +11,7 @@
 ?>
         <div class="container">
 
-            <div class="jumbotron">
+            <div class="well">
 
                 <div class="page-header">
                     <div class="row">
