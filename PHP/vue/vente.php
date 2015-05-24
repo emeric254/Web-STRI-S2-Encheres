@@ -4,7 +4,7 @@
  *
  *
  * vars :
- *  > $vente    (objet "vente"
+ *  > $vente    (objet "vente")
  *
  * // @ TODO pour une evolve future :
  *  > $encherisseursVente (tableau de "profil")
