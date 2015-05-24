@@ -46,7 +46,7 @@ CREATE TABLE annonce (
 	descriptionAnnonce VARCHAR(4096) NOT NULL, 
 	prixDepartAnnonce FLOAT NOT NULL CHECK (prixDepartAnnonce >=0), 
 	pasAnnonce FLOAT NOT NULL CHECK (pasAnnonce >=0), 
-	dateAnnonce DATE NOT NULL , 
+	dateAnnonce TIMESTAMP NOT NULL , 
 	dureeAnnonce INT NOT NULL CHECK (dureeAnnonce >=0), 
 	urlPhotoAnnonce VARCHAR(4096), 
 	idUtilisateur SERIAL NOT NULL, 
@@ -63,7 +63,7 @@ CREATE TABLE encherir (
 	idUtilisateur SERIAL NOT NULL, 
 	idAnnonce SERIAL NOT NULL, 
 	prixEnchere FLOAT CHECK (prixEnchere >=0),
-	dateEnchere DATE NOT NULL, 
+	dateEnchere TIMESTAMP NOT NULL, 
 
 	CONSTRAINT PK_encherir PRIMARY KEY (idUtilisateur,  idAnnonce),
 	CONSTRAINT FK_encherir_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
