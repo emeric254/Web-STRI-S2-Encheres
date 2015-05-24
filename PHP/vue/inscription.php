@@ -30,10 +30,10 @@
                 <!-- Email -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre email
-                        </h3>
-                        <div class="input-group input-group-lg">
+                        </h4>
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 @
                             </span>
@@ -48,11 +48,11 @@
                 <!-- Password -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre mot de passe
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     *
                                 </span>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     *
                                 </span>
@@ -92,11 +92,11 @@
                 <!-- Nom & prénom -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Vos nom et pr&eacute;nom
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-users"></i>
                                 </span>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-male"></i>
                                 </span>
@@ -123,11 +123,11 @@
                 <!-- Photo -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre photo de profil
-                        </h3>
+                        </h4>
                         <em>optionnelle, (taille max : 2Mio)</em>
-                        <div class="input-group input-group-lg" style="padding-left:1em;">
+                        <div class="input-group input-group" style="padding-left:1em;">
                             <label for="inputPhoto" class="sr-only">
                                 Photo
                             </label>
@@ -140,10 +140,10 @@
                 <!-- Téléphone -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre numéro de t&eacute;l&eacute;phone
-                        </h3>
-                        <div class="input-group input-group-lg">
+                        </h4>
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-phone"></i>
                             </span>
@@ -158,11 +158,11 @@
                 <!-- Adresse -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre adresse postale
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope-o"></i>
                                 </span>
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-map-marker"></i>
                                 </span>
