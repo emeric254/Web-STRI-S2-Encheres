@@ -263,4 +263,17 @@ function RecuperationDerniereVente($limite){
 	}
 	return $ret;
 }
+
+function RecuperationTendanceVente($limite){
+	include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT COUNT(*), idannonce FROM encherir Group BY idannonce ORDER BY count DESC LIMIT ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($limite));
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idannonce'];
+	}
+	return $ret;
+}
 ?>
