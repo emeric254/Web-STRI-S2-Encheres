@@ -6,10 +6,8 @@
 ?>
         <!-- Titre -->
         <div class="jumbotron">
-            <div class="container theme-showcase" role="main" >
-                <p class="text-center">
-                    <img class="img-thumbnail" src="./banniere.png" alt="banniere">
-                </p>
+            <div class="container theme-showcase text-center" role="main" >
+                <img class="img-thumbnail" src="./banniere.png" alt="banniere">
             </div>
         </div>
 
