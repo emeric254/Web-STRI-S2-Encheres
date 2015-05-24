@@ -3,9 +3,8 @@
  * page affichant le profil d'un utilisateur
  *
  * vars
- * $profil  (le profil de l'utilisateur)
- *
- * // @ TODO bouton supprimer pour utilisateur identifier
+ *  > $profil  (le profil de l'utilisateur)
+ *  > $identify     (booleen pour savoir si oui ou non ce profil est celui de l'utilisateur connecté)
  *
  */
 ?>
@@ -76,20 +75,18 @@
                 </div>
 
             </div>
-
-<!--
 <?php
-/*
- * if(identify)
- * {
-*/
+    if($identify)
+    {
 ?>
-<button> Supprimer votre compte </button>
+            <h4>
+                <span class="label label-danger">
+                    <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir supprimer votre compte ?')) document.location.href = this.href + '?verified' ; return false;">
+                        Supprimer votre compte
+                    </a>
+                </span>
+            </h4>
 <?php
-/*
- * }
-*/
+    }
 ?>
--->
-
         </div>
