@@ -55,7 +55,7 @@
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h4>
-                            Durée
+                            Dur&eacute;e
                         </h4>
 
                         <div class="input-group input-group">
@@ -92,7 +92,7 @@
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h4>
-                            Prix de départ
+                            Prix de d&eacute;part
                         </h4>
 
                         <div class="input-group input-group">
@@ -109,7 +109,7 @@
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h4>
-                            Pas minimal d'enchére
+                            Pas minimal d'ench&egrave;re
                         </h4>
 
                         <div class="input-group input-group">

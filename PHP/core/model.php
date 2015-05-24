@@ -271,6 +271,39 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 	}
 }
 
+# ----------- Fonction pour de vérification des informations d'une nouvelle annonce
+
+function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute)
+{
+    $duree=(((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute);
+    return ( strlen($titre) > 0 && strlen($description) > 0 && $prix > 0 && $pas > 0 && $duree > 0 );
+}
+
+# ----------- Fonction pour ajouter une annonce
+
+function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) {
+    include('core/bdd.php');
+    $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur) VALUES ('$titre','$description','$prix','$pas',now,$duree,'default.png','".$_SESSION['id']."')";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+}
+
+# ----------- Fonction de vérification de l'ajout d'une annonce 
+
+function VerificationAjoutNouvelleAnnonce($titre,$idAnnonce){
+    include('core/bdd.php');
+    $resultats = $db->prepare('SELECT idannonce,nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur FROM annonce WHERE idannonce = :idA');
+    $resultats->execute(array('idA' => $idAnnonce));
+    $ret=0;
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+# ----------- Fonction de récupération des n dernières ventes
 
 function RecuperationDerniereVente($limite){
 	include('core/bdd.php');
