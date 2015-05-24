@@ -8,8 +8,8 @@
         <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
-                    <i class="fa fa-newspaper-o"></i>
-                    Nouveautes
+                    <i class="fa fa-fire"></i>
+                    Tendances
                 </h1>
             </div>
         </div>

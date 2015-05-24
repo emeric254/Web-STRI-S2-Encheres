@@ -7,7 +7,7 @@
  *  > $porteeRecherche  (pas encore utilisée) // sert pour le @ TODO suivant
  *
  *
- * // @ TODO message infos de sur quoi porte la recherche, jai une idée pour comment le rendre a l'affichage, il nous faut une var String «$porteeRecherche»
+ * // @ TODO message infos de sur quoi porte la recherche, jsait comment le rendre a l'affichage mais il nous faut une var String «$porteeRecherche»
  *
  */
 ?>
