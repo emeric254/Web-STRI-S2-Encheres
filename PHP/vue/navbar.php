@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/?page=nouvelleVente">
+                        <a href="/?page=proposer">
                             <i class="fa fa-newspaper-o"></i>
                             Vendre
                         </a>

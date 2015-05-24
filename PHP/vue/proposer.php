@@ -20,7 +20,7 @@
         <div class="container">
 
             <!-- Formulaire -->
-            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementNouvelleVente" >
+            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementProposer" >
 
                 <!-- Titre -->
                 <div class="well">
