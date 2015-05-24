@@ -251,4 +251,16 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 }
 
 
+function RecuperationDerniereVente($limite){
+	include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT idannonce FROM annonce ORDER BY dateannonce DESC LIMIT ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($limite));
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idannonce'];
+	}
+	return $ret;
+}
 ?>
