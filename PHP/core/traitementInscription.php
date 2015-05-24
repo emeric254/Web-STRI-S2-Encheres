@@ -39,7 +39,7 @@ else
 	}
 
 	if (isset($_POST['inputPassword']) and !empty($_POST['inputPassword'])){
-		$password=htmlspecialchars($_POST['inputPassword']);
+		$password=sha1(htmlspecialchars($_POST['inputPassword']));
 	}else{
 		if($erreur){
 			$champErreur.=", ";
@@ -49,7 +49,7 @@ else
 	}
 
 	if (isset($_POST['inputPasswordBis']) and !empty($_POST['inputPasswordBis'])){
-		$passwordBis=htmlspecialchars($_POST['inputPasswordBis']);
+		$passwordBis=sha1(htmlspecialchars($_POST['inputPasswordBis']));
 	}else{
 		if($erreur){
 			$champErreur.=", ";
@@ -107,8 +107,6 @@ else
 		$champErreur.="Ville manquante";
 		$erreur=1;
 	}
-	var_dump($erreur);
-	var_dump($champErreur);
 	if($erreur==1){
 		$errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
 		include_once("vue/erreur.php");
