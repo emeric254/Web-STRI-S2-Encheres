@@ -250,5 +250,26 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 	}
 }
 
+function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password){
+	include('core/bdd.php');
+	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
 
+	$reqExec = $db->prepare($req);
+	$reqExec->execute();
+}
+
+function VerificationAjoutNouvelUtilisateur($mail, $password){
+	include('core/bdd.php');
+	$resultats = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
+	
+	$resultats->execute(array(
+	'email' => $mail,
+	'mdp' => $password));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=1;
+	}
+	return $ret;
+}
 ?>
