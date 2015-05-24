@@ -126,12 +126,11 @@
                         <h3>
                             Votre photo de profil
                         </h3>
-                        (taille max : 2Mio)
+                        <em>optionnelle, (taille max : 2Mio)</em>
                         <div class="input-group input-group-lg" style="padding-left:1em;">
                             <label for="inputPhoto" class="sr-only">
                                 Photo
                             </label>
-                            <!-- On limite le fichier à 2Mio -->
                             <input type="hidden" name="MAX_FILE_SIZE" value="2048" />
                             <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
                         </div>
@@ -179,9 +178,9 @@
                                     <i class="fa fa-map-marker"></i>
                                 </span>
                                 <label for="inputVille" class="sr-only">
-                                    Ville
+                                    Code postal
                                 </label>
-                                <input type="text" name="inputVille" id="inputVille" class="form-control" placeholder="Ville" required autofocus>
+                                <input type="number" min="0" name="inputVille" id="inputVille" class="form-control" placeholder="Code postal" required autofocus>
                             </div>
                         </div>
                     </div>
