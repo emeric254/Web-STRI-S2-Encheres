@@ -29,14 +29,84 @@ else
 	include_once('core/bdd.php'); /** TODO : modifier chemin */
 
 	/* Récupération des différentes variables du formulaire */
-	if (isset($_POST['inputEmail'])) $mail=htmlspecialchars($_POST['inputEmail']);
-	if (isset($_POST['inputPassword'])) $password=sha1(htmlspecialchars($_POST['inputPassword']));
-	if (isset($_POST['inputPasswordBis'])) $passwordBis=sha1(htmlspecialchars($_POST['inputPasswordBis']));
-	if (isset($_POST['inputNom'])) $nom=htmlspecialchars($_POST['inputNom']);
-	if (isset($_POST['inputPrenom'])) $prenom=htmlspecialchars($_POST['inputPrenom']);
-	if (isset($_POST['inputPhone'])) $telephone=htmlspecialchars($_POST['inputPhone']);
-	if (isset($_POST['inputAdresse'])) $adresse=htmlspecialchars($_POST['inputAdresse']);
-	if (isset($_POST['inputVille'])) $ville=$_POST['inputVille']);
+	$erreur=0;
+	$champErreur " ";
+	if (isset($_POST['inputEmail'])){
+		$mail=htmlspecialchars($_POST['inputEmail']);
+	}else{
+		$erreur=1;
+		$champErreur="Email manquante";
+	}
+
+	if (isset($_POST['inputPassword'])){
+		$password=htmlspecialchars($_POST['inputPassword']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Mot de passe manquant";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputPasswordBis'])){
+		$passwordBis=htmlspecialchars($_POST['inputPasswordBis']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Confirmation du mot de passe manquante";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputNom'])){
+		$nom=htmlspecialchars($_POST['inputNom']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Nom manquant";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputPrenom'])){
+		$prenom=htmlspecialchars($_POST['inputPrenom']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Prenom manquant";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputPhone'])){
+		$telephone=htmlspecialchars($_POST['inputPhone']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Numero de telephone manquant";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputAdresse'])){
+		$adresse=htmlspecialchars($_POST['inputAdresse']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Adresse manquante";
+		$erreur=1;
+	}
+
+	if (isset($_POST['inputVille'])){
+		$ville=htmlspecialchars($_POST['inputVille']);
+	}else{
+		if($erreur){
+			$champErreur=", ";
+		}
+		$champErreur="Ville manquante";
+		$erreur=1;
+	}
 
 
 	/* Tester que les 2 ots de passe sont identiques */
