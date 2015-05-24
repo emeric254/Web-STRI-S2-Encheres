@@ -34,7 +34,7 @@
 							<label for="inputEmail" class="sr-only">
 								Adresse email (*)
 							</label>
-							<input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+							<input type="email" name="inputEmail" <?php if (isset($mail) and !empty($mail)) { echo "value=\"$mail\"";} ?>  id="inputEmail" class="form-control" placeholder="email" required autofocus>
 						</div>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 								<label for="inputNom" class="sr-only">
 									Nom
 								</label>
-								<input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
+								<input type="text"  name="inputNom" <?php if (isset($nom) and !empty($nom)) { echo "value=\"$nom\"";} ?> id="inputNom" class="form-control" placeholder="Nom" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -103,7 +103,7 @@
 								<label for="inputPrenom" class="sr-only">
 									Pr&eacute;nom
 								</label>
-								<input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+								<input type="text"  name="inputPrenom" <?php if (isset($prenom) and !empty($prenom)) { echo "value=\"$prenom\"";} ?>  id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
 							</div>
 						</div>
 					</div>
@@ -136,7 +136,7 @@
 							<label for="inputPhone" class="sr-only">
 								T&eacute;l&eacute;phone
 							</label>
-							<input type="tel" name="inputPhone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
+							<input type="tel" name="inputPhone" <?php if (isset($telephone) and !empty($telephone)) { echo "value=\"$telephone\"";} ?> pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
 						</div>
 					</div>
 				</div>
@@ -153,7 +153,7 @@
 								<label for="inputAdresse" class="sr-only">
 									Adresse postale
 								</label>
-								<input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
+								<input type="text" name="inputAdresse" <?php if (isset($adresse) and !empty($adresse)) { echo "value=\"$adresse\"";} ?> id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -164,7 +164,7 @@
 								<label for="inputVille" class="sr-only">
 									Ville
 								</label>
-								<input type="text" name="inputVille" id="inputVille" class="form-control" placeholder="Ville" required autofocus>
+								<input type="text" name="inputVille" <?php if (isset($ville) and !empty($ville)) { echo "value=\"$ville\"";} ?> id="inputVille" class="form-control" placeholder="Ville" required autofocus>
 							</div>
 						</div>
 					</div>
