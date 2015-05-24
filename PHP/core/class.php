@@ -35,16 +35,19 @@ class Vente {
 		$this->nbEncherisseur = Vente_nb_enchere($id);
 		if ($this->nbEncherisseur==0){
 			$this->prix = $info['prixVente'];
+			$this->Acheteur = null;
 		} elseif ($this->nbEncherisseur==1){
 			$this->prix = $info['prixVente'] + $info['pasannonce'];
+			$idAcheteur = Vente_info_MaxId($id);
+			$this->Acheteur = new Profil($idAcheteur);
 		} else {
 			$max=Vente_info_enchereSecond($id);
 			$this->prix=$max+$info['pasannonce'];
+			$idAcheteur = Vente_info_MaxId($id);
+			$this->Acheteur = new Profil($idAcheteur);
 		}
 
 		$this->Vendeur = new Profil($info['idVendeur']);
-		$idAcheteur = Vente_info_MaxId($id);
-		$this->Acheteur = new Profil($idAcheteur);
 		
 		$this->date = date('d/m/o G:i', $this->dateSeconde);
 	}
