@@ -19,15 +19,16 @@
  
 include_once('core/model.php');
 include_once('core/class.php');
+$choix=0;
 if(isset($_GET['c']) and !empty($_GET['c'])){ 
 	$choix=htmlspecialchars($_GET['c']);
 }
 if($choix==2){
+	$listCat = RecuperationDesCat();
 	if(isset($_POST['inputMotClef']) and !empty($_POST['inputMotClef'])){
 		$recherche = htmlspecialchars($_POST['inputMotClef']);
 		if(isset($_POST['inputCategorie']) and !empty($_POST['inputCategorie'])){
 			$cat=htmlspecialchars($_POST['inputCategorie']);
-			$cat=1;
 			$resulta=RechercheVente($recherche, $cat);
 		} else {
 			$resulta=RechercheVente($recherche);
@@ -42,9 +43,9 @@ if($choix==2){
 	}
 } elseif($choix==1){
 	
-} else {
-	include_once('vue/recherche.php');
 }
+include_once('vue/recherche.php');
+
 
 
 ?>
