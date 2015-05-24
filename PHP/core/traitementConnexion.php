@@ -5,18 +5,17 @@
  * 
  *
  * TODO:
- * transformer des parties en fonctions à mettre dans le model
- * traiter le if (!donnees) - mettre dans une variable le fait que la mdp ou id incorrect et la récupérer dans la page de connexion pour afficher un message indiquant qu'une des deux infos est incorrecte
- * voir si on met idville et idstatut dans la variable de session
- * gérer quand email et pwd sont vide
- * modifier redirection vers l'index une fois la connexion faite
- * voir si on prend le mdp dans la var session et si c'est correct 		$_SESSION['pwd'] = sha1($donnees['mdputilisateur']);
+ * -transformer des parties en fonctions à mettre dans le model
+ * -traiter le if (!donnees) - mettre dans une variable le fait que la mdp ou id incorrect et la récupérer dans la page de connexion pour afficher un message indiquant qu'une des deux infos est incorrecte
+ * -voir si on met idville et idstatut dans la variable de session
+ * -gérer quand email et pwd sont vide
+ * -modifier redirection vers l'index une fois la connexion faite
+ * -voir si on prend le mdp dans la var session et si c'est correct 		$_SESSION['pwd'] = sha1($donnees['mdputilisateur']);
 
  */
  
-//include_once('core/model.php'); /* utile ????*/
-session_start();
-include_once('bdd.php'); /** TODO : modifier chemin */
+include_once('core/model.php'); /* utile ????*/
+include_once('core/bdd.php');
 if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
 {
 	$email=$_POST['email'];
@@ -35,6 +34,7 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
 	if (!$donnees)
 	{
 		echo "Echec connexion - email ou mot de passe incorrect";
+		echo("<script>alert(\"Echec connexion - email ou mot de passe incorrect\");</script>");
 	}
 	else
 	{

@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="col-sm-5 col-md-4 col-lg-3">
-                            <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print "$profil->photo"; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                            <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print "profil/$profil->photo"; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                         </div>
 
                     </div>

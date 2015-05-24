@@ -2,12 +2,13 @@
 //Si utilisateur déja connecté : redirection vers l'acceuil
 if (!empty($_SESSION['id'])) 
 {
-    header("Location: index.php");
+    header("Location: /");
 }
 else
 {
     // Si non formulaire de connexion
 ?>
+
 
 <?php
 /* «connexion.php»
@@ -19,7 +20,7 @@ else
  * - utile l'insertion de class.php ?
  */
  
-include_once('core/model.php'); /* utile ????*/
+include_once('core/model.php');
 include_once('core/class.php');
 include_once('vue/connexion.php');
 

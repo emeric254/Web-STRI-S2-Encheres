@@ -25,7 +25,7 @@
         <div class="container">
 
             <!-- Formulaire -->
-            <form method="POST" class="form-signin" action="core/traitementInscription.php" enctype="multipart/form-data">
+            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementInscription" >
 
                 <!-- Email -->
                 <div class="well">

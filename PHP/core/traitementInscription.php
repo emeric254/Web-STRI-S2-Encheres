@@ -1,4 +1,14 @@
- <? SESS
+<?php 
+//Si utilisateur déja connecté : redirection vers l'acceuil
+if (!empty($_SESSION['id'])) 
+{
+    header("Location: /");
+}
+else
+{
+    // Sinon on  traite les infos recu
+?>
+
  <?php
 /* «traitementInscription.php»
  * Page de traitement de l'inscription
@@ -14,15 +24,17 @@
  * - dans requete, obn met idStatut à 1 mais gérer avec la bonne valeur => a déterminer dans la table statut
  * - gérer les valeurs a mettre pour la ville et le statut (les id)
  * - gérer le if ( !donnees)
- * - gérer que la requete d'insertion fonctionne
+ * - gérer quand la requete d'insertion fonctionne
+ * - quand on se trouver sur la parge d'un objet, rediriger vers cette meme page plutot que vers l'index
  */
  
-include_once('/core/model.php'); /* utile ????*/
-include_once('bdd.php'); /** TODO : modifier chemin */
+include_once('core/model.php'); /* utile ????*/
+include_once('core/bdd.php'); /** TODO : modifier chemin */
 
 /* Récupération des différentes variables du formulaire */
 if (isset($_POST['inputEmail'])) $mail=$_POST['inputEmail'];
 if (isset($_POST['inputPassword'])) $password=sha1($_POST['inputPassword']);
+if (isset($_POST['inputPasswordBis'])) $passwordBis=sha1($_POST['inputPasswordBis']);
 if (isset($_POST['inputNom'])) $nom=$_POST['inputNom'];
 if (isset($_POST['inputPrenom'])) $prenom=$_POST['inputPrenom'];
 if (isset($_POST['inputPhone'])) $telephone=$_POST['inputPhone'];
@@ -30,14 +42,14 @@ if (isset($_POST['inputAdresse'])) $adresse=$_POST['inputAdresse'];
 if (isset($_POST['inputVille'])) $ville=$_POST['inputVille'];
 
 
-/* Affichage des informations récupérées */
-echo "<div> <h1> Test donnees recues </h1>mail : $mail<br> password : $password<br> nom : $nom<br>prenom : $prenom";
-echo "<br> telephone : $telephone<br>addresse : $adresse <br> ville : $ville<br> </div>";
-
 /* Tester que les 2 ots de passe sont identiques */
-
+if ($password != $passwordBis) 
+{
+	echo("<script>alert(\"A faire - gestion password différent\");</script>");
+	header("Location: /?page=inscription");
+}
 /** Mode moche a verif et compléter - manque image, idville et idstatut */
-$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'./profil/default')";
+$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
 
 $reqExec = $db->prepare($req);
 $reqExec->execute() or die(print "echec execution requete");  /********** Virer ou changer texte du or die */
@@ -56,6 +68,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 	if (!$donnees)
 	{
 		echo "Echec ajout"; /**TODO :  A MIEUX DEFINIR */
+		echo("<script>alert(\"Echec ajout utilisateur\");</script>");
 	}
 	else
 	{
@@ -71,21 +84,20 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		$_SESSION['idstatut'] = $donnees['idville'];
 		$_SESSION['pwd'] = $donnees['mdputilisateur'];
 	
-	echo "photo file; ".$_FILES['inputPhoto']['name'];
-	// traitement de l'image
-	if (isset($_FILES['inputPhoto']))
-	{
-var_dump($_FILES['inputPhoto']);
-		UploadImage('/profil/',$_FILES['inputPhoto'],2000,1);
+		// traitement de l'image
+		if (isset($_FILES['inputPhoto']))
+		{
+			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
+			
+		}
 		
+		header("Location: /");
 	}
 	
-	}
 	
 	
 	
-	
-	
+}
 	
 	
 	

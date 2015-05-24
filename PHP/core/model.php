@@ -183,7 +183,7 @@ function UtilisateurRecupererEnch($id){
  */
 function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 {
-	include('bdd.php');
+	include('core/bdd.php');
 	$id = $_SESSION['id'];
 	$fichier = basename($photo['name']);
 	$taille = filesize($photo['tmp_name']);
@@ -207,30 +207,30 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 			          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
 			          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
 		$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-	var_dump($photo);
-	echo "=> $fichier - juste avant le if, ".$photo['tmp_name'];
-		if(move_uploaded_file($photo['tmp_name'], $dossier/*.$fichier*/)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
+
+		if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
 		{
-echo "azezrtyuiopo";
-	var_dump($photo);
 			if ($typePhoto == 1) // ajout photo de profil
 			{
-				unlink($dossier.$_SESSION['photo']);
+				if ($_SESSION['photo'] != "default.png")
+				{
+					unlink($dossier.$_SESSION['photo']);
+				}
 				rename($dossier.$fichier, $dossier.$_SESSION['id'].$fichier);
 				$newfichier = $_SESSION['id'].$fichier;
-				$resultats = $connexion->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
+				$resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
 				$resultats->execute(array(
 									'photo' => $newfichier,
 									'id' => $id));
 				$donnees = $resultats->fetch();
 
-				$resultats = $connexion->prepare('SELECT urlphotoutilisateur FROM utilisateur WHERE idutilisateur= :id');
+				$resultats = $db->prepare('SELECT urlphotoutilisateur FROM utilisateur WHERE idutilisateur= :id');
 				$resultats->execute(array( 
 									'id' => $id));
 				$donnees = $resultats->fetch();
 
 				// Enregistrement des variables de session
-				$_SESSION['photo'] = $donnees['photo'];
+				$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
 
 				if (!empty($donnees['photo'])) 
 				{
