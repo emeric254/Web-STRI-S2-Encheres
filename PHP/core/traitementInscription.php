@@ -121,51 +121,44 @@ else
 			include_once("vue/erreur.php");
 			include_once("vue/inscription.php");
 		}else {
+			//VERIFIER EMAIL
 			/** Mode moche a verif et compléter - manque image, idville et idstatut */
-			//A METTRE DANS LE MODEL
-			$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
-
-			$reqExec = $db->prepare($req);
-			$reqExec->execute() or die(print "echec execution requete");  /********** Virer ou changer texte du or die */
+			
+			AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password);
 
 			// on recherche les informations du compte dans la base
 			//DANS LE MODEL AUSSI
 			// Vérification des identifiants
-			$resultats = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
+			$verif=VerificationAjoutNouvelUtilisateur($mail, $password);
 	
-			$resultats->execute(array(
-			'email' => $mail,
-			'mdp' => $password));
-	
-			$donnees = $resultats->fetch();
-	
-			if (!$donnees)
+			if ($verif==0)
 			{
-				echo "Echec ajout"; /**TODO :  A MIEUX DEFINIR */
-				echo("<script>alert(\"Echec ajout utilisateur\");</script>");
+				$errMsg="Erreur pendant l'enregistrement de l'inscription.";
+				include_once("vue/erreur.php");
+				include_once("vue/inscription.php");
 			}
 			else
 			{
 				// on stocke les information du compte dans les variables de session
-				$_SESSION['id'] = $donnees['idutilisateur'];
-				$_SESSION['email'] = $donnees['emailutilisateur'];
-				$_SESSION['nom'] = $donnees['nomutilisateur'];
-				$_SESSION['prenom'] = $donnees['prenomutilisateur'];
-				$_SESSION['telephone'] = $donnees['telephoneutilisateur'];
-				$_SESSION['adresse'] = $donnees['adresseutilisateur'];
-				$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
-				$_SESSION['idville'] = $donnees['idville'];
-				$_SESSION['idstatut'] = $donnees['idville'];
-				$_SESSION['pwd'] = $donnees['mdputilisateur'];
+				$_SESSION['id'] = $verif;
+				$_SESSION['email'] = $mail;
+				$_SESSION['nom'] = $nom;
+				$_SESSION['prenom'] = $prenom;
+				$_SESSION['telephone'] = $telephone;
+				$_SESSION['adresse'] = $adresse;
+				//$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
+				//$_SESSION['idville'] = $donnees['idville'];
+				//$_SESSION['idstatut'] = $donnees['idville'];
+				$_SESSION['pwd'] = $password;
 	
 				// traitement de l'image
-				if (isset($_FILES['inputPhoto']))
+				if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
 				{
 					UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
 			
 				}
 		
-				//header("Location: /");
+				header("Location: /");
 			}
 		}
 	}	

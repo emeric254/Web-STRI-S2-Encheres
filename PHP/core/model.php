@@ -252,7 +252,7 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 
 function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password){
 	include('core/bdd.php');
-	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
+	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'/profil/default.png')";
 
 	$reqExec = $db->prepare($req);
 	$reqExec->execute();
@@ -268,7 +268,7 @@ function VerificationAjoutNouvelUtilisateur($mail, $password){
 	$ret = 0;
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret=1;
+		$ret=$donnees_reqExec['idutilisateur'];
 	}
 	return $ret;
 }
