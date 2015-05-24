@@ -49,13 +49,14 @@ if ($password != $passwordBis)
 	header("Location: /?page=inscription");
 }
 /** Mode moche a verif et compléter - manque image, idville et idstatut */
+//A METTRE DANS LE MODEL
 $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
 
 $reqExec = $db->prepare($req);
 $reqExec->execute() or die(print "echec execution requete");  /********** Virer ou changer texte du or die */
 
 // on recherche les informations du compte dans la base
-
+	//DANS LE MODEL AUSSI
 	// Vérification des identifiants
 	$resultats = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
 	
