@@ -126,13 +126,13 @@
                         <h3>
                             Votre photo de profil
                         </h3>
-                        (taille max : 2000ko)
-                        <div class="input-group input-group-lg">
+                        (taille max : 2Mio)
+                        <div class="input-group input-group-lg" style="padding-left:1em;">
                             <label for="inputPhoto" class="sr-only">
                                 Photo
                             </label>
-                            <!-- On limite le fichier à 2000ko -->
-                            <input type="hidden" name="MAX_FILE_SIZE" value="2000" />
+                            <!-- On limite le fichier à 2Mio -->
+                            <input type="hidden" name="MAX_FILE_SIZE" value="2048" />
                             <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
                         </div>
                     </div>
