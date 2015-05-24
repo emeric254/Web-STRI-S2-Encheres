@@ -272,4 +272,17 @@ function VerificationAjoutNouvelUtilisateur($mail, $password){
 	}
 	return $ret;
 }
+
+function VerificationExistanceEmail($mail) {
+	include('core/bdd.php');
+	$req = "SELECT * FROM utilisateur WHERE emailutilisateur = ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($mail));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=1;
+	}
+	return $ret;
+}
 ?>
