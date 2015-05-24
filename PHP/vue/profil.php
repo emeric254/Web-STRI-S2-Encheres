@@ -5,6 +5,8 @@
  * vars
  * $profil  (le profil de l'utilisateur)
  *
+ * // @ TODO bouton supprimer pour utilisateur identifier
+ *
  */
 ?>
         <div class="container">
@@ -74,5 +76,20 @@
                 </div>
 
             </div>
+
+<!--
+<?php
+/*
+ * if(identify)
+ * {
+*/
+?>
+<button> Supprimer votre compte </button>
+<?php
+/*
+ * }
+*/
+?>
+-->
 
         </div>
