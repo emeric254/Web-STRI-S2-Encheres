@@ -17,7 +17,7 @@ else
   *
   *
   * TODO :
-  *
+  * - Quand redirection vers la page de connexion, après appuie sur "connexion" rediriger automatiquement vers la page de mise en vente 
   *
   */
   

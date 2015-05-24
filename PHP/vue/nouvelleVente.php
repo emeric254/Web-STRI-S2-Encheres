@@ -4,8 +4,8 @@
   *
   *
   * TODO :
-  * - Mettre le bon logo devant le titre
-  *
+  * - Mettre le bon logo devant le titre.
+  * - pour tous les champs, voir quoi mettre comme label.
   *
   *
   */
@@ -26,7 +26,33 @@
             <!-- Formulaire -->
             <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementNouvelleVente" >
                 
-                <!-- Formulaire
                 
+                <div class="well">
+                    <!-- Titre de l'annonce -->
+                    <div class="row text-center" style="margin-bottom:10px;">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">
+                                Titre
+                            </span>
+                            <label for="inputTitre" class="sr-only">
+                                titre
+                            </label>
+                            <input type="email" name="inputTitre" id="inputTitre" class="form-control" placeholder="Saisir le titre de l'annonce" required autofocus>
+                        </div>
+                    </div>
+                    
+                    <!-- Description de l'annonce -->
+                    <div class="row text-center" style="margin-bottom:10px;">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">
+                                Description
+                            </span>
+                            <label for="inputDescription" class="sr-only">
+                                description
+                            </label>
+                            <input type="text" name="inputEmail" id="inputEmail" class="form-control" placeholder="Saisir le titre de l'annonce" required autofocus> 
+                        </div>
+                    </div>
+                </div>
                 
         </div>
