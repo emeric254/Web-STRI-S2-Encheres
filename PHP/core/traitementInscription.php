@@ -110,16 +110,17 @@ else
 	var_dump($erreur);
 	var_dump($champErreur);
 	if($erreur==1){
-		$errMsg="Veuillez vérifier les erreur suivante : $champErreur";
+		$errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
 		include_once("vue/erreur.php");
 		include_once("vue/inscription.php");
 	}else{
 		/* Tester que les 2 ots de passe sont identiques */
 		if ($password != $passwordBis) 
 		{
-			echo("<script>alert(\"A faire - gestion password différent\");</script>");
-			//header("Location: /?page=inscription");
-			}else {
+			$errMsg="Les mots de passes ne corresponde pas.";
+			include_once("vue/erreur.php");
+			include_once("vue/inscription.php");
+		}else {
 			/** Mode moche a verif et compléter - manque image, idville et idstatut */
 			//A METTRE DANS LE MODEL
 			$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
