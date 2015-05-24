@@ -85,19 +85,10 @@ switch($choix)
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
                                 <select id="inputCategorie">
-<?php
-foreach ($listCat as $idCat => $nomCat) {
-	if(isset($cat) and !empty($cat)){
-		if($cat==$idCat){
-			echo "                                        <option selected='selected' value='$idCat'>$nomCat</option>\n";
-		} else {
-			echo "                                        <option value='$idCat'>$nomCat</option>\n";
-		}
-	}else{
-		echo "                                        <option value='$idCat'>$nomCat</option>\n";
-	}
-}
-?>
+                                        <option value="animal">animal</option>
+                                        <option value="avion">avion</option>
+                                        <option value="ordinateur">ordinateur</option>
+                                        <option value="voiture">voiture</option>
                                 </select>
                             </div>
                         </div>

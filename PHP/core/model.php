@@ -315,16 +315,4 @@ function RechercheVente($motCles, $cat=null){
 	return $ret;
 }
 
-function RecuperationDesCat(){
-	include('core/bdd.php');
-	$ret = array();
-	$req = "SELECT * FROM categorie";
-	$reqExec = $db->prepare($req);
-	$reqExec->execute(array());
-	while ($donnees_reqExec = $reqExec->fetch())
-	{
-		$ret[$donnees_reqExec['idcategorie']]=$donnees_reqExec['nomcategorie'];
-	}
-	return $ret;
-}
 ?>
