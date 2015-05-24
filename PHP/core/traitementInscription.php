@@ -129,7 +129,7 @@ else
 				include_once("vue/inscription.php");
 			} else {
 				$verifCP = VerificationDuCodePostal($ville);
-				if($emailExiste){
+				if($verifCP){
 					$errMsg="Code Postal non valide.";
 					include_once("vue/erreur.php");
 					include_once("vue/inscription.php");
