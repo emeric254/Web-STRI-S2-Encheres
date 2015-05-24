@@ -24,7 +24,7 @@ else
 include_once('core/model.php');
 include_once('core/class.php');
 
-include_once("vue/nouvelleVente.php");
+include_once("vue/proposer.php");
 
 }
 ?>
