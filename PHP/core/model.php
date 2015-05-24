@@ -276,4 +276,22 @@ function RecuperationTendanceVente($limite){
 	}
 	return $ret;
 }
+
+function RechercheVente($motCles, $cat=null){
+	include('core/bdd.php');
+	$ret = array();
+	if($cat==null){
+		$req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%'))";
+	} else {
+		$req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat')";
+	}
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array());
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idannonce'];
+	}
+	return $ret;
+}
+
 ?>
