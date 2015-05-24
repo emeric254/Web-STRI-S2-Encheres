@@ -107,6 +107,7 @@ else
 		$champErreur.="Ville manquante";
 		$erreur=1;
 	}
+    
 	if($erreur==1){
 		$errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
 		include_once("vue/erreur.php");
