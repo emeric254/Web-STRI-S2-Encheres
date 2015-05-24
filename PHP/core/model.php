@@ -180,17 +180,11 @@ function UtilisateurRecupererEnch($id){
  * $photo : valeur récupéré par $_FILES['photo']
  * $taille_maxi : taille maximale de l'image
  * $typePhoto : vaut 1 pour photo utilisateur et 2 pour photo objet
- * $id : id de l'utilisateur ou de id de la vente selon les cas
- *
- * TODO : 
- * - voir où on récuprère les infos de la photo
- * - ^pur le nom d'une image de produit : utilisation uniquement de l'id de la vente
- * - tester qu'on supprime l'ancienne image quand le nouvelle a une extension différente
  */
-function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
+function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 {
 	include('core/bdd.php');
-    include('core/class.php');
+	$id = $_SESSION['id'];
 	$fichier = basename($photo['name']);
 	$taille = filesize($photo['tmp_name']);
 	$extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
@@ -222,15 +216,14 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 				{
 					unlink($dossier.$_SESSION['photo']);
 				}
-				rename($dossier.$fichier, $dossier.$id.$fichier);
-				$newfichier = $id.$fichier;
+				rename($dossier.$fichier, $dossier.$_SESSION['id'].$fichier);
+				$newfichier = $_SESSION['id'].$fichier;
 				$resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
 				$resultats->execute(array(
 									'photo' => $newfichier,
 									'id' => $id));
 				$donnees = $resultats->fetch();
 
-                // requete inutule : directement faire : $_SESSION['photo']  = $newfichier avec un test qui vérifie que la requete précédente a marché
 				$resultats = $db->prepare('SELECT urlphotoutilisateur FROM utilisateur WHERE idutilisateur= :id');
 				$resultats->execute(array( 
 									'id' => $id));
@@ -246,22 +239,8 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 			}
 			else if ($typePhoto == 2) // ajout photo annonce 
 			{
-                // récupération des informations de la vente
-                $vente = new Vente($id);
-				if ($vente->photo != "default.png")
-				{
-					unlink($dossier.$vente->photo);
-				}
-				rename($dossier.$fichier, $dossier.$id.".".$extension); 
-				$newfichier = $id.".".$extension;
-				$resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
-				$resultats->execute(array(
-									'photo' => $newfichier,
-									'id' => $id));
-				$donnees = $resultats->fetch();
-
-				//libération de l'objet
-                unset($vente);
+					/* A faire */
+				echo("<script>alert(\"A faire - model.php\");</script>");
 			}
 		}
 		else //Sinon (la fonction renvoie FALSE).
@@ -311,6 +290,19 @@ function RechercheVente($motCles, $cat=null){
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
 		$ret[]=$donnees_reqExec['idannonce'];
+	}
+	return $ret;
+}
+
+function RecuperationDesCat(){
+	include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT * FROM categorie";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array());
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[$donnees_reqExec['idcategorie']]=$donnees_reqExec['nomcategorie'];
 	}
 	return $ret;
 }
