@@ -127,41 +127,48 @@ else
 				include_once("vue/erreur.php");
 				include_once("vue/inscription.php");
 			} else {
-				AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password);
-
-				// on recherche les informations du compte dans la base
-				//DANS LE MODEL AUSSI
-				// Vérification des identifiants
-				$verif=VerificationAjoutNouvelUtilisateur($mail, $password);
-	
-				if ($verif==0)
-				{
-					$errMsg="Erreur pendant l'enregistrement de l'inscription.";
+				$verifCP = VerificationDuCodePostal($ville);
+				if($emailExiste){
+					$errMsg="Code Postal non valide.";
 					include_once("vue/erreur.php");
 					include_once("vue/inscription.php");
-				}
-				else
-				{
-					// on stocke les information du compte dans les variables de session
-					$_SESSION['id'] = $verif;
-					$_SESSION['email'] = $mail;
-					$_SESSION['nom'] = $nom;
-					$_SESSION['prenom'] = $prenom;
-					$_SESSION['telephone'] = $telephone;
-					$_SESSION['adresse'] = $adresse;
-					//$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
-					//$_SESSION['idville'] = $donnees['idville'];
-					//$_SESSION['idstatut'] = $donnees['idville'];
-					$_SESSION['pwd'] = $password;
+				}else{
+					AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password);
+
+					// on recherche les informations du compte dans la base
+					//DANS LE MODEL AUSSI
+					// Vérification des identifiants
+					$verif=VerificationAjoutNouvelUtilisateur($mail, $password);
 	
-					// traitement de l'image
-					if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
+					if ($verif==0)
 					{
-						UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
-			
+						$errMsg="Erreur pendant l'enregistrement de l'inscription.";
+						include_once("vue/erreur.php");
+						include_once("vue/inscription.php");
 					}
+					else
+					{
+						// on stocke les information du compte dans les variables de session
+						$_SESSION['id'] = $verif;
+						$_SESSION['email'] = $mail;
+						$_SESSION['nom'] = $nom;
+						$_SESSION['prenom'] = $prenom;
+						$_SESSION['telephone'] = $telephone;
+						$_SESSION['adresse'] = $adresse;
+						//$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
+						//$_SESSION['idville'] = $donnees['idville'];
+						//$_SESSION['idstatut'] = $donnees['idville'];
+						$_SESSION['pwd'] = $password;
+	
+						// traitement de l'image
+						if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
+						{
+							UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
+			
+						}
 		
-					header("Location: /");
+						header("Location: /");
+					}
 				}
 			}
 		}

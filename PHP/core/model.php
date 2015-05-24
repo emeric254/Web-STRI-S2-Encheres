@@ -252,7 +252,7 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 
 function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password){
 	include('core/bdd.php');
-	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'/profil/default.png')";
+	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$password',1,'default.png')";
 
 	$reqExec = $db->prepare($req);
 	$reqExec->execute();
@@ -276,6 +276,25 @@ function VerificationAjoutNouvelUtilisateur($mail, $password){
 function VerificationExistanceEmail($mail) {
 	include('core/bdd.php');
 	$req = "SELECT * FROM utilisateur WHERE emailutilisateur = ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($mail));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=1;
+	}
+	return $ret;
+}
+
+
+function VerificationDuCodePostal($ville) {
+	include('core/bdd.php');
+	$long=strlen($ville);
+	while($long<5){
+		$ville = "0".$ville;
+		$long++;
+	}
+	$req = "SELECT * FROM ville WHERE codepostalville = ?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($mail));
 	$ret = 0;

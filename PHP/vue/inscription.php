@@ -120,7 +120,7 @@
 							</label>
 							<!-- On limite le fichier à 2000ko -->
 							<input type="hidden" name="MAX_FILE_SIZE" value="2000000" /> 
-							<input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
+							<input type="file" name="inputPhoto" id="inputPhoto" autofocus>
 						</div>
 					</div>
 				</div>
@@ -162,9 +162,9 @@
 									<i class="fa fa-map-marker"></i>
 								</span>
 								<label for="inputVille" class="sr-only">
-									Ville
+									Code Postal
 								</label>
-								<input type="text" name="inputVille" <?php if (isset($ville) and !empty($ville)) { echo "value=\"$ville\"";} ?> id="inputVille" class="form-control" placeholder="Ville" required autofocus>
+								<input type="text" name="inputVille" <?php if (isset($ville) and !empty($ville)) { echo "value=\"$ville\"";} ?> id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
 							</div>
 						</div>
 					</div>
