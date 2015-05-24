@@ -9,10 +9,10 @@
         <!-- Titre -->
         <div class="jumbotron">
             <div class="container theme-showcase" role="main" >
-                <h1>
+                <h2>
                     <i class="fa  fa-eur"></i>
                     Proposer une vente
-                </h1>
+                </h2>
             </div>
         </div>
 
@@ -25,10 +25,10 @@
                 <!-- Titre -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Titre
-                        </h3>
-                        <div class="input-group input-group-lg">
+                        </h4>
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                             </span>
                             <label for="inputTitre" class="sr-only">
@@ -42,10 +42,10 @@
                 <!-- Description -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Description
-                        </h3>
-                        <div class="input-group input-group-lg" style="display: block;">
+                        </h4>
+                        <div class="input-group input-group" style="display: block;">
                             <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " id="inputDescription"></textarea>
                         </div>
                     </div>
@@ -54,11 +54,11 @@
                 <!-- Durée -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Durée
-                        </h3>
+                        </h4>
 
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 Jours
                             </span>
@@ -68,7 +68,7 @@
 
                         <p></p>
 
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 Heures
                             </span>
@@ -78,7 +78,7 @@
 
                         <p></p>
 
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 Minutes
                             </span>
@@ -91,11 +91,11 @@
                 <!-- Prix de départ -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Prix de départ
-                        </h3>
+                        </h4>
 
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-eur"></i>
                             </span>
@@ -108,11 +108,11 @@
                 <!-- Pas d'enchere -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Pas minimal d'enchére
-                        </h3>
+                        </h4>
 
-                        <div class="input-group input-group-lg">
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-eur"></i>
                             </span>
