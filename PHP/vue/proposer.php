@@ -32,7 +32,7 @@
                             <span class="input-group-addon">
                             </span>
                             <label for="inputTitre" class="sr-only">
-                                Adresse email
+                                Titre
                             </label>
                             <input type="text" name="inputTitre" id="inputTitre" class="form-control" placeholder="Titre" required autofocus>
                         </div>
@@ -47,6 +47,23 @@
                         </h4>
                         <div class="input-group input-group" style="display: block;">
                             <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " name="inputDescription" id="inputDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Photo -->
+                <div class="well">
+                    <div class="row text-center" style="margin-bottom:10px;">
+                        <h4>
+                            Ajouter une photo
+                        </h4>
+                        <em>optionnelle, (taille max : 2Mio)</em>
+                        <div class="input-group input-group-lg" style="padding-left:1em;">
+                            <label for="inputPhoto" class="sr-only">
+                                Photo
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+                            <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -118,23 +135,6 @@
                             </span>
 
                             <input type="number" name="inputPas" id="inputPas" min="1" value="1" class="form-control" required>
-                        </div>
-                    </div>
-                </div>
-                
-                 <!-- Photo -->
-                <div class="well">
-                    <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
-                            Ajouter une photo
-                        </h3>
-                        <em>optionnelle, (taille max : 2Mio)</em>
-                        <div class="input-group input-group-lg" style="padding-left:1em;">
-                            <label for="inputPhoto" class="sr-only">
-                                Photo
-                            </label>
-                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-                            <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
                         </div>
                     </div>
                 </div>
