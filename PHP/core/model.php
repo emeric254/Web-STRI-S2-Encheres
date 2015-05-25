@@ -172,6 +172,71 @@ function UtilisateurRecupererEnch($id){
 	return $ret;
 }
 
+# ----------- Fonction pour récupérer la liste des catégories 
+
+function RecupererCategoriesAnnonce()
+{
+    include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT idcategorie,nomcategorie,descriptioncategorie FROM categorie";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute();
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec;
+	}
+    var_dump($ret);
+	return $ret;
+}
+
+# ----------- Fonction pour de vérification des informations d'une nouvelle annonce
+
+function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute)
+{
+    $duree=(((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute);
+    return ( strlen($titre) > 0 && strlen($description) > 0 && $prix > 0 && $pas > 0 && $duree > 0 );
+}
+
+# ----------- Fonction pour ajouter une annonce
+
+/* TODO ; utilisation de $dateActuelle pour faire le select qui suit, mettrele time() direct dans la requete si autre solution */
+function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur,$villeutilisateur) {
+    include('core/bdd.php');
+    $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
+    $titreFormat=str_replace("'","''",$titre);
+    $descriptionFormat=str_replace("'","''",$description);
+    $heureActuelle=time();
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,1,1)";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+    
+    // récupération de l'id
+    $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+    $ret=-1;
+    while ($donnees_reqExec = $reqExec->fetch())
+	{
+        var_dump($donnes_reqExec);
+		$ret[]=$donnees_reqExec;
+        var_dump($ret);
+	}
+    return $ret['idannonce'];
+}
+
+# ----------- Fonction de vérification de l'ajout d'une annonce 
+
+function VerificationAjoutNouvelleAnnonce($idAnnonce){
+    include('core/bdd.php');
+    $resultats = $db->prepare('SELECT idannonce,nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur FROM annonce WHERE idannonce = :idA');
+    $resultats->execute(array('idA' => $idAnnonce));
+    $ret=0;
+    while ($donnees_reqExec = $resultats->fetch())
+    {
+        $ret=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
 
 # ----------- Fonction de récupération des n dernières ventes
 

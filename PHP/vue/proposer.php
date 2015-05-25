@@ -56,6 +56,7 @@
                             Cat&eacute;gorie
                         </label>
                         <select class="form-control" id="inputCategorie">
+                            <option <?php if (!isset($idcategorie) OR !empty($idcategorie) and $id==$idcategorie) { print "selected=\"selected\""; }?>> Choisir dans le menu d&eacute;roulant </option>
 <?php
     foreach($categories as $id => $choix)
     {

@@ -27,6 +27,7 @@
 
 include_once('core/model.php'); /* utile ????*/
 include_once('core/bdd.php');
+include_once('core/upload.php');
 
 // Récupération des différentes variables du formulaire
 $erreur=0;
@@ -192,7 +193,16 @@ if ($erreur == 1)
             if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
             {
                 // on upload l'image
-                UploadImage('vente/',$_FILES['inputPhoto'],2000000,2,$verif); 
+                $photo=$_FILES['inputPhoto'];
+                UploadImage('vente/',$photo,2000000,$verif);
+                //mise a jour dans la base du nom de l'image
+                $extension = strrchr($photo['name'],'.');
+                $newfichier = $verif.$extension;
+				$resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
+				$resultats->execute(array(
+									'photo' => $newfichier,
+									'id' => $verif));
+				$donnees = $resultats->fetch();
             }
         }
         header("Location: /?page=vente&id=$verif");

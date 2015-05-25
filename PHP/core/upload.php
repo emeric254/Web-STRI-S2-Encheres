@@ -1,4 +1,5 @@
-<?php# ----------- Fonction pour l'upload d'image
+<?php
+# ----------- Fonction pour l'upload d'image
 
 /*  Fonction d'upload d'une photo 
  *
