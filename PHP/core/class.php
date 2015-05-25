@@ -61,6 +61,7 @@ class Profil {
 	public $telephone;
 	public $adresse;
 	public $photo;
+	public $idVille;
 	public $ville;
 	public $statut;
 
@@ -73,6 +74,7 @@ class Profil {
 		$this->telephone = $info['telephoneutilisateur'];
 		$this->adresse = $info['adresseutilisateur'];
 		$this->photo = $info['urlphotoutilisateur'];
+		$this->idVille = $info['idville'];
 		$this->ville = Ville_Recup_Nom($info['idville']);
 		$this->statut = $info['idstatut'];
 
