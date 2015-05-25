@@ -68,19 +68,19 @@
 
 <script type="text/javascript">
 
-    function decompte<?php print $vente->id; ?>()
+    function decompte<?= $vente->id ?>()
     {
         var dateActuelle = new Date();
 
         // @ TODO a verif que ca marche de creer la date de debut comme ca !
-        var dateDebut = new Date("<?php print $vente->date; ?>");
+        var dateDebut = new Date("<?= $vente->date ?>");
 
         // @ TODO a verif que ce soit des secondes !
-        var duree = <?php print $vente->tempsRestant; ?>;
+        var duree = <?= $vente->tempsRestant ?>;
 
         var total = duree - (dateActuelle - dateDebut)/1000 ;
 
-        var compteRebour = document.getElementById("tempsRestant<?php print $vente->id; ?>");
+        var compteRebour = document.getElementById("tempsRestant<?= $vente->id ?>");
 
         if (total <= 0)
         {
@@ -93,11 +93,11 @@
             var minutes = Math.floor((total - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
             var secondes = Math.floor(total - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
 
-            compteRebour.innerHTML = jours + 'j ' + heures + 'h ' + minutes + 'm ' + secondes + 's';
+            compteRebour.innerHTML = ((jours>0)?jours + 'j ':'') + ((heures>0)?heures + 'h ':'') + ((minutes>0)?minutes + 'm ':'') + secondes + 's';
         }
-            setTimeout("decompte<?php print $vente->id; ?>();", 1000);
+            setTimeout("decompte<?= $vente->id ?>();", 1000);
     }
 
-    decompte<?php print $vente->id; ?>();
+    decompte<?= $vente->id ?>();
 
 </script>
