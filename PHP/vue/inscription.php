@@ -3,8 +3,7 @@
  * formulaire d'inscription d'un utilisateur
  *
  * //@ TODO action form a changer
- * //@ TODO faire un test sur les mots de passe pour voir si ils sont identiques
- *
+ * //@ TODO pour EVOLVE faire un test sur les mots de passe pour voir si ils sont identiques
  * //@ TODO pour EVOLVE vars pour re-remplissage auto si iscription foireuse
  * //@ TODO pour EVOLVE rajout drag and drop pour image
  * //@ TODO pour EVOLVE rajout choix ville par selection sur code postale
@@ -12,7 +11,7 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-smile-o"></i>
@@ -30,17 +29,17 @@
                 <!-- Email -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre email
-                        </h3>
-                        <div class="input-group input-group-lg">
+                        </h4>
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 @
                             </span>
                             <label for="inputEmail" class="sr-only">
                                 Adresse email
                             </label>
-                            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+                            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                         </div>
                     </div>
                 </div>
@@ -48,11 +47,11 @@
                 <!-- Password -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre mot de passe
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     *
                                 </span>
@@ -63,7 +62,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     *
                                 </span>
@@ -92,29 +91,29 @@
                 <!-- Nom & prénom -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Vos nom et pr&eacute;nom
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-users"></i>
                                 </span>
                                 <label for="inputNom" class="sr-only">
                                     Nom
                                 </label>
-                                <input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
+                                <input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-male"></i>
                                 </span>
                                 <label for="inputPrenom" class="sr-only">
                                     Pr&eacute;nom
                                 </label>
-                                <input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+                                <input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                     </div>
@@ -123,11 +122,11 @@
                 <!-- Photo -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre photo de profil
-                        </h3>
+                        </h4>
                         <em>optionnelle, (taille max : 2Mio)</em>
-                        <div class="input-group input-group-lg" style="padding-left:1em;">
+                        <div class="input-group input-group" style="padding-left:1em;">
                             <label for="inputPhoto" class="sr-only">
                                 Photo
                             </label>
@@ -140,17 +139,17 @@
                 <!-- Téléphone -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre numéro de t&eacute;l&eacute;phone
-                        </h3>
-                        <div class="input-group input-group-lg">
+                        </h4>
+                        <div class="input-group input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-phone"></i>
                             </span>
                             <label for="inputPhone" class="sr-only">
                                 T&eacute;l&eacute;phone
                             </label>
-                            <input type="tel" name="inputPhone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
+                            <input type="tel" name="inputPhone" <?php /* if () print "value=\"$val\" ; */ ?> pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -158,29 +157,29 @@
                 <!-- Adresse -->
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
+                        <h4>
                             Votre adresse postale
-                        </h3>
+                        </h4>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-envelope-o"></i>
                                 </span>
                                 <label for="inputAdresse" class="sr-only">
                                     Adresse postale
                                 </label>
-                                <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
+                                <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="input-group input-group-lg">
+                            <div class="input-group input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-map-marker"></i>
                                 </span>
                                 <label for="inputVille" class="sr-only">
                                     Code postal
                                 </label>
-                                <input type="number" min="0" name="inputVille" id="inputVille" class="form-control" placeholder="Code postal" required autofocus>
+                                <input type="number" min="0" name="inputVille" id="inputVille" class="form-control" placeholder="Code postal" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                     </div>

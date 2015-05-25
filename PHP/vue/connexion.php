@@ -11,7 +11,7 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-sign-in"></i>
@@ -28,7 +28,7 @@
 
                 <div class="well">
                     <!-- Email -->
-                    <div class="input-group input-group-lg">
+                    <div class="input-group">
                         <span class="input-group-addon">
                             @
                         </span>
@@ -41,7 +41,7 @@
 
                 <div class="well">
                     <!-- Password -->
-                    <div class="input-group input-group-lg">
+                    <div class="input-group">
                         <span class="input-group-addon">
                             *
                         </span>
