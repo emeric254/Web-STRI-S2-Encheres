@@ -256,7 +256,7 @@ function VerificationDuCodePostal($ville)
 
     $req = "SELECT * FROM ville WHERE codepostalville = ?";
     $reqExec = $db->prepare($req);
-    $reqExec->execute(array($mail));
+    $reqExec->execute(array($ville));
 
     $ret = 0;
 
