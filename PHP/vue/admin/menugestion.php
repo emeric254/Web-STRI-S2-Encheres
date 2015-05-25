@@ -19,7 +19,7 @@
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                            <i class="fa fa-search"></i>
+                            <i class="fa fa-users"></i>
                             &nbsp;
                             G&eacute;rer les utilisateurs
                         </a>
@@ -31,7 +31,7 @@
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                            <i class="fa fa-search"></i>
+                            <i class="fa fa-list-alt"></i>
                             &nbsp;
                             G&eacute;rer les ventes
                         </a>
@@ -43,7 +43,7 @@
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                            <i class="fa fa-search"></i>
+                            <i class="fa fa-database"></i>
                             &nbsp;
                             G&eacute;rer la base de donn&eacute;es
                         </a>
