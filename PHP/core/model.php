@@ -186,6 +186,8 @@ function UtilisateurRecupererEnch($id){
  * - voir où on récuprère les infos de la photo
  * - ^pur le nom d'une image de produit : utilisation uniquement de l'id de la vente
  * - tester qu'on supprime l'ancienne image quand le nouvelle a une extension différente
+ *
+ * - retourner le nom final de l'image 
  */
 function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 {
@@ -213,7 +215,6 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 			          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
 			          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
 		$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-var_dump($photo);
 		if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
 		{
 			if ($typePhoto == 1) // ajout photo de profil
@@ -282,13 +283,13 @@ function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJou
 # ----------- Fonction pour ajouter une annonce
 
 /* TODO ; utilisation de $dateActuelle pour faire le select qui suit, mettrele time() direct dans la requete si autre solution */
-function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur) {
+function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur,$villeutilisateur) {
     include('core/bdd.php');
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
     $titreFormat=str_replace("'","''",$titre);
     $descriptionFormat=str_replace("'","''",$description);
     $heureActuelle=time();
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,1)";
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,1,1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
     
@@ -296,9 +297,12 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
+    $ret=-1;
     while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret=$donnees_reqExec;
+        var_dump($donnes_reqExec);
+		$ret[]=$donnees_reqExec;
+        var_dump($ret);
 	}
     return $ret['idannonce'];
 }
