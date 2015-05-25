@@ -144,6 +144,22 @@ if(!$erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
 }
 */
 
+// Récupération de l'identifiant de l'utilisateur connecté
+if (isset($_SESSION['id']) and !empty($_SESSION['id']))
+{
+    $idutilisateur=htmlspecialchars($_SESSION['id']);
+    // TODO : voir si il faut faire un autre test mais si connecté, la ville est connu
+    $idville=htmlspecialchars($_SESSION['idville']);
+}
+else
+{   
+    if($erreur){
+        $champErreur.=", ";
+    }
+    $erreur=1;
+    $errMsg.="Il vous faut etre connect&eacute;.";
+}
+    
 if ($erreur == 1)
 {
     $errMsg="Veuillez v&eacute;rifier les erreurs suivante : $champErreur.";
@@ -155,7 +171,7 @@ if ($erreur == 1)
     if ( VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) != 0 )
     {
         // Ajout de l'objet dans la base de données
-        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,htmlspecialchars($_SESSION['id']),htmlspecialchars($_SESSION['idville']));
+        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
         if ($idAnnonce != -1)
         {
@@ -173,7 +189,7 @@ if ($erreur == 1)
         }
         else // $verif contient le numéro (id) de l'annonce
         {
-            if (isset($_FILES['inputPhoto']))
+            if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
             {
                 // on upload l'image
                 UploadImage('vente/',$_FILES['inputPhoto'],2000000,2,$verif); 
