@@ -6,36 +6,25 @@
     if ( isset($_GET['page']) and !empty($_GET['page']) )
     {
         $page=htmlspecialchars($_GET['page']);
-    }
-    else
-    {
+    } else {
         $page="accueil"; //page par default
     }
 
     // vues
 
-
-    if(file_exists("core/$page.php"))
-    {
-        $path = "core/$page.php";
-    }
-    else
-    {
-        $errMsg = "page introuvable";
-
-        if (isset($_GET['errMsg']) and !empty($_GET['errMsg']))
-        {
-            $errMsg = htmlspecialchars($_GET['errMsg']);
-        }
-
-        $path = "vue/erreur.php";
-
-    }
-
     include("vue/entete.php");
     include("core/navbar.php");
-
-    include_once($path);
+    if (isset($_GET['errMsg']) and !empty($_GET['errMsg'])) {
+        $errMsg = htmlspecialchars($_GET['errMsg']);
+        include("vue/erreur.php"); //page d'erreur'
+    }
+    if(file_exists("core/$page.php"))
+    {
+        include_once("core/$page.php");
+    } else {
+        $errMsg = "page introuvable";
+        include("vue/erreur.php"); //page d'erreur'
+    }
 
     include("vue/footer.php");
 ?>
