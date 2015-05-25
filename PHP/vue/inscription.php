@@ -3,8 +3,7 @@
  * formulaire d'inrcription d'un utilisateur
  *
  * //@ TODO action form a changer
- * //@ TODO faire un test sur les mots de passe pour voir si ils sont identiques
- *
+ * //@ TODO pour EVOLVE faire un test sur les mots de passe pour voir si ils sont identiques
  * //@ TODO pour EVOLVE vars pour re-remplissage auto si iscription foireuse
  * //@ TODO pour EVOLVE rajout drag and drop pour image
  * //@ TODO pour EVOLVE rajout choix ville par selection sur code postale
@@ -40,7 +39,7 @@
                             <label for="inputEmail" class="sr-only">
                                 Adresse email
                             </label>
-                            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+                            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="email" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                         </div>
                     </div>
                 </div>
@@ -103,7 +102,7 @@
                                 <label for="inputNom" class="sr-only">
                                     Nom
                                 </label>
-                                <input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" required autofocus>
+                                <input type="text"  name="inputNom" id="inputNom" class="form-control" placeholder="Nom" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -114,7 +113,7 @@
                                 <label for="inputPrenom" class="sr-only">
                                     Pr&eacute;nom
                                 </label>
-                                <input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" required autofocus>
+                                <input type="text"  name="inputPrenom" id="inputPrenom" class="form-control" placeholder="Prenom" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                     </div>
@@ -150,7 +149,7 @@
                             <label for="inputPhone" class="sr-only">
                                 T&eacute;l&eacute;phone
                             </label>
-                            <input type="tel" name="inputPhone" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
+                            <input type="tel" name="inputPhone" <?php /* if () print "value=\"$val\" ; */ ?> pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" id="inputPhone" class="form-control" placeholder="Telephone" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -169,7 +168,7 @@
                                 <label for="inputAdresse" class="sr-only">
                                     Adresse postale
                                 </label>
-                                <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
+                                <input type="text" name="inputAdresse" id="inputAdresse" class="form-control" placeholder="Adresse Postale" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -180,7 +179,7 @@
                                 <label for="inputVille" class="sr-only">
                                     Code postal
                                 </label>
-                                <input type="number" min="0" name="inputVille" id="inputVille" class="form-control" placeholder="Code postal" required autofocus>
+                                <input type="number" min="0" name="inputVille" id="inputVille" class="form-control" placeholder="Code postal" <?php /* if () print "value=\"$val\" ; */ ?> required autofocus>
                             </div>
                         </div>
                     </div>
