@@ -221,7 +221,7 @@ if ($erreur == 1)
                 UploadImage('vente/',$photo,2000000,$verif);
                 //mise a jour dans la base du nom de l'image
                 $extension = strrchr($photo['name'],'.');
-                $newfichier = $verif.$extension;
+                $newfichier = "/vente/".$verif.$extension;
 				MajUrlImageAnnonce($newfichier,$verif);
             }
         }
