@@ -39,7 +39,7 @@
                                 <tr>
                                     <td colspan="2" class="text-center">
                                         <b>
-                                            Informations personelles
+                                            Informations personnelles
                                         </b>
                                     </td>
                                 </tr>
@@ -50,12 +50,12 @@
                                         Email
                                     </td>
                                     <td class="text-center">
-                                        <?php print $profil->email; ?>
+                                        <a href="mailto:<?php print $profil->email; ?>"><?php print $profil->email; ?> </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">
-                                        Telephone
+                                        T&eacute;l&eacute;phone
                                     </td>
                                     <td class="text-center">
                                         <?php print $profil->telephone; ?>
