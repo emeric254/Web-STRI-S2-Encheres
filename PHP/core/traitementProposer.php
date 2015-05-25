@@ -44,6 +44,11 @@ if (isset($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
     $champErreur="Titre d'annonce manquant";
 }
 
+//Champ facultatif
+if (isset($_POST['inputCategorie']) and !empty($_POST['inputCategorie'])) {
+    $idcategorie=htmlspecialchars($_POST['inputCategorie']);
+}
+
 if (isset($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
     $description=htmlspecialchars($_POST['inputDescription']);
     if(strlen($description) < 1)
