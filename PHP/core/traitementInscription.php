@@ -1,6 +1,6 @@
 <?php 
 //Si utilisateur déja connecté : redirection vers l'acceuil
-if (!empty($_SESSION['id'])) 
+if (!empty($_SESSION['id']) and isset($_SESSION['id'])) 
 {
 	header("Location: /");
 }
@@ -129,12 +129,12 @@ else
 				include_once("vue/inscription.php");
 			} else {
 				$verifCP = VerificationDuCodePostal($ville);
-				if($verifCP){
+				if($verifCP==0){
 					$errMsg="Code Postal non valide.";
 					include_once("vue/erreur.php");
 					include_once("vue/inscription.php");
 				}else{
-					AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password);
+					AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $verifCP);
 
 					// on recherche les informations du compte dans la base
 					//DANS LE MODEL AUSSI
@@ -156,28 +156,30 @@ else
 						$_SESSION['prenom'] = $prenom;
 						$_SESSION['telephone'] = $telephone;
 						$_SESSION['adresse'] = $adresse;
-						//$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
-						//$_SESSION['idville'] = $donnees['idville'];
-						//$_SESSION['idstatut'] = $donnees['idville'];
+						$_SESSION['idville'] = $verifCP;
+						$_SESSION['idstatut'] = '1';
 						$_SESSION['pwd'] = $password;
 	
 						// traitement de l'image
+						$_SESSION['photo'] = $verifCP;
 						if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
 						{
-							UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
-			
+							$checkFile = UploadImage('profil/',$_FILES['inputPhoto'],2000000,$verif);
+							if($checkFile==0){
+								$_SESSION['photo'] = 'default.png';
+								header("Location: /?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'");
+							}else{
+								$_SESSION['photo'] = $checkFile;
+							}
+						} else {
+							$_SESSION['photo'] = 'default.png';
 						}
-		
-						header("Location: /");
 					}
 				}
 			}
 		}
 	}	
 }
-	
-	
-	
-
+header("Location: /");
 ?>
 

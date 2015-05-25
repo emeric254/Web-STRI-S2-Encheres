@@ -171,4 +171,60 @@ function UtilisateurRecupererEnch($id){
 	}
 	return $ret;
 }
+
+function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $idVille){
+	include('core/bdd.php');
+	$req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',1,'default.png')";
+
+	$reqExec = $db->prepare($req);
+	$reqExec->execute();
+}
+
+function VerificationAjoutNouvelUtilisateur($mail, $password){
+	include('core/bdd.php');
+	$resultats = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
+	
+	$resultats->execute(array(
+	'email' => $mail,
+	'mdp' => $password));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=$donnees_reqExec['idutilisateur'];
+	}
+	return $ret;
+}
+
+function VerificationExistanceEmail($mail) {
+	include('core/bdd.php');
+	$req = "SELECT * FROM utilisateur WHERE emailutilisateur = ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($mail));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=1;
+	}
+	return $ret;
+}
+
+
+function VerificationDuCodePostal($ville) {
+	include('core/bdd.php');
+	$long=strlen($ville);
+	while($long<5){
+		$ville = "0".$ville;
+		$long++;
+	}
+	$req = "SELECT * FROM ville WHERE codepostalville = ?";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array($mail));
+	$ret = 0;
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=$donnees_reqExec['idville'];
+	}
+	return $ret;
+}
+
 ?>
