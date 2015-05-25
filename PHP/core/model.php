@@ -284,12 +284,13 @@ function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJou
 function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) {
     include('core/bdd.php');
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
+    $idutilisateur=$_SESSION['id'];
     $titreFormat=str_replace("'","''",$titre);
     $descriptionFormat=str_replace("'","''",$description);
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,1,$duree,'default.png','".$_SESSION['id']."')";
-    echo "$req";
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,".time().",$duree,'default.png','$idutilisateur',1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
+    
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce 

@@ -165,6 +165,7 @@ if ($erreur == 1)
             // on upload l'image
             UploadImage('vente/',$_FILES['inputPhoto'],2000000,2,$verif); 
         }
+        header("Location: /?page=vente&id=$verif");
     }
     else
     {
