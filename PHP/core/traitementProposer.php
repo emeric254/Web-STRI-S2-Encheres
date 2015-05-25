@@ -145,6 +145,17 @@ if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
     $erreur=1;
     $champErreur.="Veuillez saisir le nombre de minute";
 }
+
+if (isset($_POST['categorieAnnonce']) and !empty($_POST['categorieAnnonce'])) {
+    $categorieAnnonce=htmlspecialchars($_POST['categorieAnnonce']);
+}else{
+    if($erreur){
+        $champErreur.=", ";
+    }
+    $erreur=1;
+    $champErreur.="Veuillez saisir la cat&eacute;gorie";
+}
+
 /* TODO :: A revoir pour traiter ça !!
 if(!$erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
 {
@@ -184,6 +195,7 @@ if ($erreur == 1)
         // Ajout de l'objet dans la base de données
         $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$categorieAnnonce,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
+        var_dump($idAnnonce);
         if ($idAnnonce != -1)
         {
             $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
@@ -208,11 +220,7 @@ if ($erreur == 1)
                 //mise a jour dans la base du nom de l'image
                 $extension = strrchr($photo['name'],'.');
                 $newfichier = $verif.$extension;
-				$resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
-				$resultats->execute(array(
-									'photo' => $newfichier,
-									'id' => $verif));
-				$donnees = $resultats->fetch();
+				MajUrlImageAnnonce($newfichier,$verif);
             }
         }
         header("Location: /?page=vente&id=$verif");

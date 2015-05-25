@@ -220,9 +220,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $ret=-1;
     while ($donnees_reqExec = $reqExec->fetch())
 	{
-        var_dump($donnes_reqExec);
-		$ret[]=$donnees_reqExec;
-        var_dump($ret);
+		$ret=$donnees_reqExec;
 	}
     return $ret['idannonce'];
 }
@@ -239,6 +237,17 @@ function VerificationAjoutNouvelleAnnonce($idAnnonce){
         $ret=$donnees_reqExec['idannonce'];
     }
     return $ret;
+}
+
+# ----------- Fonction de mise à jour de l'url de l'image annonce dans la base
+function MajUrlImageAnnonce($fichier,$id)
+{
+    include('core/bdd.php');
+    $resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
+	$resultats->execute(array(
+		'photo' => $fichier,
+		'id' => $id));
+	$donnees = $resultats->fetch();
 }
 
 # ----------- Fonction de récupération des n dernières ventes
