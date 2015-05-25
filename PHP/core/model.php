@@ -254,7 +254,7 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 function RecuperationDerniereVente($limite){
 	include('core/bdd.php');
 	$ret = array();
-	$req = "SELECT idannonce FROM annonce ORDER BY dateannonce DESC LIMIT ?";
+	$req = "SELECT idannonce FROM annonce WHERE annonce.dureeannonce + annonce.dateannonce > ".time()." Group BY annonce.idannonce ORDER BY dateannonce DESC LIMIT ?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($limite));
 	while ($donnees_reqExec = $reqExec->fetch())
@@ -267,7 +267,7 @@ function RecuperationDerniereVente($limite){
 function RecuperationTendanceVente($limite){
 	include('core/bdd.php');
 	$ret = array();
-	$req = "SELECT COUNT(*), idannonce FROM encherir Group BY idannonce ORDER BY count DESC LIMIT ?";
+	$req = "SELECT COUNT(*), annonce.idannonce FROM encherir, annonce WHERE annonce.idannonce=encherir.idannonce AND annonce.dureeannonce + annonce.dateannonce > ".time()." Group BY annonce.idannonce ORDER BY count DESC LIMIT ?";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array($limite));
 	while ($donnees_reqExec = $reqExec->fetch())
