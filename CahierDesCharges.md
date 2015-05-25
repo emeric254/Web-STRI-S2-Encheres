@@ -20,23 +20,9 @@ Ce document est réalisé afin de renseigner l'ensemble des fonctionnalités et 
 - Amazon Market-places
 - ...
 
-###CMS E-commerce
-- Open-Sources
-    - https://www.prestashop.com/
-    - http://www.seotoaster.com/
-    - http://www.oscmax.com/
-    - http://alegrocart.com/
-    - http://www.zen-cart.com/
-    - http://www.opencart.com/
-    - https://onxshop.com/
-    - http://www.oscommerce.com/
-    - http://magento.com/
-    - ...
-
-- Autres
+###CMS
     - https://www.phpprobid.com/
-    - https://www.bigcommerce.com/
-    - ...
+    - (et autres cms d'ecommerce adaptables)
 
 
 ##Profils/rôles d’utilisateurs
@@ -114,17 +100,17 @@ Il peut par exemple supprimer un compte utilisateur ou supprimer une enchère.
 
 
 ##Contraintes
+###Échéancier :
+- Cahier des charges : dimanche 29 mars 2015
+- Dossier de conception : jeudi 30 avril 2015
+- Développement : jusqu'à la fin du mois de mai
+
 ###Techniques
 - PHP
 - PostgreSQL
 - JavaScript
 - HTML
 - CSS
-
-###Échéancier :
-- Cahier des charges : dimanche 29 mars 2015
-- Dossier de conception : jeudi 30 avril 2015
-- Développement : jusqu'au mois de mai
 
 
 ##Scénario d’utilisation
