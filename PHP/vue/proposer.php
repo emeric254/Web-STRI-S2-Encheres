@@ -46,7 +46,7 @@
                             Description
                         </h4>
                         <div class="input-group input-group" style="display: block;">
-                            <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " id="inputDescription"></textarea>
+                            <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " name="inputDescription" id="inputDescription"></textarea>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 Jours
                             </span>
 
-                            <input type="number" id="inputDureeJour" min="0" value="1" class="form-control" required>
+                            <input type="number" name="inputDureeJour" id="inputDureeJour" min="0" value="1" class="form-control" required>
                         </div>
 
                         <p></p>
@@ -73,7 +73,7 @@
                                 Heures
                             </span>
 
-                            <input type="number" id="inputDureeHeure" min="0" value="0" class="form-control" required>
+                            <input type="number" name="inputDureeHeure" id="inputDureeHeure" min="0" value="0" class="form-control" required>
                         </div>
 
                         <p></p>
@@ -83,7 +83,7 @@
                                 Minutes
                             </span>
 
-                            <input type="number" id="inputDureeMinute" min="0" value="0" class="form-control" required>
+                            <input type="number" name="inputDureeMinute" id="inputDureeMinute" min="0" value="0" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                 <i class="fa fa-eur"></i>
                             </span>
 
-                            <input type="number" id="inputPrix" min="1" value="1" class="form-control" required>
+                            <input type="number" name="inputPrix" id="inputPrix" min="1" value="1" class="form-control" required>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                                 <i class="fa fa-eur"></i>
                             </span>
 
-                            <input type="number" id="inputPas" min="1" value="1" class="form-control" required>
+                            <input type="number" name="inputPas" id="inputPas" min="1" value="1" class="form-control" required>
                         </div>
                     </div>
                 </div>

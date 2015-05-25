@@ -284,7 +284,10 @@ function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJou
 function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) {
     include('core/bdd.php');
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur) VALUES ('$titre','$description','$prix','$pas',now,$duree,'default.png','".$_SESSION['id']."')";
+    $titreFormat=str_replace("'","''",$titre);
+    $descriptionFormat=str_replace("'","''",$description);
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,1,$duree,'default.png','".$_SESSION['id']."')";
+    echo "$req";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 }
@@ -296,7 +299,7 @@ function VerificationAjoutNouvelleAnnonce($titre,$idAnnonce){
     $resultats = $db->prepare('SELECT idannonce,nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur FROM annonce WHERE idannonce = :idA');
     $resultats->execute(array('idA' => $idAnnonce));
     $ret=0;
-    while ($donnees_reqExec = $reqExec->fetch())
+    while ($donnees_reqExec = $resultats->fetch())
     {
         $ret=$donnees_reqExec['idannonce'];
     }

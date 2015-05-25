@@ -21,6 +21,8 @@
  *  Permet de vérifier que l'objer est ajouté dans la base, on utilise en plus du titre, l'id du venteur (contenu dan $_SESSION) et d'autres infos a déterminer, retourne 0 en cas d'erreur et autre chose pour un succes
  *
  *- Que faire une fois l'annonce ajoutée ? redirection vers la page d'accueil ? vers les infos de l'annonce ? pour le moment page de l'annonce
+ *
+ * - Revoir ligne 132 ce qui est en commentaire : mauvais traitement de l'erreur de saisie de la durée
  */
 
 include_once('core/model.php'); /* utile ????*/
@@ -30,7 +32,7 @@ include_once('core/bdd.php');
 $erreur=0;
 $champErreur = " ";
 
-if (isser($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
+if (isset($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
     $titre=htmlspecialchars($_POST['inputTitre']);
     if( strlen($titre) < 1)
     {
@@ -42,7 +44,7 @@ if (isser($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
     $champErreur="Titre d'annonce manquant";
 }
 
-if (isser($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
+if (isset($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
     $description=htmlspecialchars($_POST['inputDescription']);
     if(strlen($description) < 1)
     {
@@ -62,7 +64,7 @@ if (isser($_POST['inputDescription']) and !empty($_POST['inputDescription'])) {
     $champErreur.="Description manquante";
 }
 
-if (isser($_POST['inputPrix']) and !empty($_POST['inputPrix'])) {
+if (isset($_POST['inputPrix']) and !empty($_POST['inputPrix'])) {
     $prix=htmlspecialchars($_POST['inputPrix']);
     if($prix < 1)
     {
@@ -80,7 +82,7 @@ if (isser($_POST['inputPrix']) and !empty($_POST['inputPrix'])) {
     $champErreur.="Veuillez saisir le prix";
 }
 
-if (isser($_POST['inputPas']) and !empty($_POST['inputPas'])) {
+if (isset($_POST['inputPas']) and !empty($_POST['inputPas'])) {
     $pas=htmlspecialchars($_POST['inputPas']);
     if($pas < 1)
     {
@@ -98,7 +100,7 @@ if (isser($_POST['inputPas']) and !empty($_POST['inputPas'])) {
     $champErreur.="Veuillez indiquer le pas";
 }
 
-if (isser($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
+if (isset($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
     $dureeJour=htmlspecialchars($_POST['inputDureeJour']);
 }else{
     if($erreur){
@@ -108,7 +110,7 @@ if (isser($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
     $champErreur.="Veuillez saisir nombre de jour";
 }
 
-if (isser($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
+if (isset($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
     $dureeHeure=htmlspecialchars($_POST['inputDureeHeure']);
 }else{
     if($erreur){
@@ -118,7 +120,7 @@ if (isser($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
     $champErreur.="Veuillez saisir le nombre d'heure";
 }
 
-if (isser($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
+if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
     $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
 }else{
     if($erreur){
@@ -127,15 +129,15 @@ if (isser($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
     $erreur=1;
     $champErreur.="Veuillez saisir le nombre de minute";
 }
-
-if( !erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
+/* TODO :: A revoir pour traiter ça !!
+if(!$erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
 {
     if($erreur)
         $champErreur.=", ";
     $erreur=1;
     $champErreur.="Veuillez saisir une durée valide !";
 }
-
+*/
 
 if ($erreur == 1)
 {
