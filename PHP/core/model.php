@@ -203,13 +203,13 @@ function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJou
 # ----------- Fonction pour ajouter une annonce
 
 /* TODO ; utilisation de $dateActuelle pour faire le select qui suit, mettrele time() direct dans la requete si autre solution */
-function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur,$villeutilisateur) {
+function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idcategorie,$idutilisateur,$villeutilisateur) {
     include('core/bdd.php');
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
     $titreFormat=str_replace("'","''",$titre);
     $descriptionFormat=str_replace("'","''",$description);
     $heureActuelle=time();
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,1,1)";
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,$idcategorie,1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
     

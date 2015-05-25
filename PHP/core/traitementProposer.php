@@ -135,6 +135,16 @@ if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
     $erreur=1;
     $champErreur.="Veuillez saisir le nombre de minute";
 }
+
+if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
+    $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
+}else{
+    if($erreur){
+        $champErreur.=", ";
+    }
+    $erreur=1;
+    $champErreur.="Veuillez saisir le nombre de minute";
+}
 /* TODO :: A revoir pour traiter ça !!
 if(!$erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
 {
@@ -172,7 +182,7 @@ if ($erreur == 1)
     if ( VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) != 0 )
     {
         // Ajout de l'objet dans la base de données
-        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur,$idville);
+        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$categorieAnnonce,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
         if ($idAnnonce != -1)
         {
