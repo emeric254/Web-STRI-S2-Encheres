@@ -47,7 +47,7 @@
 <?php
 if($connecte)
 {
-	if($isadmin) 
+	if($isadmin)
 	{
 ?>
 					<li>
