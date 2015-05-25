@@ -5,9 +5,7 @@
  *
  * vars
  *  > $vente    (objet "vente")
- *
- *
- * // @ TODO decompte auto, je sait comment faire, no stress je le ferai
+ *  > $isadmin      (booleen pour la gestion pour les admin, (user courant == admin) ? )
  *
  */
 ?>
