@@ -38,7 +38,7 @@
                             <label for="inputTitre" class="sr-only">
                                 Titre
                             </label>
-                            <input type="text" name="inputTitre" id="inputTitre" class="form-control" placeholder="Titre" <?php if (isset($titre) and !empty($titre)) { echo "value=\"$titre\"";} ?> required autofocus >
+                            <input type="text" name="inputTitre" id="inputTitre" class="form-control" placeholder="Titre" <?php if (isset($titre) and !empty($titre)) { print "value=\"$titre\"";} ?> required autofocus >
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
     foreach($categories as $id => $choix)
     {
 ?>
-                            <option value="<?php= $id ?>" <?php if (isset($idcategorie) and !empty($idcategorie)) { echo "selected=\"selected\""; }?> >
+                            <option value="<?php= $id ?>" <?php if (isset($idcategorie) and !empty($idcategorie) and $id==$idcategorie) { print "selected=\"selected\""; }?> >
                                 <?= $choix ?>
                             </option>
 <?php
@@ -77,7 +77,7 @@
                             Description (*)
                         </h4>
                         <div class="input-group input-group" style="display: block;">
-                            <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " name="inputDescription" id="inputDescription"> <?php if (isset($description) and !empty($description)) echo $description ; ?></textarea>
+                            <textarea rows="8" maxlength="4000" style=" resize:none; width:100%; padding: 4px; " name="inputDescription" id="inputDescription"> <?php if (isset($description) and !empty($description)) print $description ; ?></textarea>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                                 Jours
                             </span>
 
-                            <input type="number" name="inputDureeJour" id="inputDureeJour" min="0" value="1" class="form-control" <?php if (isset($dureeJour) and !empty($dureeJour)) echo "value=\"$dureeJour\""; ?> required>
+                            <input type="number" name="inputDureeJour" id="inputDureeJour" min="0" value="1" class="form-control" <?php if (isset($dureeJour) and !empty($dureeJour)) print "value=\"$dureeJour\""; ?> required>
                         </div>
 
                         <p></p>
@@ -121,7 +121,7 @@
                                 Heures
                             </span>
 
-                            <input type="number" name="inputDureeHeure" id="inputDureeHeure" min="0" value="0" class="form-control"  <?php if (isset($dureeHeure) and !empty($dureeHeure)) echo "value=\"$dureeHeure\""; ?> required>
+                            <input type="number" name="inputDureeHeure" id="inputDureeHeure" min="0" value="0" class="form-control"  <?php if (isset($dureeHeure) and !empty($dureeHeure)) print "value=\"$dureeHeure\""; ?> required>
                         </div>
 
                         <p></p>
@@ -131,7 +131,7 @@
                                 Minutes
                             </span>
 
-                            <input type="number" name="inputDureeMinute" id="inputDureeMinute" min="0" value="0" class="form-control" <?php if (isset($dureeMinute) and !empty($dureeMinute)) echo "value=\"$dureeMinute\""; ?> required>
+                            <input type="number" name="inputDureeMinute" id="inputDureeMinute" min="0" value="0" class="form-control" <?php if (isset($dureeMinute) and !empty($dureeMinute)) print "value=\"$dureeMinute\""; ?> required>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                                 <i class="fa fa-eur"></i>
                             </span>
 
-                            <input type="number" name="inputPrix" id="inputPrix" min="1" value="1" class="form-control"  <?php if (isset($prix) and !empty($prix)) echo "value=\"$prix\""; ?> required>
+                            <input type="number" name="inputPrix" id="inputPrix" min="1" value="1" class="form-control"  <?php if (isset($prix) and !empty($prix)) print "value=\"$prix\""; ?> required>
                         </div>
                     </div>
                 </div>
@@ -165,13 +165,13 @@
                                 <i class="fa fa-eur"></i>
                             </span>
 
-                            <input type="number" name="inputPas" id="inputPas" min="1" value="1" class="form-control" <?php if (isset($pas) and !empty($pas)) echo "value=\"$pas\""; ?> required>
+                            <input type="number" name="inputPas" id="inputPas" min="1" value="1" class="form-control" <?php if (isset($pas) and !empty($pas)) print "value=\"$pas\""; ?> required>
                         </div>
                     </div>
                 </div>
                 <div >
-						(*) champs obligatoires  
-				</div>
+                        (*) champs obligatoires
+                </div>
                 <!-- Submit -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Proposer</button>
 
