@@ -211,8 +211,8 @@ function VerificationAjoutNouvelUtilisateur($mail, $password)
 {
     include('core/bdd.php');
 
-    $resultats = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
-    $resultats->execute(array(
+    $reqExec = $db->prepare('SELECT idutilisateur,emailutilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur,urlphotoutilisateur,idville, idstatut, mdputilisateur FROM utilisateur WHERE emailutilisateur = :email AND mdputilisateur = :mdp');
+    $reqExec->execute(array(
     'email' => $mail,
     'mdp' => $password));
 
