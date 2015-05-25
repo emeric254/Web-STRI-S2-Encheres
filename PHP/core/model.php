@@ -277,10 +277,10 @@ function RecuperationTendanceVente($limite){
 	return $ret;
 }
 
-function RechercheVente($motCles, $cat=null){
+function RechercheVente($motCles, $cat=0){
 	include('core/bdd.php');
 	$ret = array();
-	if($cat==null){
+	if($cat<1){
 		$req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%'))";
 	} else {
 		$req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat')";
