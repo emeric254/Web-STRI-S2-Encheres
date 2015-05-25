@@ -59,7 +59,7 @@
 ?>
                         <h4>
                             <span class="label label-info">
-                                Dernière ench&egrave;re par
+                                Derni&egrave;re ench&egrave;re par
                                 <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
                                     <?php print $vente->Acheteur->nom; ?>
                                 </a>

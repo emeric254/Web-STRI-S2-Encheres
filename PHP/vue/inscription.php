@@ -140,7 +140,7 @@
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h4>
-                            Votre numéro de t&eacute;l&eacute;phone
+                            Votre num&eacute;ro de t&eacute;l&eacute;phone
                         </h4>
                         <div class="input-group input-group">
                             <span class="input-group-addon">
