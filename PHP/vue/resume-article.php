@@ -21,6 +21,19 @@
                                 Voir
                             </a>
                         </div>
+<?php
+    if($admin)
+    {
+?>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-default" href="http://google.fr">
+                                <i class="fa fa-trash-o"></i>
+                                Supprimer
+                            </a>
+                        </div>
+<?php
+    }
+?>
                         <h4>
                             <?php print $vente->nom; ?>
 
