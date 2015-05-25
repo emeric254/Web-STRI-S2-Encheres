@@ -300,20 +300,4 @@ function RecuperationTendanceVente($limite)
     return $ret;
 }
 
-function RecuperationTendanceVente($limite)
-{
-    include('core/bdd.php');
-
-    $req = "SELECT COUNT(*), annonce.idannonce FROM encherir, annonce WHERE annonce.idannonce=encherir.idannonce AND annonce.dureeannonce + annonce.dateannonce > ".time()." Group BY annonce.idannonce ORDER BY count DESC LIMIT ?";
-    $reqExec = $db->prepare($req);
-    $reqExec->execute(array($limite));
-
-    $ret = array();
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret[]=$donnees_reqExec['idannonce'];
-    }
-    return $ret;
-}
-
 ?>
