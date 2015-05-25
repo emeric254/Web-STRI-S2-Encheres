@@ -42,4 +42,5 @@ function UploadImage($dossier,$photo,$taille_maxi,$id)
 		  echo("<script>alert(\"l'upload a échoué.\");</script>");
 		}
 	}
+	return "$id"."$fichier";
 } ?>
