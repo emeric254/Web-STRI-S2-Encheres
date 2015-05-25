@@ -183,7 +183,7 @@ function RecupererCategoriesAnnonce()
 	$reqExec->execute();
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret[]=$donnees_reqExec;
+		$ret[$donnees_reqExec->idcategorie]= $donnees_reqExec;
 	}
     var_dump($ret);
 	return $ret;
