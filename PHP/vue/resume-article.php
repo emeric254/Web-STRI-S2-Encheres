@@ -74,9 +74,9 @@
         // @ TODO a verif que ca marche de creer la date de debut comme ca !
         var dateDebut = new Date("<?= $vente->date ?>");
 
-        var duree = <?= $vente->tempsRestantSeconde ?>;
+        var duree = <?= $vente->duree ?>;
 
-        var total = duree - (dateActuelle - dateDebut)/1000 ;
+        var total = duree + (dateDebut - dateActuelle)/1000 ;
 
         var compteRebour = document.getElementById("tempsRestant<?= $vente->id ?>");
 

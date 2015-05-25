@@ -217,7 +217,7 @@ Script de decompte pour le temps restant !
         // @ TODO a verif que ca marche de creer la date de debut comme ca !
         var dateDebut = new Date("<?= $vente->date ?>");
 
-        var duree = <?= $vente->tempsRestantSeconde ?>;
+        var duree = <?= $vente->duree ?>;
 
         var total = duree + (dateDebut - dateActuelle) / 1000 ;
 
