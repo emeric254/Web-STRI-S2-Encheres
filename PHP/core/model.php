@@ -184,7 +184,7 @@ function UtilisateurRecupererEnch($id){
 function UploadImage($dossier,$photo,$taille_maxi,$typePhoto)
 {
 	include('core/bdd.php');
-	$id = $_SESSION['id'];
+	$id = $_SESSION['id']; //////NON
 	$fichier = basename($photo['name']);
 	$taille = filesize($photo['tmp_name']);
 	$extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
