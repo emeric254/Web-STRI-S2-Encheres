@@ -20,7 +20,7 @@
                             </a>
                         </div>
 <?php
-    if($admin)
+    if($isadmin)
     {
 ?>
                         <div class="btn-group pull-right">

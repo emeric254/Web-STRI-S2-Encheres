@@ -1,15 +1,10 @@
 <?php
 /* «navbar.php»
  * barre de menu sur toutes les pages du site
- * 
+ *
  * vars
- * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
- *
- *
- * TODO :
- * - changer icone de la mise en vente
- *
- * 
+ *  > $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
+ *  > $isadmin  (booleen pour la gestion admin, user courant == admin ?)
  */
 ?>
         <!-- barre de menu -->
@@ -58,7 +53,19 @@
 <?php
 if($connecte)
 {
+    if($isadmin)
+    {
 ?>
+                    <li>
+                        <a href="/?page=compte">
+                            <i class="fa fa-cogs"></i>
+                            Gestion
+                        </a>
+                    </li>
+<?php
+    }
+?>
+
                     <li>
                         <a href="/?page=compte">
                             <i class="fa fa-user"></i>
@@ -66,7 +73,7 @@ if($connecte)
                         </a>
                     </li>
                     <li>
-                        <a href="/?page=deconnexion"> 
+                        <a href="/?page=deconnexion">
                             <i class="fa fa-sign-out"></i>
                             Deconnexion
                         </a>
@@ -75,13 +82,13 @@ if($connecte)
 } else {
 ?>
                     <li>
-                        <a href="/?page=inscription"> 
+                        <a href="/?page=inscription">
                             <i class="fa fa-smile-o"></i>
                             Inscription
                         </a>
                     </li>
                     <li>
-                        <a href="/?page=connexion"> 
+                        <a href="/?page=connexion">
                             <i class="fa fa-sign-in"></i>
                             Connexion
                         </a>
