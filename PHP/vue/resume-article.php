@@ -75,8 +75,7 @@
         // @ TODO a verif que ca marche de creer la date de debut comme ca !
         var dateDebut = new Date("<?= $vente->date ?>");
 
-        // @ TODO a verif que ce soit des secondes !
-        var duree = <?= $vente->tempsRestant ?>;
+        var duree = <?= $vente->tempsRestantSeconde ?>;
 
         var total = duree - (dateActuelle - dateDebut)/1000 ;
 
