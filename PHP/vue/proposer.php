@@ -61,7 +61,7 @@
     foreach($categories as $id => $choix)
     {
 ?>
-                            <option value="<?php= $id ?>" <?php if (isset($idcategorie) and !empty($idcategorie)) if($id==$idcategorie) { print "selected=\"selected\""; }?> >
+                            <option value="<?= $id ?>" <?php if (isset($idcategorie) and !empty($idcategorie)) if($id==$idcategorie) { print "selected=\"selected\""; }?> >
                                 <?= $choix ?>
                             </option>
 <?php
