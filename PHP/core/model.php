@@ -178,12 +178,12 @@ function RecupererCategoriesAnnonce()
 {
     include('core/bdd.php');
 	$ret = array();
-	$req = "SELECT idcategorie,nomcategorie,descriptioncategorie FROM categorie";
+	$req = "SELECT idcategorie,nomcategorie FROM categorie";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute();
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret[$donnees_reqExec->idcategorie]= $donnees_reqExec;
+		$ret[$donnees_reqExec->idcategorie]= $donnees_reqExec->nomcategorie;
 	}
     var_dump($ret);
 	return $ret;
