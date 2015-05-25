@@ -30,24 +30,34 @@
                             Recherche
                         </a>
                     </li>
+<!--
                     <li>
                         <a href="/?page=tendance">
                             <i class="fa fa-fire"></i>
                             Tendance
                         </a>
                     </li>
+-->
                     <li>
                         <a href="/?page=nouveautes">
                             <i class="fa fa-newspaper-o"></i>
                             Nouveautes
                         </a>
                     </li>
+
+<?php
+if($connecte)
+{
+?>
                     <li>
-                        <a href="/?page=proposer">
-                            <i class="fa fa-newspaper-o"></i>
+                        <a href="/?page=deconnexion">
+                            <i class="fa fa-share"></i>
                             Vendre
                         </a>
                     </li>
+<?php
+}
+?>
                 </ul>
                 <ul class="nav navbar-form navbar-right nav-pills">
 <?php
