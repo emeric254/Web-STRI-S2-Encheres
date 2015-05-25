@@ -149,6 +149,14 @@ else
 					}
 					else
 					{
+						// traitement de l'image
+						if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
+						{
+							$_SESSION['photo'] = UploadImage('profil/',$_FILES['inputPhoto'],2000000,1,$verif);
+			
+						} else {
+							$_SESSION['photo'] ='default.png';
+						}
 						// on stocke les information du compte dans les variables de session
 						$_SESSION['id'] = $verif;
 						$_SESSION['email'] = $mail;
@@ -156,17 +164,9 @@ else
 						$_SESSION['prenom'] = $prenom;
 						$_SESSION['telephone'] = $telephone;
 						$_SESSION['adresse'] = $adresse;
-						//$_SESSION['photo'] = $donnees['urlphotoutilisateur'];
 						//$_SESSION['idville'] = $donnees['idville'];
-						//$_SESSION['idstatut'] = $donnees['idville'];
+						$_SESSION['idstatut'] = '1';
 						$_SESSION['pwd'] = $password;
-	
-						// traitement de l'image
-						if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
-						{
-							UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
-			
-						}
 		
 						header("Location: /");
 					}
