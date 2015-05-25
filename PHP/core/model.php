@@ -172,7 +172,6 @@ function UtilisateurRecupererEnch($id){
 	return $ret;
 }
 
-
 function RecuperationDerniereVente($limite){
 	include('core/bdd.php');
 	$ret = array();

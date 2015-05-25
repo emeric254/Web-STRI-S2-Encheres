@@ -29,7 +29,7 @@ else
  */
  
 include_once('core/model.php'); /* utile ????*/
-include_once('core/bdd.php'); /** TODO : modifier chemin */
+include_once('core/bdd.php'); 
 
 /* Récupération des différentes variables du formulaire */
 if (isset($_POST['inputEmail'])) $mail=$_POST['inputEmail'];
@@ -87,8 +87,7 @@ $reqExec->execute() or die(print "echec execution requete");  /********** Virer 
 		// traitement de l'image
 		if (isset($_FILES['inputPhoto']))
 		{
-			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1);
-			
+			UploadImage('profil/',$_FILES['inputPhoto'],2000000,1,$_SESSION['id']);
 		}
 		
 		header("Location: /");

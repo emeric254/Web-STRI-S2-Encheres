@@ -1,6 +1,6 @@
 <?php
 /* «inscription.php»
- * formulaire d'inrcription d'un utilisateur
+ * formulaire d'inscription d'un utilisateur
  *
  * //@ TODO action form a changer
  * //@ TODO pour EVOLVE faire un test sur les mots de passe pour voir si ils sont identiques
