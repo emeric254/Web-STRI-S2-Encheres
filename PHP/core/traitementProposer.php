@@ -150,7 +150,7 @@ if ($erreur == 1)
     if ( VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) )
     {
         // Ajout de l'objet dans la base de données
-        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute);
+        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,htmlspecialchars($_SESSION['id']));
         // on recherche les informations de l'annonce dans la base
         $verif=VerificationAjoutNouvelleAnnonce($titre,$idAnnonce);
         
