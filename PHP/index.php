@@ -7,10 +7,8 @@
 	{
 		$page=htmlspecialchars($_GET['page']);
 	} else {
-		$page="nouveautes"; //page par default
+		$page="accueil"; //page par default
 	}
-	
-	
 	
 	// vues
 	 

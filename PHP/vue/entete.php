@@ -1,10 +1,9 @@
 <?php
 /* «entete.php»
  * debut de toutes les pages du site
- * 
- * @TODO : 
- * -c'est dans cette page le session start ?
- * -Pour le "<link rel="icon" " faudrait pas plutot mettre le lien en local vers l'image ?
+ *
+ * // @ TODO pour EVOLVE future ajouter une var $title
+ *
  */
 ?>
 <!DOCTYPE html>
@@ -16,10 +15,11 @@
         <meta name="author" content="Remi Barbaste, Robin Degironde, Emeric Tosi, Thomas Maury, Guillaume Boulic">
         <meta name="description" content="strideal, enchere">
         <title>STRIDEAL</title>
+        <!-- favicon -->
         <link rel="icon" href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/favicon.ico">
         <!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Font-Awesome -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </head>

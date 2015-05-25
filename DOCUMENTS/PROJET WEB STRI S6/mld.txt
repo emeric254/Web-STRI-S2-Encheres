@@ -1,0 +1,6 @@
+utilisateur (idUtilisateur, emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, #idVille, #idStatut)  
+annonce (idAnnonce, nomAnnonce, descriptionAnnonce, prixDepartAnnonce, pasAnnonce, dateAnnonce, dureeAnnonce, urlAnnonce, noteAnnonce, commentaireAcheteurEnchere, #idUtilisateur, #idCatégorie, #idVille)
+categorie (idCatégorie, nomCategorie, descriptionCategorie)  
+ville (idVille, nameVille, codePostalVille)
+statut (idStatut, nomStatut, descriptionStatut)
+encherir (idUtilisateur, idAnnonce, prixEnchere, dateEnchere)  

@@ -1,6 +1,6 @@
 <?php 
 //Si utilisateur déja connecté : redirection vers l'acceuil
-if (!empty($_SESSION['id']) && 0) 
+if (!empty($_SESSION['id'])) 
 {
 	header("Location: /");
 }

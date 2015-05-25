@@ -4,6 +4,11 @@
  * 
  * vars
  * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
+ *
+ *
+ * TODO :
+ * - changer icone de la mise en vente
+ *
  * 
  */
 ?>
@@ -40,6 +45,12 @@
                         <a href="/?page=nouveautes">
                             <i class="fa fa-newspaper-o"></i>
                             Nouveautes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/?page=proposer">
+                            <i class="fa fa-newspaper-o"></i>
+                            Vendre
                         </a>
                     </li>
                 </ul>
