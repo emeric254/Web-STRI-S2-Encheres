@@ -307,4 +307,16 @@ function RecuperationDesCat(){
 	return $ret;
 }
 
+function RechercheUser($motCles){
+	include('core/bdd.php');
+	$ret = array();
+	$req = "SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%') UNION ALL SELECT idutilisateur FROM utilisateur WHERE UPPER(emailutilisateur) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%'))";
+	$reqExec = $db->prepare($req);
+	$reqExec->execute(array());
+	while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret[]=$donnees_reqExec['idutilisateur'];
+	}
+	return $ret;
+}
 ?>

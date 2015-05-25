@@ -47,7 +47,7 @@ switch($choix)
                                 <label for="inputUser" class="sr-only">
                                     Utilisateur
                                 </label>
-                                <input type="search" id="inputUser" class="form-control" placeholder="mail ou nom de l'utilisateur" required autofocus>
+                                <input <?php if(isset($recherche) and !empty($recherche)){ echo "value=$recherche ";}?>type="search" id="inputUser" name="inputUser" class="form-control" placeholder="mail ou nom de l'utilisateur" required autofocus>
                             </div>
                         </div>
                         <!-- Submit -->

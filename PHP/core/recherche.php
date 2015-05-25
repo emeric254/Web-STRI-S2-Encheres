@@ -42,7 +42,18 @@ if($choix==2){
 			
 	}
 } elseif($choix==1){
-	
+	if(isset($_POST['inputUser']) and !empty($_POST['inputUser'])){
+		$recherche = htmlspecialchars($_POST['inputUser']);
+		$resulta=RechercheUser($recherche);
+
+		include_once('vue/recherche.php');
+		foreach($resulta as $idProfil){
+			$profil = new Vente($idProfil);
+			//Inclure la vue d'un profil'
+			unset($profil);
+		}
+			
+	}
 }
 include_once('vue/recherche.php');
 
