@@ -177,14 +177,17 @@ function UtilisateurRecupererEnch($id){
 function RecupererCategoriesAnnonce()
 {
     include('core/bdd.php');
-	$ret = array();
+    
 	$req = "SELECT idcategorie,nomcategorie FROM categorie";
 	$reqExec = $db->prepare($req);
 	$reqExec->execute();
+	
+	$ret = array();
 	while ($donnees_reqExec = $reqExec->fetch())
 	{
-		$ret[$donnees_reqExec->idcategorie]= $donnees_reqExec->nomcategorie;
+		$ret[$donnees_reqExec->idcategorie] = $donnees_reqExec->nomcategorie;
 	}
+	
     var_dump($ret);
 	return $ret;
 }
