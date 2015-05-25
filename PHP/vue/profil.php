@@ -5,6 +5,7 @@
  * vars
  *  > $profil  (le profil de l'utilisateur)
  *  > $identify     (booleen pour savoir si oui ou non ce profil est celui de l'utilisateur connecté)
+ *  > $isadmin      (booleen pour la gestion pour les admin, (user courant == admin) ? )
  *
  */
 ?>
@@ -103,9 +104,9 @@
             </div>
 <?php
     }
-	else
-		if($isadmin)
-		{
+    else
+        if($isadmin)
+        {
 ?>
             <div class="container">
                 <h4 class="col-sm-6">
@@ -118,6 +119,6 @@
                 </h4>
             </div>
 <?php
-		}
+        }
 ?>
         </div>

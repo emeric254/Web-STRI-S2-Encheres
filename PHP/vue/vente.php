@@ -7,6 +7,7 @@
  *  > $vente    (objet "vente")
  *  > $appartenue   (booleen si cette enchere et la notre)
  *  > $encherissable    (booleen si on peut enchrir)
+ *  > $isadmin      (booleen pour la gestion pour les admin, (user courant == admin) ? )
  *
  * // @ TODO pour une evolve future :
  *  > $encherisseursVente (tableau de "profil")
@@ -126,8 +127,8 @@
 <?php
         }
         else
-			if($isadmin)
-			{
+            if($isadmin)
+            {
 ?>
             <div class="container">
                 <h4>
@@ -140,7 +141,7 @@
                 </h4>
             </div>
 <?php
-			}
+            }
 ?>
 
 
