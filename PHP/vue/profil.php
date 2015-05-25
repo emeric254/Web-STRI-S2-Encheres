@@ -92,6 +92,9 @@
                 <h4 class="col-sm-6">
                     <span class="label label-warning">
                         <a href="xxx.php">
+<!--
+                            renvoi vers la page inscription avec infos pré-completées
+-->
                             <i class="fa fa-cogs"></i>
                             Modifier votre compte
                         </a>
