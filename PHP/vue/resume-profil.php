@@ -10,7 +10,7 @@
  */
 ?>
             <div class="col-md-6">
-                <div class="panel panel-primary">
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="btn-group pull-right">
                             <a class="btn btn-default" href="http://google.fr">
