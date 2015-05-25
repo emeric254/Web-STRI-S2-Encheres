@@ -276,14 +276,14 @@ function RecuperationTendanceVente($limite){
 	}
 	return $ret;
 }
-
+WHERE annonce.dureeannonce + annonce.dateannonce > ".time()." 
 function RechercheVente($motCles, $cat=0){
 	include('core/bdd.php');
 	$ret = array();
 	if($cat<1){
-		$req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%'))";
+		$req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." )";
 	} else {
-		$req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat')";
+		$req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND idcategorie='$cat')";
 	}
 	$reqExec = $db->prepare($req);
 	$reqExec->execute(array());
