@@ -37,9 +37,8 @@
 
                             &nbsp;
                             <span class="label label-warning" id="tempsRestant<?php print $vente->id; ?>">
-<!--
-                                @ TODO temps restant
--->
+                                <!-- temps restant -->
+                                0
                             </span>
 
                             &nbsp;
