@@ -24,7 +24,7 @@ class Vente {
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce'];
-		$this->pas = $info['tempsVente'];
+		$this->duree = $info['tempsVente'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
 		$this->tempsRestantSeconde = $dateFin - time();
