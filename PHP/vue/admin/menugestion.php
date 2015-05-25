@@ -11,9 +11,11 @@
             <div class="well">
             
                 <h2 style="text-align:center;">
-                    Mon compte
+                    Gestion du site
                 </h2>
+                
                 <p></p>
+                
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
@@ -23,7 +25,9 @@
                         </a>
                     </li>
                 </ul>
+                
                 <p></p>
+                
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
@@ -33,7 +37,9 @@
                         </a>
                     </li>
                 </ul>
+                
                 <p></p>
+                
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
                         <a href="/?page=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
