@@ -268,4 +268,30 @@ function VerificationDuCodePostal($ville)
     return $ret;
 }
 
+function RecuperationDerniereVente($limite){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT idannonce FROM annonce WHERE annonce.dureeannonce + annonce.dateannonce > ".time()." Group BY annonce.idannonce ORDER BY dateannonce DESC LIMIT ?";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array($limite));
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+function RecuperationTendanceVente($limite){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT COUNT(*), annonce.idannonce FROM encherir, annonce WHERE annonce.idannonce=encherir.idannonce AND annonce.dureeannonce + annonce.dateannonce > ".time()." Group BY annonce.idannonce ORDER BY count DESC LIMIT ?";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array($limite));
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
 ?>
