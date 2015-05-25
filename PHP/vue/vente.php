@@ -125,6 +125,22 @@
             </div>
 <?php
         }
+        else
+			if($isadmin)
+			{
+?>
+            <div class="container">
+                <h4>
+                    <span class="label label-danger">
+                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir retirer cette vente ?')) document.location.href = this.href + '?verified' ; return false;">
+                            <i class="fa fa-trash-o"></i>
+                            Retirer cette vente
+                        </a>
+                    </span>
+                </h4>
+            </div>
+<?php
+			}
 ?>
 
 

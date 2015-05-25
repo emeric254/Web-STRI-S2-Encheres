@@ -3,8 +3,8 @@
  * barre de menu sur toutes les pages du site
  * 
  * vars
- * $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
- * 
+ * 	> $connecte  (represente l'etat de connexion de la personne sur le site, connectee ou non)
+ * 	> $isadmin	(booleen pour la gestion admin, user courant == admin ?)
  */
 ?>
         <!-- barre de menu -->
@@ -63,7 +63,19 @@ if($connecte)
 <?php
 if($connecte)
 {
+	if($isadmin)
+	{
 ?>
+					<li>
+						<a href="/?page=compte">
+							<i class="fa fa-cogs"></i>
+							Gestion
+						</a>
+					</li>
+<?php
+	}
+?>
+           
                     <li>
                         <a href="/?page=compte">
                             <i class="fa fa-user"></i>
