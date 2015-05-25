@@ -79,14 +79,25 @@
     if($identify)
     {
 ?>
-            <h4>
-                <span class="label label-danger">
-                    <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir supprimer votre compte ?')) document.location.href = this.href + '?verified' ; return false;">
-                        <i class="fa fa-trash-o"></i>
-                        Supprimer votre compte
-                    </a>
-                </span>
-            </h4>
+            <div class="container text-center">
+                <h4 class="col-sm-6">
+                    <span class="label label-danger">
+                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir supprimer votre compte ?')) document.location.href = this.href + '?verified' ; return false;">
+                            <i class="fa fa-trash-o"></i>
+                            Supprimer votre compte
+                        </a>
+                    </span>
+                </h4>
+
+                <h4 class="col-sm-6">
+                    <span class="label label-warning">
+                        <a href="xxx.php">
+                            <i class="fa fa-cogs"></i>
+                            Modifier votre compte
+                        </a>
+                    </span>
+                </h4>
+            </div>
 <?php
     }
 ?>
