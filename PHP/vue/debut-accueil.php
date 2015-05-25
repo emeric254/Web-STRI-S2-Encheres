@@ -7,7 +7,7 @@
         <!-- Titre -->
         <div class="well">
             <div class="container theme-showcase text-center" role="main" >
-                <img class="img-thumbnail" src="./banniere.png" alt="banniere">
+                <img class="img-thumbnail" src="https://github.com/emeric254/Web-STRI-S2-Encheres/raw/master/PHP/banniere.png" alt="banniere">
             </div>
         </div>
 
