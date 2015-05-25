@@ -1,4 +1,3 @@
-
 <?php
 /* «resume-profil.php»
  * bout de page d'affichage du profil en résumé
