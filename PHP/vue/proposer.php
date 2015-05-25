@@ -1,10 +1,13 @@
  <?php
- /* «proposer.php»
-  * mise en vente d'un nouvel objet.
-  *
-  * // @ TODO pour EVOLVE, mettre un calendrier pour choisir la fin de l'enchere par exemple
-  *
-  */
+/* «proposer.php»
+ * mise en vente d'un nouvel objet.
+ *
+ * vars
+ *  > $categories   (tableau de chaine de char, chaque chaine etant une categorie)
+ *
+ * // @ TODO pour EVOLVE, mettre un calendrier pour choisir la fin de l'enchere par exemple
+ *
+ */
 ?>
         <!-- Titre -->
         <div class="jumbotron">
@@ -36,6 +39,33 @@
                             </label>
                             <input type="text" name="inputTitre" id="inputTitre" class="form-control" placeholder="Titre" required autofocus>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Catégorie -->
+                <div class="well">
+                    <div class="row text-center" style="margin-bottom:10px;">
+                        <h4>
+                            Catégorie
+                        </h4>
+                        <span class="input-group-addon">
+                            <i class="fa fa-filter"></i>
+                        </span>
+                        <label for="inputCategorie" class="sr-only">
+                            Catégorie
+                        </label>
+                        <select class="form-control" id="inputCategorie">
+<?php
+    foreach($categories as $choix)
+    {
+?>
+                            <option>
+                                <?= $choix ?>
+                            </option>
+<?php
+    }
+?>
+                        </select>
                     </div>
                 </div>
 
