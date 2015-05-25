@@ -5,6 +5,8 @@
  *
  * vars :
  *  > $vente    (objet "vente")
+ *  > $appartenue   (booleen si cette enchere et la notre)
+ *  > $encherissable    (booleen si onpeut enchrir)
  *
  * // @ TODO pour une evolve future :
  *  > $encherisseursVente (tableau de "profil")
@@ -58,7 +60,7 @@
                         </h4>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
@@ -73,8 +75,41 @@
                     </div>
                 </div>
             </div>
-
-
+<?php
+    if($encherissable)
+    {
+?>
+            <!-- Enchérir -->
+            <div class="container">
+                <div class="well">
+                    <div class="row text-center">
+                        <div class="input-group">
+                            <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Ench&eacute;rir!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php
+    }
+    else
+        if($appartenue)
+        {
+?>
+            <div class="container">
+                <h4>
+                    <span class="label label-danger">
+                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir retirer votre vente ?')) document.location.href = this.href + '?verified' ; return false;">
+                            Retirer votre vente
+                        </a>
+                    </span>
+                </h4>
+            </div>
+<?php
+        }
+?>
 <?php
 // @ TODO pour une evolve future !
 /*
