@@ -7,7 +7,7 @@
  * $taille_maxi : taille maximale de l'image
  * $typePhoto : vaut 1 pour photo utilisateur et 2 pour photo objet
  */
-function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
+function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
 	include('core/bdd.php');
 	$fichier = basename($photo['name']);
