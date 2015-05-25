@@ -152,13 +152,19 @@ if ($erreur == 1)
 }else
 {
     // a regarder jai mis les verif avant donc de tt manieres ce test passe dans tous les cas 
-    if ( VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) )
+    if ( VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute) != 0 )
     {
         // Ajout de l'objet dans la base de données
-        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,htmlspecialchars($_SESSION['id']));
+        $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,htmlspecialchars($_SESSION['id']),htmlspecialchars($_SESSION['idville']));
         // on recherche les informations de l'annonce dans la base
-        $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
-        
+        if ($idAnnonce != -1)
+        {
+            $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
+        }
+        else
+        {
+            $verif = 0;
+        }
         if ($verif == 0)
         {
             $errMsg="Erreur pendant l'enregistrement de l'annonce";
