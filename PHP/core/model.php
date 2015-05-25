@@ -213,7 +213,7 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 			          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
 			          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
 		$fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
-
+var_dump($photo);
 		if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
 		{
 			if ($typePhoto == 1) // ajout photo de profil
@@ -252,7 +252,7 @@ function UploadImage($dossier,$photo,$taille_maxi,$typePhoto,$id)
 				{
 					unlink($dossier.$vente->photo);
 				}
-				rename($dossier.$fichier, $dossier.$id.".".$extension); 
+				rename($dossier.$fichier, $dossier.$id.$extension); 
 				$newfichier = $id.".".$extension;
 				$resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
 				$resultats->execute(array(
@@ -281,20 +281,31 @@ function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJou
 
 # ----------- Fonction pour ajouter une annonce
 
+/* TODO ; utilisation de $dateActuelle pour faire le select qui suit, mettrele time() direct dans la requete si autre solution */
 function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idutilisateur) {
     include('core/bdd.php');
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
     $titreFormat=str_replace("'","''",$titre);
     $descriptionFormat=str_replace("'","''",$description);
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,".time().",$duree,'default.png','$idutilisateur',1)";
+    $heureActuelle=time();
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
     
+    // récupération de l'id
+    $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+    while ($donnees_reqExec = $reqExec->fetch())
+	{
+		$ret=$donnees_reqExec;
+	}
+    return $ret['idannonce'];
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce 
 
-function VerificationAjoutNouvelleAnnonce($titre,$idAnnonce){
+function VerificationAjoutNouvelleAnnonce($idAnnonce){
     include('core/bdd.php');
     $resultats = $db->prepare('SELECT idannonce,nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur FROM annonce WHERE idannonce = :idA');
     $resultats->execute(array('idA' => $idAnnonce));

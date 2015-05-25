@@ -121,6 +121,23 @@
                         </div>
                     </div>
                 </div>
+                
+                 <!-- Photo -->
+                <div class="well">
+                    <div class="row text-center" style="margin-bottom:10px;">
+                        <h3>
+                            Ajouter une photo
+                        </h3>
+                        <em>optionnelle, (taille max : 2Mio)</em>
+                        <div class="input-group input-group-lg" style="padding-left:1em;">
+                            <label for="inputPhoto" class="sr-only">
+                                Photo
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+                            <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Submit -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Proposer</button>

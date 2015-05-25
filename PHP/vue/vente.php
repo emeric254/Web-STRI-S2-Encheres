@@ -60,7 +60,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
-                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="vente/<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-8">
                         <div style="padding-top: 10px;">

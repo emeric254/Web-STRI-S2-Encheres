@@ -152,7 +152,7 @@ if ($erreur == 1)
         // Ajout de l'objet dans la base de données
         $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,htmlspecialchars($_SESSION['id']));
         // on recherche les informations de l'annonce dans la base
-        $verif=VerificationAjoutNouvelleAnnonce($titre,$idAnnonce);
+        $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
         
         if ($verif == 0)
         {
@@ -162,8 +162,11 @@ if ($erreur == 1)
         }
         else // $verif contient le numéro (id) de l'annonce
         {
-            // on upload l'image
-            UploadImage('vente/',$_FILES['inputPhoto'],2000000,2,$verif); 
+            if (isset($_FILES['inputPhoto']))
+            {
+                // on upload l'image
+                UploadImage('vente/',$_FILES['inputPhoto'],2000000,2,$verif); 
+            }
         }
         header("Location: /?page=vente&id=$verif");
     }
