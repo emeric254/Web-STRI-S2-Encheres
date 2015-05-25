@@ -52,6 +52,7 @@
                                 </span>
                             </span>
                         </h4>
+<?php if($vente->Acheteur!=null){ ?>
                         <h4>
                             <span class="label label-info">
                                 Dernière enchère par
@@ -61,6 +62,7 @@
                             </span>
                             &nbsp;
                         </h4>
+<?php } ?>
                     </div>
                 </div>
                 <div class="row text-center">
