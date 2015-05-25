@@ -14,7 +14,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=vente&id=<?php print $vente->id; ?>">
                                 <i class="fa fa-code-fork"></i>
                                 Voir
                             </a>
