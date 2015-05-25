@@ -3,7 +3,7 @@
  * mise en vente d'un nouvel objet.
  *
  * vars
- *  > $categories   (tableau de chaine de char, chaque chaine etant une categorie)
+ *  > $categories   (tableau de chaine de char, chaque chaine etant une categorie de clef = «id»)
  *
  * // @ TODO pour EVOLVE, mettre un calendrier pour choisir la fin de l'enchere par exemple
  *
@@ -56,10 +56,10 @@
                         </label>
                         <select class="form-control" id="inputCategorie">
 <?php
-    foreach($categories as $choix)
+    foreach($categories as $id => $choix)
     {
 ?>
-                            <option>
+                            <option value="<?= $id ?>" >
                                 <?= $choix ?>
                             </option>
 <?php
