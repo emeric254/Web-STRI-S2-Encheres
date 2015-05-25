@@ -184,3 +184,10 @@ else
 }
 
 ?>
+
+<!--
+    parce que voila quoi ...
+-->
+<script>
+    window.location = "/"
+</script>
