@@ -41,7 +41,7 @@
                     <div class="panel-body">
                         <div class="col-md-6">
                             <p class="pull-left">
-                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $profil->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="/profil/<?php print $profil->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                             </p>
                         </div>
                         <div class="col-md-6">

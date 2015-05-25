@@ -35,7 +35,7 @@ switch($choix)
     case 1: // utilisteur
 ?>
             <!-- Formulaire utilisateur-->
-            <form class="form" action="resultatRechercheProfil.html">
+            <form class="form" method="post" action="/?page=recherche&c=1">
                 <div class="well">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->

@@ -48,7 +48,7 @@ if($choix==2){
 
 		include_once('vue/recherche.php');
 		foreach($resulta as $idProfil){
-			$profil = new Vente($idProfil);
+			$profil = new Profil($idProfil);
 			include('vue/resume-profil.php');
 			unset($profil);
 		}
