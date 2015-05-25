@@ -14,12 +14,10 @@
 
     // vues
 
-    include("vue/entete.php");
-    include("core/navbar.php");
 
     if(file_exists("core/$page.php"))
     {
-        include_once("core/$page.php");
+        $path = "core/$page.php";
     }
     else
     {
@@ -30,8 +28,14 @@
             $errMsg = htmlspecialchars($_GET['errMsg']);
         }
 
-        include_once("vue/erreur.php"); //page d'erreur'
+        $path = "vue/erreur.php";
+
     }
+
+    include("vue/entete.php");
+    include("core/navbar.php");
+
+    include_once($path);
 
     include("vue/footer.php");
 ?>
