@@ -86,12 +86,17 @@
             <div class="container">
                 <div class="well">
                     <div class="row text-center">
-                        <div class="input-group">
-                            <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Ench&eacute;rir!</button>
-                            </span>
-                        </div>
+                        <form action="xxxxxxx.php">
+                            <div class="input-group">
+                                <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" type="button">
+                                        <i class="fa fa-cart-arrow-down"></i>
+                                        Ench&eacute;rir!
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
