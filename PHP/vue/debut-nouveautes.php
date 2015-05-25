@@ -5,11 +5,11 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-newspaper-o"></i>
-                    Nouveautes
+                    Nouveaut&eacute;s
                 </h1>
             </div>
         </div>

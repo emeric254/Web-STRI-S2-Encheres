@@ -5,9 +5,7 @@
  *
  * vars
  *  > $vente    (objet "vente")
- *
- *
- * // @ TODO decompte auto, je sait comment faire, no stress je le ferai
+ *  > $isadmin      (booleen pour la gestion pour les admin, (user courant == admin) ? )
  *
  */
 ?>
@@ -21,6 +19,19 @@
                                 Voir
                             </a>
                         </div>
+<?php
+    if($admin)
+    {
+?>
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-default" href="http://google.fr">
+                                <i class="fa fa-trash-o"></i>
+                                Supprimer
+                            </a>
+                        </div>
+<?php
+    }
+?>
                         <h4>
                             <?php print $vente->nom; ?>
 

@@ -5,29 +5,34 @@
  *
  * vars :
  *  > $vente    (objet "vente")
+ *  > $appartenue   (booleen si cette enchere et la notre)
+ *  > $encherissable    (booleen si onpeut enchrir)
  *
  * // @ TODO pour une evolve future :
  *  > $encherisseursVente (tableau de "profil")
  *
  */
 ?>
-            <div class="jumbotron">
-                <h1 style="text-align: center;">
-                    <?php print $vente->nom; ?>
-                </h1>
+            <div class="well">
+                <div class="container theme-showcase" role="main" >
+                    <h1>
+                        <i class="fa fa-cart-plus"></i>
+                        <?php print $vente->nom; ?>
+                    </h1>
+                </div>
             </div>
 
             <div class="well">
                 <div class="row text-center">
                     <div class="col-md-6 col-lg-6 text-center">
-                        <h3>
+                        <h4>
                             <span class="label label-danger" id="tempsRestant">
                                 <!-- temps restant -->
                                 0
                             </span>
                             &nbsp;
-                        </h3>
-                        <h3>
+                        </h4>
+                        <h4>
                             <span class="label label-info">
                                 Enchère crée par
                                 <a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>">
@@ -35,10 +40,10 @@
                                 </a>
                             </span>
                             &nbsp;
-                        </h3>
+                        </h4>
                     </div>
                     <div class="col-md-6 col-lg-6 text-center">
-                        <h3>
+                        <h4>
                             <span class="label label-warning">
                                 <?php print $vente->prix; ?>
                                 €
@@ -46,8 +51,8 @@
                                     <?php print $vente->nbEncherisseur; ?>
                                 </span>
                             </span>
-                        </h3>
-                        <h3>
+                        </h4>
+                        <h4>
                             <span class="label label-info">
                                 Dernière enchère par
                                 <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
@@ -55,10 +60,10 @@
                                 </a>
                             </span>
                             &nbsp;
-                        </h3>
+                        </h4>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="vente/<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
                     </div>
@@ -73,6 +78,47 @@
                     </div>
                 </div>
             </div>
+<?php
+    if($encherissable)
+    {
+?>
+            <!-- Enchérir -->
+            <div class="container">
+                <div class="well">
+                    <div class="row text-center">
+                        <form action="xxxxxxx.php">
+                            <div class="input-group">
+                                <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" type="button">
+                                        <i class="fa fa-cart-arrow-down"></i>
+                                        Ench&eacute;rir!
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+<?php
+    }
+    else
+        if($appartenue)
+        {
+?>
+            <div class="container">
+                <h4>
+                    <span class="label label-danger">
+                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir retirer votre vente ?')) document.location.href = this.href + '?verified' ; return false;">
+                            <i class="fa fa-trash-o"></i>
+                            Retirer votre vente
+                        </a>
+                    </span>
+                </h4>
+            </div>
+<?php
+        }
+?>
 
 
 <?php

@@ -19,7 +19,7 @@
  */
 ?>
         <!-- Titre -->
-        <div class="jumbotron">
+        <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-search"></i>
@@ -36,11 +36,11 @@ switch($choix)
 ?>
             <!-- Formulaire utilisateur-->
             <form class="form" action="resultatRechercheProfil.html">
-                <div class="jumbotron">
+                <div class="well">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
                         <div class="col-sm-9">
-                            <div class="input-group input-group-md">
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-search"></i>
                                 </span>
@@ -63,11 +63,11 @@ switch($choix)
 ?>
             <!-- Formulaire vente-->
             <form class="form" action="resultat.html">
-                <div class="jumbotron">
+                <div class="well">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
                         <div class="col-sm-5 col-md-6">
-                            <div class="input-group input-group-md">
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-search"></i>
                                 </span>
@@ -79,7 +79,7 @@ switch($choix)
                         </div>
                         <!-- Categorie -->
                         <div class="col-sm-2">
-                            <div class="input-group input-group-md">
+                            <div class="input-group">
                                 <label for="inputCategorie" class="sr-only">
                                     Categorie
                                 </label>

@@ -1,13 +1,15 @@
 <?php
-/* «debut-accueil.php»
- * debut de pages accueil
+/* «debut-profils.php»
+ * debut de page profils pour gerer les personnes
  *
  */
 ?>
         <!-- Titre -->
         <div class="well">
             <div class="container theme-showcase text-center" role="main" >
-                <img class="img-thumbnail" src="https://github.com/emeric254/Web-STRI-S2-Encheres/raw/master/PHP/banniere.png" alt="banniere">
+<!--
+                @ TODO
+-->
             </div>
         </div>
 
