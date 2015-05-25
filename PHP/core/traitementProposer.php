@@ -28,6 +28,7 @@
 include_once('core/model.php'); /* utile ????*/
 include_once('core/bdd.php');
 include_once('core/upload.php');
+include_once('core/class.php');
 
 // Récupération des différentes variables du formulaire
 $erreur=0;
@@ -171,7 +172,8 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     $idutilisateur=htmlspecialchars($_SESSION['id']);
     // TODO : voir si il faut faire un autre test mais si connecté, la ville est connu
-    $idville=htmlspecialchars($_SESSION['idville']);
+    $user = new Profil($idutilisateur);
+    $idville=$user->idVille;
 }
 else
 {   
