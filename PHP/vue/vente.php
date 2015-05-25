@@ -6,7 +6,7 @@
  * vars :
  *  > $vente    (objet "vente")
  *  > $appartenue   (booleen si cette enchere et la notre)
- *  > $encherissable    (booleen si onpeut enchrir)
+ *  > $encherissable    (booleen si on peut enchrir)
  *
  * // @ TODO pour une evolve future :
  *  > $encherisseursVente (tableau de "profil")
@@ -34,7 +34,7 @@
                         </h4>
                         <h4>
                             <span class="label label-info">
-                                Enchère crée par
+                                Ench&egrave;re cr&eacute;e par
                                 <a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>">
                                     <?php print $vente->Vendeur->nom; ?>
                                 </a>
@@ -52,17 +52,22 @@
                                 </span>
                             </span>
                         </h4>
-<?php if($vente->Acheteur!=null){ ?>
+<?php
+    if($vente->Acheteur != null)
+    {
+?>
                         <h4>
                             <span class="label label-info">
-                                Dernière enchère par
+                                Dernière ench&egrave;re par
                                 <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
                                     <?php print $vente->Acheteur->nom; ?>
                                 </a>
                             </span>
                             &nbsp;
                         </h4>
-<?php } ?>
+<?php
+    }
+?>
                     </div>
                 </div>
                 <div class="row text-center">
