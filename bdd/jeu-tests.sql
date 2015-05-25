@@ -4,7 +4,7 @@ INSERT INTO statut VALUES ('2', 'Utilisateur', 'Utilisateur du site');
 INSERT INTO statut VALUES ('3', 'Vendeur', 'Vendeur dun objet sur le site');
 
 -- Utilisateurs
-INSERT INTO utilisateur VALUES ('1', 'admin@gmail.com', 'Admin', 'Admin', '0102030405', 'upssitech', 'default.png','f865b53623b121fd34ee5426c792e5c33af8c227'), '12423', '1');--MDP:admin123
+INSERT INTO utilisateur VALUES ('1', 'admin@gmail.com', 'Admin', 'Admin', '0102030405', 'upssitech', 'default.png','f865b53623b121fd34ee5426c792e5c33af8c227', '12423', '1');--MDP:admin123
 INSERT INTO utilisateur VALUES ('2', 'user1@gmail.com', 'White', 'Elodie', '0103030405', 'rue de lu3', 'default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', '12423', '2');--MDP:azerty123
 INSERT INTO utilisateur VALUES ('3', 'user2@gmail.com', 'Marseau', 'Carine', '0802030405', 'avenue pinpon', 'default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', '12423', '2');--MDP:azerty456
 INSERT INTO utilisateur VALUES ('4', 'user3@gmail.com', 'Desilets', 'Gilles', '0102020405', 'chemin de terre', 'default.png','6aa414be8ed2c9a0273625a94ac70dd942b54149', '12423', '2');--MDP:azerty789'
