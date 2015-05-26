@@ -38,7 +38,8 @@
                     </div>
                     <div class="col-md-6 col-lg-6 text-center">
                         <h4>
-                            <span class="label label-warning"><?php print $vente->prix; ?>€<span class="badge"><?php print $vente->nbEncherisseur; ?></span></span>
+                            <span class="label label-warning"><?php print $vente->prix; ?>€
+                                <span class="badge"><?php print $vente->nbEncherisseur; ?></span></span>
                         </h4>
 <?php
     if($vente->Acheteur != null)
