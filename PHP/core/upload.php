@@ -11,6 +11,7 @@
 function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
 	include('core/bdd.php');
+	$ret =0;
 	$fichier = basename($photo['name']);
 	$taille = filesize($photo['tmp_name']);
 	$extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
@@ -37,11 +38,12 @@ function UploadImage($dossier,$photo,$taille_maxi,$id)
 		if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
 		{
 			rename($dossier.$fichier, $dossier.$id.$fichier);
+			$ret= "$id"."$fichier";
 		}
 		else //Sinon (la fonction renvoie FALSE).
 		{
 		  echo("<script>alert(\"l'upload a échoué.\");</script>");
 		}
 	}
-	return "$id"."$fichier";
+	return $ret;
 } ?>

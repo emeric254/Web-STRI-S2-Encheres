@@ -14,7 +14,7 @@
         <!-- Contenu -->
         <div class="container">
             <h2>
-                Conditions générales d'utilisation
+                Conditions g&eacute;n&eacute;rales d'utilisation
             </h2>
             <ul>
                 <li>

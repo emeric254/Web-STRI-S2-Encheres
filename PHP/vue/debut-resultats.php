@@ -16,7 +16,7 @@
             <div class="container theme-showcase" role="main" >
                 <h1>
                     <i class="fa fa-search"></i>
-                    Résultats
+                    R&eacute;sultats
                 </h1>
             </div>
         </div>

@@ -10,6 +10,8 @@
  */
 
 include_once('core/model.php');
+include_once('core/class.php');
+$isadmin=0;
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) 
 	and isset($_SESSION['email']) and !empty($_SESSION['email']) 
 	and isset($_SESSION['pwd']) and !empty($_SESSION['pwd']))
@@ -21,6 +23,10 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id'])
 	if($test)
 	{
 		$connecte = TRUE;
+		$mec = new Profil($id);
+		if ($mec->statut==1){
+			$isadmin=1;
+		}
 	}
 	else
 	{
