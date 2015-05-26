@@ -198,7 +198,7 @@ if ($erreur == 1)
         $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$categorieAnnonce,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
         //~ var_dump($idAnnonce);
-        if ($idAnnonce != -1)
+        if ($idAnnonce != -1 && ! empty($idAnnonce))
         {
             $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
 
