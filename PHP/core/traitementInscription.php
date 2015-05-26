@@ -129,13 +129,14 @@ else
                 include_once("vue/inscription.php");
             } else {
                 $verifCP = VerificationDuCodePostal($ville);
-                if($verifCP==0){
-			var_dump($ville);
-			var_dump($verifCP);
+                if($verifCP==0)
+                {
                     $errMsg="Code Postal non valide.";
                     include_once("vue/erreur.php");
                     include_once("vue/inscription.php");
-                }else{
+                }
+                else
+                {
                     AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $verifCP);
 
                     // on recherche les informations du compte dans la base
@@ -169,14 +170,14 @@ else
                             $checkFile = UploadImage('profil/',$_FILES['inputPhoto'],2000000,$verif);
                             if($checkFile==0){
                                 $_SESSION['photo'] = 'default.png';
-				echo "<script> window.location = '/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'' </script>";
+                echo "<script> window.location = '/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'' </script>";
                             }else{
                                 $_SESSION['photo'] = $checkFile;
-				echo '<script> window.location = "/" </script>';
+                echo '<script> window.location = "/" </script>';
                             }
                         } else {
                             $_SESSION['photo'] = 'default.png';
-				echo '<script> window.location = "/" </script>';
+                echo '<script> window.location = "/" </script>';
                         }
                     }
                 }
@@ -186,4 +187,3 @@ else
 }
 
 ?>
-
