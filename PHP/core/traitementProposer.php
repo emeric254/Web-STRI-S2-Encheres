@@ -213,7 +213,10 @@ if ($erreur == 1)
                 MajUrlImageAnnonce($newfichier,$verif);
             }
 
-            header("Location: /?page=vente&id=$idAnnonce");
+            //~ header("Location: /?page=vente&id=$idAnnonce");
+            ?>
+                <script window.location="/?page=vente&id=<?= $idAnnonce ?>"></script>
+            <?php
         }
         else
         {

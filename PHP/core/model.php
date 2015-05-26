@@ -257,7 +257,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
         //~ $ret=$donnees_reqExec['idannonce'];
     //~ }
     //~ return $ret;
-    return $reqExec->lastInsertId();
+    return $db->lastInsertId();
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce
