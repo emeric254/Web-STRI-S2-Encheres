@@ -254,9 +254,9 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $ret=-1;
     while ($donnees_reqExec = $reqExec->fetch())
     {
-        $ret=$donnees_reqExec;
+        $ret=$donnees_reqExec['idannonce'];
     }
-    return $ret['idannonce'];
+    return $ret;
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce
