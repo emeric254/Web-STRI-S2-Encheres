@@ -69,6 +69,7 @@ function Vente_Info_General($id)
     $reqExec = $db->prepare($req);
     $reqExec->execute(array($id));
 
+    $ret=array();
     while ($donnees_reqExec = $reqExec->fetch())
     {
         $ret['titreVente'] = $donnees_reqExec['nomannonce'];
