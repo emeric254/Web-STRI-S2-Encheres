@@ -1,8 +1,8 @@
 *~
 .~*
 PHP/core/bdd.php
-vente/*
-profil/*
-!vente/default.png
-!profil/default.png
+PHP/vente/*
+PHP/profil/*
+!PHP/vente/default.png
+!PHP/profil/default.png
 
