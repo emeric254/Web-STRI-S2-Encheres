@@ -76,7 +76,7 @@
 
         var duree = <?= $vente->duree ?>;
 
-        var total = duree + (dateDebut - dateActuelle)/1000 ;
+        var total = duree + (dateDebut - dateActuelle) / 1000 ;
 
         var compteRebour = document.getElementById("tempsRestant<?= $vente->id ?>");
 
