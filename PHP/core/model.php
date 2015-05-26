@@ -238,11 +238,11 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     include('core/bdd.php');
 
     $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
-    $titreFormat=str_replace("'","''",$titre);
-    $descriptionFormat=str_replace("'","''",$description);
+    //~ $titreFormat=str_replace("'","''",$titre);
+    //~ $descriptionFormat=str_replace("'","''",$description);
     $heureActuelle=time();
 
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'default.png',$idutilisateur,$idcategorie,1)";
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
