@@ -46,6 +46,7 @@ function Profil_Info_General($id)
     $reqExec = $db->prepare($req);
     $reqExec->execute(array($id));
 
+    $ret = array();
     while ($donnees_reqExec = $reqExec->fetch())
     {
         $ret['emailutilisateur'] = $donnees_reqExec['emailutilisateur'];
