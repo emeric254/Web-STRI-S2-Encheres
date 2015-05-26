@@ -46,17 +46,17 @@
                     </li>
 
 <?php
-if($connecte)
-{
+//~ if($connecte)
+//~ {
 ?>
                     <li>
-                        <a href="/?page=deconnexion">
+                        <a href="/?page=proposer">
                             <i class="fa fa-share"></i>
                             Vendre
                         </a>
                     </li>
 <?php
-}
+//~ }
 ?>
                 </ul>
                 <ul class="nav navbar-form navbar-right nav-pills">
