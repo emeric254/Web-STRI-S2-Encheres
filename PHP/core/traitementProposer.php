@@ -197,7 +197,7 @@ if ($erreur == 1)
         // Ajout de l'objet dans la base de données
         $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$categorieAnnonce,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
-        var_dump($idAnnonce);
+        //~ var_dump($idAnnonce);
         if ($idAnnonce != -1)
         {
             $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
@@ -212,6 +212,8 @@ if ($erreur == 1)
                 $newfichier = '/vente/'.$verif.$extension;
                 MajUrlImageAnnonce($newfichier,$verif);
             }
+
+            header("Location: /?page=vente&id=$idAnnonce");
         }
         else
         {
@@ -220,7 +222,6 @@ if ($erreur == 1)
             include_once("vue/proposer.php");
         }
 
-        header("Location: /?page=vente&id=$verif");
     }
     else
     {
