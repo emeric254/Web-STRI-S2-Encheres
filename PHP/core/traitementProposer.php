@@ -176,14 +176,14 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
     $idville=$user->idVille;
 }
 else
-{   
+{
     if($erreur){
         $champErreur.=", ";
     }
     $erreur=1;
     $errMsg.="Il vous faut etre connect&eacute;.";
 }
-    
+
 if ($erreur == 1)
 {
     $errMsg="Veuillez v&eacute;rifier les erreurs suivante : $champErreur.";
@@ -201,19 +201,7 @@ if ($erreur == 1)
         if ($idAnnonce != -1)
         {
             $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
-        }
-        else
-        {
-            $verif = 0;
-        }
-        if ($verif == 0)
-        {
-            $errMsg="Erreur pendant l'enregistrement de l'annonce";
-            include_once("vue/erreur.php");
-            include_once("vue/proposer.php");
-        }
-        else // $verif contient le numéro (id) de l'annonce
-        {
+
             if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
             {
                 // on upload l'image
@@ -222,14 +210,21 @@ if ($erreur == 1)
                 //mise a jour dans la base du nom de l'image
                 $extension = strrchr($photo['name'],'.');
                 $newfichier = '/vente/'.$verif.$extension;
-				MajUrlImageAnnonce($newfichier,$verif);
+                MajUrlImageAnnonce($newfichier,$verif);
             }
         }
+        else
+        {
+            $errMsg="Erreur pendant l'enregistrement de l'annonce";
+            include_once("vue/erreur.php");
+            include_once("vue/proposer.php");
+        }
+
         header("Location: /?page=vente&id=$verif");
     }
     else
     {
-        $errMsg="Erreur lors de l'enregistrement de l'annonce.";
+        $errMsg="Erreur lors de la vérification de l'annonce.";
         include_once("vue/erreur.php");
         include_once("vue/proposer.php");
     }
