@@ -34,7 +34,7 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
     if (!$donnees)
     {
         //echo "Echec connexion - email ou mot de passe incorrect";
-        echo("<script>alert(\"Echec connexion - email ou mot de passe incorrect\");</script>");
+        echo("<script>alert(\"Echec connexion - email ou mot de passe incorrect\"); window.location="/";</script>");
     }
     else
     {
