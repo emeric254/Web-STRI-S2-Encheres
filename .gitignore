@@ -1,3 +1,7 @@
 *~
 .~*
 PHP/core/bdd.php
+vente/*
+profil/*
+!vente/default.png
+!profil/default.png
