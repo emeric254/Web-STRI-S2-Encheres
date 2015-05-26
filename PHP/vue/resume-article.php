@@ -14,7 +14,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=vente&id=<?php print $vente->id; ?>">
                                 <i class="fa fa-code-fork"></i>
                                 Voir
                             </a>
@@ -34,20 +34,11 @@
 ?>
                         <h4>
                             <?php print $vente->nom; ?>
-
                             &nbsp;
-                            <span class="label label-warning" id="tempsRestant<?php print $vente->id; ?>">
-<!--
-                                @ TODO temps restant
--->
-                            </span>
-
+                            <span class="label label-warning" id="tempsRestant<?php print $vente->id; ?>"><!-- temps restant -->0</span>
                             &nbsp;
-                            <span class="label label-info">
-                                <?php print $vente->prix; ?>
-                                <span class="badge">
-                                    <?php print $vente->nbEncherisseur; ?>
-                                </span>
+                            <span class="label label-info"><?php print $vente->prix; ?>€
+                                <span class="badge"><?php print $vente->nbEncherisseur; ?></span>
                             </span>
                         </h4>
                     </div>
@@ -68,19 +59,21 @@
 
 <script type="text/javascript">
 
-    function decompte<?php print $vente->id; ?>()
+    function decompte<?= $vente->id ?>()
     {
+        // date actuelle
         var dateActuelle = new Date();
 
-        // @ TODO a verif que ca marche de creer la date de debut comme ca !
-        var dateDebut = new Date("<?php print $vente->date; ?>");
+        // constructeur en millis
+        var dateDebut = new Date(<?= $vente->dateSeconde ?> * 1000);
 
-        // @ TODO a verif que ce soit des secondes !
-        var duree = <?php print $vente->tempsRestant; ?>;
+// a voir pour tout passer uniformement
 
-        var total = duree - (dateActuelle - dateDebut)/1000 ;
+        var duree = <?= $vente->duree ?>;
 
-        var compteRebour = document.getElementById("tempsRestant<?php print $vente->id; ?>");
+        var total = duree + (dateDebut - dateActuelle) / 1000 ;
+
+        var compteRebour = document.getElementById("tempsRestant<?= $vente->id ?>");
 
         if (total <= 0)
         {
@@ -93,11 +86,11 @@
             var minutes = Math.floor((total - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
             var secondes = Math.floor(total - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
 
-            compteRebour.innerHTML = jours + 'j ' + heures + 'h ' + minutes + 'm ' + secondes + 's';
+            compteRebour.innerHTML = ((jours>0)?jours + 'j ':'') + ((heures>0)?heures + 'h ':'') + ((minutes>0)?minutes + 'm ':'') + secondes + 's';
+            setTimeout("decompte<?= $vente->id ?>();", 1000);
         }
-            setTimeout("decompte<?php print $vente->id; ?>();", 1000);
     }
 
-    decompte<?php print $vente->id; ?>();
+    decompte<?= $vente->id ?>();
 
 </script>

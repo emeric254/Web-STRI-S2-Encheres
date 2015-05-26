@@ -14,6 +14,7 @@ class Vente {
 	public $photo;
 	public $description;
 	public $pas;
+	public $duree;
 	
 	function __construct($id) {
 		$this->id = $id;
@@ -23,6 +24,7 @@ class Vente {
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce'];
+		$this->duree = $info['tempsVente'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
 		$this->tempsRestantSeconde = $dateFin - time();
@@ -61,6 +63,7 @@ class Profil {
 	public $telephone;
 	public $adresse;
 	public $photo;
+	public $idVille;
 	public $ville;
 	public $statut;
 
@@ -73,6 +76,7 @@ class Profil {
 		$this->telephone = $info['telephoneutilisateur'];
 		$this->adresse = $info['adresseutilisateur'];
 		$this->photo = $info['urlphotoutilisateur'];
+		$this->idVille = $info['idville'];
 		$this->ville = Ville_Recup_Nom($info['idville']);
 		$this->statut = $info['idstatut'];
 
