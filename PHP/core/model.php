@@ -248,18 +248,18 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
-    // récupération de l'id
-    $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
-    $reqExec = $db->prepare($req);
-    $reqExec->execute();
-
-    $ret=-1;
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret=$donnees_reqExec['idannonce'];
-    }
+    //~ // récupération de l'id
+    //~ $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
+    //~ $reqExec = $db->prepare($req);
+    //~ $reqExec->execute();
+//~
+    $ret = $db->lastInsertId();
+    //~ $ret=-1;
+    //~ while ($donnees_reqExec = $reqExec->fetch())
+    //~ {
+        //~ $ret=$donnees_reqExec['idannonce'];
+    //~ }
     return $ret;
-    //~ return $db->lastInsertId();
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce
