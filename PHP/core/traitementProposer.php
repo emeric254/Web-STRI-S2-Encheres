@@ -215,7 +215,7 @@ if ($erreur == 1)
 
             //~ header("Location: /?page=vente&id=$idAnnonce");
             ?>
-                <script window.location="/?page=vente&id=<?= $idAnnonce ?>"></script>
+                <script>window.location="/?page=vente&id=<?= $idAnnonce ?>";</script>
             <?php
         }
         else
