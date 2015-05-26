@@ -86,8 +86,8 @@
             var secondes = Math.floor(total - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
 
             compteRebour.innerHTML = ((jours>0)?jours + 'j ':'') + ((heures>0)?heures + 'h ':'') + ((minutes>0)?minutes + 'm ':'') + secondes + 's';
-        }
             setTimeout("decompte<?= $vente->id ?>();", 1000);
+        }
     }
 
     decompte<?= $vente->id ?>();
