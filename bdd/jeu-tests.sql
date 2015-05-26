@@ -1,4 +1,3 @@
--- Statuts
 INSERT INTO statut VALUES ('1', 'Administrateur', 'Administrateur du site');
 INSERT INTO statut VALUES ('2', 'Utilisateur', 'Utilisateur du site');
 INSERT INTO statut VALUES ('3', 'Vendeur', 'Vendeur dun objet sur le site');
@@ -53,7 +52,7 @@ INSERT INTO encherir VALUES ('4', '15', '11', '1425657720'); --pokemon
 INSERT INTO encherir VALUES ('2', '15', '50', '1425690002'); --pokemon
 INSERT INTO encherir VALUES ('4', '10', '125', '1426252094'); --perceuse
 INSERT INTO encherir VALUES ('4','18','315','1428196443'); --ipad
-INSERT INTO encherir VALUES ('1','21','100','1427903174')
-INSERT INTO encherir VALUES ('2','21','202','1427904074')
-INSERT INTO encherir VALUES ('3','21','301','1427904174')
-INSERT INTO encherir VALUES ('4','21','404','1427904874')
+INSERT INTO encherir VALUES ('1','21','100','1427903174');
+INSERT INTO encherir VALUES ('2','21','202','1427904074');
+INSERT INTO encherir VALUES ('3','21','301','1427904174');
+INSERT INTO encherir VALUES ('4','21','404','1427904874');
