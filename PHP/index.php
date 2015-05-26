@@ -1,7 +1,9 @@
 <?php
     session_start();
+
     include("core/model.php");
 
+    $path = "vue/erreur.php";
 
     if ( isset($_GET['page']) and !empty($_GET['page']) )
     {
@@ -9,29 +11,27 @@
     }
     else
     {
-        $page="accueil"; //page par default
+        $page="accueil"; //page par default, l'accueil
     }
-
-    // vues
-
-    include("vue/entete.php");
-    include("core/navbar.php");
 
     if (isset($_GET['errMsg']) and !empty($_GET['errMsg']))
     {
         $errMsg = htmlspecialchars($_GET['errMsg']);
-        include("vue/erreur.php"); //page d'erreur'
-    }
-
-    if(file_exists("core/$page.php"))
-    {
-        include_once("core/$page.php");
     }
     else
     {
-        $errMsg = "page introuvable";
-        include("vue/erreur.php"); //page d'erreur'
+        if(file_exists("core/$page.php"))
+        {
+            $path = "core/$page.php";
+        }
+        else
+        {
+            $errMsg = "page introuvable";
+        }
     }
 
+    include("vue/entete.php");
+    include("core/navbar.php");
+    include($path);
     include("vue/footer.php");
 ?>
