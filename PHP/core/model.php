@@ -253,7 +253,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     //~ $reqExec = $db->prepare($req);
     //~ $reqExec->execute();
 //~
-    $ret = $db->lastInsertId();
+    $ret = $db->lastInsertId("annonce_idannonce_seq");
     //~ $ret=-1;
     //~ while ($donnees_reqExec = $reqExec->fetch())
     //~ {
