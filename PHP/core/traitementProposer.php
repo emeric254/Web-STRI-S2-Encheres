@@ -213,7 +213,7 @@ if ($erreur == 1)
                 MajUrlImageAnnonce($newfichier,$verif);
             }
 
-            header("Location: /?page=vente&id=$idAnnonce");
+            header("Location: /?page=vente?id=$idAnnonce");
         }
         else
         {
