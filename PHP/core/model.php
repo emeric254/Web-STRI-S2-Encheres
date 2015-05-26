@@ -242,7 +242,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     //~ $descriptionFormat=str_replace("'","''",$description);
     $heureActuelle=time();
 
-    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titreFormat','$descriptionFormat',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,1)";
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville) VALUES ('$titre','$description',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,1)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
