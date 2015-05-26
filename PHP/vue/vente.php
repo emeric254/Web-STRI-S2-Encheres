@@ -27,43 +27,26 @@
                 <div class="row text-center">
                     <div class="col-md-6 col-lg-6 text-center">
                         <h4>
-                            <span class="label label-danger" id="tempsRestant">
-                                <!-- temps restant -->
-                                0
-                            </span>
+                            <span class="label label-danger" id="tempsRestant"><!-- temps restant -->0</span>
                             &nbsp;
                         </h4>
                         <h4>
-                            <span class="label label-info">
-                                Ench&egrave;re cr&eacute;e par
-                                <a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>">
-                                    <?php print $vente->Vendeur->nom; ?>
-                                </a>
-                            </span>
+                            <span class="label label-info">Ench&egrave;re cr&eacute;e par
+                                <a href="/?page=profil&id=<?php print $vente->Vendeur->id; ?>"><?php print $vente->Vendeur->nom; ?></a></span>
                             &nbsp;
                         </h4>
                     </div>
                     <div class="col-md-6 col-lg-6 text-center">
                         <h4>
-                            <span class="label label-warning">
-                                <?php print $vente->prix; ?>
-                                €
-                                <span class="badge">
-                                    <?php print $vente->nbEncherisseur; ?>
-                                </span>
-                            </span>
+                            <span class="label label-warning"><?php print $vente->prix; ?>€<span class="badge"><?php print $vente->nbEncherisseur; ?></span></span>
                         </h4>
 <?php
     if($vente->Acheteur != null)
     {
 ?>
                         <h4>
-                            <span class="label label-info">
-                                Derni&egrave;re ench&egrave;re par
-                                <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>">
-                                    <?php print $vente->Acheteur->nom; ?>
-                                </a>
-                            </span>
+                            <span class="label label-info">Derni&egrave;re ench&egrave;re par
+                                <a href="?page=profil&id=<?php print $vente->Acheteur->id; ?>"><?php print $vente->Acheteur->nom; ?></a></span>
                             &nbsp;
                         </h4>
 <?php
