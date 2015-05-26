@@ -195,7 +195,6 @@ Script de decompte pour le temps restant !
 
     function decompte()
     {
-/*
         // date actuelle
         var dateActuelle = new Date();
 
@@ -207,8 +206,6 @@ Script de decompte pour le temps restant !
         var duree = <?= $vente->duree ?>;
 
         var total = duree + (dateDebut - dateActuelle) / 1000 ;
-*/
-        var total = <?= $vente->tempsRestantSeconde ?>;
 
         var compteRebour = document.getElementById("tempsRestant");
 
