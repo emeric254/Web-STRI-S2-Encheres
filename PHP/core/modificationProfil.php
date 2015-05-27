@@ -14,7 +14,7 @@ if (isset($_SESSION['id']))
     $id= isset($_SESSION['id']);
     $util= new Profil ($id);
     $profil = new Profil($id);
-    include_once('vue/modificationProfil.php');
+    include_once('vue/modification-profil.php');
 }
 else
 {
