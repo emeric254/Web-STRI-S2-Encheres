@@ -438,4 +438,37 @@ function RechercheUser($motCles){
     }
     return $ret;
 }
+
+# ----------- Fonction de dépot d'une enchère
+
+function DeposerEnchere($idannonce,$idutilisateur,$prix){
+    include('core/bdd.php');
+    //récupération de la dernière annonce 
+    $vente = new Vente($idannonce);
+    $date=time();
+    //dépot de l'enchère
+    if (($idutilisateur != $vente->Acheteur->id) AND ($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
+    {
+        req = "INSERT INTO encherir(idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+        // vérification de l'ajout
+        req = "SELECT * FROM encherir WHERE idutilisateur=$idutilisateur AND idannonce=$idannonce AND prixenchere=$prix AND dateenchere=$date";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+        if ($donnes = $reqExec->fetch())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
 ?>
