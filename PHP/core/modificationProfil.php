@@ -7,6 +7,7 @@
  * - pour intéger le jquery pour vérifier au moment de la saisie si le mail est déjà utilisé
  */
 
+include_once('core/class.php');
 include_once('core/model.php'); /* utile ????*/
 
 if (isset($_SESSION['id']))
@@ -18,7 +19,9 @@ if (isset($_SESSION['id']))
 else
 {
     //Rediriger vers la racine
-
+    ?>
+        <script>window.location="/";</script>
+    <?php
 }
 
 
