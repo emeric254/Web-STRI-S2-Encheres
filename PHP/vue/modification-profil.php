@@ -33,7 +33,7 @@
                             <label for="inputEmail" class="sr-only">
                                 Adresse email
                             </label>
-                            <input type="email" name="inputEmail" value="<?= $profil->mail ?>"  id="inputEmail" class="form-control" required autofocus>
+                            <input type="email" name="inputEmail" value="<?= $profil->email ?>"  id="inputEmail" class="form-control" required autofocus>
                         </div>
                     </div>
                 </div>
