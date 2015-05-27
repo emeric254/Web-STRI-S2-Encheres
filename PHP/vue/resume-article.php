@@ -35,6 +35,8 @@
                         <h4>
                             <?php print $vente->nom; ?>
                             &nbsp;
+                        </h4>
+                        <h4>
                             <span class="label label-warning" id="tempsRestant<?php print $vente->id; ?>"><!-- temps restant -->0</span>
                             &nbsp;
                             <span class="label label-info"><?php print $vente->prix; ?>€
