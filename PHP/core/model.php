@@ -480,7 +480,7 @@ function ventesRecupTousIdVentes()
     $ret=array();
     while ($donnees_reqExec = $reqExec->fetch())
     {
-        $ret[]= $donnees_reqExec['idAnnonce'];
+        $ret[]= $donnees_reqExec['idannonce'];
     }
     return $ret;
 }
