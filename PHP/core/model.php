@@ -441,28 +441,40 @@ function RechercheUser($motCles){
 
 # ----------- Fonction de suppression/annulation d'une annonce
 
-function SupprimerAnnonce($idannonce){
+function SupprimerAnnonce($idannonce)
+{
     include('core/bdd.php');
+
     // Suppression des enchères
     $req = "DELETE FROM encherir WHERE idannonce=$idannonce";
     $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
     // Suppression de l'annonce
     $req = "DELETE FROM annonce WHERE idannonce=$idannonce";
     $reqExec = $db->prepare($req);
+    $reqExec->execute();
 }
 
 # ----------- Fonction de suppression d'un compte utilisateur
 
-function SuppressionUtilisateur($idutilisateur){
+function SuppressionUtilisateur($idutilisateur)
+{
     include('core/bdd.php');
+
     // on modifie l'id de toute les enchère faites par l'utilisateur
     $req="UPDATE encherir SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
     $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
     // modification de l'id pour les annonces
     $req = "UPDATE annonce SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
     $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
     // suppression de l'utilisateur
     $req = "DELETE FROM utilisateur WHERE idutilisateur=$idutilisateur";
     $reqExec = $db->prepare($req);
+    $reqExec->execute();
 }
 ?>
