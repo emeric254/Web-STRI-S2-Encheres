@@ -21,12 +21,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         $listVentes= ventesRecupTousIdVentes();
 
-        var_dump($listVentes);
         foreach($listVentes as $idVente)
         {
-            var_dump($idVente);
             $vente = new Vente($idVente);
-            var_dump($vente);
             include('vue/resume-article.php');
             unset($vente);
         }
