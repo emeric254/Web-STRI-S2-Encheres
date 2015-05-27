@@ -473,7 +473,7 @@ function ventesRecupTousIdVentes()
 {
     include('core/bdd.php');
 
-    $req = "SELECT idannonce FROM annonce";
+    $req = "SELECT * FROM annonce";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
