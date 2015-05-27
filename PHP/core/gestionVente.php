@@ -20,6 +20,13 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
         //~ faire une liste ventes $ventes
 
         include_once("vue/admin/debut-ventes.php");
+
+        foreach($ventes as $vente)
+        {
+            include('vue/resume-article.php');
+            unset($vente);
+        }
+
         include_once("vue/fin-contenu.php");
     }
 }

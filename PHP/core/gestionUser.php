@@ -20,6 +20,13 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
         //~ faire une liste profils $profils
 
         include_once("vue/admin/debut-profils.php");
+
+        foreach($profils as $profil)
+        {
+            include('vue/resume-article.php');
+            unset($profil);
+        }
+
         include_once("vue/fin-contenu.php");
     }
 }
