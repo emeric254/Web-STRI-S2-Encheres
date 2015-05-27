@@ -27,7 +27,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
             else
             if($action == "supprimerProfil")
             {
-                SupprimerAnnonce(htmlspecialchars($idAction));
+                SuppressionUtilisateur(htmlspecialchars($idAction));
                 $errMsg = "Le profil $idAction a bien été supprimé";
             }
             else
