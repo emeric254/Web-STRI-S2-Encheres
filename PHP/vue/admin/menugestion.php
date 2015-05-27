@@ -18,7 +18,7 @@
 
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
-                        <a href="/?page=gestionUser.php">
+                        <a href="/?page=gestionUser">
                             <i class="fa fa-users"></i>
                             &nbsp;
                             G&eacute;rer les utilisateurs
@@ -30,7 +30,7 @@
 
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
-                        <a href="/?page=gestionVente.php">
+                        <a href="/?page=gestionVente">
                             <i class="fa fa-list-alt"></i>
                             &nbsp;
                             G&eacute;rer les ventes
@@ -42,7 +42,7 @@
 
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
-                        <a href="/?page=gestionBd.php">
+                        <a href="/?page=gestionBd">
                             <i class="fa fa-database"></i>
                             &nbsp;
                             G&eacute;rer la base de donn&eacute;es
