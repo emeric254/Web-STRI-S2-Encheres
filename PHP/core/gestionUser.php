@@ -23,6 +23,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     else
     {
         include_once("vue/admin/debut-profils.php");
+        include_once("vue/fin-contenu.php");
     }
 }
 else
