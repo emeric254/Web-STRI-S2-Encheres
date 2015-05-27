@@ -23,7 +23,7 @@
     {
 ?>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerProfil&idAction=<?php print $profil->id; ?>">
                                 <i class="fa fa-trash-o"></i>
                                 Supprimer
                             </a>

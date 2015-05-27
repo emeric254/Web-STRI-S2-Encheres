@@ -22,27 +22,25 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
             if($action == "supprimerVente")
             {
                 SupprimerAnnonce($idAction);
+                $errMsg = "La vente $idAction a bien été supprimée";
             }
             else
-            //~ if($action == "supprimerVente")
-            //~ {
-                //~ SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
-            //~ }
-            //~ else
+            if($action == "supprimerProfil")
+            {
+                SupprimerAnnonce(htmlspecialchars($idAction));
+                $errMsg = "Le profil $idAction a bien été supprimé";
+            }
+            else
             {
                 $errMsg = "Veuillez fournir une action valide";
-                include("vue/erreur.php");
             }
         }
         else
         {
             $errMsg = "Veuillez fournir un id valide";
-            include("vue/erreur.php");
         }
 
-        ?>
-            <script>window.location="/?page=admin";</script>
-        <?php
+        include("vue/erreur.php");
     }
     else
     {
