@@ -1,4 +1,3 @@
-
 <?php
 /* «resume-profil.php»
  * bout de page d'affichage du profil en résumé
@@ -20,7 +19,7 @@
                             </a>
                         </div>
 <?php
-    if($admin)
+    if($isadmin)
     {
 ?>
                         <div class="btn-group pull-right">

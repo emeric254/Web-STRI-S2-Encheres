@@ -5,6 +5,7 @@
  * vars
  *  > $profil  (le profil de l'utilisateur)
  *  > $identify     (booleen pour savoir si oui ou non ce profil est celui de l'utilisateur connecté)
+ *  > $isadmin      (booleen pour la gestion pour les admin, (user courant == admin) ? )
  *
  */
 ?>
@@ -38,7 +39,7 @@
                                 <tr>
                                     <td colspan="2" class="text-center">
                                         <b>
-                                            Informations personelles
+                                            Informations personnelles
                                         </b>
                                     </td>
                                 </tr>
@@ -49,12 +50,12 @@
                                         Email
                                     </td>
                                     <td class="text-center">
-                                        <?php print $profil->email; ?>
+                                        <a href="mailto:<?php print $profil->email; ?>"><?php print $profil->email; ?> </a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-center">
-                                        Telephone
+                                        T&eacute;l&eacute;phone
                                     </td>
                                     <td class="text-center">
                                         <?php print $profil->telephone; ?>
@@ -93,7 +94,7 @@
                     <span class="label label-warning">
                         <a href="xxx.php">
 <!--
-                            renvoi vers la page inscription avec infos pré-completées
+                            @ TODO renvoi vers la page inscription avec infos pré-completées
 -->
                             <i class="fa fa-cogs"></i>
                             Modifier votre compte
@@ -103,5 +104,21 @@
             </div>
 <?php
     }
+    else
+        if($isadmin)
+        {
+?>
+            <div class="container">
+                <h4 class="col-sm-6">
+                    <span class="label label-danger">
+                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir supprimer ce compte ?')) document.location.href = this.href + '?verified' ; return false;">
+                            <i class="fa fa-trash-o"></i>
+                            Supprimer ce compte
+                        </a>
+                    </span>
+                </h4>
+            </div>
+<?php
+        }
 ?>
         </div>

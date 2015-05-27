@@ -7,9 +7,10 @@
         <!-- Titre -->
         <div class="well">
             <div class="container theme-showcase text-center" role="main" >
-<!--
-                @ TODO
--->
+                <h2>
+                    <i class="fa fa-list-alt"></i>
+                    Gestion des ventes
+                </h2>
             </div>
         </div>
 
