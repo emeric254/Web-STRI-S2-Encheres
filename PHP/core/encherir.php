@@ -5,10 +5,12 @@
  */
 
 include_once('core/model.php');
+include_once('core/class.php');
 include_once('core/bdd.php');
 
 // Récupération des variables
 $erreur=0;
+$errMsg=" ";
 if (isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     $idacheteur=$_SESSION['id'];
@@ -21,39 +23,55 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
         {
             $prix=htmlspecialchars($_POST['prix']);
             //~ test prix valable
-            //~
+            $vente = new Vente($idvente);
+            if ($prix < $vente->prix + $vente->pas)
+            {
+                //~ erreur sur le prix saisie
+                $erreur=1;
+                $errMsg.="Le prix est incorrect (minimum ".($vente->prix + $vente->pas).")";
+            }
         }
         else
         {
             $erreur=1;
-            $errMsgg="veuillez saisir un prix";
+            $errMsg.="veuillez saisir un prix";
         }
 
     }
     else
     {
         $erreur=1;
-        $errMsgg.="la vente choisie est incorrecte";
+        $errMsg.="la vente choisie est incorrecte";
     }
 }
 else
 {
     $erreur=1;
-    $errMsgg="il faut etre connecté pour enchérir";
+    $errMsg="il faut etre connecté pour enchérir";
 }
 
-
+var_dump($idvente);
+var_dump($idacheteur);
+var_dump($prix);
+var_dump($vente);
 
 if($erreur==1)
 {
-    $errMsgg="Veuillez vérifier les erreur suivantes : $champErreur.";
+    $errMsg="Veuillez vérifier les erreur suivantes : $errMsg.";
     include_once("vue/erreur.php");
 }
 else
 {
-    // on récupère les informations de l'annonce
-   // $annonce = new Vente($idvente);
-
     // TODO : faire des test sur le droit d'enchérir !!
-    if (DeposerEnchere($idvente, $idacheteur, $prix))
+    if (!DeposerEnchere($idvente, $idacheteur, $prix))
     {
+        $errMsg="Erreur lors de l'ajout de l'enchère";
+        include_once("vue/erreur.php");
+    }
+    else
+    {
+        ?>
+            <script>window.location="/?page=vente&id=<?php $idvente ?>";</script>
+        <?php
+    }
+}
