@@ -188,8 +188,7 @@ function UtilisateurRecupererVente($id)
     return $ret;
 }
 
-function UtilisateurRecupererEnch($id)
-{
+function UtilisateurRecupererEnch($id){
     include('core/bdd.php');
 
     $ret = array();
@@ -397,4 +396,46 @@ function RecuperationTendanceVente($limite)
     return $ret;
 }
 
+function RechercheVente($motCles, $cat=0){
+    include('core/bdd.php');
+    $ret = array();
+    if($cat<1){
+        $req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." )";
+    } else {
+        $req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND idcategorie='$cat')";
+    }
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+function RecuperationDesCat(){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT * FROM categorie";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[$donnees_reqExec['idcategorie']]=$donnees_reqExec['nomcategorie'];
+    }
+    return $ret;
+}
+
+function RechercheUser($motCles){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%') UNION ALL SELECT idutilisateur FROM utilisateur WHERE UPPER(emailutilisateur) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%'))";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idutilisateur'];
+    }
+    return $ret;
+}
 ?>
