@@ -9,6 +9,69 @@ SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 
+SET search_path = public, pg_catalog;
+
+ALTER TABLE ONLY public.utilisateur DROP CONSTRAINT fk_utilisateur_nomstatut;
+ALTER TABLE ONLY public.utilisateur DROP CONSTRAINT fk_utilisateur_idville;
+ALTER TABLE ONLY public.encherir DROP CONSTRAINT fk_encherir_idannonce;
+ALTER TABLE ONLY public.encherir DROP CONSTRAINT fk_encherir_emailutilisateur;
+ALTER TABLE ONLY public.annonce DROP CONSTRAINT fk_annonce_nomcategorie;
+ALTER TABLE ONLY public.annonce DROP CONSTRAINT fk_annonce_idville;
+ALTER TABLE ONLY public.annonce DROP CONSTRAINT fk_annonce_emailutilisateur;
+ALTER TABLE ONLY public.ville DROP CONSTRAINT ville_pkey;
+ALTER TABLE ONLY public.utilisateur DROP CONSTRAINT utilisateur_pkey;
+ALTER TABLE ONLY public.statut DROP CONSTRAINT statut_pkey;
+ALTER TABLE ONLY public.encherir DROP CONSTRAINT pk_encherir;
+ALTER TABLE ONLY public.categorie DROP CONSTRAINT categorie_pkey;
+ALTER TABLE ONLY public.annonce DROP CONSTRAINT annonce_pkey;
+ALTER TABLE public.ville ALTER COLUMN idville DROP DEFAULT;
+ALTER TABLE public.utilisateur ALTER COLUMN idstatut DROP DEFAULT;
+ALTER TABLE public.utilisateur ALTER COLUMN idville DROP DEFAULT;
+ALTER TABLE public.utilisateur ALTER COLUMN idutilisateur DROP DEFAULT;
+ALTER TABLE public.statut ALTER COLUMN idstatut DROP DEFAULT;
+ALTER TABLE public.encherir ALTER COLUMN idannonce DROP DEFAULT;
+ALTER TABLE public.encherir ALTER COLUMN idutilisateur DROP DEFAULT;
+ALTER TABLE public.categorie ALTER COLUMN idcategorie DROP DEFAULT;
+ALTER TABLE public.annonce ALTER COLUMN idville DROP DEFAULT;
+ALTER TABLE public.annonce ALTER COLUMN idcategorie DROP DEFAULT;
+ALTER TABLE public.annonce ALTER COLUMN idutilisateur DROP DEFAULT;
+ALTER TABLE public.annonce ALTER COLUMN idannonce DROP DEFAULT;
+DROP SEQUENCE public.ville_idville_seq;
+DROP TABLE public.ville;
+DROP SEQUENCE public.utilisateur_idville_seq;
+DROP SEQUENCE public.utilisateur_idutilisateur_seq;
+DROP SEQUENCE public.utilisateur_idstatut_seq;
+DROP TABLE public.utilisateur;
+DROP SEQUENCE public.statut_idstatut_seq;
+DROP TABLE public.statut;
+DROP SEQUENCE public.encherir_idutilisateur_seq;
+DROP SEQUENCE public.encherir_idannonce_seq;
+DROP TABLE public.encherir;
+DROP SEQUENCE public.categorie_idcategorie_seq;
+DROP TABLE public.categorie;
+DROP SEQUENCE public.annonce_idville_seq;
+DROP SEQUENCE public.annonce_idutilisateur_seq;
+DROP SEQUENCE public.annonce_idcategorie_seq;
+DROP SEQUENCE public.annonce_idannonce_seq;
+DROP TABLE public.annonce;
+DROP EXTENSION plpgsql;
+DROP SCHEMA public;
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
@@ -30,7 +93,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: annonce; Type: TABLE; Schema: public; Owner: kriss; Tablespace: 
+-- Name: annonce; Type: TABLE; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 CREATE TABLE annonce (
@@ -51,10 +114,10 @@ CREATE TABLE annonce (
 );
 
 
-ALTER TABLE annonce OWNER TO kriss;
+ALTER TABLE annonce OWNER TO "striDeal";
 
 --
--- Name: annonce_idannonce_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: annonce_idannonce_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE annonce_idannonce_seq
@@ -65,17 +128,17 @@ CREATE SEQUENCE annonce_idannonce_seq
     CACHE 1;
 
 
-ALTER TABLE annonce_idannonce_seq OWNER TO kriss;
+ALTER TABLE annonce_idannonce_seq OWNER TO "striDeal";
 
 --
--- Name: annonce_idannonce_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: annonce_idannonce_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE annonce_idannonce_seq OWNED BY annonce.idannonce;
 
 
 --
--- Name: annonce_idcategorie_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: annonce_idcategorie_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE annonce_idcategorie_seq
@@ -86,17 +149,17 @@ CREATE SEQUENCE annonce_idcategorie_seq
     CACHE 1;
 
 
-ALTER TABLE annonce_idcategorie_seq OWNER TO kriss;
+ALTER TABLE annonce_idcategorie_seq OWNER TO "striDeal";
 
 --
--- Name: annonce_idcategorie_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: annonce_idcategorie_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE annonce_idcategorie_seq OWNED BY annonce.idcategorie;
 
 
 --
--- Name: annonce_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: annonce_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE annonce_idutilisateur_seq
@@ -107,17 +170,17 @@ CREATE SEQUENCE annonce_idutilisateur_seq
     CACHE 1;
 
 
-ALTER TABLE annonce_idutilisateur_seq OWNER TO kriss;
+ALTER TABLE annonce_idutilisateur_seq OWNER TO "striDeal";
 
 --
--- Name: annonce_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: annonce_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE annonce_idutilisateur_seq OWNED BY annonce.idutilisateur;
 
 
 --
--- Name: annonce_idville_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: annonce_idville_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE annonce_idville_seq
@@ -128,17 +191,17 @@ CREATE SEQUENCE annonce_idville_seq
     CACHE 1;
 
 
-ALTER TABLE annonce_idville_seq OWNER TO kriss;
+ALTER TABLE annonce_idville_seq OWNER TO "striDeal";
 
 --
--- Name: annonce_idville_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: annonce_idville_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE annonce_idville_seq OWNED BY annonce.idville;
 
 
 --
--- Name: categorie; Type: TABLE; Schema: public; Owner: kriss; Tablespace: 
+-- Name: categorie; Type: TABLE; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 CREATE TABLE categorie (
@@ -148,10 +211,10 @@ CREATE TABLE categorie (
 );
 
 
-ALTER TABLE categorie OWNER TO kriss;
+ALTER TABLE categorie OWNER TO "striDeal";
 
 --
--- Name: categorie_idcategorie_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: categorie_idcategorie_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE categorie_idcategorie_seq
@@ -162,17 +225,17 @@ CREATE SEQUENCE categorie_idcategorie_seq
     CACHE 1;
 
 
-ALTER TABLE categorie_idcategorie_seq OWNER TO kriss;
+ALTER TABLE categorie_idcategorie_seq OWNER TO "striDeal";
 
 --
--- Name: categorie_idcategorie_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: categorie_idcategorie_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE categorie_idcategorie_seq OWNED BY categorie.idcategorie;
 
 
 --
--- Name: encherir; Type: TABLE; Schema: public; Owner: kriss; Tablespace: 
+-- Name: encherir; Type: TABLE; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 CREATE TABLE encherir (
@@ -184,10 +247,10 @@ CREATE TABLE encherir (
 );
 
 
-ALTER TABLE encherir OWNER TO kriss;
+ALTER TABLE encherir OWNER TO "striDeal";
 
 --
--- Name: encherir_idannonce_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: encherir_idannonce_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE encherir_idannonce_seq
@@ -198,17 +261,17 @@ CREATE SEQUENCE encherir_idannonce_seq
     CACHE 1;
 
 
-ALTER TABLE encherir_idannonce_seq OWNER TO kriss;
+ALTER TABLE encherir_idannonce_seq OWNER TO "striDeal";
 
 --
--- Name: encherir_idannonce_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: encherir_idannonce_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE encherir_idannonce_seq OWNED BY encherir.idannonce;
 
 
 --
--- Name: encherir_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: encherir_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE encherir_idutilisateur_seq
@@ -219,17 +282,17 @@ CREATE SEQUENCE encherir_idutilisateur_seq
     CACHE 1;
 
 
-ALTER TABLE encherir_idutilisateur_seq OWNER TO kriss;
+ALTER TABLE encherir_idutilisateur_seq OWNER TO "striDeal";
 
 --
--- Name: encherir_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: encherir_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE encherir_idutilisateur_seq OWNED BY encherir.idutilisateur;
 
 
 --
--- Name: statut; Type: TABLE; Schema: public; Owner: kriss; Tablespace: 
+-- Name: statut; Type: TABLE; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 CREATE TABLE statut (
@@ -239,10 +302,10 @@ CREATE TABLE statut (
 );
 
 
-ALTER TABLE statut OWNER TO kriss;
+ALTER TABLE statut OWNER TO "striDeal";
 
 --
--- Name: statut_idstatut_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: statut_idstatut_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE statut_idstatut_seq
@@ -253,17 +316,17 @@ CREATE SEQUENCE statut_idstatut_seq
     CACHE 1;
 
 
-ALTER TABLE statut_idstatut_seq OWNER TO kriss;
+ALTER TABLE statut_idstatut_seq OWNER TO "striDeal";
 
 --
--- Name: statut_idstatut_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: statut_idstatut_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE statut_idstatut_seq OWNED BY statut.idstatut;
 
 
 --
--- Name: utilisateur; Type: TABLE; Schema: public; Owner: kriss; Tablespace: 
+-- Name: utilisateur; Type: TABLE; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 CREATE TABLE utilisateur (
@@ -280,10 +343,10 @@ CREATE TABLE utilisateur (
 );
 
 
-ALTER TABLE utilisateur OWNER TO kriss;
+ALTER TABLE utilisateur OWNER TO "striDeal";
 
 --
--- Name: utilisateur_idstatut_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: utilisateur_idstatut_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE utilisateur_idstatut_seq
@@ -294,17 +357,17 @@ CREATE SEQUENCE utilisateur_idstatut_seq
     CACHE 1;
 
 
-ALTER TABLE utilisateur_idstatut_seq OWNER TO kriss;
+ALTER TABLE utilisateur_idstatut_seq OWNER TO "striDeal";
 
 --
--- Name: utilisateur_idstatut_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: utilisateur_idstatut_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE utilisateur_idstatut_seq OWNED BY utilisateur.idstatut;
 
 
 --
--- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE utilisateur_idutilisateur_seq
@@ -315,17 +378,17 @@ CREATE SEQUENCE utilisateur_idutilisateur_seq
     CACHE 1;
 
 
-ALTER TABLE utilisateur_idutilisateur_seq OWNER TO kriss;
+ALTER TABLE utilisateur_idutilisateur_seq OWNER TO "striDeal";
 
 --
--- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE utilisateur_idutilisateur_seq OWNED BY utilisateur.idutilisateur;
 
 
 --
--- Name: utilisateur_idville_seq; Type: SEQUENCE; Schema: public; Owner: kriss
+-- Name: utilisateur_idville_seq; Type: SEQUENCE; Schema: public; Owner: striDeal
 --
 
 CREATE SEQUENCE utilisateur_idville_seq
@@ -336,10 +399,10 @@ CREATE SEQUENCE utilisateur_idville_seq
     CACHE 1;
 
 
-ALTER TABLE utilisateur_idville_seq OWNER TO kriss;
+ALTER TABLE utilisateur_idville_seq OWNER TO "striDeal";
 
 --
--- Name: utilisateur_idville_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: kriss
+-- Name: utilisateur_idville_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: striDeal
 --
 
 ALTER SEQUENCE utilisateur_idville_seq OWNED BY utilisateur.idville;
@@ -380,77 +443,77 @@ ALTER SEQUENCE ville_idville_seq OWNED BY ville.idville;
 
 
 --
--- Name: idannonce; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idannonce; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce ALTER COLUMN idannonce SET DEFAULT nextval('annonce_idannonce_seq'::regclass);
 
 
 --
--- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce ALTER COLUMN idutilisateur SET DEFAULT nextval('annonce_idutilisateur_seq'::regclass);
 
 
 --
--- Name: idcategorie; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idcategorie; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce ALTER COLUMN idcategorie SET DEFAULT nextval('annonce_idcategorie_seq'::regclass);
 
 
 --
--- Name: idville; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idville; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce ALTER COLUMN idville SET DEFAULT nextval('annonce_idville_seq'::regclass);
 
 
 --
--- Name: idcategorie; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idcategorie; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY categorie ALTER COLUMN idcategorie SET DEFAULT nextval('categorie_idcategorie_seq'::regclass);
 
 
 --
--- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY encherir ALTER COLUMN idutilisateur SET DEFAULT nextval('encherir_idutilisateur_seq'::regclass);
 
 
 --
--- Name: idannonce; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idannonce; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY encherir ALTER COLUMN idannonce SET DEFAULT nextval('encherir_idannonce_seq'::regclass);
 
 
 --
--- Name: idstatut; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idstatut; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY statut ALTER COLUMN idstatut SET DEFAULT nextval('statut_idstatut_seq'::regclass);
 
 
 --
--- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idutilisateur; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY utilisateur ALTER COLUMN idutilisateur SET DEFAULT nextval('utilisateur_idutilisateur_seq'::regclass);
 
 
 --
--- Name: idville; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idville; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY utilisateur ALTER COLUMN idville SET DEFAULT nextval('utilisateur_idville_seq'::regclass);
 
 
 --
--- Name: idstatut; Type: DEFAULT; Schema: public; Owner: kriss
+-- Name: idstatut; Type: DEFAULT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY utilisateur ALTER COLUMN idstatut SET DEFAULT nextval('utilisateur_idstatut_seq'::regclass);
@@ -464,68 +527,68 @@ ALTER TABLE ONLY ville ALTER COLUMN idville SET DEFAULT nextval('ville_idville_s
 
 
 --
--- Data for Name: annonce; Type: TABLE DATA; Schema: public; Owner: kriss
+-- Data for Name: annonce; Type: TABLE DATA; Schema: public; Owner: striDeal
 --
 
-INSERT INTO annonce VALUES (1, 'Audi RS4', 'Vends Audi RS4 B7 TBE', 25000, 1000, 1427903074, 7776000, 'http://img.turbo.fr/04165116-photo-scoop-audi-rs4-avant-nouvelles-photos.jpg', 2, 1, 12423);
 INSERT INTO annonce VALUES (2, 'Carte Graphique', 'Carte Graphique GTX980Ti neuve', 550, 50, 1430899205, 604800, 'http://www.syndrome-oc.net/wp-content/uploads/2015/03/gtx-980-ti-600x300.jpg', 4, 2, 12423);
-INSERT INTO annonce VALUES (3, 'Forza Motorsport 5', 'Forza Motorsport 5 sur Xbox One', 30, 5, 1432653014, 1209600, 'http://cdn-static.gamekult.com/gamekult-com/images/photos/30/50/16/39/forza-motorsport-5-jaquette-ME3050163904_2.jpg', 4, 3, 12423);
-INSERT INTO annonce VALUES (4, 'Snatch', 'Film Snatch, en DVD', 10, 2, 1425917414, 1814400, 'http://fr.web.img4.acsta.net/pictures/14/08/20/12/54/429006.jpg', 3, 4, 12423);
-INSERT INTO annonce VALUES (5, 'Pelle', 'Magnifique pelle', 35, 10, 1432480214, 604800, 'http://mfs3.cdnsw.com/fs/Root/normal/34drn-d6381d59_19c6_46ee_9c35_2fe540ae4100_thumb.jpeg', 3, 5, 12423);
 INSERT INTO annonce VALUES (6, 'Z750', 'Kawasaki Z750, 5000kms', 6500, 500, 1430493014, 7776000, 'http://storage.kawasaki.eu/public/kawasaki.eu/en-EU/model/12ZR750M_40ABLKDRF00D_C%20edge90_001.png', 2, 1, 12423);
-INSERT INTO annonce VALUES (7, 'Prise electrique', 'Multi prise electrique', 10, 1, 1423902435, 259200, 'http://kriissss.fr/photo.jpg', 3, 2, 12423);
 INSERT INTO annonce VALUES (8, 'Switch CISCO', 'Switch CISCO comme neuf', 699, 50, 1432798035, 604800, 'http://www.finchfieldit.co.uk/wp-content/uploads/2009/05/Switch-cables.jpg', 4, 2, 12423);
 INSERT INTO annonce VALUES (9, 'Battlefield 4', 'Jeu Battlefield 4 sur PC', 35, 5, 1419755235, 259200, 'http://vignette1.wikia.nocookie.net/battlefield/images/e/ee/Battlefield_4_Cover.jpg', 2, 3, 12423);
-INSERT INTO annonce VALUES (10, 'Perceuse', 'Perceuse filaire, bon étant général', 110, 15, 1399793235, 1728000, 'http://i2.cdscdn.com/pdt2/5/0/0/1/700x700/0603128500/rw/bosch-perceuse-a-percussion-750w-psb-750-rce.jpg', 3, 5, 12423);
 INSERT INTO annonce VALUES (11, 'Clio 2 RS', 'Renault Clio 2 RS 182cv, 110 000kms', 6500, 500, 1422698580, 10368000, 'http://images.caradisiac.com/logos-ref/modele/modele--renault-clio-2-rs/S7-modele--renault-clio-2-rs.jpg', 4, 1, 12423);
-INSERT INTO annonce VALUES (12, 'Compresseur', 'Compresseur 50L pression 10 bar', 80, 10, 1397323455, 1296000, 'http://i2.cdscdn.com/pdt2/8/6/0/1/700x700/mic8020119065860/rw/compresseur-100-litres-michelin-3-cv-10-bars.jpg', 3, 5, 12423);
 INSERT INTO annonce VALUES (13, 'PC portable HP', 'PC portable HP pour pièce, non fonctionnel', 50, 5, 1417385820, 15552000, 'http://www.diltoo.com/Photos/17/17889-pc-portable-hp-nc6220-pm-1-6ghz-40go-xpp-dvd-wifi-1.jpg', 4, 2, 12423);
 INSERT INTO annonce VALUES (14, 'DVD Titanic collector', 'DVD du film Titanic edition collector', 60, 15, 1431223625, 2592000, 'http://www.gamecash.fr/medias/dvd-titanic-deluxe-coll-e13164.jpg', 2, 4, 12423);
-INSERT INTO annonce VALUES (15, 'Jeu Pokémon', 'Jeu Pokémon pour GameBoy', 10, 1, 1425265625, 1296000, 'http://pmcdn.priceminister.com/photo/Pokemon-Rouge-Jeu-Game-Boy-Color-598123332_ML.jpg', 3, 3, 12423);
 INSERT INTO annonce VALUES (16, 'Transformer', 'Film Transformer', 15, 2, 1431425643, 1555200, 'http://ecx.images-amazon.com/images/I/51xbz6iJJ9L.jpg', 4, 4, 12423);
 INSERT INTO annonce VALUES (17, 'Yamaha 125 cross', 'Yamaha 125 YZ 2012', 3000, 500, 1431958443, 5184000, 'http://www.kutvek-kitgraphik.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/h/a/hangtown-125-250-yz.jpg', 4, 1, 12423);
 INSERT INTO annonce VALUES (18, 'Ipad', 'Tablette Ipad 16Go acheté en septembre 2015, peu servit', 300, 15, 1428156843, 259200, 'http://i2.cdscdn.com/pdt2/9/4/2/1/700x700/auc2009969129942/rw/etui-coque-cover-pour-ipad-mini-couleur-rouge.jpg', 2, 2, 12423);
 INSERT INTO annonce VALUES (19, 'Lot de tournevis', 'Lots de 6 tournevis plats et cruciformes', 7, 2, 1432376043, 1728000, 'http://download.compas-market.fr/images/5/lot-de-6-tournevis-bahco-1.jpg', 4, 5, 12423);
-INSERT INTO annonce VALUES (20, 'Coffret Louis De Funes', 'Coffret avec tous les films de Louis De Funes', 50, 8, 1430820843, 2073600, 'http://www.martinmusique.fr/boutique/525-826-thickbox/l-essentiel-de-louis-de-funes-coffret-8-dvd-coffret-de-8-dvd-.jpg', 3, 4, 12423);
-INSERT INTO annonce VALUES (21, 'testvoiture !!!', ' jeu de voiture', 13, 13, 1432559464, 1110000, 'default.png', 1, 3, 1);
-INSERT INTO annonce VALUES (22, 'testvoiture !!!', ' jeu de voiture', 13, 13, 1432559512, 1110000, 'default.png', 1, 3, 1);
-INSERT INTO annonce VALUES (23, 'testvoiture !!!', ' jeu de voiture', 13, 13, 1432559537, 1110000, 'default.png', 1, 3, 1);
-INSERT INTO annonce VALUES (24, 'testvoiture !!!', ' jeu de voiture', 13, 13, 1432559964, 1110000, 'default.png', 1, 3, 1);
-INSERT INTO annonce VALUES (25, 'testvoiture !!!', ' jeu de voiture', 13, 13, 1432560054, 1110000, '25.png', 1, 3, 1);
-INSERT INTO annonce VALUES (27, 'test2 pour verif idville', 'eszf ', 11, 11, 1432562848, 986460, '27.png', 1, 3, 1);
-INSERT INTO annonce VALUES (26, 'test2', ' rytubkinl ', 12, 12, 1432560319, 1108920, '/vente/26.JPG', 1, 3, 1);
+INSERT INTO annonce VALUES (33, 'blblbl', 'blblblbl ', 11, 1, 1432736607, 90060, '/vente/33.jpg', 1, 1, 12423);
+INSERT INTO annonce VALUES (22, 'voiture de remi', 'voiture de test  ', 1, 1, 1432717417, 954060, '/vente/22.png', 1, 1, 12423);
+INSERT INTO annonce VALUES (23, 'jouet', 'jouet tres utilise pas encore lavé', 1, 2, 12345, 12345, 'http://www.google.fr/url?source=imglanding&ct=img&q=http://i2.cdscdn.com/pdt2/1/3/9/1/200x200/tsx3700828810139/rw/godemichet-homeboy-chair.jpg&sa=X&ei=WYplVY-OCsatUZf6gZAC&ved=0CAkQ8wc&usg=AFQjCNFgTSNnvbzUTmLM6SaxYxN1s0w56g', 2, 6, 10);
+INSERT INTO annonce VALUES (24, 'bite', 'MA GROSSE BITE DANS TON CUL', 1, 1, 1432718455, 90060, '/vente/24.jpg', 1, 2, 12423);
+INSERT INTO annonce VALUES (25, 'testoh', 'ijjiij ', 1, 1, 1432718808, 93720, '25u34.png', 5, 2, 12438);
+INSERT INTO annonce VALUES (26, 'fini', 'oiazhfij ', 1, 1, 1432718939, 90060, '/vente/26.png', 5, 1, 12438);
+INSERT INTO annonce VALUES (28, 'erg', ' redgs', 1, 1, 1432719060, 90120, '/vente/28.png', 5, 1, 12438);
+INSERT INTO annonce VALUES (30, 'blbl', 'blbllbl blblblbl blbbl b lbll bl  ', 1, 1, 1432736176, 93780, '/vente/30.jpg', 1, 4, 12423);
+INSERT INTO annonce VALUES (34, 'opdéornmrpepnm', ' gnpegpzéepézjerpzjrzj  eopqsreqéorjg', 1, 1, 1432736848, 86400, '/vente/34.png', 1, 6, 12423);
+INSERT INTO annonce VALUES (4, 'Snatch', 'Film Snatch, en DVD', 10, 2, 1425917414, 1814400, 'http://fr.web.img4.acsta.net/pictures/14/08/20/12/54/429006.jpg', 0, 4, 12423);
+INSERT INTO annonce VALUES (5, 'Pelle', 'Magnifique pelle', 35, 10, 1432480214, 604800, 'http://mfs3.cdnsw.com/fs/Root/normal/34drn-d6381d59_19c6_46ee_9c35_2fe540ae4100_thumb.jpeg', 0, 5, 12423);
+INSERT INTO annonce VALUES (7, 'Prise electrique', 'Multi prise electrique', 10, 1, 1423902435, 259200, 'http://kriissss.fr/photo.jpg', 0, 2, 12423);
+INSERT INTO annonce VALUES (10, 'Perceuse', 'Perceuse filaire, bon étant général', 110, 15, 1399793235, 1728000, 'http://i2.cdscdn.com/pdt2/5/0/0/1/700x700/0603128500/rw/bosch-perceuse-a-percussion-750w-psb-750-rce.jpg', 0, 5, 12423);
+INSERT INTO annonce VALUES (12, 'Compresseur', 'Compresseur 50L pression 10 bar', 80, 10, 1397323455, 1296000, 'http://i2.cdscdn.com/pdt2/8/6/0/1/700x700/mic8020119065860/rw/compresseur-100-litres-michelin-3-cv-10-bars.jpg', 0, 5, 12423);
+INSERT INTO annonce VALUES (15, 'Jeu Pokémon', 'Jeu Pokémon pour GameBoy', 10, 1, 1425265625, 1296000, 'http://pmcdn.priceminister.com/photo/Pokemon-Rouge-Jeu-Game-Boy-Color-598123332_ML.jpg', 0, 3, 12423);
+INSERT INTO annonce VALUES (20, 'Coffret Louis De Funes', 'Coffret avec tous les films de Louis De Funes', 50, 8, 1430820843, 2073600, 'http://www.martinmusique.fr/boutique/525-826-thickbox/l-essentiel-de-louis-de-funes-coffret-8-dvd-coffret-de-8-dvd-.jpg', 0, 4, 12423);
 
 
 --
--- Name: annonce_idannonce_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: annonce_idannonce_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('annonce_idannonce_seq', 27, true);
+SELECT pg_catalog.setval('annonce_idannonce_seq', 34, true);
 
 
 --
--- Name: annonce_idcategorie_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: annonce_idcategorie_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
 SELECT pg_catalog.setval('annonce_idcategorie_seq', 1, false);
 
 
 --
--- Name: annonce_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: annonce_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
 SELECT pg_catalog.setval('annonce_idutilisateur_seq', 1, false);
 
 
 --
--- Name: annonce_idville_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: annonce_idville_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('annonce_idville_seq', 7, true);
+SELECT pg_catalog.setval('annonce_idville_seq', 1, false);
 
 
 --
--- Data for Name: categorie; Type: TABLE DATA; Schema: public; Owner: kriss
+-- Data for Name: categorie; Type: TABLE DATA; Schema: public; Owner: striDeal
 --
 
 INSERT INTO categorie VALUES (1, 'Véhicules', 'Catégorie voitures ou motos');
@@ -533,47 +596,46 @@ INSERT INTO categorie VALUES (2, 'Informatique', 'Catégorie informatiques');
 INSERT INTO categorie VALUES (3, 'Jeux-vidéo', 'Catégorie jeux vidéo');
 INSERT INTO categorie VALUES (4, 'DVD', 'Catégorie DVD et films');
 INSERT INTO categorie VALUES (5, 'Bricolage', 'Catégorie bricolage');
+INSERT INTO categorie VALUES (6, 'Autre', 'Catégorie regroupant tout ce qui ne va pas dans les autres');
 
 
 --
--- Name: categorie_idcategorie_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: categorie_idcategorie_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('categorie_idcategorie_seq', 1, false);
+SELECT pg_catalog.setval('categorie_idcategorie_seq', 6, true);
 
 
 --
--- Data for Name: encherir; Type: TABLE DATA; Schema: public; Owner: kriss
+-- Data for Name: encherir; Type: TABLE DATA; Schema: public; Owner: striDeal
 --
 
-INSERT INTO encherir VALUES (4, 1, 26000, 1429514835);
-INSERT INTO encherir VALUES (3, 12, 90, 1397527808);
 INSERT INTO encherir VALUES (2, 7, 11, 1423930576);
 INSERT INTO encherir VALUES (2, 12, 100, 1397635418);
-INSERT INTO encherir VALUES (3, 1, 27000, 1431923694);
-INSERT INTO encherir VALUES (3, 14, 75, 1431961392);
 INSERT INTO encherir VALUES (4, 15, 11, 1425657720);
 INSERT INTO encherir VALUES (2, 15, 50, 1425690002);
 INSERT INTO encherir VALUES (4, 10, 125, 1426252094);
 INSERT INTO encherir VALUES (4, 18, 315, 1428196443);
+INSERT INTO encherir VALUES (0, 12, 90, 1397527808);
+INSERT INTO encherir VALUES (0, 14, 75, 1431961392);
 
 
 --
--- Name: encherir_idannonce_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: encherir_idannonce_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
 SELECT pg_catalog.setval('encherir_idannonce_seq', 1, false);
 
 
 --
--- Name: encherir_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: encherir_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
 SELECT pg_catalog.setval('encherir_idutilisateur_seq', 1, false);
 
 
 --
--- Data for Name: statut; Type: TABLE DATA; Schema: public; Owner: kriss
+-- Data for Name: statut; Type: TABLE DATA; Schema: public; Owner: striDeal
 --
 
 INSERT INTO statut VALUES (1, 'Administrateur', 'Administrateur du site');
@@ -582,41 +644,42 @@ INSERT INTO statut VALUES (3, 'Vendeur', 'Vendeur dun objet sur le site');
 
 
 --
--- Name: statut_idstatut_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: statut_idstatut_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('statut_idstatut_seq', 1, false);
+SELECT pg_catalog.setval('statut_idstatut_seq', 3, true);
 
 
 --
--- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: kriss
+-- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: striDeal
 --
 
 INSERT INTO utilisateur VALUES (1, 'admin@gmail.com', 'Admin', 'Admin', '0102030405', 'upssitech', 'default.png', 'f865b53623b121fd34ee5426c792e5c33af8c227', 12423, 1);
 INSERT INTO utilisateur VALUES (2, 'user1@gmail.com', 'White', 'Elodie', '0103030405', 'rue de lu3', 'default.png', '3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);
-INSERT INTO utilisateur VALUES (3, 'user2@gmail.com', 'Marseau', 'Carine', '0802030405', 'avenue pinpon', 'default.png', '3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);
 INSERT INTO utilisateur VALUES (4, 'user3@gmail.com', 'Desilets', 'Gilles', '0102020405', 'chemin de terre', 'default.png', '6aa414be8ed2c9a0273625a94ac70dd942b54149', 12423, 2);
+INSERT INTO utilisateur VALUES (5, 'test@test.test', 'test', 'ttest', '0606060606', 'La gamasse', 'default.png', '58ad983135fe15c5a8e2e15fb5b501aedcf70dc2', 12438, 1);
+INSERT INTO utilisateur VALUES (0, 'trol@trol.fr', 'supprimé', 'supprimé', '0000000000', NULL, '/profil/default.png', '58ad983135fe15c5a8e2e15fb5b501aedcf70dc2', 1, 1);
 
 
 --
--- Name: utilisateur_idstatut_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: utilisateur_idstatut_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('utilisateur_idstatut_seq', 1, false);
-
-
---
--- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
---
-
-SELECT pg_catalog.setval('utilisateur_idutilisateur_seq', 1, false);
+SELECT pg_catalog.setval('utilisateur_idstatut_seq', 1, true);
 
 
 --
--- Name: utilisateur_idville_seq; Type: SEQUENCE SET; Schema: public; Owner: kriss
+-- Name: utilisateur_idutilisateur_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
 --
 
-SELECT pg_catalog.setval('utilisateur_idville_seq', 1, false);
+SELECT pg_catalog.setval('utilisateur_idutilisateur_seq', 5, true);
+
+
+--
+-- Name: utilisateur_idville_seq; Type: SEQUENCE SET; Schema: public; Owner: striDeal
+--
+
+SELECT pg_catalog.setval('utilisateur_idville_seq', 1, true);
 
 
 --
@@ -37311,7 +37374,7 @@ SELECT pg_catalog.setval('ville_idville_seq', 1, false);
 
 
 --
--- Name: annonce_pkey; Type: CONSTRAINT; Schema: public; Owner: kriss; Tablespace: 
+-- Name: annonce_pkey; Type: CONSTRAINT; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 ALTER TABLE ONLY annonce
@@ -37319,7 +37382,7 @@ ALTER TABLE ONLY annonce
 
 
 --
--- Name: categorie_pkey; Type: CONSTRAINT; Schema: public; Owner: kriss; Tablespace: 
+-- Name: categorie_pkey; Type: CONSTRAINT; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 ALTER TABLE ONLY categorie
@@ -37327,7 +37390,7 @@ ALTER TABLE ONLY categorie
 
 
 --
--- Name: pk_encherir; Type: CONSTRAINT; Schema: public; Owner: kriss; Tablespace: 
+-- Name: pk_encherir; Type: CONSTRAINT; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 ALTER TABLE ONLY encherir
@@ -37335,7 +37398,7 @@ ALTER TABLE ONLY encherir
 
 
 --
--- Name: statut_pkey; Type: CONSTRAINT; Schema: public; Owner: kriss; Tablespace: 
+-- Name: statut_pkey; Type: CONSTRAINT; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 ALTER TABLE ONLY statut
@@ -37343,7 +37406,7 @@ ALTER TABLE ONLY statut
 
 
 --
--- Name: utilisateur_pkey; Type: CONSTRAINT; Schema: public; Owner: kriss; Tablespace: 
+-- Name: utilisateur_pkey; Type: CONSTRAINT; Schema: public; Owner: striDeal; Tablespace: 
 --
 
 ALTER TABLE ONLY utilisateur
@@ -37359,7 +37422,7 @@ ALTER TABLE ONLY ville
 
 
 --
--- Name: fk_annonce_emailutilisateur; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_annonce_emailutilisateur; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce
@@ -37367,7 +37430,7 @@ ALTER TABLE ONLY annonce
 
 
 --
--- Name: fk_annonce_idville; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_annonce_idville; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce
@@ -37375,7 +37438,7 @@ ALTER TABLE ONLY annonce
 
 
 --
--- Name: fk_annonce_nomcategorie; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_annonce_nomcategorie; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY annonce
@@ -37383,7 +37446,7 @@ ALTER TABLE ONLY annonce
 
 
 --
--- Name: fk_encherir_emailutilisateur; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_encherir_emailutilisateur; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY encherir
@@ -37391,7 +37454,7 @@ ALTER TABLE ONLY encherir
 
 
 --
--- Name: fk_encherir_idannonce; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_encherir_idannonce; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY encherir
@@ -37399,7 +37462,7 @@ ALTER TABLE ONLY encherir
 
 
 --
--- Name: fk_utilisateur_idville; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_utilisateur_idville; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY utilisateur
@@ -37407,7 +37470,7 @@ ALTER TABLE ONLY utilisateur
 
 
 --
--- Name: fk_utilisateur_nomstatut; Type: FK CONSTRAINT; Schema: public; Owner: kriss
+-- Name: fk_utilisateur_nomstatut; Type: FK CONSTRAINT; Schema: public; Owner: striDeal
 --
 
 ALTER TABLE ONLY utilisateur

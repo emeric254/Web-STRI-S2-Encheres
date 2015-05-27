@@ -2,7 +2,8 @@ DROP TABLE IF EXISTS encherir ;
 DROP TABLE IF EXISTS annonce ; 
 DROP TABLE IF EXISTS categorie ; 
 DROP TABLE IF EXISTS utilisateur ; 
-DROP TABLE IF EXISTS statut ;
+DROP TABLE IF EXISTS statut ; 
+
 
 CREATE TABLE statut (
 	idStatut SERIAL NOT NULL PRIMARY KEY,
@@ -19,8 +20,8 @@ CREATE TABLE utilisateur (
 	adresseUtilisateur VARCHAR(4096), 
 	urlPhotoUtilisateur VARCHAR(4096), 
 	mdpUtilisateur VARCHAR(4096) NOT NULL, 
-	idVille SERIAL NOT NULL, 
-	idStatut SERIAL NOT NULL,
+	idVille INT NOT NULL, 
+	idStatut INT NOT NULL,
 
 	CONSTRAINT FK_utilisateur_idVille FOREIGN KEY (idVille) REFERENCES ville (idVille),
 	CONSTRAINT FK_utilisateur_nomStatut FOREIGN KEY (idStatut) REFERENCES statut (idStatut)
@@ -33,41 +34,42 @@ CREATE TABLE categorie (
 ) ;    
 
 
-	CREATE TABLE annonce (
-		idAnnonce SERIAL NOT NULL PRIMARY KEY, 
-		nomAnnonce VARCHAR(4096) NOT NULL, 
-		descriptionAnnonce VARCHAR(4096) NOT NULL, 
-		prixDepartAnnonce FLOAT NOT NULL CHECK (prixDepartAnnonce >=0), 
-		pasAnnonce FLOAT NOT NULL CHECK (pasAnnonce >=0), 
-		dateAnnonce INT NOT NULL , 
-		dureeAnnonce INT NOT NULL CHECK (dureeAnnonce >=0), 
-		urlPhotoAnnonce VARCHAR(4096), 
-		idUtilisateur SERIAL NOT NULL, 
-		idCategorie SERIAL NOT NULL, 
-		idVille SERIAL NOT NULL,
+CREATE TABLE annonce (
+	idAnnonce SERIAL NOT NULL PRIMARY KEY, 
+	nomAnnonce VARCHAR(4096) NOT NULL, 
+	descriptionAnnonce VARCHAR(4096) NOT NULL, 
+	prixDepartAnnonce FLOAT NOT NULL CHECK (prixDepartAnnonce >=0), 
+	pasAnnonce FLOAT NOT NULL CHECK (pasAnnonce >=0), 
+	dateAnnonce INT NOT NULL , 
+	dureeAnnonce INT NOT NULL CHECK (dureeAnnonce >=0), 
+	urlPhotoAnnonce VARCHAR(4096), 
+	idUtilisateur INT NOT NULL, 
+	idCategorie INT NOT NULL, 
+	idVille INT NOT NULL,
 
-		CONSTRAINT FK_annonce_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
-		CONSTRAINT FK_annonce_nomCategorie FOREIGN KEY (idCategorie) REFERENCES categorie (idCategorie),
-		CONSTRAINT FK_annonce_idVille FOREIGN KEY (idVille) REFERENCES ville (idVille) 
+	CONSTRAINT FK_annonce_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
+	CONSTRAINT FK_annonce_nomCategorie FOREIGN KEY (idCategorie) REFERENCES categorie (idCategorie),
+	CONSTRAINT FK_annonce_idVille FOREIGN KEY (idVille) REFERENCES ville (idVille) 
 
-	);  
+);  
 
-	CREATE TABLE encherir (
-		idUtilisateur SERIAL NOT NULL, 
-		idAnnonce SERIAL NOT NULL, 
-		prixEnchere FLOAT CHECK (prixEnchere >=0),
-		dateEnchere INT NOT NULL, 
+CREATE TABLE encherir (
+	idUtilisateur INT NOT NULL, 
+	idAnnonce INT NOT NULL, 
+	prixEnchere FLOAT CHECK (prixEnchere >=0),
+	dateEnchere INT NOT NULL, 
 
-		CONSTRAINT PK_encherir PRIMARY KEY (idUtilisateur,  idAnnonce),
-		CONSTRAINT FK_encherir_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
-		CONSTRAINT FK_encherir_idAnnonce FOREIGN KEY (idAnnonce) REFERENCES annonce (idAnnonce)
-	) ;  
+	CONSTRAINT PK_encherir PRIMARY KEY (idUtilisateur,  idAnnonce),
+	CONSTRAINT FK_encherir_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
+	CONSTRAINT FK_encherir_idAnnonce FOREIGN KEY (idAnnonce) REFERENCES annonce (idAnnonce)
+) ;
 
 INSERT INTO statut (nomStatut, descriptionStatut) VALUES ( 'Administrateur', 'Administrateur du site');
 INSERT INTO statut (nomStatut, descriptionStatut) VALUES ( 'Utilisateur', 'Utilisateur du site');
 INSERT INTO statut (nomStatut, descriptionStatut) VALUES ( 'Vendeur', 'Vendeur dun objet sur le site');
 
 -- Utilisateurs
+INSERT INTO utilisateur VALUES ( 0, 'default', 'default', 'default', '0102030405', 'upssitech', '/profil/default.png','f865b53623b121fd34ee5426c792e5c33af8c227', 12423, 2);--MDP:admin123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'admin@gmail.com', 'Admin', 'Admin', '0102030405', 'upssitech', '/profil/default.png','f865b53623b121fd34ee5426c792e5c33af8c227', 12423, 1);--MDP:admin123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'user1@gmail.com', 'White', 'Elodie', '0103030405', 'rue de lu3', '/profil/default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);--MDP:azerty123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'user2@gmail.com', 'Marseau', 'Carine', '0802030405', 'avenue pinpon', '/profil/default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);--MDP:azerty456

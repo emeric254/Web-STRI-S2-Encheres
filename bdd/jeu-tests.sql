@@ -3,6 +3,7 @@ INSERT INTO statut (nomStatut, descriptionStatut) VALUES ( 'Utilisateur', 'Utili
 INSERT INTO statut (nomStatut, descriptionStatut) VALUES ( 'Vendeur', 'Vendeur dun objet sur le site');
 
 -- Utilisateurs
+INSERT INTO utilisateur VALUES ( 0, 'default', 'default', 'default', '0102030405', 'upssitech', '/profil/default.png','f865b53623b121fd34ee5426c792e5c33af8c227', 12423, 2);--MDP:admin123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'admin@gmail.com', 'Admin', 'Admin', '0102030405', 'upssitech', '/profil/default.png','f865b53623b121fd34ee5426c792e5c33af8c227', 12423, 1);--MDP:admin123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'user1@gmail.com', 'White', 'Elodie', '0103030405', 'rue de lu3', '/profil/default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);--MDP:azerty123
 INSERT INTO utilisateur (emailUtilisateur, nomUtilisateur, prenomUtilisateur, telephoneUtilisateur, adresseUtilisateur, urlPhotoUtilisateur, mdpUtilisateur, idVille, idStatut) VALUES ( 'user2@gmail.com', 'Marseau', 'Carine', '0802030405', 'avenue pinpon', '/profil/default.png','3b004ac6d8a602681f5ee3587c924855679e21d9', 12423, 2);--MDP:azerty456
