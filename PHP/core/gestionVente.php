@@ -17,8 +17,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     }
     else
     {
-        //~ faire une liste ventes $ventes
         include_once("vue/admin/debut-ventes.php");
+
+        $ventes= ventesRecupToutesVentes();
 
         foreach($ventes as $vente)
         {
@@ -27,8 +28,6 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
         }
 
         include_once("vue/fin-contenu.php");
-
-        $ventes= ventesRecupToutesVentes();
     }
 }
 else
