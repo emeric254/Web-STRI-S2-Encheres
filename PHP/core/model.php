@@ -462,8 +462,10 @@ function SuppressionUtilisateur($idutilisateur)
 {
     include('core/bdd.php');
 
-    // on modifie l'id de toute les enchère faites par l'utilisateur
-    $req="UPDATE encherir SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
+    //~ // on modifie l'id de toute les enchère faites par l'utilisateur
+    //~ $req="UPDATE encherir SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
+    // on supprime toute les enchère faites par l'utilisateur
+    $req="DELETE FROM encherir WHERE idutilisateur=$idutilisateur";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
