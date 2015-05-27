@@ -20,7 +20,7 @@
         <div class="container">
 
             <!-- Formulaire -->
-            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementInscription" >
+            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=modificationProfil" >
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
@@ -33,7 +33,7 @@
                             <label for="inputEmail" class="sr-only">
                                 Adresse email
                             </label>
-                            <input type="email" name="inputEmail" <?php if (isset($mail) and !empty($mail)) { echo "value=\"lalala\"";} ?>  id="inputEmail" class="form-control" required autofocus>
+                            <input type="email" name="inputEmail" value="<?= $profil->mail ?>"  id="inputEmail" class="form-control" required autofocus>
                         </div>
                     </div>
                 </div>
