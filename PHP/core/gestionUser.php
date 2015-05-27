@@ -28,7 +28,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
             unset($profil);
         }
 
-        include_once("vue/fin-contenu.php");
+        include_once('vue/fin-contenu.php');
     }
 }
 else
