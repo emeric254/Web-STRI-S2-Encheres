@@ -438,4 +438,17 @@ function RechercheUser($motCles){
     }
     return $ret;
 }
+
+# ----------- Fonction de suppression/annulation d'une annonce
+
+function SupprimerAnnonce($idannonce){
+    include('core/bdd.php');
+    // Suppression des enchères
+    $req = "DELETE FROM encherir WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+    // Suppression de l'annonce
+    $req = "DELETE FROM annonce WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+}
+
 ?>
