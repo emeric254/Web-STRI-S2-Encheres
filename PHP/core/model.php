@@ -468,4 +468,31 @@ function SuppressionUtilisateur($idutilisateur)
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 }
+
+function ventesRecupTousIdVentes()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT id FROM annonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idAnnonce'];
+    }
+    return $ret;
+}
+
+function ventesRecupToutesVentes()
+{
+    $ventes= array();
+    $arrayId= ventesRecupTousIdVentes();
+    foreach ($arrayId as $id) 
+    {
+        $ventes[]= new Vente ($id);
+    }
+    return $ventes;
+}
 ?>
