@@ -33,7 +33,7 @@
                             <label for="inputEmail" class="sr-only">
                                 Adresse email
                             </label>
-                            <input type="email" name="inputEmail" <?php if (isset($mail) and !empty($mail)) { echo "value=\"$mail\"";} ?>  id="inputEmail" class="form-control" placeholder="email" required autofocus>
+                            <input type="email" name="inputEmail" <?php if (isset($mail) and !empty($mail)) { echo "value=\"lalala\"";} ?>  id="inputEmail" class="form-control" required autofocus>
                         </div>
                     </div>
                 </div>
