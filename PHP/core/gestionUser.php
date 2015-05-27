@@ -21,8 +21,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         include_once("vue/admin/debut-profils.php");
 
-        foreach($profils as $profil)
+        foreach($profils as $idProfil)
         {
+            $profil = new Profil($idProfil);
             include('vue/resume-article.php');
             unset($profil);
         }
