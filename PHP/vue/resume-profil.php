@@ -13,7 +13,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=profil&id=<?= $profil->id ?>">
                                 <i class="fa fa-code-fork"></i>
                                 Voir
                             </a>
@@ -23,7 +23,7 @@
     {
 ?>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerProfil&idAction=<?php print $profil->id; ?>">
+                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerProfil&idAction=<?= $profil->id ?>">
                                 <i class="fa fa-trash-o"></i>
                                 Supprimer
                             </a>
