@@ -27,8 +27,15 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
             else
             if($action == "supprimerProfil")
             {
-                SuppressionUtilisateur(htmlspecialchars($idAction));
-                $errMsg = "Le profil $idAction a bien été supprimé";
+                if($idAction == 1)
+                {
+                    $errMsg = "Impossible de supprimer le «super» admin";
+                }
+                else
+                {
+                    SuppressionUtilisateur(htmlspecialchars($idAction));
+                    $errMsg = "Le profil $idAction a bien été supprimé";
+                }
             }
             else
             {

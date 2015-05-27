@@ -14,14 +14,11 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     if (isset($_GET['action']) and !empty($_GET['action']))
     {
         $action = htmlspecialchars($_GET['action']);
-
-
-        ?>
-            <script>window.location="/?page=admin";</script>
-        <?php
     }
     else
     {
+        //~ faire une liste profils $profils
+
         include_once("vue/admin/debut-profils.php");
         include_once("vue/fin-contenu.php");
     }
