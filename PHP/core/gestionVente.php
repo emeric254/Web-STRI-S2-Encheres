@@ -19,9 +19,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     {
         include_once("vue/admin/debut-ventes.php");
 
-        $ventes= ventesRecupTousIdVentes();
+        $listVentes= ventesRecupTousIdVentes();
 
-        foreach($ventes as $idVente)
+        foreach($listVentes as $idVente)
         {
             $vente = new Vente($idVente);
             include('vue/resume-article.php');
