@@ -443,11 +443,12 @@ function RechercheUser($motCles){
 
 function DeposerEnchere($idannonce,$idutilisateur,$prix){
     include('core/bdd.php');
-    //récupération de la dernière annonce 
+    //récupération de la dernière annonce
     $vente = new Vente($idannonce);
     $date=time();
     //dépot de l'enchère
-    if (($idutilisateur != $vente->Acheteur->id) AND ($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas))
+    if (($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
+        AND (!empty($vente->Acheteur) || ($idutilisateur != $vente->Acheteur->id)))
     {
         $req = "INSERT INTO encherir(idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date)";
         $reqExec = $db->prepare($req);
