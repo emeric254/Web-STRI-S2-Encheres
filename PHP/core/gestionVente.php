@@ -19,7 +19,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     {
         include_once("vue/admin/debut-ventes.php");
 
-        $ventes= ventesRecupToutesVentes();
+        $ventes= ventesRecupTousIdVentes();
 
         foreach($ventes as $idVente)
         {
