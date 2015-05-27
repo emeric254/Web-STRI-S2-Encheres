@@ -97,7 +97,7 @@ function Vente_info_MaxId($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $id=$donnees_reqExec['idutilisateur'];
+        $id=$donnees_reqExec['idutilisateur'];
     }
     return $id;
 }
@@ -114,7 +114,7 @@ function Vente_info_enchereSecond($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $max=$donnees_reqExec['prixenchere'];
+        $max=$donnees_reqExec['prixenchere'];
     }
     return $max;
 }
@@ -148,7 +148,7 @@ function Ville_Recup_Nom($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $nom=$donnees_reqExec['nomville'];
+        $nom=$donnees_reqExec['nomville'];
     }
     return $nom;
 }

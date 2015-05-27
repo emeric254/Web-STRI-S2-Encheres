@@ -16,6 +16,3 @@
 
         <!-- Contenu -->
         <div class="container">
-<!--
-        @ TODO liste profils (for each profils > resume-profil)
--->
