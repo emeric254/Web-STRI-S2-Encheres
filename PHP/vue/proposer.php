@@ -95,7 +95,7 @@
                                 Photo
                             </label>
                             <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-                            <input type="file" name="inputPhoto" id="inputPhoto" required autofocus>
+                            <input type="file" name="inputPhoto" id="inputPhoto" autofocus>
                         </div>
                     </div>
                 </div>
