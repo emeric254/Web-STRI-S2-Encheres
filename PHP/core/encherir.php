@@ -59,11 +59,6 @@ else
     $errMsg="il faut etre connecté pour enchérir";
 }
 
-var_dump($idvente);
-var_dump($idacheteur);
-var_dump($prix);
-var_dump($vente);
-
 if($erreur==1)
 {
     include_once("vue/erreur.php");
