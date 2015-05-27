@@ -21,8 +21,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         $ventes= ventesRecupToutesVentes();
 
-        foreach($ventes as $vente)
+        foreach($ventes as $idVente)
         {
+            $vente = new Vente($idVente);
             include('vue/resume-article.php');
             unset($vente);
         }
