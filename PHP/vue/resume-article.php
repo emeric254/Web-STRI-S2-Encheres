@@ -24,7 +24,7 @@
     {
 ?>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="/?page=gestionBd&action='supprimerVente'&idAction=<?php print $vente->id; ?>">
+                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerVente&idAction=<?php print $vente->id; ?>">
                                 <i class="fa fa-trash-o"></i>
                                 Supprimer
                             </a>
