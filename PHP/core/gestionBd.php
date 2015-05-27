@@ -18,12 +18,12 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
         {
             if($action == "supprimerVente")
             {
-                SupprimerAnnonce(htmlspecialchars($_GET['idSup']));
+                SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
             }
             else
             if($action == "supprimerVente")
             {
-                SupprimerAnnonce(htmlspecialchars($_GET['idSup']));
+                SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
             }
             else
             {
