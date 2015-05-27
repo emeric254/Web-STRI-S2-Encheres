@@ -7,6 +7,11 @@
  * $photo : valeur récupéré par $_FILES['photo']
  * $taille_maxi : taille maximale de l'image
  * $typePhoto : vaut 1 pour photo utilisateur et 2 pour photo objet
+ *
+ *
+ *TODO:
+ * - Enlever commentaire / * $fichier * /
+ * - Voir si on modifie la valeur retournee
  */
 function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
@@ -35,9 +40,9 @@ function UploadImage($dossier,$photo,$taille_maxi,$id)
                       'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
         $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
 
-        if(move_uploaded_file($photo['tmp_name'], $dossier.$fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
+        if(move_uploaded_file($photo['tmp_name'], $dossier.$extension/*fichier*/)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné
         {
-            rename($dossier.$fichier, $dossier.$id.$fichier);
+            rename($dossier.$extension/*fichier*/, $dossier.$id.$extension/*fichier*/);
             $ret= "$id"."$fichier";
         }
         else //Sinon (la fonction renvoie FALSE).
