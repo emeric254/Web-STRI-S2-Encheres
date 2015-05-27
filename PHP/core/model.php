@@ -473,7 +473,7 @@ function ventesRecupTousIdVentes()
 {
     include('core/bdd.php');
 
-    $req = "SELECT id FROM annonce";
+    $req = "SELECT idannonce FROM annonce";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
@@ -489,7 +489,7 @@ function ventesRecupToutesVentes()
 {
     $ventes= array();
     $arrayId= ventesRecupTousIdVentes();
-    foreach ($arrayId as $id) 
+    foreach ($arrayId as $id)
     {
         $ventes[]= new Vente ($id);
     }
