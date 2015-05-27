@@ -459,7 +459,7 @@ function SuppressionUtilisateur($idutilisateur)
     $reqExec->execute();
 
     // modification de l'id pour les annonces
-    $req = "UPDATE annonce SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
+    $req = "UPDATE annonce SET idutilisateur=0, dureeannonce=0 WHERE idutilisateur=$idutilisateur";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
