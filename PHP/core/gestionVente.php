@@ -6,8 +6,8 @@
  *
  */
 
-include_once('core/model.php');
 include_once('core/class.php');
+include_once('core/model.php');
 
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 {
@@ -21,6 +21,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         $listVentes= ventesRecupTousIdVentes();
 
+        var_dump($listVentes);
         foreach($listVentes as $idVente)
         {
             var_dump($idVente);
