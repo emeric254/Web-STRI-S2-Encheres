@@ -14,18 +14,21 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
     if (isset($_GET['action']) and !empty($_GET['action']))
     {
         $action = htmlspecialchars($_GET['action']);
+
         if(isset($_GET['idAction']) and !empty($_GET['idAction']))
         {
+            $idAction = htmlspecialchars($_GET['idAction']);
+
             if($action == "supprimerVente")
             {
-                SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
+                SupprimerAnnonce($idAction);
             }
             else
-            if($action == "supprimerVente")
-            {
-                SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
-            }
-            else
+            //~ if($action == "supprimerVente")
+            //~ {
+                //~ SupprimerAnnonce(htmlspecialchars($_GET['idAction']));
+            //~ }
+            //~ else
             {
                 $errMsg = "Veuillez fournir une action valide";
                 include("vue/erreur.php");
