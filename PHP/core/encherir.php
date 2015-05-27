@@ -22,8 +22,9 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
         if (isset($_POST['prix']) and !empty($_POST['prix']))
         {
             $prix=htmlspecialchars($_POST['prix']);
-            //~ test prix valable
+
             $vente = new Vente($idvente);
+
             if ($prix < $vente->prix + $vente->pas)
             {
                 //~ erreur sur le prix saisie
@@ -57,7 +58,6 @@ var_dump($vente);
 
 if($erreur==1)
 {
-    $errMsg="Veuillez vérifier les erreur suivantes : $errMsg.";
     include_once("vue/erreur.php");
 }
 else
@@ -71,7 +71,7 @@ else
     else
     {
         ?>
-            <script>window.location="/?page=vente&id=<?php $idvente ?>";</script>
+            <script>window.location="/?page=vente&id=<?= $idvente ?>";</script>
         <?php
     }
 }
