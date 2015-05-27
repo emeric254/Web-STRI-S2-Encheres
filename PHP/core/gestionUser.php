@@ -20,11 +20,11 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
         include_once("vue/admin/debut-profils.php");
 
         $listProfils= utilisateursRecupTousIdUtilisateurs();
+
         foreach($listProfils as $idProfil)
         {
             $profil = new Profil($idProfil);
-
-            include('vue/resume-article.php');
+            include('vue/resume-profil.php');
             unset($profil);
         }
 
