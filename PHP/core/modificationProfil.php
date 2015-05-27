@@ -12,7 +12,6 @@ include_once('core/model.php'); /* utile ????*/
 if (isset($_SESSION['id']))
 {
     $id= isset($_SESSION['id']);
-    $util= new Profil ($id);
     $profil = new Profil($id);
     include_once('vue/modification-profil.php');
 }
