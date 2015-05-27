@@ -15,4 +15,7 @@
         </div>
 
         <!-- Contenu -->
-        <div class="container">
+        <div class="container">">
+<!--
+        @ TODO liste ventes (for each ventes > resume-vente)
+-->
