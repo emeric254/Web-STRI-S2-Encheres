@@ -78,9 +78,10 @@
             <div class="container">
                 <div class="well">
                     <div class="row text-center">
-                        <form action="xxxxxxx.php">
+                        <form method="post" action="/?page=encherir">
                             <div class="input-group">
-                                <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
+                                <input type="hidden" name="id" value="<?= $vente->id ?>">
+                                <input type="number" name="prix" min="<?= ($vente->prix + $vente->pas) ?>" value="<?= ($vente->prix + $vente->pas) ?>" class="form-control" placeholder="Ench&eacute;re" required>
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn btn-default" type="button">
                                         <i class="fa fa-cart-arrow-down"></i>
