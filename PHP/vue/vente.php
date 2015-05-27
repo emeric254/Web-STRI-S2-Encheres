@@ -110,9 +110,8 @@
             </div>
 <?php
         }
-        else
-            if($isadmin)
-            {
+        if($isadmin)
+        {
 ?>
             <div class="container">
                 <h4>
@@ -125,7 +124,7 @@
                 </h4>
             </div>
 <?php
-            }
+        }
 ?>
 
 
