@@ -248,17 +248,18 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
+    $ret = $db->lastInsertId("annonce_idannonce_seq");
+
     //~ // récupération de l'id
     //~ $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
     //~ $reqExec = $db->prepare($req);
     //~ $reqExec->execute();
-//~
-    $ret = $db->lastInsertId("annonce_idannonce_seq");
     //~ $ret=-1;
     //~ while ($donnees_reqExec = $reqExec->fetch())
     //~ {
         //~ $ret=$donnees_reqExec['idannonce'];
     //~ }
+
     return $ret;
 }
 
