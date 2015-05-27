@@ -35,7 +35,7 @@ switch($choix)
     case 1: // utilisteur
 ?>
             <!-- Formulaire utilisateur-->
-            <form class="form" action="resultatRechercheProfil.html">
+            <form class="form" method="post" action="/?page=recherche&c=1">
                 <div class="well">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
@@ -47,7 +47,7 @@ switch($choix)
                                 <label for="inputUser" class="sr-only">
                                     Utilisateur
                                 </label>
-                                <input type="search" id="inputUser" class="form-control" placeholder="mail ou nom de l'utilisateur" required autofocus>
+                                <input <?php if(isset($recherche) and !empty($recherche)){ echo "value=$recherche ";}?>type="search" id="inputUser" name="inputUser" class="form-control" placeholder="mail ou nom de l'utilisateur" required autofocus>
                             </div>
                         </div>
                         <!-- Submit -->
@@ -62,8 +62,8 @@ switch($choix)
     case 2: // vente
 ?>
             <!-- Formulaire vente-->
-            <form class="form" action="resultat.html">
-                <div class="well">
+            <form class="form" method="post" action="/?page=recherche&c=2">
+                <div class="jumbotron">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
                         <div class="col-sm-5 col-md-6">
@@ -74,7 +74,7 @@ switch($choix)
                                 <label for="inputMotClef" class="sr-only">
                                     Mot clef
                                 </label>
-                                <input type="search" id="inputMotClef" class="form-control" placeholder="Mot clef" required autofocus>
+                                <input <?php if(isset($recherche) and !empty($recherche)){ echo "value=$recherche ";}?>type="search" id="inputMotClef" name="inputMotClef" class="form-control" placeholder="Mot clef" required autofocus>
                             </div>
                         </div>
                         <!-- Categorie -->
@@ -84,11 +84,21 @@ switch($choix)
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
-                                <select id="inputCategorie">
-                                        <option value="animal">animal</option>
-                                        <option value="avion">avion</option>
-                                        <option value="ordinateur">ordinateur</option>
-                                        <option value="voiture">voiture</option>
+                                <select id="inputCategorie" name="inputCategorie">
+<?php
+foreach ($listCat as $idCat => $nomCat) {
+	echo "                                        <option value='null'>Toute les categories</option>\n";
+	if(isset($cat) and !empty($cat)){
+		if($cat==$idCat){
+			echo "                                        <option selected='selected' value='$idCat'>$nomCat</option>\n";
+		} else {
+			echo "                                        <option value='$idCat'>$nomCat</option>\n";
+		}
+	}else{
+		echo "                                        <option value='$idCat'>$nomCat</option>\n";
+	}
+}
+?>
                                 </select>
                             </div>
                         </div>
@@ -122,7 +132,7 @@ switch($choix)
                 <div class="col-sm-5">
                     <h1>
                         <span class="label label-info">
-                            <a href="recherche-vente.html">
+                            <a href="/?page=recherche&c=2">
                                 <i class="fa fa-search"></i>
                                 &nbsp;
                                 Vente
@@ -138,7 +148,7 @@ switch($choix)
                 <div class="col-sm-5">
                     <h1>
                         <span class="label label-info">
-                            <a href="recherche-user.html">
+                            <a href="/?page=recherche&c=1">
                                 <i class="fa fa-search"></i>
                                 &nbsp;
                                 Utilisateur
@@ -149,6 +159,5 @@ switch($choix)
             </div>
 <?php
 } // fin switch
-
 ?>
         </div>
