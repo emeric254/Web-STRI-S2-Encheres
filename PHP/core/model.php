@@ -441,7 +441,8 @@ function RechercheUser($motCles){
 
 # ----------- Fonction de dépot d'une enchère
 
-function DeposerEnchere($idannonce,$idutilisateur,$prix){
+function DeposerEnchere($idannonce,$idutilisateur,$prix)
+{
     include('core/bdd.php');
     //récupération de la dernière annonce
     $vente = new Vente($idannonce);

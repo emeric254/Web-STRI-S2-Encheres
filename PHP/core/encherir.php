@@ -31,6 +31,14 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
                 $erreur=1;
                 $errMsg.="Le prix est incorrect (minimum ".($vente->prix + $vente->pas).")";
             }
+            else
+            {
+                if (!DeposerEnchere($idvente, $idacheteur, $prix))
+                {
+                    $erreur=1;
+                    $errMsg="Erreur lors de l'ajout de l'enchère";
+                }
+            }
         }
         else
         {
@@ -62,16 +70,7 @@ if($erreur==1)
 }
 else
 {
-    // TODO : faire des test sur le droit d'enchérir !!
-    if (!DeposerEnchere($idvente, $idacheteur, $prix))
-    {
-        $errMsg="Erreur lors de l'ajout de l'enchère";
-        include_once("vue/erreur.php");
-    }
-    else
-    {
-        ?>
-            <script>window.location="/?page=vente&id=<?= $idvente ?>";</script>
-        <?php
-    }
+    ?>
+        <script>window.location="/?page=vente&id=<?= $idvente ?>";</script>
+    <?php
 }
