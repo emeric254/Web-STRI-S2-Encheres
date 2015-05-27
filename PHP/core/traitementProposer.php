@@ -107,45 +107,32 @@ if (isset($_POST['inputPas']) and !empty($_POST['inputPas'])) {
     $champErreur.="Veuillez indiquer le pas";
 }
 
-if (isset($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour'])) {
-    $dureeJour=htmlspecialchars($_POST['inputDureeJour']);
+if ((isset($_POST['inputDureeJour']) and !empty($_POST['inputDureeJour']))
+    || (isset($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure']))
+    || (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])))
+{
+    if(isset($_POST['inputDureeMinute']))
+        $dureeJour=htmlspecialchars($_POST['inputDureeJour']);
+    else
+        $dureeJour=0;
+
+    if(isset($_POST['inputDureeHeure']))
+        $dureeHeure=htmlspecialchars($_POST['inputDureeHeure']);
+    else
+        $dureeHeure=0;
+
+    if(isset($_POST['inputDureeMinute']))
+        $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
+    else
+        $dureeMinute=0;
 }else{
     if($erreur){
         $champErreur.=", ";
     }
     $erreur=1;
-    $champErreur.="Veuillez saisir nombre de jour";
+    $champErreur.="Veuillez saisir une durée valide";
 }
 
-if (isset($_POST['inputDureeHeure']) and !empty($_POST['inputDureeHeure'])) {
-    $dureeHeure=htmlspecialchars($_POST['inputDureeHeure']);
-}else{
-    if($erreur){
-        $champErreur.=", ";
-    }
-    $erreur=1;
-    $champErreur.="Veuillez saisir le nombre d'heure";
-}
-
-if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
-    $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
-}else{
-    if($erreur){
-        $champErreur.=", ";
-    }
-    $erreur=1;
-    $champErreur.="Veuillez saisir le nombre de minute";
-}
-
-if (isset($_POST['inputDureeMinute']) and !empty($_POST['inputDureeMinute'])) {
-    $dureeMinute=htmlspecialchars($_POST['inputDureeMinute']);
-}else{
-    if($erreur){
-        $champErreur.=", ";
-    }
-    $erreur=1;
-    $champErreur.="Veuillez saisir le nombre de minute";
-}
 
 if (isset($_POST['categorieAnnonce']) and !empty($_POST['categorieAnnonce'])) {
     $categorieAnnonce=htmlspecialchars($_POST['categorieAnnonce']);
@@ -156,16 +143,6 @@ if (isset($_POST['categorieAnnonce']) and !empty($_POST['categorieAnnonce'])) {
     $erreur=1;
     $champErreur.="Veuillez saisir la cat&eacute;gorie";
 }
-
-/* TODO :: A revoir pour traiter ça !!
-if(!$erreur && !($dureeJour > 0 || $dureeHeure > 0 || $dureeMinute > 0) )
-{
-    if($erreur)
-        $champErreur.=", ";
-    $erreur=1;
-    $champErreur.="Veuillez saisir une durée valide !";
-}
-*/
 
 // Récupération de l'identifiant de l'utilisateur connecté
 if (isset($_SESSION['id']) and !empty($_SESSION['id']))
@@ -197,23 +174,19 @@ if ($erreur == 1)
         // Ajout de l'objet dans la base de données
         $idAnnonce = AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$categorieAnnonce,$idutilisateur,$idville);
         // on recherche les informations de l'annonce dans la base
-        //~ var_dump($idAnnonce);
-        if ($idAnnonce != -1 && ! empty($idAnnonce))
+        if (! empty($idAnnonce) && $idAnnonce != -1 && VerificationAjoutNouvelleAnnonce($idAnnonce) == $idAnnonce)
         {
-            $verif=VerificationAjoutNouvelleAnnonce($idAnnonce);
-
             if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
             {
                 // on upload l'image
                 $photo=$_FILES['inputPhoto'];
-                UploadImage('vente/',$photo,2000000,$verif);
+                UploadImage('vente/',$photo,2000000,$idAnnonce);
                 //mise a jour dans la base du nom de l'image
                 $extension = strrchr($photo['name'],'.');
-                $newfichier = '/vente/'.$verif.$extension;
-                MajUrlImageAnnonce($newfichier,$verif);
+                $newfichier = '/vente/'.$idAnnonce.$extension;
+                MajUrlImageAnnonce($newfichier,$idAnnonce);
             }
 
-            //~ header("Location: /?page=vente&id=$idAnnonce");
             ?>
                 <script>window.location="/?page=vente&id=<?= $idAnnonce ?>";</script>
             <?php
