@@ -9,7 +9,7 @@
 include_once('core/model.php');
 include_once('core/class.php');
 
-if(isset($_SESSION['id']) and !empty($_SESSION['id']))
+if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 {
     if (isset($_GET['action']) and !empty($_GET['action']))
     {
@@ -24,5 +24,11 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
     {
         include_once("vue/admin/debut-ventes.php");
     }
+}
+else
+{
+    ?>
+        <script>window.location="/?page=connexion";</script>
+    <?php
 }
 ?>
