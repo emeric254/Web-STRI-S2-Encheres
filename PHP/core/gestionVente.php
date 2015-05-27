@@ -6,8 +6,8 @@
  *
  */
 
-include_once('core/model.php');
 include_once('core/class.php');
+include_once('core/model.php');
 
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 {
@@ -23,9 +23,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         foreach($listVentes as $idVente)
         {
-            var_dump($idVente);
             $vente = new Vente($idVente);
-            var_dump($vente);
             include('vue/resume-article.php');
             unset($vente);
         }
