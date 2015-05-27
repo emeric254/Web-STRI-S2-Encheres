@@ -245,7 +245,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $heureActuelle=time();
 
     $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville)
-            VALUES ('$titre','$description',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,1)";
+            VALUES ('$titre','$description',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,$villeutilisateur)";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
