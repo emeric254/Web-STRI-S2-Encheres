@@ -67,7 +67,7 @@ if($connecte)
     {
 ?>
                     <li>
-                        <a href="/?page=compte">
+                        <a href="/?page=admin">
                             <i class="fa fa-cogs"></i>
                             Gestion
                         </a>
