@@ -8,11 +8,11 @@
  */
 
 include_once('core/class.php');
-include_once('core/model.php'); /* utile ????*/
+include_once('core/model.php');
 
 if (isset($_SESSION['id']))
 {
-    $id= isset($_SESSION['id']);
+    $id= $_SESSION['id'];
     $profil = new Profil($id);
     include_once('vue/modification-profil.php');
 }
