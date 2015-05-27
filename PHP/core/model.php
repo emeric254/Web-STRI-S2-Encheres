@@ -473,7 +473,7 @@ function ventesRecupTousIdVentes()
 {
     include('core/bdd.php');
 
-    $req = "SELECT * FROM annonce";
+    $req = "SELECT idannonce FROM annonce";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
@@ -500,7 +500,7 @@ function utilisateursRecupTousIdUtilisateurs()
 {
     include('core/bdd.php');
 
-    $req = "SELECT * FROM utilisateur";
+    $req = "SELECT idutilisateur FROM utilisateur";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
