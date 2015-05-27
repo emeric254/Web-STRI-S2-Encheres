@@ -14,7 +14,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
     if (isset($_GET['action']) and !empty($_GET['action']))
     {
         $action = htmlspecialchars($_GET['action']);
-        if(isset($_GET['idSup']) and !empty($_GET['idSup']))
+        if(isset($_GET['idAction']) and !empty($_GET['idAction']))
         {
             if($action == "supprimerVente")
             {
@@ -27,9 +27,14 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
             }
             else
             {
-                $errMsg = "Veuillez fournir un id valide";
+                $errMsg = "Veuillez fournir une action valide";
                 include("vue/erreur.php");
             }
+        }
+        else
+        {
+            $errMsg = "Veuillez fournir un id valide";
+            include("vue/erreur.php");
         }
 
         ?>
