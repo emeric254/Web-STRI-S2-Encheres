@@ -495,4 +495,20 @@ function ventesRecupToutesVentes()
     }
     return $ventes;
 }
+
+function utilisateursRecupTousIdUtilisateurs()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT * FROM utilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idutilisateur'];
+    }
+    return $ret;
+}
 ?>

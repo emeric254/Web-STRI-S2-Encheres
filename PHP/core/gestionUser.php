@@ -18,6 +18,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
     else
     {
         //~ faire une liste profils $profils
+        $profils= utilisateursRecupTousIdUtilisateurs();
 
         include_once("vue/admin/debut-profils.php");
 
