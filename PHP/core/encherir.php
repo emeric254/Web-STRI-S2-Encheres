@@ -19,7 +19,6 @@ if (isset($_POST['prix']) and !empty($_POST['prix'])) {
  
 if (isset($_POST['id']) and !empty($_POST['id']) and $_POST['id'] >= 0)
 {
-    if ($_POST['id'] == 
     $idvente=htmlspecialchars($_POST['id']);
 } else {
     if($erreur){
@@ -38,5 +37,5 @@ if ($erreur==1)
 }
 else
 {
-    // on vérifie que c'est pas lui qui a la derniere enchère
-    if 
+    // on récupère les informations de l'annonce
+    $annonce = new Vente
