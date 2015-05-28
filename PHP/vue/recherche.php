@@ -85,23 +85,37 @@ switch($choix)
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
                                 <select id="inputCategorie" name="inputCategorie">
+                                    <option value='null'>Toute les categories</option>
 <?php
-foreach ($listCat as $idCat => $nomCat) {
-	echo "                                        <option value='null'>Toute les categories</option>\n";
-	if(isset($cat) and !empty($cat)){
-		if($cat==$idCat){
-			echo "                                        <option selected='selected' value='$idCat'>$nomCat</option>\n";
-		} else {
-			echo "                                        <option value='$idCat'>$nomCat</option>\n";
-		}
-	}else{
-		echo "                                        <option value='$idCat'>$nomCat</option>\n";
-	}
+foreach ($listCat as $idCat => $nomCat)
+{
+    if(isset($cat) and !empty($cat))
+    {
+        if($cat==$idCat)
+        {
+            ?>
+                                    <option selected='selected' value='<?= $idCat ?>'><?= $nomCat ?></option>
+            <?php
+        }
+        else
+        {
+            ?>
+                                    <option value='<?= $idCat ?>'><?= $nomCat ?></option>
+            <?php
+        }
+    }
+    else
+    {
+        ?>
+                                    <option value='<?= $idCat ?>'><?= $nomCat ?></option>
+        <?php
+    }
 }
 ?>
                                 </select>
                             </div>
                         </div>
+<!--
                         <div class="col-sm-3 col-md-2">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -116,6 +130,7 @@ foreach ($listCat as $idCat => $nomCat) {
                                 </ul>
                             </div>
                         </div>
+-->
                         <!-- Submit -->
                         <div class="col-sm-2">
                             <button class="btn btn-md btn-primary btn-block" type="submit">Chercher</button>
