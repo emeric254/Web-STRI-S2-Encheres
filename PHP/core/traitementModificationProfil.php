@@ -112,8 +112,11 @@
     }
     else
     {
-        $verifCP = VerificationDuCodePostal($ville);
-        //~ $verifCP=true;
+        //~ ici pour faire verification code postal il faut passer en parametre le code postal et non l'idVille
+        //~ $verifCP = VerificationDuCodePostal($ville);
+
+        $verifCP=true;
+
         if($verifCP==0)
         {
             $errMsg="Code Postal non valide. ".$ville;
