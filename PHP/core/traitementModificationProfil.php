@@ -115,7 +115,7 @@
         //~ ici pour faire verification code postal il faut passer en parametre le code postal et non l'idVille
         //~ $verifCP = VerificationDuCodePostal($ville);
 
-        $verifCP=true;
+        $verifCP=VerificationDuCodePostal(recupCodePostalIdVille($idVille));
 
         if($verifCP==0)
         {

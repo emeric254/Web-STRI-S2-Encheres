@@ -573,5 +573,16 @@ function utilisateursUpdateUtilisateur ($idUtil, $nom, $prenom, $tel,$adresse, $
     return($retour);
 }
 
+function recupCodePostalIdVille ($idVille)
+{
+    include('core/bdd.php');
+
+    $req = "SELECT codepostalville from ville WHERE idville=?";
+    $reqExec = $db->prepare($req);
+    $retour=$reqExec->execute(array($idVille));
+
+    return($retour);
+}
+
 
 ?>
