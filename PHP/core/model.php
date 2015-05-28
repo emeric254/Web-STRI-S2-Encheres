@@ -188,7 +188,8 @@ function UtilisateurRecupererVente($id)
     return $ret;
 }
 
-function UtilisateurRecupererEnch($id){
+function UtilisateurRecupererEnch($id)
+{
     include('core/bdd.php');
 
     $ret = array();
@@ -286,7 +287,7 @@ function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $pas
 {
     include('core/bdd.php');
 
-    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'default.png')";
+    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'profil/default.png')";
 
     $reqExec = $db->prepare($req);
     $reqExec->execute();
@@ -338,7 +339,7 @@ function VerificationDuCodePostal($ville)
         $ville = "0".$ville;
         $long++;
     }
-    
+
     $req = "SELECT * FROM ville WHERE codepostalville LIKE '%$ville%'";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
@@ -349,6 +350,7 @@ function VerificationDuCodePostal($ville)
     {
         $ret=$donnees_reqExec['idville'];
     }
+
     return $ret;
 }
 
@@ -382,6 +384,17 @@ function RecuperationTendanceVente($limite)
         $ret[]=$donnees_reqExec['idannonce'];
     }
     return $ret;
+}
+
+# ----------- Fonction de mise à jour de l'url de l'image de profil dans la base
+function MajUrlImageProfil($fichier,$id)
+{
+    include('core/bdd.php');
+    $resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
+    $resultats->execute(array(
+        'photo' => $fichier,
+        'id' => $id));
+    //~ $donnees = $resultats->fetch(); //~ inutile ?
 }
 
 function RechercheVente($motCles, $cat=0){
