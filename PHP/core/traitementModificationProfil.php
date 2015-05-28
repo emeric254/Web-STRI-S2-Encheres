@@ -80,7 +80,6 @@
         $erreur=1;
     }
 
-    var_dump($_POST);
     if($erreur==1){
         $errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
         include_once("vue/erreur.php");
@@ -100,8 +99,8 @@
                // on recherche les informations du compte dans la base
                     //DANS LE MODEL AUSSI
                     // Vérification des identifiants
-    /*        $verif=utilisateursUpdateUtilisateur($_SESSION['id'], $nom, $prenom, $telephone, $adresse, $idville );
-*/
+            $verif=utilisateursUpdateUtilisateur($_SESSION['id'], $nom, $prenom, $telephone, $adresse, $ville );
+
             if ($verif==0)
             {
                 $errMsg="Erreur pendant la modification du profil.";
@@ -118,6 +117,8 @@
                 $_SESSION['adresse'] = $adresse;
                 $_SESSION['idville'] = $verifCP;
 
+                 //Rediriger vers la racine
+                $_GET['id']= $_SESSION['id'];
                 include_once("core/profil.php");
             }
         }
