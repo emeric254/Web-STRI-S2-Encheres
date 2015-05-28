@@ -56,8 +56,8 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-sm-5 col-md-4 col-lg-4 text-center">
-                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                    <div class="col-sm-5 col-md-4 col-lg-4 text-center" style="height: 200px;">
+                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="max-width: 200px; max-height: 200px;">
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-8">
                         <div style="padding-top: 10px;">
@@ -78,9 +78,10 @@
             <div class="container">
                 <div class="well">
                     <div class="row text-center">
-                        <form action="xxxxxxx.php">
+                        <form method="post" action="/?page=encherir">
                             <div class="input-group">
-                                <input type="number" min="<?php print ($vente->prix + $vente->pas); ?>" value="<?php print ($vente->prix + $vente->pas); ?>" class="form-control" placeholder="Ench&eacute;re">
+                                <input type="hidden" name="id" value="<?= $vente->id ?>">
+                                <input type="number" name="prix" min="<?= ($vente->prix + $vente->pas) ?>" value="<?= ($vente->prix + $vente->pas) ?>" class="form-control" placeholder="Ench&eacute;re" required>
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn btn-default" type="button">
                                         <i class="fa fa-cart-arrow-down"></i>

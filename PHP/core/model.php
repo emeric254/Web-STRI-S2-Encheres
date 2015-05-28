@@ -286,7 +286,7 @@ function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $pas
 {
     include('core/bdd.php');
 
-    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',1,'default.png')";
+    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'default.png')";
 
     $reqExec = $db->prepare($req);
     $reqExec->execute();
@@ -426,6 +426,42 @@ function RechercheUser($motCles){
         $ret[]=$donnees_reqExec['idutilisateur'];
     }
     return $ret;
+}
+
+# ----------- Fonction de dépot d'une enchère
+
+function DeposerEnchere($idannonce,$idutilisateur,$prix)
+{
+    include('core/bdd.php');
+    //récupération de la dernière annonce
+    $vente = new Vente($idannonce);
+    $date=time();
+    //dépot de l'enchère
+    if (($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
+        AND (empty($vente->Acheteur) || ($idutilisateur != $vente->Acheteur->id)))
+    {
+        $req = "INSERT INTO encherir (idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date)";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+
+        // vérification de l'ajout
+        $req = "SELECT * FROM encherir WHERE idutilisateur=$idutilisateur AND idannonce=$idannonce AND prixenchere=$prix AND dateenchere=$date";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+
+        if ($donnes = $reqExec->fetch())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
 }
 
 # ----------- Fonction de suppression/annulation d'une annonce
