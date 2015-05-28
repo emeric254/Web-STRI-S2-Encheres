@@ -579,7 +579,7 @@ function recupCodePostalIdVille ($idVille)
 
     $req = "SELECT idville from ville WHERE codepostalville=?";
     $reqExec = $db->prepare($req);
-    $retour=$reqExec->execute(array($idVille));
+    $retour = $reqExec->execute($idVille);
 
     return($retour->fetch());
 }
