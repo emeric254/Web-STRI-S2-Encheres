@@ -512,20 +512,18 @@ function utilisateursRecupTousIdUtilisateurs()
     return $ret;
 }
 
-function utilisateursUpdateUtilisateur ()
+function utilisateursUpdateUtilisateur ($idUtil, $nom, $prenom, $tel,$adresse, $idVille)
 {
     include('core/bdd.php');
 
-    $req = "UPDATE utilisateur SET nomutilisateur=?, prenomutilisateur=?, telephoneutilisateur=?, adresseutilisateur=?, idville=?";
+    $req = "UPDATE utilisateur SET nomutilisateur='?', prenomutilisateur='?', telephoneutilisateur='?', adresseutilisateur='?', idville='?' WHERE idutilisateur=?";
     $reqExec = $db->prepare($req);
-    $reqExec->execute();
+    
+    $param=array($nom, $prenom, $tel, $adresse, $idVille, $idUtil);
+    $reqExec->execute(array($nom, $prenom, $tel, $adresse, $idVille, $idUtil));
+    var_dump($param);
 
-    $ret=array();
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret[]= $donnees_reqExec['idannonce'];
-    }
-    return $ret;
+    return(true);
 }
 
 
