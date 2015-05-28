@@ -198,14 +198,16 @@ else
                             UploadImage('profil/',$photo,2000000,$verif);
 
                             $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
-                            $newfichier = 'profil/'.$verif.$extension;
+                            $newfichier = "profil/$verif.$extension";
 
                             //mise a jour dans la base du nom de l'image
                             MajUrlImageProfil($newfichier,$verif);
 
                             $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas l'extension du fichier si ? ~
 
-                            echo '<script> window.location = "/" </script>';
+                            ?>
+                                <script> window.location = "/" </script>
+                            <?php
                         }
                     }
                 }
