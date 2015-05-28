@@ -92,7 +92,7 @@
 
     if (isset($_POST['inputVille']) and !empty($_POST['inputVille']))
     {
-        $ville=recupCodePostalIdVille(htmlspecialchars($_POST['inputVille']));
+        $ville=htmlspecialchars($_POST['inputVille']);
     }
     else
     {
