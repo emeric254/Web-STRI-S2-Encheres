@@ -66,7 +66,7 @@ switch($choix)
                 <div class="jumbotron">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
-                        <div class="col-sm-5 col-md-6">
+                        <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-search"></i>
@@ -78,9 +78,9 @@ switch($choix)
                             </div>
                         </div>
                         <!-- Categorie -->
-                        <div class="col-sm-3 col-md-2">
+                        <div class="col-sm-4">
                             <div class="input-group">
-                                <label for="inputCategorie">
+                                <label for="inputCategorie" class="sr-only">
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
