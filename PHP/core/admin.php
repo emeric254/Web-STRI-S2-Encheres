@@ -11,7 +11,7 @@ include_once('core/class.php');
 
 if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 {
-    include_once("/vue/admin/menugestion.php");
+    include_once("vue/admin/menugestion.php");
 }
 else
 {

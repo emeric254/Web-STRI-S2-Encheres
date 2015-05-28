@@ -97,7 +97,7 @@ function Vente_info_MaxId($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $id=$donnees_reqExec['idutilisateur'];
+        $id=$donnees_reqExec['idutilisateur'];
     }
     return $id;
 }
@@ -114,7 +114,7 @@ function Vente_info_enchereSecond($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $max=$donnees_reqExec['prixenchere'];
+        $max=$donnees_reqExec['prixenchere'];
     }
     return $max;
 }
@@ -148,7 +148,7 @@ function Ville_Recup_Nom($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $nom=$donnees_reqExec['nomville'];
+        $nom=$donnees_reqExec['nomville'];
     }
     return $nom;
 }
@@ -248,18 +248,7 @@ function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHe
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
-    //~ // récupération de l'id
-    //~ $req="SELECT idannonce FROM annonce WHERE (nomannonce='$titreFormat' AND descriptionannonce='$descriptionFormat' AND prixdepartannonce=$prix AND pasannonce=$pas AND dateannonce=$heureActuelle AND dureeannonce=$duree AND idutilisateur=$idutilisateur)";
-    //~ $reqExec = $db->prepare($req);
-    //~ $reqExec->execute();
-//~
-    $ret = $db->lastInsertId("annonce_idannonce_seq");
-    //~ $ret=-1;
-    //~ while ($donnees_reqExec = $reqExec->fetch())
-    //~ {
-        //~ $ret=$donnees_reqExec['idannonce'];
-    //~ }
-    return $ret;
+    return $db->lastInsertId("annonce_idannonce_seq");
 }
 
 # ----------- Fonction de vérification de l'ajout d'une annonce
@@ -475,4 +464,87 @@ function DeposerEnchere($idannonce,$idutilisateur,$prix)
     }
 }
 
+# ----------- Fonction de suppression/annulation d'une annonce
+
+function SupprimerAnnonce($idannonce)
+{
+    include('core/bdd.php');
+
+    // Suppression des enchères
+    $req = "DELETE FROM encherir WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // Suppression de l'annonce
+    $req = "DELETE FROM annonce WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+}
+
+# ----------- Fonction de suppression d'un compte utilisateur
+
+function SuppressionUtilisateur($idutilisateur)
+{
+    include('core/bdd.php');
+
+    //~ // on modifie l'id de toute les enchère faites par l'utilisateur
+    //~ $req="UPDATE encherir SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
+    // on supprime toute les enchère faites par l'utilisateur
+    $req="DELETE FROM encherir WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // modification de l'id pour les annonces
+    $req = "UPDATE annonce SET idutilisateur=0, dureeannonce=0 WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // suppression de l'utilisateur
+    $req = "DELETE FROM utilisateur WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+}
+
+function ventesRecupTousIdVentes()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT idannonce FROM annonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+function ventesRecupToutesVentes()
+{
+    $ventes= array();
+    $arrayId= ventesRecupTousIdVentes();
+    foreach ($arrayId as $id)
+    {
+        $ventes[]= new Vente ($id);
+    }
+    return $ventes;
+}
+
+function utilisateursRecupTousIdUtilisateurs()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT idutilisateur FROM utilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idutilisateur'];
+    }
+    return $ret;
+}
 ?>

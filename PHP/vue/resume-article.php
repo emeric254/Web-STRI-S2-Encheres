@@ -24,7 +24,7 @@
     {
 ?>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerVente&idAction=<?php print $vente->id; ?>">
                                 <i class="fa fa-trash-o"></i>
                                 Supprimer
                             </a>
@@ -47,7 +47,7 @@
                     <div class="panel-body">
                         <div class="col-md-6">
                             <p class="pull-left">
-                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="max-width: 200px; height: 200px;">
                             </p>
                         </div>
                         <div class="col-md-6">

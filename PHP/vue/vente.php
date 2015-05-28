@@ -57,7 +57,7 @@
                 </div>
                 <div class="row text-center">
                     <div class="col-sm-5 col-md-4 col-lg-4 text-center">
-                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                        <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="max-width: 200px; height: 200px;">
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-8">
                         <div style="padding-top: 10px;">
@@ -102,7 +102,7 @@
             <div class="container">
                 <h4>
                     <span class="label label-danger">
-                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir retirer votre vente ?')) document.location.href = this.href + '?verified' ; return false;">
+                        <a href="/?page=gestionBd&action=supprimerVente&idAction=<?php print $vente->id; ?>" onclick="if(confirm('Etes vous sur de vouloir retirer votre vente ?')) document.location.href = this.href ; return false;">
                             <i class="fa fa-trash-o"></i>
                             Retirer votre vente
                         </a>
@@ -111,14 +111,13 @@
             </div>
 <?php
         }
-        else
-            if($isadmin)
-            {
+        if($isadmin)
+        {
 ?>
             <div class="container">
                 <h4>
                     <span class="label label-danger">
-                        <a href="xxx.php" onclick="if(confirm('Etes vous sur de vouloir retirer cette vente ?')) document.location.href = this.href + '?verified' ; return false;">
+                        <a href="/?page=gestionBd&action=supprimerVente&idAction=<?php print $vente->id; ?>" onclick="if(confirm('Etes vous sur de vouloir retirer cette vente ?')) document.location.href = this.href ; return false;">
                             <i class="fa fa-trash-o"></i>
                             Retirer cette vente
                         </a>
@@ -126,7 +125,7 @@
                 </h4>
             </div>
 <?php
-            }
+        }
 ?>
 
 
