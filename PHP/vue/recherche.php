@@ -84,7 +84,7 @@ switch($choix)
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
-                                <select class="form-group" id="inputCategorie" name="inputCategorie">
+                                <select class="form-control"  id="inputCategorie" name="inputCategorie">
                                     <option value='null'>Toute les categories</option>
 <?php
 foreach ($listCat as $idCat => $nomCat)
