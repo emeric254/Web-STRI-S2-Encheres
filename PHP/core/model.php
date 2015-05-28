@@ -519,9 +519,8 @@ function utilisateursUpdateUtilisateur ($idUtil, $nom, $prenom, $tel,$adresse, $
     $req = "UPDATE utilisateur SET nomutilisateur='?', prenomutilisateur='?', telephoneutilisateur='?', adresseutilisateur='?', idville='?' WHERE idutilisateur=?";
     $reqExec = $db->prepare($req);
     
-    $param=array($nom, $prenom, $tel, $adresse, $idVille, $idUtil);
+/*    $param=array($nom, $prenom, $tel, $adresse, $idVille, $idUtil);*/
     $reqExec->execute(array($nom, $prenom, $tel, $adresse, $idVille, $idUtil));
-    var_dump($param);
 
     return(true);
 }
