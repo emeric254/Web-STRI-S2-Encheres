@@ -78,9 +78,9 @@ switch($choix)
                             </div>
                         </div>
                         <!-- Categorie -->
-                        <div class="col-sm-2">
-                            <div class="form-group">
-                                <label for="inputCategorie" class="sr-only">
+                        <div class="col-sm-3 col-md-2">
+                            <div class="input-group">
+                                <label for="inputCategorie">
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
