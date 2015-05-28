@@ -448,8 +448,10 @@ function DeposerEnchere($idannonce,$idutilisateur,$prix)
     $vente = new Vente($idannonce);
     $date=time();
     //dépot de l'enchère
-    if (($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
-        AND (!empty($vente->Acheteur) || ($idutilisateur != $vente->Acheteur->id)))
+    if (($idutilisateur != $vente->Vendeur->id)
+        AND ($prix >= $vente->prix + $vente->pas)
+            AND (!empty($vente->Acheteur)
+                || ($idutilisateur != $vente->Acheteur->id)))
     {
         $req = "INSERT INTO encherir(idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date)";
         $reqExec = $db->prepare($req);
