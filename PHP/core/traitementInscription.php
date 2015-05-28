@@ -167,10 +167,10 @@ else
                             $photo=$_FILES['inputPhoto'];
 
                             // on upload l'image
-                            UploadImage('/profil/',$photo,2000000,$verif);
+                            UploadImage('profil/',$photo,2000000,$verif);
 
                             $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
-                            $newfichier = '/profil/'.$verif.$extension;
+                            $newfichier = 'profil/'.$verif.$extension;
 
                             //mise a jour dans la base du nom de l'image
                             MajUrlImageProfil($newfichier,$verif);
