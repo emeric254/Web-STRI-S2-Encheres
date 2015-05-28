@@ -126,7 +126,7 @@
                                 <label for="inputVille" class="sr-only">
                                     Code Postal
                                 </label>
-                                <input type="text" name="inputVille" value="<?php var_dump(recupCodePostalIdVille($profil->idVille)); ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
+                                <input type="text" name="inputVille" value="<?php var_dump(recupCodePostalIdVille($profil->idVille)); var_dump("recupCodePostalIdVille($profil->idVille)"); ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
                             </div>
                         </div>
                     </div>
