@@ -21,6 +21,7 @@ if (isset($_SESSION['id']))
         {
             $id= $_GET['id'];
             $profil = new Profil($id);
+            $codepostal = recupCodePostalIdVille($profil->idVille);
             include_once('vue/modification-profil.php');
         }
     }
@@ -28,6 +29,7 @@ if (isset($_SESSION['id']))
     {
         $id=$_SESSION['id'];
         $profil = new Profil($id);
+        $codepostal = recupCodePostalIdVille($profil->idVille);
         include_once('vue/modification-profil.php');
     }
 

@@ -2,6 +2,10 @@
 /* «inscription.php»
  * formulaire d'inrcription d'un utilisateur
  *
+ * vars
+ *  > $profil
+ *  > $codepostal
+ *
  * // @ TODO pour EVOLVE, rajout drag and drop pour image
  * // @ TODO pour EVOLVE, faire un test (js) sur les mots de passe pour voir si ils sont identiques
  */
@@ -126,7 +130,7 @@
                                 <label for="inputVille" class="sr-only">
                                     Code Postal
                                 </label>
-                                <input type="text" name="inputVille" value="<?php $codepostal = recupCodePostalIdVille($profil->idVille); print $codepostal; ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
+                                <input type="text" name="inputVille" value="<?= $codepostal; ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
                             </div>
                         </div>
                     </div>
