@@ -566,7 +566,7 @@ function utilisateursUpdateUtilisateur ($idUtil, $nom, $prenom, $tel,$adresse, $
 
     $req = "UPDATE utilisateur SET nomutilisateur=?, prenomutilisateur=?, telephoneutilisateur=?, adresseutilisateur=?, idville=? WHERE idutilisateur=?";
     $reqExec = $db->prepare($req);
-    
+
 /*    $param=array($nom, $prenom, $tel, $adresse, $idVille, $idUtil);*/
     $retour=$reqExec->execute(array($nom, $prenom, $tel, $adresse, $idVille, $idUtil));
 
@@ -577,11 +577,11 @@ function recupCodePostalIdVille ($idVille)
 {
     include('core/bdd.php');
 
-    $req = "SELECT codepostalville from ville WHERE idville=?";
+    $req = "SELECT idville from ville WHERE codepostalville=?";
     $reqExec = $db->prepare($req);
     $retour=$reqExec->execute(array($idVille));
 
-    return($retour);
+    return($retour->fetch());
 }
 
 
