@@ -577,9 +577,9 @@ function recupCodePostalIdVille ($idVille)
 {
     include('core/bdd.php');
 
-    $req = "SELECT idville from ville WHERE codepostalville=?";
+    $req = "SELECT idville from ville WHERE codepostalville=$idVille";
     $reqExec = $db->prepare($req);
-    $retour = $reqExec->execute(array($idVille));
+    $retour = $reqExec->execute();
     var_dump($retour);
     return($retour->fetch()['idville']);
 }
