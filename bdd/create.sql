@@ -65,7 +65,7 @@ CREATE TABLE encherir (
 	prixEnchere FLOAT CHECK (prixEnchere >=0),
 	dateEnchere INT NOT NULL, 
 
-	CONSTRAINT PK_encherir PRIMARY KEY (idUtilisateur,  idAnnonce),
+	CONSTRAINT PK_encherir PRIMARY KEY (idUtilisateur,  idAnnonce, dateEnchere),
 	CONSTRAINT FK_encherir_emailUtilisateur FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur),
 	CONSTRAINT FK_encherir_idAnnonce FOREIGN KEY (idAnnonce) REFERENCES annonce (idAnnonce)
 ) ;
