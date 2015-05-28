@@ -177,25 +177,9 @@
             </form>
         </div>
 
-        <script type="text/javascript" src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score.js"></script>
-        <script type="text/javascript" src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score-options.js"></script>
-        <script type="text/javascript" src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/bootstrap-strength-meter.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function()
-            {
-                $('#inputPassword').strengthMeter('progressBar',
-                    {
-                        container: $('#progress-bar-container')/*,
-                        hierarchy: {
-                            '0': ['text-danger', ''],
-                            '1': ['text-danger', 'mot de passe très faible'],
-                            '20': ['text-warning', 'mot de passe faible'],
-                            '40': ['text-warning', 'mot de passe moyen'],
-                            '60': ['text-success', 'mot de passe bon'],
-                            '80': ['text-success', 'mot de passe très bon'],
-                            '100': ['text-success', 'mot de passe excellent']
-                        }*/
-                    }
-                );
-            });
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score.js"></script>
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score-options.js"></script>
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/bootstrap-strength-meter.js"></script>
+        <script>
+            $(document).ready(function(){ $('#inputPassword').strengthMeter('progressBar', { container: $('#progress-bar-container') } ); });
         </script>
