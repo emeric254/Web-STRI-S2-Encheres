@@ -92,7 +92,7 @@
 
     if (isset($_POST['inputVille']) and !empty($_POST['inputVille']))
     {
-        $ville=htmlspecialchars($_POST['inputVille']);
+        $ville=recupCodePostalIdVille(htmlspecialchars($_POST['inputVille']));
     }
     else
     {
@@ -115,7 +115,7 @@
         //~ ici pour faire verification code postal il faut passer en parametre le code postal et non l'idVille
         //~ $verifCP = VerificationDuCodePostal($ville);
 
-        $verifCP=VerificationDuCodePostal(recupCodePostalIdVille($ville));
+        $verifCP=VerificationDuCodePostal($ville);
 
         if($verifCP==0)
         {
