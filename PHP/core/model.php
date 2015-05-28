@@ -581,7 +581,7 @@ function recupCodePostalIdVille ($idVille)
     $reqExec = $db->prepare($req);
     $retour = $reqExec->execute(array($idVille));
 
-    return($retour->fetch());
+    return($retour->fetch()['idville']);
 }
 
 
