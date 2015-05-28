@@ -511,4 +511,22 @@ function utilisateursRecupTousIdUtilisateurs()
     }
     return $ret;
 }
+
+function utilisateursUpdateUtilisateur ()
+{
+    include('core/bdd.php');
+
+    $req = "UPDATE utilisateur SET nomutilisateur=?, prenomutilisateur=?, telephoneutilisateur=?, adresseutilisateur=?, idville=?";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+
 ?>

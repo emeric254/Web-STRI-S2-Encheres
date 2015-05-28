@@ -20,7 +20,7 @@
         <div class="container">
 
             <!-- Formulaire -->
-            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=modificationProfil" >
+            <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementModificationProfil" >
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
@@ -34,48 +34,6 @@
                                 Adresse email
                             </label>
                             <input type="email" name="inputEmail" value="<?= $profil->email ?>"  id="inputEmail" class="form-control" required autofocus>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="well">
-                    <div class="row text-center" style="margin-bottom:10px;">
-                        <h3>
-                            Votre mot de passe
-                        </h3>
-                        <div class="col-md-6">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon">
-                                    *
-                                </span>
-                                <label for="inputPassword" class="sr-only">
-                                    Mot de passe
-                                </label>
-                                <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="mot de passe" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon">
-                                    *
-                                </span>
-                                <label for="inputPasswordBis" class="sr-only">
-                                    Confirmation
-                                </label>
-                                <input type="password" name="inputPasswordBis" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="row text-center" style="padding-top:10px;">
-                                <div class="col-sm-5">
-                                    <label class="form-label">Complexit&eacute;</label>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div id="progress-bar-container">
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,7 +68,7 @@
                     </div>
                 </div>
 
-                <div class="well">
+<!--                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
                             Votre photo
@@ -120,12 +78,12 @@
                             <label for="inputPhoto" class="sr-only">
                                 Photo
                             </label>
-                            <!-- On limite le fichier à 2000ko -->
+                            <!-- On limite le fichier à --><!--
                             <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
                             <input type="file" name="inputPhoto" id="inputPhoto" autofocus>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
@@ -157,7 +115,7 @@
                                 <label for="inputAdresse" class="sr-only">
                                     Adresse postale
                                 </label>
-                                <input type="text" name="inputAdresse" value="<?= $profil->addresse ?>" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
+                                <input type="text" name="inputAdresse" value="<?= $profil->adresse ?>" id="inputAdresse" class="form-control" placeholder="Adresse Postale" required autofocus>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -168,7 +126,7 @@
                                 <label for="inputVille" class="sr-only">
                                     Code Postal
                                 </label>
-                                <input type="text" name="inputVille" value="<?= $profil->idville ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
+                                <input type="text" name="inputVille" value="<?= $profil->idVille ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
                             </div>
                         </div>
                     </div>
