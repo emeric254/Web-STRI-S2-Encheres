@@ -131,8 +131,6 @@ else
             } else {
                 $verifCP = VerificationDuCodePostal($ville);
                 if($verifCP==0){
-			var_dump($ville);
-			var_dump($verifCP);
                     $errMsg="Code Postal non valide.";
                     include_once("vue/erreur.php");
                     include_once("vue/inscription.php");
@@ -174,6 +172,9 @@ else
                             $extension = strrchr($photo['name'],'.');
                             $newfichier = '/profil/'.$verif.$extension;
                             MajUrlImageProfil($newfichier,$verif);
+                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!!
+                            echo '<script> window.location = "/" </script>';
+                            // TODO : Faire un test surl'ajout de l'image
                         }                       
                       // TODO : A supprimer est peut être réutiliser la gestion des erreur qu'il y avait de fait dans ce qui est en commentaire
                       /* if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
