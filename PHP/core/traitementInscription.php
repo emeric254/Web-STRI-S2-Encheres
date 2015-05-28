@@ -1,5 +1,5 @@
 <?php
-//Si utilisateur déja connecté : redirection vers l'acceuil
+//Si utilisateur est déja connecté : redirection vers l'acceuil
 if (isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     header("Location: /");
@@ -10,7 +10,7 @@ else
     /* «traitementInscription.php»
      * Page de traitement de l'inscription
      *
-     * s'occupe de rajouter le compte dans la base de donnée
+     * s'occupe de rajouter le compte utilisateur dans la base de donnée
      *
      * TODO:
      * - utile de include_once('core/model.php'); ?
@@ -25,110 +25,148 @@ else
      * - quand on se trouver sur la parge d'un objet, rediriger vers cette meme page plutot que vers l'index
      */
 
-    include_once('core/model.php'); /* utile ????*/
-    include_once('core/bdd.php'); /** TODO : modifier chemin */
+    include_once('core/model.php');
+    include_once('core/bdd.php');
     include_once('core/upload.php');
 
     /* Récupération des différentes variables du formulaire */
     $erreur=0;
     $champErreur = " ";
-    if (isset($_POST['inputEmail']) and !empty($_POST['inputEmail'])){
+    if (isset($_POST['inputEmail']) and !empty($_POST['inputEmail']))
+    {
         $mail=htmlspecialchars($_POST['inputEmail']);
-    }else{
+    }
+    else
+    {
         $erreur=1;
         $champErreur="Email manquante";
     }
 
-    if (isset($_POST['inputPassword']) and !empty($_POST['inputPassword'])){
+    if (isset($_POST['inputPassword']) and !empty($_POST['inputPassword']))
+    {
         $password=sha1(htmlspecialchars($_POST['inputPassword']));
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Mot de passe manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputPasswordBis']) and !empty($_POST['inputPasswordBis'])){
+    if (isset($_POST['inputPasswordBis']) and !empty($_POST['inputPasswordBis']))
+    {
         $passwordBis=sha1(htmlspecialchars($_POST['inputPasswordBis']));
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Confirmation du mot de passe manquante";
         $erreur=1;
     }
 
-    if (isset($_POST['inputNom']) and !empty($_POST['inputNom'])){
+    if (isset($_POST['inputNom']) and !empty($_POST['inputNom']))
+    {
         $nom=htmlspecialchars($_POST['inputNom']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Nom manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputPrenom']) and !empty($_POST['inputPrenom'])){
+    if (isset($_POST['inputPrenom']) and !empty($_POST['inputPrenom']))
+    {
         $prenom=htmlspecialchars($_POST['inputPrenom']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Prenom manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputPhone']) and !empty($_POST['inputPhone'])){
+    if (isset($_POST['inputPhone']) and !empty($_POST['inputPhone']))
+    {
         $telephone=htmlspecialchars($_POST['inputPhone']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Numero de telephone manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputAdresse']) and !empty($_POST['inputAdresse'])){
+    if (isset($_POST['inputAdresse']) and !empty($_POST['inputAdresse']))
+    {
         $adresse=htmlspecialchars($_POST['inputAdresse']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Adresse manquante";
         $erreur=1;
     }
 
-    if (isset($_POST['inputVille']) and !empty($_POST['inputVille'])){
+    if (isset($_POST['inputVille']) and !empty($_POST['inputVille']))
+    {
         $ville=htmlspecialchars($_POST['inputVille']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Ville manquante";
         $erreur=1;
     }
 
-    if($erreur==1){
+    if($erreur==1)
+    {
         $errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
         include_once("vue/erreur.php");
         include_once("vue/inscription.php");
-    }else{
+    }
+    else
+    {
         /* Tester que les 2 ots de passe sont identiques */
         if ($password != $passwordBis)
         {
             $errMsg="Les mots de passes ne corresponde pas.";
             include_once("vue/erreur.php");
             include_once("vue/inscription.php");
-        }else {
-            //VERIFIER EMAIL
-            /** Mode moche a verif et compléter - manque image, idville et idstatut */
+        }
+        else
+        {
+            // Vérification du courriel
             $emailExiste = VerificationExistanceEmail($mail);
-            if($emailExiste){
+            if($emailExiste)
+            {
                 $errMsg="L'adresse email exite déjà.";
                 include_once("vue/erreur.php");
                 include_once("vue/inscription.php");
-            } else {
+            }
+            else
+            {
                 $verifCP = VerificationDuCodePostal($ville);
                 if($verifCP==0)
                 {
@@ -140,8 +178,6 @@ else
                 {
                     AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $verifCP);
 
-                    // on recherche les informations du compte dans la base
-                    //DANS LE MODEL AUSSI
                     // Vérification des identifiants
                     $verif=VerificationAjoutNouvelUtilisateur($mail, $password);
 
@@ -178,27 +214,10 @@ else
                             //mise a jour dans la base du nom de l'image
                             MajUrlImageProfil($newfichier,$verif);
 
-                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas l'extension du fichier ? ~
-
-                            //~ var_dump($newfichier);
+                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas l'extension du fichier si ? ~
 
                             echo '<script> window.location = "/" </script>';
                         }
-                      // TODO : A supprimer est peut être réutiliser la gestion des erreur qu'il y avait de fait dans ce qui est en commentaire
-                      /* if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
-                        {
-                            $checkFile = UploadImage('/profil/',$_FILES['inputPhoto'],2000000,$verif);
-                            if($checkFile==0){
-                                $_SESSION['photo'] = '/profil/default.png';
-                                echo "<script> window.location = '/?errMsg='Votre inscription a bien été prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenue'' </script>";
-                            }else{
-                                $_SESSION['photo'] = $checkFile;
-                                echo '<script> window.location = "/" </script>';
-                            }
-                        } else {
-                            $_SESSION['photo'] = '/profil/default.png';
-                            echo '<script> window.location = "/" </script>';
-                        }*/
                     }
                 }
             }
@@ -207,4 +226,3 @@ else
 }
 
 ?>
-
