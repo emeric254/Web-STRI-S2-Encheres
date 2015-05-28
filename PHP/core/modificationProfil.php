@@ -12,9 +12,28 @@ include_once('core/model.php');
 
 if (isset($_SESSION['id']))
 {
-    $id= $_SESSION['id'];
-    $profil = new Profil($id);
-    include_once('vue/modification-profil.php');
+	//Admin
+	if ($_SESSION['idstatut'] == 1)
+	{
+		if (!isset($_GET['id']))
+		{
+			$errMsg="Pas de parametre id";
+        	include_once("vue/erreur.php");
+		}
+		else
+		{
+			$id= $_GET['id'];
+			$profil = new Profil($id);
+			include_once('vue/modification-profil.php');
+		}
+	}
+	else
+	{
+		$id=$_SESSION['id'];
+		$profil = new Profil($id);
+		include_once('vue/modification-profil.php');
+	}
+
 }
 else
 {

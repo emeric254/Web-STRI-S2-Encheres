@@ -77,8 +77,10 @@
 
             </div>
 <?php
-    if($id)
+    if(isset($_SESSION['id']))
     {
+      if ($_SESSION['id'] == $_GET['id'])
+      {
 ?>
             <div class="container text-center">
                 <h4 class="col-sm-6">
@@ -92,7 +94,7 @@
 
                 <h4 class="col-sm-6">
                     <span class="label label-warning">
-                        <a href="/?page=modificationProfil&id=<?php echo $_SESSION['id'];?>">
+                        <a href="/?page=modificationProfil">
 <!--
                             @ TODO renvoi vers la page inscription avec infos pré-completées
 -->
@@ -103,6 +105,7 @@
                 </h4>
             </div>
 <?php
+        }
     }
     else
         if($isadmin)
