@@ -19,9 +19,10 @@
         <div class="container">
             <div class="well">
 <?php
-switch($choix)
-{
-    case 1: // achats
+if(isset($choix))
+    switch($choix)
+    {
+        case 1: // achats
 ?>
                 <div class="page-header">
                     <div class="row">
@@ -66,8 +67,8 @@ switch($choix)
                             </thead>
                             <tbody>
 <?php
-foreach($achats as $achat)
-{
+            foreach($achats as $achat)
+            {
 ?>
                                 <tr>
                                     <td colspan="3">
@@ -91,7 +92,7 @@ foreach($achats as $achat)
                                     </td>
                                 </tr>
 <?php
-}
+            }
 ?>
                             </tbody>
                         </table>
@@ -101,7 +102,7 @@ foreach($achats as $achat)
 <?php
         break;
 
-    case 2: // ventes
+        case 2: // ventes
 ?>
                 <div class="page-header">
                     <div class="row">
@@ -147,8 +148,8 @@ foreach($achats as $achat)
                             </thead>
                             <tbody>
 <?php
-foreach($ventes as $vente)
-{
+            foreach($ventes as $vente)
+            {
 ?>
                                 <tr>
                                     <td colspan="3">
@@ -172,7 +173,7 @@ foreach($ventes as $vente)
                                     </td>
                                 </tr>
 <?php
-}
+            }
 ?>
                             </tbody>
                         </table>
@@ -180,8 +181,7 @@ foreach($ventes as $vente)
                 </div>
 <?php
         break;
-
-    default :   // menu
+        default :   // menu
 ?>
                 <h2 style="text-align:center;">
                     Mon compte
@@ -217,7 +217,7 @@ foreach($ventes as $vente)
                     </li>
                 </ul>
 <?php
-} // fin switch
+    } // fin switch
 ?>
             </div>
         </div>
