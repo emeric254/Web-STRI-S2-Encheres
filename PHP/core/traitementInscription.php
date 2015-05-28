@@ -186,8 +186,9 @@ else
                         $_SESSION['telephone'] = $telephone;
                         $_SESSION['adresse'] = $adresse;
                         $_SESSION['idville'] = $verifCP;
-                        $_SESSION['idstatut'] = 1;
+                        $_SESSION['idstatut'] = '2';
                         $_SESSION['pwd'] = $password;
+
                         // traitement de l'image
                         $_SESSION['photo'] = $verifCP;
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
