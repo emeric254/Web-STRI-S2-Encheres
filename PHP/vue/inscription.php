@@ -2,11 +2,8 @@
 /* «inscription.php»
  * formulaire d'inrcription d'un utilisateur
  *
- * //@TODO vars si iscription foireuse ?
- * //@TODO action form a changer
- * //@TODO rajout drag and drop pour image
- * //@TODO faire un test sur les mots de passe pour voir si ils sont identiques
- * //@TODO Preciser l'adresse car on sait pas forcément quoi y écrire
+ * // @ TODO pour EVOLVE, rajout drag and drop pour image
+ * // @ TODO pour EVOLVE, faire un test (js) sur les mots de passe pour voir si ils sont identiques
  */
 ?>
         <!-- Titre -->
@@ -18,8 +15,10 @@
                 </h1>
             </div>
         </div>
+
         <!-- Contenu -->
         <div class="container">
+
             <!-- Formulaire -->
             <form enctype="multipart/form-data" method="post" class="form-signin" action="/?page=traitementInscription" >
                 <div class="well">
@@ -32,12 +31,13 @@
                                 @
                             </span>
                             <label for="inputEmail" class="sr-only">
-                                Adresse email (*)
+                                Adresse email
                             </label>
                             <input type="email" name="inputEmail" <?php if (isset($mail) and !empty($mail)) { echo "value=\"$mail\"";} ?>  id="inputEmail" class="form-control" placeholder="email" required autofocus>
                         </div>
                     </div>
                 </div>
+
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
@@ -49,7 +49,7 @@
                                     *
                                 </span>
                                 <label for="inputPassword" class="sr-only">
-                                    Mot de passe (*)
+                                    Mot de passe
                                 </label>
                                 <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="mot de passe" required>
                             </div>
@@ -60,7 +60,7 @@
                                     *
                                 </span>
                                 <label for="inputPasswordBis" class="sr-only">
-                                    Confirmation (*)
+                                    Confirmation
                                 </label>
                                 <input type="password" name="inputPasswordBis" id="inputPasswordBis" class="form-control" placeholder="confirmez votre mot de passe" required>
                             </div>
@@ -79,10 +79,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
-                            Votre nom et pr&eacute;nom (*)
+                            Votre nom et pr&eacute;nom
                         </h3>
                         <div class="col-md-6">
                             <div class="input-group input-group-lg">
@@ -108,6 +109,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
@@ -124,10 +126,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
-                            Votre t&eacute;l&eacute;phone (*)
+                            Votre t&eacute;l&eacute;phone
                         </h3>
                         <div class="input-group input-group-lg">
                             <span class="input-group-addon">
@@ -140,10 +143,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="well">
                     <div class="row text-center" style="margin-bottom:10px;">
                         <h3>
-                            Votre adresse (*)
+                            Votre adresse
                         </h3>
                         <div class="col-md-6">
                             <div class="input-group input-group-lg">
@@ -169,9 +173,7 @@
                         </div>
                     </div>
                 </div>
-                <div >
-                        (*) champs obligatoires
-                </div>
+
                 <!-- Submit -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
             </form>

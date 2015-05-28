@@ -130,11 +130,14 @@ else
                 include_once("vue/inscription.php");
             } else {
                 $verifCP = VerificationDuCodePostal($ville);
-                if($verifCP==0){
+                if($verifCP==0)
+                {
                     $errMsg="Code Postal non valide.";
                     include_once("vue/erreur.php");
                     include_once("vue/inscription.php");
-                }else{
+                }
+                else
+                {
                     AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $verifCP);
 
                     // on recherche les informations du compte dans la base
@@ -204,3 +207,4 @@ else
 }
 
 ?>
+

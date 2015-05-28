@@ -30,6 +30,11 @@
 
 // bdd
 //include('core/bdd.php'); Besoin de l'inclure dans chaque fonction sinon ça marche pas
+if(!file_exists("core/bdd.php"))
+{
+    $errMsg = "Fichier de configuration de la base de donnée introuvable";
+    include("vue/erreur.php");
+}
 
 
 # -------------- Fonction controleur pour vente.php
@@ -41,6 +46,7 @@ function Profil_Info_General($id)
     $reqExec = $db->prepare($req);
     $reqExec->execute(array($id));
 
+    $ret = array();
     while ($donnees_reqExec = $reqExec->fetch())
     {
         $ret['emailutilisateur'] = $donnees_reqExec['emailutilisateur'];
@@ -63,6 +69,7 @@ function Vente_Info_General($id)
     $reqExec = $db->prepare($req);
     $reqExec->execute(array($id));
 
+    $ret=array();
     while ($donnees_reqExec = $reqExec->fetch())
     {
         $ret['titreVente'] = $donnees_reqExec['nomannonce'];
@@ -90,7 +97,7 @@ function Vente_info_MaxId($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $id=$donnees_reqExec['idutilisateur'];
+        $id=$donnees_reqExec['idutilisateur'];
     }
     return $id;
 }
@@ -107,7 +114,7 @@ function Vente_info_enchereSecond($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $max=$donnees_reqExec['prixenchere'];
+        $max=$donnees_reqExec['prixenchere'];
     }
     return $max;
 }
@@ -141,7 +148,7 @@ function Ville_Recup_Nom($id)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-            $nom=$donnees_reqExec['nomville'];
+        $nom=$donnees_reqExec['nomville'];
     }
     return $nom;
 }
@@ -197,11 +204,90 @@ function UtilisateurRecupererEnch($id)
     return $ret;
 }
 
+# ----------- Fonction pour récupérer la liste des catégories
+
+function RecupererCategoriesAnnonce()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT idcategorie,nomcategorie FROM categorie";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret = array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[$donnees_reqExec["idcategorie"]] = $donnees_reqExec["nomcategorie"];
+    }
+
+    var_dump($ret);
+    return $ret;
+}
+
+# ----------- Fonction pour de vérification des informations d'une nouvelle annonce
+
+function VerificationInformationAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute)
+{
+    $duree=(((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute);
+    return ( strlen($titre) > 0 && strlen($description) > 0 && $prix > 0 && $pas > 0 && $duree > 0 );
+}
+
+# ----------- Fonction pour ajouter une annonce
+
+/* TODO ; utilisation de $dateActuelle pour faire le select qui suit, mettrele time() direct dans la requete si autre solution */
+function AjoutNouvelleAnnonce($titre,$description,$prix,$pas,$dureeJour,$dureeHeure,$dureeMinute,$idcategorie,$idutilisateur,$villeutilisateur)
+{
+    include('core/bdd.php');
+
+    $duree=((((($dureeJour * 24) + $dureeHeure) * 60) + $dureeMinute) * 60);
+    //~ $titreFormat=str_replace("'","''",$titre);
+    //~ $descriptionFormat=str_replace("'","''",$description);
+    $heureActuelle=time();
+
+    $req="INSERT INTO annonce (nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur,idcategorie,idville)
+            VALUES ('$titre','$description',$prix,$pas,$heureActuelle,$duree,'/vente/default.png',$idutilisateur,$idcategorie,$villeutilisateur)";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    return $db->lastInsertId("annonce_idannonce_seq");
+}
+
+# ----------- Fonction de vérification de l'ajout d'une annonce
+
+function VerificationAjoutNouvelleAnnonce($idAnnonce)
+{
+    include('core/bdd.php');
+
+    $resultats = $db->prepare('SELECT idannonce,nomannonce,descriptionannonce,prixdepartannonce,pasannonce,dateannonce,dureeannonce,urlphotoannonce,idutilisateur FROM annonce WHERE idannonce = :idA');
+    $resultats->execute(array('idA' => $idAnnonce));
+
+    $ret=0;
+    while ($donnees_reqExec = $resultats->fetch())
+    {
+        $ret=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+# ----------- Fonction de mise à jour de l'url de l'image annonce dans la base
+function MajUrlImageAnnonce($fichier,$id)
+{
+    include('core/bdd.php');
+
+    $resultats = $db->prepare('UPDATE annonce SET urlphotoannonce = :photo WHERE idannonce= :id');
+    $resultats->execute(array(
+        'photo' => $fichier,
+        'id' => $id));
+    //~ $donnees = $resultats->fetch(); //~ inutile ?
+}
+
+# ----------- Fonction de récupération des n dernières ventes
+
 function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $idVille)
 {
     include('core/bdd.php');
 
-    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',1,'/profil/default.png')";
+    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'default.png')";
 
     $reqExec = $db->prepare($req);
     $reqExec->execute();
@@ -311,4 +397,166 @@ function MajUrlImageProfil($fichier,$id)
     //~ $donnees = $resultats->fetch(); //~ inutile ?
 }
 
+function RechercheVente($motCles, $cat=0){
+    include('core/bdd.php');
+    $ret = array();
+    if($cat<1){
+        $req = "SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." )";
+    } else {
+        $req = "SELECT idannonce FROM annonce WHERE nomannonce LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." UNION ALL SELECT idannonce FROM annonce WHERE UPPER(descriptionannonce) LIKE UPPER('%$motCles%') AND idcategorie='$cat' AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND NOT EXISTS (SELECT idannonce FROM annonce WHERE UPPER(nomannonce) LIKE UPPER('%$motCles%') AND annonce.dureeannonce + annonce.dateannonce > ".time()." AND idcategorie='$cat')";
+    }
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+function RecuperationDesCat(){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT * FROM categorie";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[$donnees_reqExec['idcategorie']]=$donnees_reqExec['nomcategorie'];
+    }
+    return $ret;
+}
+
+function RechercheUser($motCles){
+    include('core/bdd.php');
+    $ret = array();
+    $req = "SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%') UNION ALL SELECT idutilisateur FROM utilisateur WHERE UPPER(emailutilisateur) LIKE UPPER('%$motCles%') AND NOT EXISTS (SELECT idutilisateur FROM utilisateur WHERE UPPER(nomutilisateur) LIKE UPPER('%$motCles%'))";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute(array());
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]=$donnees_reqExec['idutilisateur'];
+    }
+    return $ret;
+}
+
+# ----------- Fonction de dépot d'une enchère
+
+function DeposerEnchere($idannonce,$idutilisateur,$prix)
+{
+    include('core/bdd.php');
+    //récupération de la dernière annonce
+    $vente = new Vente($idannonce);
+    $date=time();
+    //dépot de l'enchère
+    if (($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
+        AND (empty($vente->Acheteur) || ($idutilisateur != $vente->Acheteur->id)))
+    {
+        $req = "INSERT INTO encherir (idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date)";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+
+        // vérification de l'ajout
+        $req = "SELECT * FROM encherir WHERE idutilisateur=$idutilisateur AND idannonce=$idannonce AND prixenchere=$prix AND dateenchere=$date";
+        $reqExec = $db->prepare($req);
+        $reqExec->execute();
+
+        if ($donnes = $reqExec->fetch())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+# ----------- Fonction de suppression/annulation d'une annonce
+
+function SupprimerAnnonce($idannonce)
+{
+    include('core/bdd.php');
+
+    // Suppression des enchères
+    $req = "DELETE FROM encherir WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // Suppression de l'annonce
+    $req = "DELETE FROM annonce WHERE idannonce=$idannonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+}
+
+# ----------- Fonction de suppression d'un compte utilisateur
+
+function SuppressionUtilisateur($idutilisateur)
+{
+    include('core/bdd.php');
+
+    //~ // on modifie l'id de toute les enchère faites par l'utilisateur
+    //~ $req="UPDATE encherir SET idutilisateur=0 WHERE idutilisateur=$idutilisateur";
+    // on supprime toute les enchère faites par l'utilisateur
+    $req="DELETE FROM encherir WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // modification de l'id pour les annonces
+    $req = "UPDATE annonce SET idutilisateur=0, dureeannonce=0 WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    // suppression de l'utilisateur
+    $req = "DELETE FROM utilisateur WHERE idutilisateur=$idutilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+}
+
+function ventesRecupTousIdVentes()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT idannonce FROM annonce";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idannonce'];
+    }
+    return $ret;
+}
+
+function ventesRecupToutesVentes()
+{
+    $ventes= array();
+    $arrayId= ventesRecupTousIdVentes();
+    foreach ($arrayId as $id)
+    {
+        $ventes[]= new Vente ($id);
+    }
+    return $ventes;
+}
+
+function utilisateursRecupTousIdUtilisateurs()
+{
+    include('core/bdd.php');
+
+    $req = "SELECT idutilisateur FROM utilisateur";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+
+    $ret=array();
+    while ($donnees_reqExec = $reqExec->fetch())
+    {
+        $ret[]= $donnees_reqExec['idutilisateur'];
+    }
+    return $ret;
+}
 ?>

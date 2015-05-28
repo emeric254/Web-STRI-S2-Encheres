@@ -14,6 +14,7 @@ class Vente {
 	public $photo;
 	public $description;
 	public $pas;
+	public $duree;
 	
 	function __construct($id) {
 		$this->id = $id;
@@ -23,6 +24,7 @@ class Vente {
 		$this->photo = $info['photoVente'];
 		$this->description = $info['descriptionVente'];
 		$this->pas = $info['pasannonce'];
+		$this->duree = $info['tempsVente'];
 
 		$dateFin = $info['débutVente'] + $info['tempsVente'];
 		$this->tempsRestantSeconde = $dateFin - time();

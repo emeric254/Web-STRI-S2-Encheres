@@ -13,7 +13,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=profil&id=<?= $profil->id ?>">
                                 <i class="fa fa-code-fork"></i>
                                 Voir
                             </a>
@@ -23,7 +23,7 @@
     {
 ?>
                         <div class="btn-group pull-right">
-                            <a class="btn btn-default" href="http://google.fr">
+                            <a class="btn btn-default" href="/?page=gestionBd&action=supprimerProfil&idAction=<?= $profil->id ?>">
                                 <i class="fa fa-trash-o"></i>
                                 Supprimer
                             </a>
@@ -39,8 +39,8 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-6">
-                            <p class="pull-left">
-                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $profil->photo; ?>" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                            <p class="pull-left" style="height: 200px;">
+                                <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $profil->photo; ?>" data-holder-rendered="true" style="max-width: 200px; max-height: 200px;">
                             </p>
                         </div>
                         <div class="col-md-6">
