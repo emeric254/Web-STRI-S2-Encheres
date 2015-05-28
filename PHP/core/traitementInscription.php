@@ -12,17 +12,6 @@ else
      *
      * s'occupe de rajouter le compte utilisateur dans la base de donnée
      *
-     * TODO:
-     * - utile de include_once('core/model.php'); ?
-     * - faire un test que les valeurs envoyées par le formulaire ne sont pas vide ou inexistante
-     * - Voir comment on gère l'image associé au profil utilisateur
-     * - tester mots de passe identique ici ou dans le form ? si ici, manque un id pour le second mdp dans le form
-     * - tester que l'utilisateur n'existe pas déjà en comparant l'email
-     * - dans requete, obn met idStatut à 1 mais gérer avec la bonne valeur => a déterminer dans la table statut
-     * - gérer les valeurs a mettre pour la ville et le statut (les id)
-     * - gérer le if ( !donnees)
-     * - gérer quand la requete d'insertion fonctionne
-     * - quand on se trouver sur la parge d'un objet, rediriger vers cette meme page plutot que vers l'index
      */
 
     include_once('core/model.php');
@@ -148,7 +137,7 @@ else
     }
     else
     {
-        /* Tester que les 2 ots de passe sont identiques */
+        /* Tester que les 2 mots de passe sont identiques */
         if ($password != $passwordBis)
         {
             $errMsg="Les mots de passes ne corresponde pas.";
