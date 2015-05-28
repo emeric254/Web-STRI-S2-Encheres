@@ -190,7 +190,7 @@ else
                         $_SESSION['pwd'] = $password;
 
                         // traitement de l'image
-                        if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']) and  is_uploaded_file($_FILES['inputPhoto']))
+                        if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']) and  is_uploaded_file($_FILES['inputPhoto']['tmp_name']))
                         {
                             $photo=$_FILES['inputPhoto'];
 
