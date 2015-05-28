@@ -47,7 +47,7 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
         $_SESSION['adresse'] = $donnees['adresseutilisateur'];
         $_SESSION['photo'] = $donnees['urlphotoutilisateur'];
         $_SESSION['idville'] = $donnees['idville'];
-        $_SESSION['idstatut'] = $donnees['idville'];
+        $_SESSION['idstatut'] = $donnees['idstatut'];
         $_SESSION['pwd'] = $donnees['mdputilisateur'];
 
         //redirection vers l'index
