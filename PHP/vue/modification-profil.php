@@ -130,7 +130,7 @@
                                 <label for="inputVille" class="sr-only">
                                     Code Postal
                                 </label>
-                                <input type="text" name="inputVille" value="<?= $codepostal ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
+                                <input type="text" name="inputVille" value="<?= recupCodePostalIdVille($profil->idVille) ?>" id="inputVille" class="form-control" placeholder="Code Postal" required autofocus>
                             </div>
                         </div>
                     </div>
