@@ -448,10 +448,8 @@ function DeposerEnchere($idannonce,$idutilisateur,$prix)
     $vente = new Vente($idannonce);
     $date=time();
     //dépot de l'enchère
-    if (($idutilisateur != $vente->Vendeur->id)
-        AND ($prix >= $vente->prix + $vente->pas)
-            AND (empty($vente->Acheteur)
-                || ($idutilisateur != $vente->Acheteur->id)))
+    if (($idutilisateur != $vente->Vendeur->id) AND ($prix >= $vente->prix + $vente->pas)
+        AND (empty($vente->Acheteur) || ($idutilisateur != $vente->Acheteur->id)))
     {
         //~ var_dump($vente);
 
