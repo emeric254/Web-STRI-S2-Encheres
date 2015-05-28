@@ -171,12 +171,11 @@ else
                             $extension = strrchr($photo['name'],'.');
                             $newfichier = '/profil/'.$verif.$extension;
                             MajUrlImageProfil($newfichier,$verif);
-                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!!
+                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas lextension
 
-                            var_dump($newfichier);
+                            //~ var_dump($newfichier);
 
-                            //echo '<script> window.location = "/" </script>';
-                            // TODO : Faire un test surl'ajout de l'image
+                            echo '<script> window.location = "/" </script>';
                         }
                       // TODO : A supprimer est peut être réutiliser la gestion des erreur qu'il y avait de fait dans ce qui est en commentaire
                       /* if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
