@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-sm-5 col-md-4 col-lg-4 text-center">
+                    <div class="col-sm-5 col-md-4 col-lg-4 text-center" style="height: 200px;">
                         <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="max-width: 200px; max-height: 200px;">
                     </div>
                     <div class="col-sm-7 col-md-8 col-lg-8">

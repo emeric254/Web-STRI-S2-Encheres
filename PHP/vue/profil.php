@@ -25,7 +25,7 @@
                         <div class="col-sm-1 col-md-2 col-lg-2">
                         </div>
 
-                        <div class="col-sm-5 col-md-4 col-lg-3">
+                        <div class="col-sm-5 col-md-4 col-lg-3" style="height: 200px;">
                             <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?= $profil->photo ?>" data-holder-rendered="true" style="max-width: 200px; max-height: 200px;">
                         </div>
 

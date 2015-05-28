@@ -46,7 +46,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="col-md-6">
-                            <p class="pull-left">
+                            <p class="pull-left" style="height: 200px;">
                                 <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="<?php print $vente->photo; ?>" data-holder-rendered="true" style="max-width: 200px; max-height: 200px;">
                             </p>
                         </div>
