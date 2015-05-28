@@ -125,7 +125,7 @@
         }
         else
         {
-            $verif=utilisateursUpdateUtilisateur($_SESSION['id'], $nom, $prenom, $telephone, $adresse, $ville );
+            $verif=utilisateursUpdateUtilisateur($_SESSION['id'], $nom, $prenom, $telephone, $adresse, $verifCP );
 
             if ($verif==0)
             {
