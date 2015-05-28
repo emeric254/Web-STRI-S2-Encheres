@@ -79,12 +79,12 @@ switch($choix)
                         </div>
                         <!-- Categorie -->
                         <div class="col-sm-2">
-                            <div class="input-group">
+                            <div class="form-group">
                                 <label for="inputCategorie" class="sr-only">
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
-                                <select id="inputCategorie" name="inputCategorie">
+                                <select class="form-group" id="inputCategorie" name="inputCategorie">
                                     <option value='null'>Toute les categories</option>
 <?php
 foreach ($listCat as $idCat => $nomCat)
