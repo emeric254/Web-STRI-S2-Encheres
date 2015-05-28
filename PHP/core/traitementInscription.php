@@ -159,24 +159,24 @@ else
                         $_SESSION['telephone'] = $telephone;
                         $_SESSION['adresse'] = $adresse;
                         $_SESSION['idville'] = $verifCP;
-                        $_SESSION['idstatut'] = '1';
+                        $_SESSION['idstatut'] = '2';
                         $_SESSION['pwd'] = $password;
 
                         // traitement de l'image
                         $_SESSION['photo'] = $verifCP;
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
                         {
-                            $checkFile = UploadImage('profil/',$_FILES['inputPhoto'],2000000,$verif);
+                            $checkFile = UploadImage('/profil/',$_FILES['inputPhoto'],2000000,$verif);
                             if($checkFile==0){
-                                $_SESSION['photo'] = 'default.png';
-				echo "<script> window.location = '/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'' </script>";
+                                $_SESSION['photo'] = '/profil/default.png';
+                                echo "<script> window.location = '/?errMsg='Votre inscription a bien été prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenue'' </script>";
                             }else{
                                 $_SESSION['photo'] = $checkFile;
-				echo '<script> window.location = "/" </script>';
+                                echo '<script> window.location = "/" </script>';
                             }
                         } else {
-                            $_SESSION['photo'] = 'default.png';
-				echo '<script> window.location = "/" </script>';
+                            $_SESSION['photo'] = '/profil/default.png';
+                            echo '<script> window.location = "/" </script>';
                         }
                     }
                 }

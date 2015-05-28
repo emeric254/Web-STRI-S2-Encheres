@@ -254,9 +254,9 @@ function VerificationDuCodePostal($ville)
         $long++;
     }
 
-    $req = "SELECT * FROM ville WHERE codepostalville = ?";
+    $req = "SELECT * FROM ville WHERE codepostalville LIKE '%$ville%'";
     $reqExec = $db->prepare($req);
-    $reqExec->execute(array($ville));
+    $reqExec->execute();
 
     $ret = 0;
 
