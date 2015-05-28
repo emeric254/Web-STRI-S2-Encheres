@@ -1,10 +1,6 @@
 <?php
 //Si utilisateur est déja connecté : redirection vers l'acceuil
-if (isset($_SESSION['id']) and !empty($_SESSION['id']))
-{
-    header("Location: /");
-}
-else
+if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     // Sinon on  traite les infos recu
     /* «traitementInscription.php»
