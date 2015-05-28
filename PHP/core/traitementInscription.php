@@ -10,7 +10,7 @@ else
     /* «traitementInscription.php»
      * Page de traitement de l'inscription
      *
-     * s'occupe de rajouter le compte utilisateur dans la base de donnée
+     * s'occupe de rajouter le compte dans la base de donnée
      *
      */
 
