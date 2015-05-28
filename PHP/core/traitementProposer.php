@@ -33,7 +33,7 @@ include_once('core/class.php');
 // Récupération des différentes variables du formulaire
 $erreur=0;
 $champErreur = " ";
-var_dump($_POST);
+
 if (isset($_POST['inputTitre']) and !empty($_POST['inputTitre'])) {
     $titre=htmlspecialchars($_POST['inputTitre']);
     if( strlen($titre) < 1)

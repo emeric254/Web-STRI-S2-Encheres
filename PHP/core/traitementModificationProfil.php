@@ -23,71 +23,97 @@
     /* Récupération des différentes variables du formulaire */
     $erreur=0;
     $champErreur = " ";
-    if (isset($_POST['inputEmail']) and !empty($_POST['inputEmail'])){
+
+    if(isset($_POST['inputEmail']) and !empty($_POST['inputEmail']))
+    {
         $mail=htmlspecialchars($_POST['inputEmail']);
-    }else{
+    }
+    else
+    {
         $erreur=1;
         $champErreur="Email manquante";
     }
 
-    if (isset($_POST['inputNom']) and !empty($_POST['inputNom'])){
+    if(isset($_POST['inputNom']) and !empty($_POST['inputNom']))
+    {
         $nom=htmlspecialchars($_POST['inputNom']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Nom manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputPrenom']) and !empty($_POST['inputPrenom'])){
+    if(isset($_POST['inputPrenom']) and !empty($_POST['inputPrenom']))
+    {
         $prenom=htmlspecialchars($_POST['inputPrenom']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Prenom manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputPhone']) and !empty($_POST['inputPhone'])){
+    if (isset($_POST['inputPhone']) and !empty($_POST['inputPhone']))
+    {
         $telephone=htmlspecialchars($_POST['inputPhone']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Numero de telephone manquant";
         $erreur=1;
     }
 
-    if (isset($_POST['inputAdresse']) and !empty($_POST['inputAdresse'])){
+    if (isset($_POST['inputAdresse']) and !empty($_POST['inputAdresse']))
+    {
         $adresse=htmlspecialchars($_POST['inputAdresse']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Adresse manquante";
         $erreur=1;
     }
 
-    if (isset($_POST['inputVille']) and !empty($_POST['inputVille'])){
+    if (isset($_POST['inputVille']) and !empty($_POST['inputVille']))
+    {
         $ville=htmlspecialchars($_POST['inputVille']);
-    }else{
-        if($erreur){
+    }
+    else
+    {
+        if($erreur)
+        {
             $champErreur.=", ";
         }
         $champErreur.="Ville manquante";
         $erreur=1;
     }
 
-    if($erreur==1){
+    if($erreur==1)
+    {
         $errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
         include_once("vue/erreur.php");
         include_once("vue/modification-profil.php");
-    }else{
-        /*$verifCP = VerificationDuCodePostal($ville);
-
-*/      $verifCP=true;    
+    }
+    else
+    {
+        $verifCP = VerificationDuCodePostal($ville);
+        //~ $verifCP=true;
         if($verifCP==0)
         {
             $errMsg="Code Postal non valide. ".$ville;
@@ -96,9 +122,6 @@
         }
         else
         {
-               // on recherche les informations du compte dans la base
-                    //DANS LE MODEL AUSSI
-                    // Vérification des identifiants
             $verif=utilisateursUpdateUtilisateur($_SESSION['id'], $nom, $prenom, $telephone, $adresse, $ville );
 
             if ($verif==0)
