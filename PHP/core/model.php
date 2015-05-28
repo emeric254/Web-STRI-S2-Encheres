@@ -454,6 +454,7 @@ function DeposerEnchere($idannonce,$idutilisateur,$prix)
         //~ var_dump($vente);
 
         $req = "INSERT INTO encherir (idutilisateur,idannonce,prixenchere,dateenchere) VALUES ($idutilisateur,$idannonce,$prix,$date)";
+        var_dump($req);
         $reqExec = $db->prepare($req);
         $reqExec->execute();
 
