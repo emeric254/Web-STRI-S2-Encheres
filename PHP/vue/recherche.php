@@ -11,11 +11,6 @@
  * vars
  * $choix (defaut=menu, 1=utilisateur, 2=vente)
  *
- *
- * //@TODO var predefinie dans champs recherche input ?
- *
- * //@TODO action form a changer
- *
  */
 ?>
         <!-- Titre -->
@@ -30,9 +25,13 @@
         <!-- Contenu -->
         <div class="container">
 <?php
+
+if(!isset($choix))
+    $choix = 0;
+
 switch($choix)
 {
-    case 1: // utilisteur
+    case 1: // utilisateur
 ?>
             <!-- Formulaire utilisateur-->
             <form class="form" method="post" action="/?page=recherche&c=1">
