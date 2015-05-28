@@ -287,7 +287,7 @@ function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $pas
 {
     include('core/bdd.php');
 
-    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'default.png')";
+    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',2,'profil/default.png')";
 
     $reqExec = $db->prepare($req);
     $reqExec->execute();

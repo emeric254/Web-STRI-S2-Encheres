@@ -11,7 +11,7 @@
 function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
     include('core/bdd.php');
-    $ret =0;
+    $ret ="0";
     $fichier = basename($photo['name']);
     $taille = filesize($photo['tmp_name']);
     $extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');

@@ -195,14 +195,23 @@ else
                             $photo=$_FILES['inputPhoto'];
                             UploadImage('profil/',$photo,2000000,$verif);
                             $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
-                            $newfichier = "profil/$verif$extension";
+                            $extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
+                            if (in_array($extension,$extensionsAccepte))
+                            {
+                                $newfichier = "profil/$verif$extension";
+                                MajUrlImageProfil($newfichier,$verif);
+                            }
+                            else
+                            {
+                                $newfichier = "profil/default.png";
+                            }
                         }
                         else
                         {
                             $newfichier = "profil/default.png";
                         }
 
-                        MajUrlImageProfil($newfichier,$verif);
+                        
                         $_SESSION['photo'] = $newfichier;
 
                         ?>
