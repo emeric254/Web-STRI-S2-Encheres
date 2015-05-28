@@ -189,7 +189,7 @@ foreach($ventes as $vente)
                 <p></p>
                 <ul class="nav nav-pills nav-justified">
                     <li class="active">
-                        <a href="/?page=compte&c=1&id=<?php echo $_GET['id']?>">
+                        <a href="/?page=profil&id=<?php print $profil->id; ?>">
                             <i class="fa fa-search"></i>
                             &nbsp;
                             Mon profil
