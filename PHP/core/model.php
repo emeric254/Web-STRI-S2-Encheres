@@ -339,7 +339,7 @@ function VerificationDuCodePostal($ville)
         $long++;
     }
 
-    $req = "SELECT * FROM ville WHERE codepostalville = ?";
+    $req = "SELECT * FROM ville WHERE codepostalville LIKE '%?%'";
     $reqExec = $db->prepare($req);
     $reqExec->execute(array($ville));
 
