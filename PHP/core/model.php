@@ -347,7 +347,6 @@ function VerificationDuCodePostal($ville)
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
-        echo 'DANS WHILE ';
         $ret=$donnees_reqExec['idville'];
     }
     return $ret;

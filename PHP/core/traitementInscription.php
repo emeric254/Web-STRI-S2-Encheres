@@ -162,7 +162,7 @@ else
                         $_SESSION['idville'] = $verifCP;
                         $_SESSION['idstatut'] = '1';
                         $_SESSION['pwd'] = $password;
-
+                        echo 'BITE';
                         // traitement de l'image
                         $_SESSION['photo'] = $verifCP;
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
@@ -170,15 +170,18 @@ else
                             $checkFile = UploadImage('profil/',$_FILES['inputPhoto'],2000000,$verif);
                             if($checkFile==0){
                                 $_SESSION['photo'] = 'default.png';
-                echo "<script> window.location = '/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'' </script>";
+                                ?>
+                                    <script>window.location="/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'";</script>
+                                <?php
                             }else{
                                 $_SESSION['photo'] = $checkFile;
-                echo '<script> window.location = "/" </script>';
                             }
                         } else {
                             $_SESSION['photo'] = 'default.png';
-                echo '<script> window.location = "/" </script>';
                         }
+                    ?>
+                        <script>window.location="/";</script>
+                    <?php
                     }
                 }
             }
