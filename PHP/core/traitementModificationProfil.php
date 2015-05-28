@@ -18,7 +18,7 @@
      * - quand on se trouver sur la parge d'un objet, rediriger vers cette meme page plutot que vers l'index
      */
 
-    include_once('core/model.php'); /* utile ????*/
+    include_once('core/model.php');
 
     /* Récupération des différentes variables du formulaire */
     $erreur=0;
