@@ -162,7 +162,6 @@ else
                         $_SESSION['pwd'] = $password;
 
                         // traitement de l'image
-                       // $_SESSION['photo'] = $verifCP;
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
                         {
                             // on upload l'image
@@ -173,9 +172,12 @@ else
                             $newfichier = '/profil/'.$verif.$extension;
                             MajUrlImageProfil($newfichier,$verif);
                             $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!!
-                            echo '<script> window.location = "/" </script>';
+
+                            var_dump($newfichier);
+
+                            //echo '<script> window.location = "/" </script>';
                             // TODO : Faire un test surl'ajout de l'image
-                        }                       
+                        }
                       // TODO : A supprimer est peut être réutiliser la gestion des erreur qu'il y avait de fait dans ce qui est en commentaire
                       /* if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
                         {
@@ -199,4 +201,3 @@ else
 }
 
 ?>
-
