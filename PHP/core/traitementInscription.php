@@ -164,14 +164,18 @@ else
                         // traitement de l'image
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
                         {
-                            // on upload l'image
                             $photo=$_FILES['inputPhoto'];
-                            UploadImage('profil/',$photo,2000000,$verif);
-                            //mise a jour dans la base du nom de l'image
-                            $extension = strrchr($photo['name'],'.');
+
+                            // on upload l'image
+                            UploadImage('/profil/',$photo,2000000,$verif);
+
+                            $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
                             $newfichier = '/profil/'.$verif.$extension;
+
+                            //mise a jour dans la base du nom de l'image
                             MajUrlImageProfil($newfichier,$verif);
-                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas lextension
+
+                            $_SESSION['photo'] = $newfichier; // TODO : Pas sur !!! ~ ne contient pas l'extension du fichier ? ~
 
                             //~ var_dump($newfichier);
 
