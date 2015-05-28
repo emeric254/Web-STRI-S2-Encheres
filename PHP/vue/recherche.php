@@ -66,7 +66,7 @@ switch($choix)
                 <div class="jumbotron">
                     <div class="row" style="margin-top:10px; margin-bottom:20px;">
                         <!-- Mot Clef -->
-                        <div class="col-sm-5 col-md-6">
+                        <div class="col-sm-7">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <i class="fa fa-search"></i>
@@ -78,13 +78,13 @@ switch($choix)
                             </div>
                         </div>
                         <!-- Categorie -->
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <label for="inputCategorie" class="sr-only">
                                     Categorie
                                 </label>
                                 <!-- <select multiple="multiple" id="inputCategorie"> -->
-                                <select id="inputCategorie" name="inputCategorie">
+                                <select class="form-control"  id="inputCategorie" name="inputCategorie">
                                     <option value='null'>Toute les categories</option>
 <?php
 foreach ($listCat as $idCat => $nomCat)
