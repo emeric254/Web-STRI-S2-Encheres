@@ -92,7 +92,7 @@
 
                 <h4 class="col-sm-6">
                     <span class="label label-warning">
-                        <a href=".">
+                        <a href="/?page=modificationProfil&id=<?php echo $_SESSION['id'];?>">
 <!--
                             @ TODO renvoi vers la page inscription avec infos pré-completées
 -->
