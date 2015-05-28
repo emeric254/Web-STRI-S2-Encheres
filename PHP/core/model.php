@@ -344,14 +344,7 @@ function VerificationDuCodePostal($ville)
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
-    $ret = 0;
-
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret=$donnees_reqExec['idville'];
-    }
-
-    return $ret;
+    return $reqExec->fetch()['idville'];
 }
 
 function RecuperationDerniereVente($limite)
@@ -580,6 +573,7 @@ function recupCodePostalIdVille ($idVille)
     $req = "SELECT codepostalville from ville WHERE idVille=$idVille";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
+    var_dump($reqExec->fetch()['codepostalville']);
     return($reqExec->fetch()['codepostalville']);
 }
 
