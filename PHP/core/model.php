@@ -338,18 +338,18 @@ function VerificationDuCodePostal($ville)
         $ville = "0".$ville;
         $long++;
     }
-
-    $req = "SELECT * FROM ville WHERE codepostalville LIKE '%?%'";
+    
+    $req = "SELECT * FROM ville WHERE codepostalville LIKE '%$ville%'";
     $reqExec = $db->prepare($req);
-    $reqExec->execute(array($ville));
+    $reqExec->execute();
 
     $ret = 0;
 
     while ($donnees_reqExec = $reqExec->fetch())
     {
+        echo 'DANS WHILE ';
         $ret=$donnees_reqExec['idville'];
     }
-
     return $ret;
 }
 
