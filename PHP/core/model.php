@@ -344,14 +344,7 @@ function VerificationDuCodePostal($ville)
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
-    $ret = 0;
-
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret=$donnees_reqExec['idville'];
-    }
-
-    return $ret;
+    return $reqExec->fetch()['idville'];
 }
 
 function RecuperationDerniereVente($limite)
@@ -559,4 +552,30 @@ function utilisateursRecupTousIdUtilisateurs()
     }
     return $ret;
 }
+
+function utilisateursUpdateUtilisateur ($idUtil, $nom, $prenom, $tel,$adresse, $idVille)
+{
+    include('core/bdd.php');
+
+    $req = "UPDATE utilisateur SET nomutilisateur=?, prenomutilisateur=?, telephoneutilisateur=?, adresseutilisateur=?, idville=? WHERE idutilisateur=?";
+    $reqExec = $db->prepare($req);
+
+/*    $param=array($nom, $prenom, $tel, $adresse, $idVille, $idUtil);*/
+    $retour=$reqExec->execute(array($nom, $prenom, $tel, $adresse, $idVille, $idUtil));
+
+    return($retour);
+}
+
+function recupCodePostalIdVille ($idVille)
+{
+    include('core/bdd.php');
+
+    $req = "SELECT codepostalville from ville WHERE idVille=$idVille";
+    $reqExec = $db->prepare($req);
+    $reqExec->execute();
+    $codepostal = $reqExec->fetch()['codepostalville'];
+    return($codepostal);
+}
+
+
 ?>
