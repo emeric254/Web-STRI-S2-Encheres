@@ -196,13 +196,9 @@ Script de decompte pour le temps restant !
 
     function decompte()
     {
-        // date actuelle
         var dateActuelle = new Date();
 
-        // constructeur en millis
         var dateDebut = new Date(<?= $vente->dateSeconde ?> * 1000);
-
-// a voir pour tout passer uniformement
 
         var duree = <?= $vente->duree ?>;
 
