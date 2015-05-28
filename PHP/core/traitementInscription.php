@@ -194,8 +194,10 @@ else
                         {
                             $photo=$_FILES['inputPhoto'];
                             UploadImage('profil/',$photo,2000000,$verif);
+
                             $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
                             $extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
+
                             if (in_array($extension,$extensionsAccepte))
                             {
                                 $newfichier = "profil/$verif$extension";
@@ -211,7 +213,7 @@ else
                             $newfichier = "profil/default.png";
                         }
 
-                        
+
                         $_SESSION['photo'] = $newfichier;
 
                         ?>
