@@ -201,7 +201,7 @@ function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $pas
 {
     include('core/bdd.php');
 
-    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',1,'default.png')";
+    $req="INSERT INTO utilisateur (emailUtilisateur,nomutilisateur,prenomutilisateur,telephoneutilisateur,adresseutilisateur, idville ,mdputilisateur,idstatut,urlphotoutilisateur) VALUES ('$mail', '$nom', '$prenom', '$telephone', '$adresse', '$idVille', '$password',1,'/profil/default.png')";
 
     $reqExec = $db->prepare($req);
     $reqExec->execute();
@@ -298,6 +298,17 @@ function RecuperationTendanceVente($limite)
         $ret[]=$donnees_reqExec['idannonce'];
     }
     return $ret;
+}
+
+# ----------- Fonction de mise à jour de l'url de l'image de profil dans la base
+function MajUrlImageProfil($fichier,$id)
+{
+    include('core/bdd.php');
+    $resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
+    $resultats->execute(array(
+        'photo' => $fichier,
+        'id' => $id));
+    //~ $donnees = $resultats->fetch(); //~ inutile ?
 }
 
 ?>

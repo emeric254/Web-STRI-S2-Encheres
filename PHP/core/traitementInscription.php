@@ -27,6 +27,7 @@ else
 
     include_once('core/model.php'); /* utile ????*/
     include_once('core/bdd.php'); /** TODO : modifier chemin */
+    include_once('core/upload.php');
 
     /* Récupération des différentes variables du formulaire */
     $erreur=0;
@@ -163,8 +164,19 @@ else
                         $_SESSION['pwd'] = $password;
 
                         // traitement de l'image
-                        $_SESSION['photo'] = $verifCP;
+                       // $_SESSION['photo'] = $verifCP;
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
+                        {
+                            // on upload l'image
+                            $photo=$_FILES['inputPhoto'];
+                            UploadImage('profil/',$photo,2000000,$verif);
+                            //mise a jour dans la base du nom de l'image
+                            $extension = strrchr($photo['name'],'.');
+                            $newfichier = '/profil/'.$verif.$extension;
+                            MajUrlImageProfil($newfichier,$verif);
+                        }                       
+                      // TODO : A supprimer est peut être réutiliser la gestion des erreur qu'il y avait de fait dans ce qui est en commentaire
+                      /* if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
                         {
                             $checkFile = UploadImage('/profil/',$_FILES['inputPhoto'],2000000,$verif);
                             if($checkFile==0){
@@ -177,7 +189,7 @@ else
                         } else {
                             $_SESSION['photo'] = '/profil/default.png';
                             echo '<script> window.location = "/" </script>';
-                        }
+                        }*/
                     }
                 }
             }
