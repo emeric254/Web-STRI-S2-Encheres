@@ -1,15 +1,5 @@
 <?php
-<<<<<<< HEAD
-//Si utilisateur est déja connecté : redirection vers l'acceuil
 if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
-=======
-//Si utilisateur déja connecté : redirection vers l'acceuil
-if (!empty($_SESSION['id']) and isset($_SESSION['id']))
-{
-    header("Location: /");
-}
-else
->>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 {
     // Sinon on  traite les infos recu
     /* «traitementInscription.php»
