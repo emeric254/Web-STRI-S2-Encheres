@@ -165,27 +165,39 @@ else
                         $_SESSION['telephone'] = $telephone;
                         $_SESSION['adresse'] = $adresse;
                         $_SESSION['idville'] = $verifCP;
-                        $_SESSION['idstatut'] = 1;
+                        $_SESSION['idstatut'] = '2';
                         $_SESSION['pwd'] = $password;
+
                         // traitement de l'image
-                        $_SESSION['photo'] = $verifCP;
-                        if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']))
+                        if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']) and  is_uploaded_file($_FILES['inputPhoto']['tmp_name']))
                         {
-                            $checkFile = UploadImage('profil/',$_FILES['inputPhoto'],2000000,$verif);
-                            if($checkFile==0){
-                                $_SESSION['photo'] = 'default.png';
-                                ?>
-                                    <script>window.location="/?errMsg='Votre inscription a bien étais prise en compte mais une erreur pendant la mise a jour de votre photo de profil est survenur'";</script>
-                                <?php
-                            }else{
-                                $_SESSION['photo'] = $checkFile;
+                            $photo=$_FILES['inputPhoto'];
+                            UploadImage('profil/',$photo,2000000,$verif);
+
+                            $extension = strrchr($photo['name'],'.');   // ~ @ TODO attention peut ne pas fonctionner correctement !
+                            $extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
+
+                            if (in_array($extension,$extensionsAccepte))
+                            {
+                                $newfichier = "profil/$verif$extension";
+                                MajUrlImageProfil($newfichier,$verif);
                             }
-                        } else {
-                            $_SESSION['photo'] = 'default.png';
+                            else
+                            {
+                                $newfichier = "profil/default.png";
+                            }
                         }
-                    ?>
-                        <script>window.location="/";</script>
-                    <?php
+                        else
+                        {
+                            $newfichier = "profil/default.png";
+                        }
+
+
+                        $_SESSION['photo'] = $newfichier;
+
+                        ?>
+                            <script> window.location = "/" </script>
+                        <?php
                     }
                 }
             }
