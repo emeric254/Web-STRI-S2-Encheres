@@ -24,7 +24,7 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
                 //~ @ TODO test si vente existe
 
                 SupprimerAnnonce($idAction);
-                $Msg = "La vente $idAction a été supprimée";
+                $Msg = "La vente $idAction a été supprimée <p><a href=\"/\"> retour à l'accueil</a></p>";
                 include("vue/message.php");
             }
             else
@@ -34,13 +34,13 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
 
                 if($idAction == 1)
                 {
-                    $errMsg = "<p>Impossible de supprimer le «super» admin</p> <p><a href=\"/\"> retour à l'accueil</a></p>";
+                    $errMsg = "Impossible de supprimer le «super» admin <p><a href=\"/\"> retour à l'accueil</a></p>";
                     include("vue/erreur.php");
                 }
                 else
                 {
                     SuppressionUtilisateur(htmlspecialchars($idAction));
-                    $Msg = "<p>Le profil $idAction a été supprimé</p> <p><a href=\"/\"> retour à l'accueil</a></p>";
+                    $Msg = "Le profil $idAction a été supprimé <p><a href=\"/\"> retour à l'accueil</a></p>";
                     include("vue/message.php");
                 }
             }

@@ -1,9 +1,6 @@
 <?php
 /* «gestionVente.php»
  *
- *
- * vars
- *
  */
 
 include_once('core/class.php');
