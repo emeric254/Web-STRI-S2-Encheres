@@ -24,7 +24,7 @@
  *
  */
 
-include_once('core/model.php'); /* utile ????*/
+include_once('core/model.php');
 include_once('core/bdd.php');
 include_once('core/upload.php');
 include_once('core/class.php');

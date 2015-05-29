@@ -56,6 +56,9 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
     }
 }
 else
-    //redirection vers la page de connexion
-    /* TODO : A fairee */
+{
+?>
+    <script>window.location="/?page=connexion";</script>
+<?php
+}
 ?>
