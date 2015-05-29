@@ -14,8 +14,17 @@
         <!-- Contenu -->
         <div class="container">
             <h2>
+                <a href="https://github.com/emeric254/Web-STRI-S2-Encheres/raw/master/Manuel-StriDeal.pdf">
+                    Manuel d'utilisation
+                </a>
+            </h2>
+
+            <p></p>
+
+            <h2>
                 Conditions g&eacute;n&eacute;rales d'utilisation
             </h2>
+
             <ul>
                 <li>
                     <a href="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/LICENSE">
