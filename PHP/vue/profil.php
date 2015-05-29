@@ -106,10 +106,9 @@
             </div>
 <?php
         }
-    }
-    else
-        if($isadmin)
-        {
+        else
+            if($isadmin)
+            {
 ?>
             <div class="container">
                 <h4 class="col-sm-6">
@@ -122,6 +121,7 @@
                 </h4>
             </div>
 <?php
-        }
+            }
+    }
 ?>
         </div>
