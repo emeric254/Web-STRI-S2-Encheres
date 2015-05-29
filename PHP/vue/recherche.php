@@ -22,6 +22,7 @@
                 </h1>
             </div>
         </div>
+
         <!-- Contenu -->
         <div class="container">
 <?php
@@ -114,22 +115,6 @@ switch($choix)
                                 </select>
                             </div>
                         </div>
-<!--
-                        <div class="col-sm-3 col-md-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    Plus de choix
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Lieu</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Prix mini</a></li>
-                                    <li><a href="#">Prix maxi</a></li>
-                                </ul>
-                            </div>
-                        </div>
--->
                         <!-- Submit -->
                         <div class="col-sm-2">
                             <button class="btn btn-md btn-primary btn-block" type="submit">Chercher</button>
@@ -174,4 +159,3 @@ switch($choix)
 <?php
 } // fin switch
 ?>
-        </div>
