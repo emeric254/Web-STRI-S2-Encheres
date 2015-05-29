@@ -11,6 +11,7 @@ include_once('core/bdd.php');
 // Récupération des variables
 $erreur=0;
 $errMsg=" ";
+
 if (isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     $idacheteur=$_SESSION['id'];

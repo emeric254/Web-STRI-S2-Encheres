@@ -1,20 +1,22 @@
 <?php
-//Si utilisateur est déja connecté : redirection vers l'acceuil
 if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
-    // Sinon on  traite les infos recu
+    // Sinon on  traite les infos reçues
     /* «traitementInscription.php»
      * Page de traitement de l'inscription
      *
      * s'occupe de rajouter le compte utilisateur dans la base de donnée
      *
      */
+
     include_once('core/model.php');
     include_once('core/bdd.php');
     include_once('core/upload.php');
+
     /* Récupération des différentes variables du formulaire */
     $erreur=0;
     $champErreur = " ";
+
     if (isset($_POST['inputEmail']) and !empty($_POST['inputEmail']))
     {
         $mail=htmlspecialchars($_POST['inputEmail']);
@@ -73,7 +75,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
         {
             $champErreur.=", ";
         }
-        $champErreur.="Prenom manquant";
+        $champErreur.="Prénom manquant";
         $erreur=1;
     }
     if (isset($_POST['inputPhone']) and !empty($_POST['inputPhone']))
@@ -86,7 +88,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
         {
             $champErreur.=", ";
         }
-        $champErreur.="Numero de telephone manquant";
+        $champErreur.="Numéro de téléphone manquant";
         $erreur=1;
     }
     if (isset($_POST['inputAdresse']) and !empty($_POST['inputAdresse']))
@@ -162,7 +164,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
                     }
                     else
                     {
-                        // on stocke les information du compte dans les variables de session
+                        // on stocke les informations du compte dans les variables de session
                         $_SESSION['id'] = $verif;
                         $_SESSION['email'] = $mail;
                         $_SESSION['nom'] = $nom;
@@ -172,6 +174,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
                         $_SESSION['idville'] = $verifCP;
                         $_SESSION['idstatut'] = '2';
                         $_SESSION['pwd'] = $password;
+
                         // traitement de l'image
                         if (isset($_FILES['inputPhoto']) and !empty($_FILES['inputPhoto']) and  is_uploaded_file($_FILES['inputPhoto']['tmp_name']))
                         {
@@ -182,7 +185,6 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
                             if (in_array($extension,$extensionsAccepte))
                             {
                                 $newfichier = "profil/$verif$extension";
-                                MajUrlImageProfil($newfichier,$verif);
                             }
                             else
                             {
@@ -193,7 +195,10 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
                         {
                             $newfichier = "profil/default.png";
                         }
+
+                        MajUrlImageProfil($newfichier,$verif);
                         $_SESSION['photo'] = $newfichier;
+
                         ?>
                             <script> window.location = "/" </script>
                         <?php
@@ -202,5 +207,11 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
             }
         }
     }
+}
+else
+{
+    ?>
+        <script> window.location = "/" </script>
+    <?php
 }
 ?>

@@ -24,11 +24,16 @@ if( isset($_GET['id']) and !empty($_GET['id']))
 {
     $id = htmlspecialchars($_GET['id']);
     $vente = new Vente($id);
-    if(isset($_SESSION['id']) and !empty($_SESSION['id'])){
-        $iduser=htmlspecialchars($_SESSION['id']);
-        if($vente->Vendeur==$iduser){
+
+    if(isset($_SESSION['id']) and !empty($_SESSION['id']))
+    {
+        $iduser = htmlspecialchars($_SESSION['id']);
+        if($vente->Vendeur==$iduser)
+        {
             $appartenue=1;
-        }else{
+        }
+        else
+        {
             $encherissable=1;
         }
     }

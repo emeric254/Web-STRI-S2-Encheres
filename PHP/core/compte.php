@@ -34,7 +34,9 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
         }
     }
     include_once('vue/compte.php');
-} else {
+}
+else
+{
     $errMsg = "Vous devez vous connecter pour acceder a cette pages";
     include_once("vue/erreur.php");
 }
