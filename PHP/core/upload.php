@@ -7,11 +7,16 @@
  * $photo : valeur récupéré par $_FILES['photo']
  * $taille_maxi : taille maximale de l'image
  * $typePhoto : vaut 1 pour photo utilisateur et 2 pour photo objet
+ *
+ *
+ *TODO:
+ * - Enlever commentaire / * $fichier * /
+ * - Voir si on modifie la valeur retournee
  */
 function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
     include('core/bdd.php');
-    $ret ="0";
+    $ret =0;
     $fichier = basename($photo['name']);
     $taille = filesize($photo['tmp_name']);
     $extensionsAccepte = array('.png', '.gif', '.jpg', '.jpeg', '.JPG', '.PNG');
