@@ -1,7 +1,7 @@
 <?php
-/* «footer.php» 
+/* «footer.php»
  * fin de toutes les pages du site
- * 
+ *
  */
 ?>
         <!-- Footer -->
@@ -9,10 +9,10 @@
             <div class="container">
                 <p class="pull-left">
                     <span class="label">
-                        <a href="vue/apropos.php">
+                        <a href="/?page=apropos">
                             <i class="fa fa-html5"></i>
-							&nbsp;
-                            <em>STRIDEAL</em>, sous license <em>GNU G.P.L. v2</em>
+                            &nbsp;
+                            <em>STRIDEAL</em>, sous license <em>GPL. v2</em>
                         </a>
                     </span>
                 </p>
@@ -26,9 +26,7 @@
                 </p>
             </div>
         </footer>
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <!-- Bootstrap -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     </body>
+
 </html>
