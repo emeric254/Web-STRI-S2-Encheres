@@ -24,7 +24,8 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
                 //~ @ TODO test si vente existe
 
                 SupprimerAnnonce($idAction);
-                $errMsg = "La vente $idAction a été supprimée";
+                $Msg = "La vente $idAction a été supprimée";
+                include("vue/message.php");
             }
             else
             if($action == "supprimerProfil")
@@ -34,16 +35,19 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
                 if($idAction == 1)
                 {
                     $errMsg = "Impossible de supprimer le «super» admin";
+                    include("vue/erreur.php");
                 }
                 else
                 {
                     SuppressionUtilisateur(htmlspecialchars($idAction));
-                    $errMsg = "Le profil $idAction a été supprimé";
+                    $Msg = "Le profil $idAction a été supprimé";
+                    include("vue/message.php");
                 }
             }
             else
             {
                 $errMsg = "Veuillez fournir une action valide";
+                include("vue/erreur.php");
             }
         }
         else
@@ -60,10 +64,13 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
                 $errMsg = "Export";
             }
             else
+            {
                 $errMsg = "Veuillez fournir un id valide";
+            }
+
+            include("vue/erreur.php");
         }
 
-        include("vue/erreur.php");
     }
     else
     {

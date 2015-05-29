@@ -34,7 +34,7 @@ if ((isset($_POST['email'])) && (isset($_POST['pwd'])))
     if (!$donnees)
     {
         //echo "Echec connexion - email ou mot de passe incorrect";
-        $errMsg = "<p>Echec connexion - email ou mot de passe incorrect !</p> <p><a href=\"/?page=connexion\">réessayer</a></p> ?";
+        $errMsg = "<p>Echec connexion - email ou mot de passe incorrect !</p> <p><a href=\"/?page=connexion\">réessayer ?</a></p>";
         include("vue/erreur.php");
     }
     else
