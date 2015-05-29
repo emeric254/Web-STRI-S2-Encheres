@@ -278,6 +278,17 @@ function MajUrlImageAnnonce($fichier,$id)
     //~ $donnees = $resultats->fetch(); //~ inutile ?
 }
 
+# ----------- Fonction de mise à jour de l'url de l'image de profil dans la base
+function MajUrlImageProfil($fichier,$id)
+{
+    include('core/bdd.php');
+    $resultats = $db->prepare('UPDATE utilisateur SET urlphotoutilisateur = :photo WHERE idutilisateur= :id');
+    $resultats->execute(array(
+        'photo' => $fichier,
+        'id' => $id));
+    //~ $donnees = $resultats->fetch(); //~ inutile ?
+}
+
 # ----------- Fonction de récupération des n dernières ventes
 
 function AjoutNouvelUtilisateur($mail, $nom, $prenom, $telephone, $adresse, $password, $idVille)
