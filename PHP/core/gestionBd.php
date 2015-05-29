@@ -34,13 +34,13 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
 
                 if($idAction == 1)
                 {
-                    $errMsg = "Impossible de supprimer le «super» admin";
+                    $errMsg = "<p>Impossible de supprimer le «super» admin</p> <p><a href=\"/\"> retour à l'accueil</a></p>";
                     include("vue/erreur.php");
                 }
                 else
                 {
                     SuppressionUtilisateur(htmlspecialchars($idAction));
-                    $Msg = "Le profil $idAction a été supprimé";
+                    $Msg = "<p>Le profil $idAction a été supprimé</p> <p><a href=\"/\"> retour à l'accueil</a></p>";
                     include("vue/message.php");
                 }
             }
