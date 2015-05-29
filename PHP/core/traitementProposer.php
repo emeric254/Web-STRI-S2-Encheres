@@ -22,7 +22,6 @@
  *
  *- Que faire une fois l'annonce ajoutée ? redirection vers la page d'accueil ? vers les infos de l'annonce ? pour le moment page de l'annonce
  *
- * - Revoir ligne 132 ce qui est en commentaire : mauvais traitement de l'erreur de saisie de la durée
  */
 
 include_once('core/model.php'); /* utile ????*/

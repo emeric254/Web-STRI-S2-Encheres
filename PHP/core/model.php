@@ -28,8 +28,6 @@
 // session
 //session_start();
 
-// bdd
-//include('core/bdd.php'); Besoin de l'inclure dans chaque fonction sinon ça marche pas
 if(!file_exists("core/bdd.php"))
 {
     $errMsg = "Fichier de configuration de la base de donnée introuvable";

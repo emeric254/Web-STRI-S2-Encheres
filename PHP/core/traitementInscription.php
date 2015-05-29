@@ -1,6 +1,12 @@
 <?php
 if(isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
+    ?>
+        <script> window.location = "/" </script>
+    <?php
+}
+else
+{
     // Sinon on  traite les infos reçues
     /* «traitementInscription.php»
      * Page de traitement de l'inscription
@@ -208,11 +214,5 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']))
             }
         }
     }
-}
-else
-{
-    ?>
-        <script> window.location = "/" </script>
-    <?php
 }
 ?>
