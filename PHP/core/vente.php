@@ -43,7 +43,7 @@ if( isset($_GET['id']) and !empty($_GET['id']))
 }
 else
 {
-    $errMsg = "Pas d'enchère indiquée";
+    $errMsg = "<p>Pas d'enchère indiquée</p><a href=\"/\">Retour à l'accueil</a>";
     include_once("vue/erreur.php");
 }
 ?>

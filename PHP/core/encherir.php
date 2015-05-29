@@ -37,27 +37,27 @@ if (isset($_SESSION['id']) and !empty($_SESSION['id']))
                 if (!DeposerEnchere($idvente, $idacheteur, $prix))
                 {
                     $erreur=1;
-                    $errMsg="Erreur lors de l'ajout de l'enchère";
+                    $errMsg="<p>Erreur lors de l'ajout de l'enchère</p><a href=\"/?page=vente&id=$idvente\">Retour à la page de la vente</a>";
                 }
             }
         }
         else
         {
             $erreur=1;
-            $errMsg.="veuillez saisir un prix";
+            $errMsg.="<p>veuillez saisir un prix</p><a href=\"/?page=vente&id=$idvente\">Retour à la page de la vente</a>";
         }
 
     }
     else
     {
         $erreur=1;
-        $errMsg.="la vente choisie est incorrecte";
+        $errMsg.="<p>la vente choisie est incorrecte</p><a href=\"/\">Retour à l'accueil</a>";
     }
 }
 else
 {
     $erreur=1;
-    $errMsg="il faut etre connecté pour enchérir";
+    $errMsg="<p>il faut etre connecté pour enchérir</p><a href=\"/connexion\">Retour à l'écran de connexion</a>";
 }
 
 if($erreur==1)
