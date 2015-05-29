@@ -178,3 +178,10 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
             </form>
         </div>
+
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score.js"></script>
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/password-score-options.js"></script>
+        <script src="https://raw.githubusercontent.com/emeric254/Web-STRI-S2-Encheres/master/PHP/dist/js/bootstrap-strength-meter.js"></script>
+        <script>
+            $(document).ready(function(){ $('#inputPassword').strengthMeter('progressBar', { container: $('#progress-bar-container') } ); });
+        </script>
