@@ -10,17 +10,16 @@
  * $photoVente
  * $descriptionVente
  *
- * $encherisseursVente (tab des encherisseurs)
+ * $encherisseursVente (tab des enchérisseurs)
  *
- *
- * TODO :
- * Gestion du manque d'id
  */
 
 include_once('core/model.php');
 include_once('core/class.php');
+
 $encherissable=0;
 $appartenue=0;
+
 if( isset($_GET['id']) and !empty($_GET['id']))
 {
     $id = htmlspecialchars($_GET['id']);
@@ -33,19 +32,12 @@ if( isset($_GET['id']) and !empty($_GET['id']))
             $encherissable=1;
         }
     }
-    // test si valide
-    //if(venteexiste) {
-        include_once('vue/vente.php');
-    //}
-    //else
-    //{
-    //  messageErreur="vente introuvable ou non valide..."
-    //  include_once('vue/erreur.php');
-    //}
+    //~ EVOLVE verif existence vente
+    include_once('vue/vente.php');
 }
 else
 {
-    $errMsg = "Pas d'enchére indiquée";
+    $errMsg = "Pas d'enchère indiquée";
     include_once("vue/erreur.php");
 }
 ?>
