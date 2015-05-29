@@ -71,7 +71,7 @@
                 </div>
             </div>
 <?php
-    if($encherissable)
+    if($encherissable && ! $appartenue)
     {
 ?>
             <!-- Enchérir -->
@@ -111,8 +111,8 @@
             </div>
 <?php
         }
-        if($isadmin)
-        {
+    if($isadmin)
+    {
 ?>
             <div class="container">
                 <h4>
@@ -125,7 +125,7 @@
                 </h4>
             </div>
 <?php
-        }
+    }
 ?>
 
 
