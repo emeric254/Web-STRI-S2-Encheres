@@ -27,10 +27,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-pills">
                     <li>
-                        <a href="/?page=recherche">
-                            <i class="fa fa-search"></i>
-                            Recherche
-                        </a>
+                        <a href="/?page=recherche"><i class="fa fa-search"></i>Recherche</a>
                     </li>
 <!--
                     <li>
@@ -41,10 +38,7 @@
                     </li>
 -->
                     <li>
-                        <a href="/?page=nouveautes">
-                            <i class="fa fa-newspaper-o"></i>
-                            Nouveautes
-                        </a>
+                        <a href="/?page=nouveautes"><i class="fa fa-newspaper-o"></i>Nouveautes</a>
                     </li>
 
 <?php
@@ -52,10 +46,7 @@
 //~ {
 ?>
                     <li>
-                        <a href="/?page=proposer">
-                            <i class="fa fa-share"></i>
-                            Vendre
-                        </a>
+                        <a href="/?page=proposer"><i class="fa fa-share"></i>Vendre</a>
                     </li>
 <?php
 //~ }
@@ -69,41 +60,26 @@ if($connecte)
     {
 ?>
                     <li>
-                        <a href="/?page=admin">
-                            <i class="fa fa-cogs"></i>
-                            Gestion
-                        </a>
+                        <a href="/?page=admin"><i class="fa fa-cogs"></i>Gestion</a>
                     </li>
 <?php
     }
 ?>
 
                     <li>
-                        <a href="/?page=compte">
-                            <i class="fa fa-user"></i>
-                            Compte
-                        </a>
+                        <a href="/?page=compte"><i class="fa fa-user"></i>Compte</a>
                     </li>
                     <li>
-                        <a href="/?page=deconnexion">
-                            <i class="fa fa-sign-out"></i>
-                            Deconnexion
-                        </a>
+                        <a href="/?page=deconnexion"><i class="fa fa-sign-out"></i>Deconnexion</a>
                     </li>
 <?php
 } else {
 ?>
                     <li>
-                        <a href="/?page=inscription">
-                            <i class="fa fa-smile-o"></i>
-                            Inscription
-                        </a>
+                        <a href="/?page=inscription"><i class="fa fa-smile-o"></i>Inscription</a>
                     </li>
                     <li>
-                        <a href="/?page=connexion">
-                            <i class="fa fa-sign-in"></i>
-                            Connexion
-                        </a>
+                        <a href="/?page=connexion"><i class="fa fa-sign-in"></i>Connexion</a>
                     </li>
 <?php
 }
