@@ -192,6 +192,7 @@ else
                             if (in_array($extension,$extensionsAccepte))
                             {
                                 $newfichier = "profil/$verif$extension";
+                                MajUrlImageProfil($newfichier,$verif);
                             }
                             else
                             {
@@ -203,7 +204,7 @@ else
                             $newfichier = "profil/default.png";
                         }
 
-                        MajUrlImageProfil($newfichier,$verif);
+                        
                         $_SESSION['photo'] = $newfichier;
 
                         ?>
