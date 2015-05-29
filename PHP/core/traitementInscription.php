@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
+if(isset($_SESSION['id']) and !empty($_SESSION['id']))
 {
     // Sinon on  traite les infos reçues
     /* «traitementInscription.php»
@@ -24,7 +24,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
     else
     {
         $erreur=1;
-        $champErreur="Email manquante";
+        $champErreur="Email manquant";
     }
     if (isset($_POST['inputPassword']) and !empty($_POST['inputPassword']))
     {
@@ -117,9 +117,10 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
         $champErreur.="Ville manquante";
         $erreur=1;
     }
+
     if($erreur==1)
     {
-        $errMsg="Veuillez vérifier les erreur suivante : $champErreur.";
+        $errMsg="Veuillez vérifier les erreurs suivantes : $champErreur.";
         include_once("vue/erreur.php");
         include_once("vue/inscription.php");
     }
@@ -128,7 +129,7 @@ if(!isset($_SESSION['id']) and !empty($_SESSION['id']))
         /* Tester que les 2 mots de passe sont identiques */
         if ($password != $passwordBis)
         {
-            $errMsg="Les mots de passes ne corresponde pas.";
+            $errMsg="Les mots de passe ne correspondent pas.";
             include_once("vue/erreur.php");
             include_once("vue/inscription.php");
         }
