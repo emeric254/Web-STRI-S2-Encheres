@@ -34,7 +34,8 @@ if( isset($_GET['id']) and !empty($_GET['id']))
         }
         else
         {
-            $encherissable=1;
+            if($vente->tempsRestant > 0)
+                $encherissable=1;
         }
     }
     //~ EVOLVE verif existence vente
