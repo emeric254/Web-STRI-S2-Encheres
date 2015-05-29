@@ -75,6 +75,10 @@ if($choix==1)
         unset($profil);
     }
 }
+else
+{
+    include_once('vue/recherche.php');
+}
 
 include_once('vue/fin-contenu.php');
 

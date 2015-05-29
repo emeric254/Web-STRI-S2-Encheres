@@ -86,30 +86,30 @@ switch($choix)
                                 <select class="form-control"  id="inputCategorie" name="inputCategorie">
                                     <option value='null'>Toute les categories</option>
 <?php
-foreach ($listCat as $idCat => $nomCat)
-{
-    if(isset($cat) and !empty($cat))
-    {
-        if($cat==$idCat)
+        foreach ($listCat as $idCat => $nomCat)
         {
+            if(isset($cat) and !empty($cat))
+            {
+                if($cat==$idCat)
+                {
             ?>
                                     <option selected='selected' value='<?= $idCat ?>'><?= $nomCat ?></option>
             <?php
-        }
-        else
-        {
+                }
+                else
+                {
             ?>
                                     <option value='<?= $idCat ?>'><?= $nomCat ?></option>
             <?php
-        }
-    }
-    else
-    {
+                }
+            }
+            else
+            {
         ?>
                                     <option value='<?= $idCat ?>'><?= $nomCat ?></option>
         <?php
-    }
-}
+            }
+        }
 ?>
                                 </select>
                             </div>
