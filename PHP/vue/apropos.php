@@ -29,19 +29,19 @@
             </h2>
             <ul>
                 <li>
-                    Barbaste Remi : remi.barbaste@univ-tlse3.fr
+                    Barbaste Remi : <a href="mailto:remi.barbaste@univ-tlse3.fr">remi.barbaste@univ-tlse3.fr</a>
                 </li>
                 <li>
-                    Boulic Guillaume : guillaume.boulic@univ-tlse3.fr
+                    Boulic Guillaume : <a href="mailto:guillaume.boulic@univ-tlse3.fr">guillaume.boulic@univ-tlse3.fr</a>
                 </li>
                 <li>
-                    Degironde Robin : robin.degironde@univ-tlse3.fr
+                    Degironde Robin : <a href="mailto:robin.degironde@univ-tlse3.fr">robin.degironde@univ-tlse3.fr</a>
                 </li>
                 <li>
-                    Maury Thomas : thomas.maury@univ-tlse3.fr
+                    Maury Thomas : <a href="mailto:thomas.maury@univ-tlse3.fr">thomas.maury@univ-tlse3.fr</a>
                 </li>
                 <li>
-                    Tosi Emeric : emeric.tosi@univ-tlse3.fr
+                    Tosi Emeric : <a href="mailto:emeric.tosi@univ-tlse3.fr">emeric.tosi@univ-tlse3.fr</a>
                 </li>
             </ul>
             <p>
