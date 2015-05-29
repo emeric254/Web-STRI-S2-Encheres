@@ -28,7 +28,7 @@ if( isset($_GET['id']) and !empty($_GET['id']))
     if(isset($_SESSION['id']) and !empty($_SESSION['id']))
     {
         $iduser = htmlspecialchars($_SESSION['id']);
-        if($vente->Vendeur==$iduser)
+        if($vente->Vendeur->id==$iduser)
         {
             $appartenue=1;
         }
