@@ -11,7 +11,7 @@
         <div class="well">
             <div class="container theme-showcase" role="main" >
                 <h1 class="text-center">
-                    Erreur !
+                    Information !
                 </h1>
                 <div class="alert alert-info" role="alert" style="margin-top:30px;">
                     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
