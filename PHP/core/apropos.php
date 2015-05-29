@@ -4,6 +4,6 @@
  *
  */
 
-include_once("vue/apropos.ph");
+include_once("vue/apropos.php");
 
 ?>
