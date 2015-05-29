@@ -70,9 +70,12 @@ if($choix==1)
 
     foreach($resultat as $idProfil)
     {
-        $profil = new Profil($idProfil);
-        include('vue/resume-profil.php');
-        unset($profil);
+        if($idProfil != 0)
+        {
+            $profil = new Profil($idProfil);
+            include('vue/resume-profil.php');
+            unset($profil);
+        }
     }
 }
 else

@@ -23,9 +23,12 @@ if(isset($_SESSION['id']) and !empty($_SESSION['id']) && $isadmin)
 
         foreach($listProfils as $idProfil)
         {
-            $profil = new Profil($idProfil);
-            include('vue/resume-profil.php');
-            unset($profil);
+            if($idProfil != 0)
+            {
+                $profil = new Profil($idProfil);
+                include('vue/resume-profil.php');
+                unset($profil);
+            }
         }
 
         include_once('vue/fin-contenu.php');
