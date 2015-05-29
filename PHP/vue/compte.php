@@ -19,9 +19,12 @@
         <div class="container">
             <div class="well">
 <?php
+<<<<<<< HEAD
 if(!isset($choix))
     $choix = 0;
 
+=======
+>>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 switch($choix)
 {
     case 1: // achats
@@ -69,8 +72,13 @@ switch($choix)
                             </thead>
                             <tbody>
 <?php
+<<<<<<< HEAD
         foreach($achats as $achat)
         {
+=======
+foreach($achats as $achat)
+{
+>>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 ?>
                                 <tr>
                                     <td colspan="3">
@@ -94,7 +102,11 @@ switch($choix)
                                     </td>
                                 </tr>
 <?php
+<<<<<<< HEAD
         }
+=======
+}
+>>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 ?>
                             </tbody>
                         </table>
@@ -150,8 +162,13 @@ switch($choix)
                             </thead>
                             <tbody>
 <?php
+<<<<<<< HEAD
         foreach($ventes as $vente)
         {
+=======
+foreach($ventes as $vente)
+{
+>>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 ?>
                                 <tr>
                                     <td colspan="3">
@@ -175,14 +192,19 @@ switch($choix)
                                     </td>
                                 </tr>
 <?php
-            }
+}
 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
 <?php
+<<<<<<< HEAD
     break;
+=======
+        break;
+
+>>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
     default :   // menu
 ?>
                 <h2 style="text-align:center;">
