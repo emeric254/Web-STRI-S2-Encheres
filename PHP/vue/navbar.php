@@ -29,14 +29,6 @@
                     <li>
                         <a href="/?page=recherche"><i class="fa fa-search"></i>Recherche</a>
                     </li>
-<!--
-                    <li>
-                        <a href="/?page=tendance">
-                            <i class="fa fa-fire"></i>
-                            Tendance
-                        </a>
-                    </li>
--->
                     <li>
                         <a href="/?page=nouveautes"><i class="fa fa-newspaper-o"></i>Nouveautes</a>
                     </li>

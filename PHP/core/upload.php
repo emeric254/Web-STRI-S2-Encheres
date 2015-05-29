@@ -8,11 +8,8 @@
  * $taille_maxi : taille maximale de l'image
  * $typePhoto : vaut 1 pour photo utilisateur et 2 pour photo objet
  *
- *
- *TODO:
- * - Enlever commentaire / * $fichier * /
- * - Voir si on modifie la valeur retournee
  */
+
 function UploadImage($dossier,$photo,$taille_maxi,$id)
 {
     include('core/bdd.php');
@@ -47,7 +44,9 @@ function UploadImage($dossier,$photo,$taille_maxi,$id)
         }
         else //Sinon (la fonction renvoie FALSE).
         {
-          echo("<script>alert(\"l'upload a échoué.\");</script>");
+          ?>
+          <script>alert("l'upload a échoué.");</script>
+          <?php
         }
     }
     return $ret;

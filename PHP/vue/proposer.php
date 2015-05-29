@@ -170,9 +170,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div >
                         (*) champs obligatoires
                 </div>
+
                 <!-- Submit -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Proposer</button>
 

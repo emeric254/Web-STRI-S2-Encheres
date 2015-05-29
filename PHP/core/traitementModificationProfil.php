@@ -1,5 +1,5 @@
 <?php
-    // Sinon on  traite les infos recu
+    // Sinon on  traite les infos reçue
     /* «traitementModificationProfil.php»
      * Page de traitement de l'inscription
      *
@@ -20,7 +20,7 @@
     else
     {
         $erreur=1;
-        $champErreur="Email manquante";
+        $champErreur="Email manquant";
     }
 
     if(isset($_POST['inputNom']) and !empty($_POST['inputNom']))
@@ -47,7 +47,7 @@
         {
             $champErreur.=", ";
         }
-        $champErreur.="Prenom manquant";
+        $champErreur.="Prénom manquant";
         $erreur=1;
     }
 
@@ -61,7 +61,7 @@
         {
             $champErreur.=", ";
         }
-        $champErreur.="Numero de telephone manquant";
+        $champErreur.="Numéro de téléphone manquant";
         $erreur=1;
     }
 

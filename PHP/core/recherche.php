@@ -44,6 +44,8 @@ if($choix==2)
         $resultat=RechercheVente($recherche);
     }
 
+    $recherche = "";
+
     include_once('vue/recherche.php');
 
     foreach($resultat as $idVente)
@@ -65,6 +67,8 @@ if($choix==1)
     }
 
     $resultat=RechercheUser($recherche);
+
+    $recherche = "";
 
     include_once('vue/recherche.php');
 
