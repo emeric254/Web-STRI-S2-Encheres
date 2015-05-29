@@ -338,22 +338,12 @@ function VerificationDuCodePostal($ville)
         $ville = "0".$ville;
         $long++;
     }
-    
+
     $req = "SELECT * FROM ville WHERE codepostalville LIKE '%$ville%'";
     $reqExec = $db->prepare($req);
     $reqExec->execute();
 
-<<<<<<< HEAD
     return $reqExec->fetch()['idville'];
-=======
-    $ret = 0;
-
-    while ($donnees_reqExec = $reqExec->fetch())
-    {
-        $ret=$donnees_reqExec['idville'];
-    }
-    return $ret;
->>>>>>> parent of dba2871... Merge branch 'dev-php' of github.com:emeric254/Web-STRI-S2-Encheres into dev-php
 }
 
 function RecuperationDerniereVente($limite)
